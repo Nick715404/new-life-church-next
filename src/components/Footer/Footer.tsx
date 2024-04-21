@@ -1,8 +1,6 @@
 import styles from './Footer.module.scss';
 
-interface IProps { }
-
-const Footer = ({ }: IProps) => {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       Footer

@@ -1,0 +1,16 @@
+.donationButton {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 21px 29px;
+  border-radius: 100px;
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: all .15s ease;
+
+  &:hover {
+    border-color: transparent;
+    background-color: #FFAC00;
+  }
+
+}

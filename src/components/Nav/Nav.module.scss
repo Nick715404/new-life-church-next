@@ -1,0 +1,28 @@
+.nav {
+  display: block;
+  background-color: #101010;
+  border-radius: 500px;
+  width: fit-content;
+  padding: 9.5px 12px;
+
+  .list {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .link {
+    display: block;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    padding: 12px 16px;
+    color: #fff;
+    transition: all .15s ease;
+
+    &:hover {
+      border-color: #fff;
+    }
+
+  }
+
+}

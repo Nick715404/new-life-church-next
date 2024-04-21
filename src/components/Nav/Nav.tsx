@@ -1,10 +1,13 @@
-import React from 'react'
+import styles from './Nav.module.scss';
 
-type Props = {}
+import { NavLinkList } from './NavLinkList';
+import { navLinks } from "@/constants/links";
 
-const Nav = (props: Props) => {
+const Nav = () => {
   return (
-    <div>Nav</div>
+    <nav className={styles.nav}>
+      <NavLinkList links={navLinks} />
+    </nav>
   )
 }
 

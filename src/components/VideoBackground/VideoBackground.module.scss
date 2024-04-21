@@ -1,1 +1,12 @@
-.videoBackground {}
+.videoBackground {
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+
+  .player {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+}

@@ -1,11 +1,22 @@
 import styles from './VideoBackground.module.scss';
 
-interface IProps {}
+interface IProps<E> {
+  src: string;
+  isMuted?: E;
+  isAutoPlay?: E;
+  isLoop?: E;
+}
 
-const VideoBackground = ({ }: IProps) => {
+const VideoBackground = ({ src, isMuted, isAutoPlay, isLoop }: IProps<boolean>) => {
   return (
     <div className={styles.videoBackground}>
-      VideoBackground
+      <video
+        className={styles.player}
+        src={src}
+        muted={isMuted}
+        autoPlay={isAutoPlay}
+        loop={isLoop}
+      />
     </div>
   )
 }

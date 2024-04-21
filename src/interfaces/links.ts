@@ -9,3 +9,8 @@ export interface INavLinkChildren {
   label: string;
   path: string;
 }
+
+export interface ISocialLink<T> {
+  tag: T;
+  path: T;
+}

@@ -1,0 +1,33 @@
+.socials {
+
+  .list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  transition: all .15s ease;
+}
+
+.gray {
+  background-color: #F8F8F8;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+.dark {
+  background-color: #191919;
+
+  &:hover {
+    background-color: #FFAC00;
+  }
+}

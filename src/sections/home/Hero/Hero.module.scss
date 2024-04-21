@@ -1,0 +1,32 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 100dvh;
+
+  .heroWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    height: 100dvh;
+
+    .heroTitleBox {
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      text-transform: uppercase;
+
+      .heroSubTitle {
+        font-size: clamp(20px, 5.5vw, 40px);
+        margin-bottom: 35px;
+      }
+
+      .heroTitle {
+        font-size: clamp(25px, 5.5vw, 70px);
+      }
+
+    }
+
+  }
+
+}

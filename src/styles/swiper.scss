@@ -1,0 +1,38 @@
+.swiper-button-next,
+.swiper-button-prev {
+  top: -40px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: 1px solid #333333 !important;
+  border-radius: 100px;
+
+  &::after {
+    content: '' !important;
+    width: 17px;
+    height: 15px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+}
+
+.swiper-button-next {
+  right: 34px !important;
+
+  &::after {
+    background-image: url('/img/svg/black-arrow.svg');
+  }
+
+}
+
+.swiper-button-prev {
+  left: auto !important;
+  right: 94px !important;
+
+  &::after {
+    background-image: url('/img/svg/black-arrow.svg');
+    transform: rotate(180deg);
+  }
+
+}

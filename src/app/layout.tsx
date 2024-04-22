@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/swiper.scss";
 
 import { Header } from "@/components/Header/Header";
 

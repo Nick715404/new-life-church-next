@@ -107,13 +107,18 @@ h6 {
 
 .container-small {
   max-width: 1375px;
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
 }
 
 .container {
   max-width: 1443px;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
 
   @media (max-width: 768px) {

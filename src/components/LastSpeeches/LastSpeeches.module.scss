@@ -1,0 +1,20 @@
+.lastSpeeches {
+  max-width: 918px;
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  .titleBox {
+    padding-left: 7%;
+    margin-bottom: 20px;
+    width: fit-content;
+    pointer-events: none;
+
+    .title {
+      font-size: clamp(25px, 2.8vw, 35px);
+      pointer-events: none;
+    }
+
+  }
+
+}

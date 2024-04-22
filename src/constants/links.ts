@@ -3,7 +3,7 @@ import { INavLink } from "@/interfaces/links";
 export const navLinks: INavLink[] = [
   {
     label: 'О нас',
-    path: '',
+    path: '/about',
     children: 1,
     subMenu: [
       {
@@ -14,13 +14,13 @@ export const navLinks: INavLink[] = [
   },
   {
     label: 'События',
-    path: '#events',
+    path: '/events',
     children: 0,
     subMenu: [],
   },
   {
     label: 'Служения',
-    path: '',
+    path: '/services',
     children: 1,
     subMenu: [
       {
@@ -31,7 +31,7 @@ export const navLinks: INavLink[] = [
   },
   {
     label: 'Обучение',
-    path: '',
+    path: '/education',
     children: 1,
     subMenu: [
       {

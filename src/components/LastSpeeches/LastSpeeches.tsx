@@ -1,9 +1,10 @@
 import styles from './LastSpeeches.module.scss';
 
 import { CustomSwiper } from '../CustomSwiper/CustomSwiper';
-import { fetchAllLastSpeeches } from '@/api/last-events';
-import { Suspense } from 'react';
+import { fetchAllLastSpeeches } from '@/api/last-speeches';
 import { unbounded } from '@/constants/fonts';
+
+import { Suspense } from 'react';
 
 const LastSpeeches = async () => {
 
@@ -12,7 +13,9 @@ const LastSpeeches = async () => {
   return (
     <div className={styles.lastSpeeches}>
       <div className={styles.titleBox}>
-        <h3 className={`${styles.title} ${unbounded.className}`}>Последние проповеди</h3>
+        <h3 className={`${styles.title} ${unbounded.className}`}>
+          Последние проповеди
+        </h3>
       </div>
       <div className={styles.wrapper}>
         <Suspense>

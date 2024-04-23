@@ -1,0 +1,45 @@
+.section {
+  padding-bottom: 150px;
+
+  .wrapperBottom {
+    display: flex;
+    gap: 20px;
+
+    .smallEventBox {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      height: 100%;
+      width: 50%;
+
+      .smallEvent {
+        width: 50%;
+        aspect-ratio: 1 / 1;
+        background-color: #bbbbbb;
+        border-radius: 30px;
+        padding: 5%;
+      }
+
+    }
+
+    .middleEvent {
+      width: 50%;
+      aspect-ratio: 2.2 / 1;
+      background-color: #bbbbbb;
+      border-radius: 30px;
+      padding: 5%;
+    }
+
+  }
+
+}
+
+
+.bigEvent {
+  width: 100%;
+  border-radius: 50px;
+  padding: 5%;
+  background-color: #bbbbbb;
+  aspect-ratio: 2.1 / 1;
+  margin-bottom: 20px;
+}

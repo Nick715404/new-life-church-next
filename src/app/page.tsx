@@ -1,3 +1,4 @@
+import { Events } from '@/sections/home/Events/Events';
 import styles from './page.module.scss';
 
 import { Hero } from '@/sections/home/Hero/Hero';
@@ -11,6 +12,7 @@ export default function HomePage() {
       <div className={styles.whiteBox}>
         <Meetings />
         <InfoSection />
+        <Events />
       </div>
     </div>
   );

@@ -1,12 +1,16 @@
-import { unbounded } from '@/constants/fonts';
-import { CustomIframe } from '../CustomIframe/CustomIframe';
 import styles from './YearMessage.module.scss';
 
-const YearMessage = () => {
+import { CustomIframe } from '../CustomIframe/CustomIframe';
+import { fetchYearMessage } from '@/api/year-message';
+
+const YearMessage = async () => {
+
+  const video = await fetchYearMessage();
+
   return (
     <div className={styles.yearMessage}>
       <div className={styles.video}>
-        <CustomIframe src='https://www.youtube.com/embed/pr-PzWkrif0?si=CiVhrBRhzUFCqHiO' />
+        <CustomIframe src={video.attributes.link} />
       </div>
     </div>
   )

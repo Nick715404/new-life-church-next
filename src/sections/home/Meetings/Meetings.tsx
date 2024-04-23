@@ -36,7 +36,7 @@ const Meetings = () => {
               </Link>
             </div>
             <div className={styles.socials}>
-              <Socials />
+              <Socials mode='gray' size='small' />
             </div>
           </div>
         </div>

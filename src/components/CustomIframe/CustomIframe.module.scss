@@ -13,6 +13,9 @@
   border-radius: 50px;
   overflow: hidden;
   background-color: #dcdcdc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .btn {
@@ -33,4 +36,10 @@
     scale: 1.05;
   }
 
+}
+
+.img {
+  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
 }

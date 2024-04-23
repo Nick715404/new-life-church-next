@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 
 import { muller } from "@/constants/fonts";
 import { META_DATA } from "@/seo/constants";
+import { Footer } from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: META_DATA.TITLE,
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: IProps) {
         <div className="page">
           <Header />
           {children}
+          <Footer />
         </div>
       </body>
     </html>

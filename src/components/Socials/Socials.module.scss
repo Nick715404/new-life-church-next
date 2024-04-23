@@ -16,6 +16,10 @@
   transition: all .15s ease;
 }
 
+.img {
+  transition: all .15s ease;
+}
+
 .gray {
   background-color: #F8F8F8;
 
@@ -29,5 +33,18 @@
 
   &:hover {
     background-color: #FFAC00;
+  }
+}
+
+.white {
+  background-color: #ffffff;
+
+  &:hover {
+    background-color: #FFAC00;
+
+    .img {
+      filter: invert(100%) !important;
+    }
+
   }
 }

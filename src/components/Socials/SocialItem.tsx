@@ -19,14 +19,28 @@ const SocialItem = ({ data, mode, size }: Props) => {
     white: `${styles.white}`,
   }
 
+  const iconsColors = {
+    gray: '0%',
+    dark: '100%',
+    white: '0%',
+  }
+
   const sizeStyles = {
     small: `40px`,
     medium: '56px',
     big: '92px',
   }
 
+  const iconsSize = {
+    small: 22,
+    medium: 22,
+    big: 41,
+  }
+
   const classNameSettings = mode ? classNames[mode] : '#FFFFFF';
   const sizeValue = size ? sizeStyles[size] : '56px';
+  const iconsColor = mode ? iconsColors[mode] : '0%';
+  const iconSize = size ? iconsSize[size] : 22;
 
   return (
     <Link
@@ -35,9 +49,10 @@ const SocialItem = ({ data, mode, size }: Props) => {
       href={data.path}
     >
       <Image
+        style={{ filter: `invert(${iconsColor})` }}
         className={styles.img}
-        width={22}
-        height={22}
+        width={iconSize}
+        height={iconSize}
         src={`img/socials/${data.tag}.svg`}
         alt={data.tag}
       />

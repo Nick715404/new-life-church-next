@@ -1,21 +1,13 @@
 import styles from './Events.module.scss';
-import { BIgEvent } from './blocks/BIgEvent';
 
-const Events = () => {
+import { EventsList } from './EventsList';
+
+const Events = async () => {
   return (
     <section className={styles.section}>
       <div className="container">
         <div className={styles.wrapper}>
-          <BIgEvent />
-          <div className={styles.wrapperBottom}>
-            <div className={styles.smallEventBox}>
-              <div className={styles.smallEvent}>small</div>
-              <div className={styles.smallEvent}>small</div>
-            </div>
-            <div className={styles.middleEvent}>
-              middle
-            </div>
-          </div>
+          <EventsList />
         </div>
       </div>
     </section>

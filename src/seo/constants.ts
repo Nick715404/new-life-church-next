@@ -18,4 +18,9 @@ export const SOCIAL_LINKS: ISocialLink<string>[] = [
     tag: 'facebook',
     path: 'https://vk.com/nicklllson',
   },
-]
+];
+
+export const CONTACT_INFO = {
+  EMAIL: 'hello@example.com',
+  PHONE: '+7 (900) 345-67-89',
+};

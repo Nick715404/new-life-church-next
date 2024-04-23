@@ -1,1 +1,64 @@
-.footer {}
+.footer {
+  padding: 160px 0;
+  color: #fff;
+
+  .wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .meta {
+
+      .logo {
+        margin-bottom: 48px;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 48px;
+
+        .infoText {
+          font-size: clamp(1.25rem, 1.1875rem + 0.3125vw, 1.5625rem);
+        }
+
+      }
+
+      .socials {
+        margin-bottom: 10px;
+      }
+
+    }
+
+    .linksColumns {
+      display: flex;
+      justify-content: space-between;
+      width: 65%;
+
+      .linkList {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .link {
+          font-size: 16px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+        }
+
+        .linkListTitle {
+          text-transform: uppercase;
+          margin-bottom: 32px;
+        }
+
+      }
+
+    }
+
+  }
+
+}

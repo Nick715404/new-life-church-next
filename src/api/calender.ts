@@ -9,7 +9,7 @@ export const fetchAllCalendarEvents = async () => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/calendars`, {
       ...options,
-      next: { revalidate: 60 * 4 }
+      next: { revalidate: 240 }
     });
 
     if (!response.ok) throw new Error('Failed while fetching calendar events');

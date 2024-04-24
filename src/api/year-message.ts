@@ -8,7 +8,7 @@ export const fetchYearMessage = async () => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/message-for-years?populate=*`, {
       ...options,
-      next: {revalidate: 60 * 5}
+      next: { revalidate: 300 }
     });
 
     if (!response.ok) throw new Error('Failed while fetching year message!');

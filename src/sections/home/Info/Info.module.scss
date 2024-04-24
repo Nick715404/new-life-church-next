@@ -1,6 +1,10 @@
 .section {
   padding-bottom: 150px;
 
+  @media (max-width: 768px) {
+    padding-bottom: 80px;
+  }
+
   .wrapper {
     display: flex;
     align-items: flex-start;
@@ -33,35 +37,21 @@
     }
   }
 
-  .containerSmall {
-    padding-left: 5%;
+  .title {
+    font-size: clamp(30px, 6vw, 50px);
+    margin-bottom: 50px;
 
-    @media (max-width: 1070px) {
-      padding-left: 20px;
+    br {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
     }
 
     @media (max-width: 768px) {
-      padding-left: 10px;
-    }
-
-    .title {
-      font-size: clamp(30px, 6vw, 50px);
-      margin-bottom: 50px;
-
-      br {
-        display: none;
-
-        @media (max-width: 768px) {
-          display: block;
-        }
-      }
-
-      @media (max-width: 768px) {
-        margin-bottom: 25px;
-      }
-
+      margin-bottom: 25px;
     }
 
   }
-
 }

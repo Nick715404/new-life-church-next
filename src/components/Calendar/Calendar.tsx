@@ -10,9 +10,11 @@ const Calendar = async () => {
 
   return (
     <div className={styles.calendar}>
-      {events && events.data.map(({ id, attributes }) => (
-        <CalendarItem key={id} data={attributes} />
-      ))}
+      {
+        events && events.data.map(({ id, attributes }) => (
+          <CalendarItem key={id} data={attributes} />
+        ))
+      }
     </div>
   )
 }

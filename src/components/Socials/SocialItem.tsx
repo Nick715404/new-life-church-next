@@ -53,7 +53,7 @@ const SocialItem = ({ data, mode, size }: Props) => {
         className={styles.img}
         width={iconSize}
         height={iconSize}
-        src={`img/socials/${data.tag}.svg`}
+        src={`/img/socials/${data.tag}.svg`}
         alt={data.tag}
       />
     </Link>

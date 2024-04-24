@@ -8,14 +8,12 @@ import { unbounded } from '@/constants/fonts';
 const InfoSection = () => {
   return (
     <section className={styles.section}>
+      <div className="container-small">
+        <h2 className={`${styles.title} ${unbounded.className}`}>
+          Послание<br /> на год
+        </h2>
+      </div>
       <div className="container">
-        <div className={styles.titleBox}>
-          <div className={styles.containerSmall}>
-            <h2 className={`${styles.title} ${unbounded.className}`}>
-              Послание<br /> на год
-            </h2>
-          </div>
-        </div>
         <div className={styles.wrapper}>
           <div className={styles.videos}>
             <YearMessage />

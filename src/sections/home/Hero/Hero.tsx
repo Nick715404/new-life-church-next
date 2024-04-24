@@ -15,7 +15,7 @@ const Hero = () => {
         </div>
       </div>
       <VideoBackground
-        src="videos/placeholder.mp4"
+        src="/videos/placeholder.mp4"
         isAutoPlay
         isLoop
         isMuted

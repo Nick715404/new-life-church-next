@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Logo = () => {
-  const path: string = 'img/svg/logo2.svg'
+  const path: string = '/img/svg/logo2.svg'
 
   return (
     <Link className={styles.link} href='/'>

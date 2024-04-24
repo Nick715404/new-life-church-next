@@ -2,8 +2,13 @@
   position: relative;
   padding-bottom: 150px;
 
+  @media (max-width: 1070px) {
+    padding-bottom: 120px;
+  }
+
   @media (max-width: 768px) {
-    padding-top: 95px;
+    padding-top: 100px;
+    padding-bottom: 88px;
   }
 
   .wrapper {

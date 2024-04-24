@@ -22,19 +22,26 @@ const Event = ({ data }: IProps) => {
   const handleMouseLeave = () => setOnEvent(false);
 
   return (
-    <Link
+    <div
       id='event'
+      className={className}
       onMouseEnter={handleMouseOn}
       onMouseLeave={handleMouseLeave}
-      href={`/event/${data.slug}`}
-      className={className}
     >
       <div className={styles.wrapper}>
-        <h2 className={`${styles.title} ${unbounded.className}`}>{data.title}</h2>
-        <div className={styles.descriptionBox}>
-          <p className={styles.description}>
-            {data.description}
-          </p>
+        <div className={styles.content}>
+          <div className={styles.tag}>
+            Событие
+          </div>
+          <h2 className={`${styles.title} ${unbounded.className}`}>{data.title}</h2>
+          <div className={styles.descriptionBox}>
+            <p className={styles.description}>
+              {data.description}
+            </p>
+          </div>
+        </div>
+        <div className={styles.btnBox}>
+          <Link href={'/'}>Подробнее</Link>
         </div>
       </div>
       <Image
@@ -43,7 +50,8 @@ const Event = ({ data }: IProps) => {
         alt={data.title}
         fill
       />
-    </Link>
+      <Link className={styles.link} href={`/events/${data.slug}`} />
+    </div>
   )
 }
 

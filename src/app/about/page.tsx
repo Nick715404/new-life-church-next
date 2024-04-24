@@ -1,9 +1,8 @@
-type Props = {}
+import styles from './page.module.scss';
+import '@/styles/about.scss';
 
-const AboutPage = (props: Props) => {
+export default function About() {
   return (
-    <div>About page</div>
+    <div>About</div>
   )
 }
-
-export { AboutPage };

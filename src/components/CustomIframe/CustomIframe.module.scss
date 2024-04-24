@@ -48,3 +48,10 @@
   width: 100% !important;
   height: 100% !important;
 }
+
+.playBtn {
+  @media (max-width: 1070px) {
+    width: 70px !important;
+    height: 70px !important;
+  }
+}

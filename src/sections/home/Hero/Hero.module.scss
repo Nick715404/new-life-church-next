@@ -2,6 +2,15 @@
   position: relative;
   overflow: hidden;
   height: 100dvh;
+  border-radius: 100px 100px 0 0;
+
+  @media (max-width: 1070px) {
+    border-radius: 80px 80px 0 0;
+  }
+
+  @media (max-width: 768px) {
+    border-radius: 0;
+  }
 
   .heroWrapper {
     position: relative;

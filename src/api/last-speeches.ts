@@ -8,7 +8,7 @@ export const fetchAllLastSpeeches = async () => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/last-speeches`, {
       ...options,
-      next: { revalidate: 60 * 3 }
+      next: { revalidate: 180 }
     });
 
     if (!response.ok) throw new Error('Failed white fetching last speeches');

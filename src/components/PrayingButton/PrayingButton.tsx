@@ -1,5 +1,6 @@
-import { muller } from '@/constants/fonts';
 import styles from './PrayingButton.module.scss';
+
+import { muller } from '@/constants/fonts';
 
 interface IProps {
   text: string;

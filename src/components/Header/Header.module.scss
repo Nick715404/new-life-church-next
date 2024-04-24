@@ -5,6 +5,14 @@
   left: 0;
   z-index: 2;
 
+  @media (max-width: 1070px) {
+    top: 50px;
+  }
+
+  @media (max-width: 768px) {
+    top: 30px;
+  }
+
   .wrapper {
     display: flex;
     align-items: center;

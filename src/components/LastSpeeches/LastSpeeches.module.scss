@@ -4,6 +4,10 @@
   margin-bottom: 20px;
   overflow: hidden;
 
+  @media (max-width: 1070px) {
+    margin-bottom: 33px;
+  }
+
   @media (max-width: 1205px) {
     padding-top: 20px;
   }
@@ -23,8 +27,12 @@
     }
 
     .title {
-      font-size: clamp(25px, 3.6vw, 35px);
+      font-size: clamp(25px, 2.9vw, 35px);
       pointer-events: none;
+
+      @media (max-width: 1070px) {
+        font-size: clamp(25px, 3.6vw, 35px);
+      }
 
       br {
         display: none;

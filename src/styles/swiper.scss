@@ -6,6 +6,10 @@
   border: 1px solid #333333 !important;
   border-radius: 100px;
 
+  @media (max-width: 768px) {
+    top: -50px !important;
+  }
+
   &::after {
     content: '' !important;
     width: 17px;
@@ -20,6 +24,10 @@
 .swiper-button-next {
   right: 34px !important;
 
+  @media (max-width: 768px) {
+    right: 4px !important;
+  }
+
   &::after {
     background-image: url('/img/svg/black-arrow.svg');
   }
@@ -29,6 +37,10 @@
 .swiper-button-prev {
   left: auto !important;
   right: 94px !important;
+
+  @media (max-width: 768px) {
+    right: 60px !important;
+  }
 
   &::after {
     background-image: url('/img/svg/black-arrow.svg');

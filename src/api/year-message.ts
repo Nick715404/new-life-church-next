@@ -6,9 +6,8 @@ export const fetchYearMessage = async () => {
   const options = getOptions('GET');
 
   try {
-    const response = await fetch(`${process.env.STRAPI_URL}/message-for-years?populate=*`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/message-for-years?populate=*`, {
       ...options,
-      cache: 'force-cache',
       next: {revalidate: 60 * 5}
     });
 

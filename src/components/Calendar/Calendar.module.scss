@@ -4,6 +4,19 @@
     border-top: 1px solid #dbdbdb;
     padding: 9.8% 0;
 
+    @media (max-width: 1070px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15%;
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     &:last-child {
       border-bottom: 1px solid #dbdbdb;
     }
@@ -22,13 +35,28 @@
     -ms-flex-align: center;
     align-items: center;
     margin-bottom: 10px;
+
+    @media (max-width: 1070px) {
+      width: 35%;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 26px;
+    }
+
   }
 
   .dayNumber {
-    font-size: clamp(40px, 7vw, 60px);
+    font-size: clamp(40px, 9.9vw, 60px);
     font-family: Unbounded, sans-serif;
     color: #008b8e;
     margin-right: 10%;
+
+    @media (max-width: 768px) {
+      font-size: 60px;
+    }
+
   }
 
   .info {
@@ -45,6 +73,18 @@
 
   }
 
+  .events {
+    @media (max-width: 1070px) {
+      width: 65%;
+      justify-content: space-evenly;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+  }
+
   .event {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -52,6 +92,10 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+
+    @media (max-width: 1070px) {
+      // justify-content: space-between;
+    }
 
     &:nth-child(2) {
       margin-top: 10px;
@@ -63,6 +107,12 @@
     font-weight: 400;
     font-size: clamp(18px, 3.7vw, 20px);
     line-height: 1.2;
+    text-transform: capitalize;
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+
   }
 
   .timeWrapper {

@@ -23,11 +23,22 @@ const CustomSwiper = ({ data }: IProps) => {
       navigation={true}
       modules={[Navigation]}
       className={styles.customSwiper}
+      breakpoints={{
+        320: {
+          slidesPerView: 1.2
+        },
+        768: {
+          slidesPerView: 1.5
+        },
+        900: {
+          slidesPerView: 2
+        }
+      }}
     >
       {
         data.map(({ id, attributes }) => (
           <SwiperSlide className={styles.slide} key={id}>
-            <CustomIframe src={attributes.link} />
+            <CustomIframe thumb='' alt='' src={attributes.link} />
           </SwiperSlide>
         ))
       }

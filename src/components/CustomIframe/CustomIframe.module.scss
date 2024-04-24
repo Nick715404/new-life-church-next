@@ -16,6 +16,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  @media (max-width: 1070px) {
+    border-radius: 25px;
+  }
+
 }
 
 .btn {

@@ -11,7 +11,9 @@ const InfoSection = () => {
       <div className="container">
         <div className={styles.titleBox}>
           <div className={styles.containerSmall}>
-            <h2 className={`${styles.title} ${unbounded.className}`}>Послание на год</h2>
+            <h2 className={`${styles.title} ${unbounded.className}`}>
+              Послание<br /> на год
+            </h2>
           </div>
         </div>
         <div className={styles.wrapper}>

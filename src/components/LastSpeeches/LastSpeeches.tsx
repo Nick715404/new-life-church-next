@@ -14,7 +14,7 @@ const LastSpeeches = async () => {
     <div className={styles.lastSpeeches}>
       <div className={styles.titleBox}>
         <h3 className={`${styles.title} ${unbounded.className}`}>
-          Последние проповеди
+          Последние<br /> проповеди
         </h3>
       </div>
       <div className={styles.wrapper}>

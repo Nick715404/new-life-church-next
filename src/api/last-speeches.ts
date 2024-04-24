@@ -6,7 +6,7 @@ export const fetchAllLastSpeeches = async () => {
   const options = getOptions('GET');
 
   try {
-    const response = await fetch(`${process.env.STRAPI_URL}/last-speeches`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/last-speeches`, {
       ...options,
       next: { revalidate: 60 * 3 }
     });

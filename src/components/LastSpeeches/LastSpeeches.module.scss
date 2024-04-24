@@ -4,15 +4,37 @@
   margin-bottom: 20px;
   overflow: hidden;
 
+  @media (max-width: 1205px) {
+    padding-top: 20px;
+  }
+
   .titleBox {
     padding-left: 7%;
     margin-bottom: 20px;
     width: fit-content;
     pointer-events: none;
 
+    @media (max-width: 1070px) {
+      padding-left: 20px;
+    }
+
+    @media (max-width: 768px) {
+      padding-left: 10px;
+    }
+
     .title {
-      font-size: clamp(25px, 2.8vw, 35px);
+      font-size: clamp(25px, 3.6vw, 35px);
       pointer-events: none;
+
+      br {
+        display: none;
+
+        @media (max-width: 768px) {
+          display: block;
+        }
+
+      }
+
     }
 
   }

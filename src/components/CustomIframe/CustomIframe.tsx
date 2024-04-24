@@ -45,8 +45,9 @@ const CustomIframe = ({ src, thumb, alt }: IProps) => {
             </button>
             {thumb && (
               <Image
+                sizes='auto'
                 className={styles.img}
-                src={`${process.env.STRAPI_IMAGE}${thumb}`}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_IMAGE}${thumb}`}
                 alt={alt}
                 fill
               />

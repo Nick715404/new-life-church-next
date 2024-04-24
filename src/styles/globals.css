@@ -89,20 +89,28 @@ h6 {
 }
 
 .page {
+  display: flex;
+  flex-direction: column;
   position: relative;
   margin: 16px;
   min-height: 100dvh;
   border-radius: 100px 100px 0 0;
   overflow: hidden;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1070px) {
     margin: 12px;
+    border-radius: 80px 80px 0 0;
   }
 
   @media (max-width: 768px) {
     margin: 0px;
+    border-radius: 0;
   }
 
+}
+
+main {
+  flex-grow: 1;
 }
 
 .container-small {
@@ -120,9 +128,4 @@ h6 {
   max-width: 1443px;
   width: 90%;
   margin: 0 auto;
-
-  @media (max-width: 768px) {
-    width: 95%;
-  }
-
 }

@@ -1,7 +1,6 @@
 import styles from './Nav.module.scss';
 
 import { INavLink } from "@/interfaces/links";
-import Link from "next/link";
 import { NavLink } from './Link';
 import { YouTubeLink } from '../YouTubeLink/YouTubeLink';
 
@@ -20,7 +19,7 @@ const NavLinkList = ({ links }: IProps) => {
           </li>
         ))
       }
-      <li className={styles.item}>
+      <li className={`${styles.item} ${styles.youtube}`}>
         <YouTubeLink />
       </li>
     </ul>

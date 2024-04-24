@@ -24,7 +24,9 @@ export default function RootLayout({ children }: IProps) {
       <body className={muller.className}>
         <div className="page">
           <Header />
-          {children}
+          <main>
+            {children}
+          </main>
           <Footer />
         </div>
       </body>

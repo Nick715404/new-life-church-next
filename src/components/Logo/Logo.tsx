@@ -9,6 +9,7 @@ const Logo = () => {
   return (
     <Link className={styles.link} href='/'>
       <Image
+        className={styles.img}
         src={path}
         width={245}
         height={72}

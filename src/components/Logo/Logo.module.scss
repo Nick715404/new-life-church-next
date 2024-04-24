@@ -1,4 +1,12 @@
 .link {
   display: block;
   width: fit-content;
+
+  .img {
+    @media (max-width: 1281px) {
+      width: 100% !important;
+    }
+  }
+
+
 }

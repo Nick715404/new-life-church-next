@@ -1,4 +1,4 @@
-import { ReactQueryProvider } from "./ReactQueryProvider/ReactQueryProvider";
+import { RouterTransitionProvider } from "./RouterTransitionProvider";
 
 type TProps = {
   children: React.ReactNode;
@@ -6,9 +6,9 @@ type TProps = {
 
 const Providers = ({ children }: TProps) => {
   return (
-    <ReactQueryProvider>
+    <RouterTransitionProvider>
       {children}
-    </ReactQueryProvider>
+    </RouterTransitionProvider>
   )
 }
 

@@ -8,6 +8,15 @@
   text-transform: uppercase;
   transition: all .15s ease;
 
+  @media (max-width: 1281px) {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 1070px) {
+    display: none;
+  }
+
   &:hover {
     border-color: transparent;
     background-color: #FFAC00;

@@ -2,7 +2,7 @@
 
 const nextConfig = {
   images: {
-    domains: [process.env.NEXT_PUBLIC_STRAPI_DOMAIN]
+    domains: ['127.0.0.1']
   }
 };
 

@@ -7,9 +7,9 @@ export const fetchEvents = async () => {
   const options = getOptions('GET');
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/events?populate=*`, {
+    const response = await fetch(`${process.env.STRAPI_URL}/events?populate=*`, {
       ...options,
-      next: { revalidate: 60 * 2 }
+      next: { revalidate: 60 * 3 }
     });
 
     if (!response.ok) throw new Error('Error to fetch events');

@@ -13,10 +13,10 @@ export default function HomePage() {
       <Hero />
       <div className={styles.whiteBox}>
         <Meetings />
-        <InfoSection />
+        {/* <InfoSection />
         <Events />
         <Praying />
-        <JoinUs />
+        <JoinUs /> */}
       </div>
     </div>
   );

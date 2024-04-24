@@ -1,3 +1,4 @@
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { DonationButton } from '../DontaionButton/DontaionButton';
 import { Logo } from '../Logo/Logo';
 import { Nav } from '../Nav/Nav';
@@ -8,7 +9,9 @@ const Header = () => {
     <header className={styles.header}>
       <div className="container">
         <div className={styles.wrapper}>
-          <Logo />
+          <div className={styles.logo}>
+            <Logo />
+          </div>
           <Nav />
           <DonationButton
             style='white'
@@ -16,6 +19,7 @@ const Header = () => {
             as='button'
             type='button'
           />
+          <BurgerMenu />
         </div>
       </div>
     </header>

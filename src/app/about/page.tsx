@@ -1,8 +1,11 @@
 import styles from './page.module.scss';
-import '@/styles/about.scss';
+
+import { Hero } from '@/sections/about/index';
 
 export default function About() {
   return (
-    <div>About</div>
+    <div className='about children-page'>
+      <Hero />
+    </div>
   )
 }

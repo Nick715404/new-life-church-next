@@ -4,7 +4,7 @@ import { muller } from "@/constants/fonts";
 import { ComponentProps, ElementType } from 'react';
 
 type TButtonOwnProps<E extends ElementType = ElementType> = {
-  style: 'black' | 'white';
+  style: 'black' | 'white' | boolean;
   text: string;
   as?: E,
 }
@@ -21,7 +21,6 @@ function DonationButton<E extends ElementType = typeof defaultElement>({
 }: TButtonProps<E>) {
   const handleClassName = style === 'black' ? `${styles.donationButton} ${styles.black}` : `${styles.donationButton}`;
   const TagName = as || defaultElement;
-  const font = muller.className;
 
   return (
     <div className={muller.className}>

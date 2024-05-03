@@ -10,12 +10,12 @@
   position: relative;
   height: 100%;
   width: 100%;
-  border-radius: 50px;
-  overflow: hidden;
   background-color: #dcdcdc;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  border-radius: 40px;
+  overflow: hidden;
 
   @media (max-width: 1070px) {
     border-radius: 25px;

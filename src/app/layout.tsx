@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 import "@/styles/swiper.scss";
 
 import { Header } from "@/components/Header/Header";
@@ -22,11 +22,11 @@ export default function RootLayout({ children }: IProps) {
   return (
     <html lang="ru">
       <body className={muller.className}>
-        <Header />
-        <main>
+        <div className="page">
+          <Header />
           {children}
-        </main>
-        <Footer />
+          <Footer />
+        </div>
       </body>
     </html>
   );

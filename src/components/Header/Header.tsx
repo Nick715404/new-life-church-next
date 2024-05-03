@@ -1,20 +1,28 @@
+'use client';
+
+import styles from './Header.module.scss';
+
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { DonationButton } from '../DontaionButton/DontaionButton';
 import { Logo } from '../Logo/Logo';
 import { Nav } from '../Nav/Nav';
-import styles from './Header.module.scss';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
+
+  const pathname = usePathname();
+  const mode = pathname !== '/' ? 'black' : 'white';
+
   return (
     <header className={styles.header}>
       <div className="container">
         <div className={styles.wrapper}>
           <div className={styles.logo}>
-            <Logo />
+            <Logo mode={mode} />
           </div>
           <Nav />
           <DonationButton
-            style='white'
+            style={mode}
             text='Пожертвовать'
             as='button'
             type='button'

@@ -133,12 +133,16 @@ main {
 
   border-radius: 100px;
 
+  @media (max-width: 1400px) {
+    border-radius: 50px 50px 0 0;
+  }
+
   @media (max-width: 1070px) {
-    border-radius: 80px;
+    border-radius: 30px;
   }
 
   @media (max-width: 768px) {
-    border-radius: 0;
+    border-radius: 0 0 15px 15px;
   }
 
 }

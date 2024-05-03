@@ -11,9 +11,13 @@
     padding-top: 70px;
   }
 
+  @media (max-width: 1070px) {
+    border-radius: 30px;
+  }
+
   @media (max-width: 768px) {
     padding: 0px 0 30px 0;
-    border-radius: 50px;
+    border-radius: 30px;
   }
 
 }

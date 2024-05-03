@@ -27,7 +27,7 @@ const Header = () => {
             as='button'
             type='button'
           />
-          <BurgerMenu />
+          <BurgerMenu mode={mode} />
         </div>
       </div>
     </header>

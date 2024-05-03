@@ -11,8 +11,8 @@ const HeroGallery = () => {
           <div key={item.id} id={`block-${item.id}`} className={styles.blockItem}>
             <Image
               className={styles.blockImg}
-              height={10}
-              width={10}
+              height={500}
+              width={500}
               priority
               src={item.path}
               alt='Церковь Новая Жизнь'

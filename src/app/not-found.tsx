@@ -1,5 +1,9 @@
 export default function NotFound() {
   return (
-    <div>not-found</div>
+    <div>
+      <div className="container">
+        <h1>Oops, something wents wrong!</h1>
+      </div>
+    </div>
   );
 };

@@ -22,7 +22,7 @@ const BurgerMenu = ({ mode }: IProps) => {
         onClick={() => setOpen(true)}
       >
         {
-          [...Array(3)].map((item, index: number) => (
+          [...Array(3)].map((_, index: number) => (
             <span
               key={index}
               className={mode === 'black' ? `${styles.burgerLine} ${styles.black}` : styles.burgerLine}
@@ -34,13 +34,15 @@ const BurgerMenu = ({ mode }: IProps) => {
         <div className={styles.header}>
           <div className="container">
             <div className={styles.headerWrapper}>
-              <div className={styles.headerLogo}>
+              <div onClick={() => setOpen(false)} className={styles.headerLogo}>
                 <Logo />
               </div>
               <button onClick={() => setOpen(false)} className={styles.headerClose}>
-                <span className={styles.headerCloseLine} />
-                <span className={styles.headerCloseLine} />
-                <span className={styles.headerCloseLine} />
+                {
+                  [...Array(3)].map((_, index: number) => (
+                    <span key={index} className={styles.headerCloseLine} />
+                  ))
+                }
               </button>
             </div>
           </div>
@@ -50,7 +52,7 @@ const BurgerMenu = ({ mode }: IProps) => {
             {
               navLinks.map((link, index) => (
                 <li className={styles.item} key={index}>
-                  <Link className={styles.link} href={link.path}>{link.label}</Link>
+                  <Link onClick={() => setOpen(false)} className={styles.link} href={link.path}>{link.label}</Link>
                 </li>
               ))
             }

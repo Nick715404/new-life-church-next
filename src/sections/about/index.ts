@@ -1,2 +1,2 @@
-export { Hero } from './Hero/Hero';
-export { Pastors } from './Pastors/Pastors';
+export { Hero } from './team/Hero/Hero';
+export { Pastors } from './team/Pastors/Pastors';

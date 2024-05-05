@@ -4,24 +4,24 @@ export const navLinks: INavLink[] = [
   {
     label: 'О нас',
     path: '/about',
-    children: 1,
+    children: true,
     subMenu: [
       {
-        label: 'О нас',
-        path: '/about'
+        label: 'Команда',
+        path: '/about/team'
       },
     ],
   },
   {
     label: 'События',
     path: '/events',
-    children: 0,
+    children: false,
     subMenu: [],
   },
   {
     label: 'Служения',
     path: '/services',
-    children: 1,
+    children: true,
     subMenu: [
       {
         label: 'Служения',
@@ -32,18 +32,18 @@ export const navLinks: INavLink[] = [
   {
     label: 'Обучение',
     path: '/education',
-    children: 1,
+    children: true,
     subMenu: [
       {
         label: 'Обучение',
-        path: '/studying'
+        path: '/education'
       },
     ],
   },
   {
     label: 'Контакты',
     path: '/contacts',
-    children: 0,
+    children: false,
     subMenu: [],
   },
 ]

@@ -1,9 +1,11 @@
 .nav {
+  position: relative;
   display: block;
   background-color: #101010;
   border-radius: 500px;
   width: fit-content;
   padding: 9.5px 12px;
+  z-index: 999;
 
   @media (max-width: 1281px) {
     padding: 6px 9px;
@@ -14,13 +16,22 @@
   }
 
   .list {
+    position: static;
     display: flex;
     align-items: center;
     gap: 5px;
+
+    .item {
+      position: static;
+    }
+
   }
 
   .link {
-    display: block;
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     border-radius: 50px;
     border: 1px solid transparent;
     padding: 12px 16px;
@@ -38,4 +49,23 @@
 
   }
 
+}
+
+.layout {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  padding-top: 50px;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+  padding: 25px;
+  // padding-top: 80px;
+  border-radius: 0px 0px 25px 25px;
 }

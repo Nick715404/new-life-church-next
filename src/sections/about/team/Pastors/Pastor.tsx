@@ -42,7 +42,7 @@ const Pastor = ({ data }: TProps) => {
               className={status ? `${styles.linkImg} ${styles.up}` : `${styles.linkImg}`}
               width={18}
               height={18}
-              src='img/svg/black-arrow.svg'
+              src='/img/svg/black-arrow.svg'
               alt='О нашей церкви'
             />
           </div>

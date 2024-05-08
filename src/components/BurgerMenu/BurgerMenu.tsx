@@ -5,6 +5,8 @@ import styles from './BurgerMenu.module.scss';
 import { Logo } from '../Logo/Logo';
 import { navLinks } from '@/constants/links';
 import Link from 'next/link';
+import { NavLink } from '../Nav/NavLink';
+import { BurgerMenuList } from './BurgerMenuList';
 
 interface IProps {
   mode: 'black' | 'white';
@@ -48,15 +50,7 @@ const BurgerMenu = ({ mode }: IProps) => {
           </div>
         </div>
         <div className={styles.listBox}>
-          <ul className={styles.list}>
-            {
-              navLinks.map((link, index) => (
-                <li className={styles.item} key={index}>
-                  <Link onClick={() => setOpen(false)} className={styles.link} href={link.path}>{link.label}</Link>
-                </li>
-              ))
-            }
-          </ul>
+          <BurgerMenuList onClose={() => setOpen(false)} />
         </div>
       </div>
     </>

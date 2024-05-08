@@ -150,12 +150,22 @@
     gap: 30px;
 
     .link {
-      font-size: clamp(20px, 4vw, 30px);
+      font-size: clamp(20px, 6vw, 30px);
       color: #fff;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all .15s ease;
     }
 
   }
 
+}
+
+.submenuLink {
+  color: #fff !important;
+  font-size: 16px;
 }
 
 .open {
@@ -164,4 +174,8 @@
 
 .black {
   border: 1px solid #000000;
+}
+
+.rotate {
+  transform: rotate(-180deg);
 }

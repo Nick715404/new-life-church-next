@@ -17,20 +17,15 @@ const SubMenu = ({ status, children, subMenu }: TProps) => {
     <>
       {
         status && children &&
-        <motion.div
-          initial='exit'
-          animate={status ? "enter" : "exit"}
-          variants={subMenuAnimate}
-          className={styles.layout}
-        >
+        <div className={styles.layout}>
           <div className={styles.submenu}>
             {
               subMenu.map((item, index) => (
-                <Link key={index} href={item.path}>{item.label}</Link>
+                <Link key={index} className={styles.submenuLink} href={item.path}>{item.label}</Link>
               ))
             }
           </div>
-        </motion.div>
+        </div>
       }
     </>
   )

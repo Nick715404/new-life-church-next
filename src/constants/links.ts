@@ -10,6 +10,14 @@ export const navLinks: INavLink[] = [
         label: 'Команда',
         path: '/about/team'
       },
+      {
+        label: 'Команда',
+        path: '/about/team'
+      },
+      {
+        label: 'Команда',
+        path: '/about/team'
+      },
     ],
   },
   {
@@ -23,6 +31,14 @@ export const navLinks: INavLink[] = [
     path: '/services',
     children: true,
     subMenu: [
+      {
+        label: 'Служения',
+        path: '/services'
+      },
+      {
+        label: 'Служения',
+        path: '/services'
+      },
       {
         label: 'Служения',
         path: '/services'

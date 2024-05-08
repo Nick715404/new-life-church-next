@@ -33,7 +33,7 @@ const NavLink = ({ data }: IProps) => {
             {
               children &&
               <Image
-                className={styles.icon}
+                className={menu ? `${styles.icon} ${styles.rotate}` : styles.icon}
                 width={10}
                 height={10}
                 src={'/img/svg/drop-down-arrow.svg'}
@@ -45,11 +45,11 @@ const NavLink = ({ data }: IProps) => {
             <span>{data.label}</span>
           </Link>
       }
-      {/* <SubMenu
+      <SubMenu
         subMenu={subMenu}
         children={data.children}
         status={menu}
-      /> */}
+      />
     </div >
   )
 }

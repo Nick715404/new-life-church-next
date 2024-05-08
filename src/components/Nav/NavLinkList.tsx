@@ -1,7 +1,7 @@
 import styles from './Nav.module.scss';
 
 import { INavLink } from "@/interfaces/links";
-import { NavLink } from './Link';
+import { NavLink } from './NavLink';
 import { YouTubeLink } from '../YouTubeLink/YouTubeLink';
 
 interface IProps {

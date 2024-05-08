@@ -14,37 +14,42 @@ interface IProps {
 }
 
 const NavLink = ({ data }: IProps) => {
-  const [hover, setHover] = useState<boolean>(false);
+  const [menu, setMenu] = useState<boolean>(false);
   const { subMenu, children } = data;
 
-  const onHoverMenu = () => {
-    setHover(!hover);
+  const onClickMenu = () => {
+    setMenu(!menu);
   }
 
   return (
     <div
-      onMouseEnter={onHoverMenu}
-      onMouseLeave={onHoverMenu}
+      onClick={onClickMenu}
       className={styles.linkLayout}
     >
-      <Link className={styles.link} href={data.path}>
-        <span>{data.label}</span>
-        {
-          children &&
-          <Image
-            className={styles.icon}
-            width={10}
-            height={10}
-            src={'/img/svg/drop-down-arrow.svg'}
-            alt=''
-          />
-        }
-      </Link>
-      <SubMenu
+      {
+        children ?
+          <button className={styles.link}>
+            <span>{data.label}</span>
+            {
+              children &&
+              <Image
+                className={styles.icon}
+                width={10}
+                height={10}
+                src={'/img/svg/drop-down-arrow.svg'}
+                alt=''
+              />
+            }
+          </button> :
+          <Link className={styles.link} href={data.path}>
+            <span>{data.label}</span>
+          </Link>
+      }
+      {/* <SubMenu
         subMenu={subMenu}
         children={data.children}
-        status={hover}
-      />
+        status={menu}
+      /> */}
     </div >
   )
 }

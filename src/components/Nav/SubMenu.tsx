@@ -1,10 +1,10 @@
 'use client';
 
-import { subMenuAnimate } from '@/constants/animation';
 import styles from './Nav.module.scss';
 import { INavLinkChildren } from '@/interfaces/links';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { subMenuAnimate } from '@/constants/animation';
 
 type TProps = {
   status: boolean;

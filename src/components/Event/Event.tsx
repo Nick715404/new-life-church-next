@@ -40,9 +40,6 @@ const Event = ({ data }: IProps) => {
             </p>
           </div>
         </div>
-        <div className={styles.btnBox}>
-          <Link href={'/'}>Подробнее</Link>
-        </div>
       </div>
       <Image
         className={styles.background}

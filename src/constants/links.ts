@@ -11,12 +11,16 @@ export const navLinks: INavLink[] = [
         path: '/about/team'
       },
       {
-        label: 'Команда',
-        path: '/about/team'
+        label: 'Ценности',
+        path: '/about/valuation'
       },
       {
-        label: 'Команда',
-        path: '/about/team'
+        label: 'Основание',
+        path: '/about/foundation'
+      },
+      {
+        label: 'История Церкви',
+        path: '/about/history'
       },
     ],
   },

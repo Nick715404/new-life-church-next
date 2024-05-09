@@ -44,7 +44,8 @@ const CustomIframe = ({ src, thumb, alt }: IProps) => {
                 alt="Play Button"
               />
             </button>
-            {thumb && (
+            {
+              thumb &&
               <Image
                 sizes='auto'
                 className={styles.img}
@@ -52,7 +53,7 @@ const CustomIframe = ({ src, thumb, alt }: IProps) => {
                 alt={alt}
                 fill
               />
-            )}
+            }
           </>
         )
       }

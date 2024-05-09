@@ -9,7 +9,7 @@ const Hero = () => {
         <div className={styles.wrapper}>
           <div className={styles.heading}>
             <div className={styles.subtitleBox}>
-              <span className={styles.subtitle}>о нас</span>
+              <span className={styles.subtitle}>команда</span>
             </div>
             <div className={styles.titleBox}>
               <h1 className={`${styles.title} ${unbounded.className}`}>Мы любим<br />Бога и людей</h1>

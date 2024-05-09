@@ -53,7 +53,7 @@
   .dayNumber {
     font-size: clamp(40px, 4vw, 60px);
     color: #008b8e;
-    margin-right: 10%;
+    width: 7.2rem;
 
     @media (max-width: 768px) {
       font-size: 60px;
@@ -119,13 +119,14 @@
   }
 
   .timeWrapper {
-    margin-right: 9%;
+    width: 7.2rem;
   }
 
   .time {
+    width: fit-content;
     border: 1px solid #008b8e;
     border-radius: 500px;
-    padding: 10px 16px;
+    padding: 10px 20px;
     color: #008b8e;
     font-family: MullerRegular, sans-serif;
     font-size: 14px;

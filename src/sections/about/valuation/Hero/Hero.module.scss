@@ -8,6 +8,10 @@
   .wrapper {
     margin-top: 210px;
 
+    @media (max-width: 768px) {
+      margin-top: 150px;
+    }
+
     .content {
       display: flex;
       flex-direction: column;

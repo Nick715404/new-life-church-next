@@ -12,3 +12,10 @@ export interface ILinkInBlock {
   href: string;
   label: string;
 }
+
+export interface IInfoTab {
+  number: number;
+  subtitle: string;
+  text: string;
+  icon: string;
+}

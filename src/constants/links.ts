@@ -19,7 +19,7 @@ export const navLinks: INavLink[] = [
         path: '/about/foundation'
       },
       {
-        label: 'История Церкви',
+        label: 'История церкви',
         path: '/about/history'
       },
     ],

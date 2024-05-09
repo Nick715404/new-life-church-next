@@ -7,7 +7,6 @@ import { unbounded } from '@/constants/fonts';
 import { Suspense } from 'react';
 
 const LastSpeeches = async () => {
-
   const speeches = await fetchAllLastSpeeches();
 
   return (

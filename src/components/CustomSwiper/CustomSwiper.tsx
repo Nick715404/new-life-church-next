@@ -38,7 +38,11 @@ const CustomSwiper = ({ data }: IProps) => {
       {
         data.map(({ id, attributes }) => (
           <SwiperSlide className={styles.slide} key={id}>
-            <CustomIframe thumb='' alt='' src={attributes.link} />
+            <CustomIframe
+              thumb={attributes.thumbnail.data.attributes.url}
+              src={attributes.link}
+              alt='Последняя проповедь'
+            />
           </SwiperSlide>
         ))
       }

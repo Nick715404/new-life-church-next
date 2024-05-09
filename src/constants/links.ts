@@ -33,32 +33,14 @@ export const navLinks: INavLink[] = [
   {
     label: 'Служения',
     path: '/services',
-    children: true,
-    subMenu: [
-      {
-        label: 'Служения',
-        path: '/services'
-      },
-      {
-        label: 'Служения',
-        path: '/services'
-      },
-      {
-        label: 'Служения',
-        path: '/services'
-      },
-    ],
+    children: false,
+    subMenu: [],
   },
   {
     label: 'Обучение',
     path: '/education',
-    children: true,
-    subMenu: [
-      {
-        label: 'Обучение',
-        path: '/education'
-      },
-    ],
+    children: false,
+    subMenu: [],
   },
   {
     label: 'Контакты',

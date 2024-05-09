@@ -19,3 +19,9 @@ export interface IInfoTab {
   text: string;
   icon: string;
 }
+
+export interface IFoudationData {
+  id: number;
+  title: string;
+  text: string;
+}

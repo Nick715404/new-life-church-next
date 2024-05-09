@@ -3,11 +3,12 @@
 import styles from './Nav.module.scss';
 
 import { INavLink } from '@/interfaces/links';
-import { SubMenu } from './SubMenu';
+import { SubMenu } from '@/components/SubMenu/SubMenu';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useClickOutside } from '@/hooks/useClickOutside';
 
 interface IProps {
   data: INavLink;
@@ -49,6 +50,7 @@ const NavLink = ({ data }: IProps) => {
         subMenu={subMenu}
         children={data.children}
         status={menu}
+        setMenu={() => setMenu(false)}
       />
     </div >
   )

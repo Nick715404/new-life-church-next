@@ -1,4 +1,4 @@
-import React from 'react'
+import { fetchSingleEvent } from "@/api/events";
 
 type Props = {
   params: {
@@ -6,7 +6,12 @@ type Props = {
   }
 }
 
-export default function EventPage({ params: { slug } }: Props) {
+export default async function EventPage({ params: { slug } }: Props) {
+  console.log(slug);
+  
+  const data = await fetchSingleEvent(slug);
+  
+
   return (
     <div>
       <h1 style={{ color: '#fff', fontSize: 70, padding: 100 }}>EventPage {slug}</h1>

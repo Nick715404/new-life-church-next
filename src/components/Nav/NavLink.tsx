@@ -22,9 +22,18 @@ const NavLink = ({ data }: IProps) => {
     setMenu(!menu);
   }
 
+  const onMouseEnter = () => {
+    setMenu(true);
+  }
+
+  const onMouseLeave = () => {
+    setMenu(false);
+  }
+
   return (
     <div
-      onClick={onClickMenu}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       className={styles.linkLayout}
     >
       {

@@ -21,3 +21,26 @@ export const fetchEvents = async () => {
     throw new Error('Error to fetch events');
   }
 };
+
+export const fetchSingleEvent = async (slug: string) => {
+
+  const options = getOptions('GET');
+  console.log(slug);
+
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}`, {
+      ...options,
+      next: { revalidate: 360 }
+    });
+
+    // if (!response.ok) throw new Error('Error to fetch event');
+
+    const { data }: IQueryFromStrapi<IEvent> = await response.json();
+    console.log(data);
+
+    // return data;
+  }
+  catch (error) {
+    // throw new Error('Error to fetch event');
+  }
+};

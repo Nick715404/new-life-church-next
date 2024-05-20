@@ -4,7 +4,7 @@ import { EventsList } from './EventsList';
 
 const Events = async () => {
   return (
-    <section className={styles.section}>
+    <section id='events' className={styles.section}>
       <div className="container">
         <div className={styles.wrapper}>
           <EventsList />

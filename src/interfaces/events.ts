@@ -1,17 +1,18 @@
 import { IStrapiImage } from "./queries"
+import { ISpeaker } from "./speakers";
 
 export interface IEvent {
-  title: string
-  description: string
-  slug: string
-  reg_text: string
-  reg_price: number,
-  isPriceIncrease: boolean,
-  increased_price: string | null
-  increased_text: string | null,
-  createdAt: string
-  updatedAt: string,
-  publishedAt: string,
-  background: { data: IStrapiImage },
-  gallery?: { data: any }
+  title: string;
+  description: string;
+  slug: string;
+  reg_price: number;
+  increase_date: string;
+  increase_price: number;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  event_type: 'ukv' | 'youthUral' | 'teensUral' | 'bussiness';
+  background: { data: IStrapiImage };
+  gallery?: { data: any };
+  speakers: { data: ISpeaker };
 }

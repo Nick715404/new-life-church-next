@@ -26,7 +26,7 @@ export const navLinks: INavLink[] = [
   },
   {
     label: 'События',
-    path: '/events',
+    path: '/#events',
     children: false,
     subMenu: [],
   },

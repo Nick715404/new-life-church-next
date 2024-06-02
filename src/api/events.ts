@@ -1,4 +1,4 @@
-import { IQueryFromStrapi } from "@/interfaces/queries";
+import { IQueryFromStrapi, IQueryFromStrapiSingle } from "@/interfaces/queries";
 import { getOptions } from "./options";
 import { IEvent } from "@/interfaces/events";
 
@@ -25,22 +25,18 @@ export const fetchEvents = async () => {
 export const fetchSingleEvent = async (slug: string) => {
 
   const options = getOptions('GET');
-  console.log(slug);
 
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}`, {
       ...options,
-      next: { revalidate: 360 }
     });
 
-    // if (!response.ok) throw new Error('Error to fetch event');
+    if (!response.ok) throw new Error('Error to fetch event');
 
-    const { data }: IQueryFromStrapi<IEvent> = await response.json();
-    console.log(data);
-
-    // return data;
+    const { data }: IQueryFromStrapiSingle<IEvent> = await response.json();
+    return data;
   }
   catch (error) {
-    // throw new Error('Error to fetch event');
+    throw new Error('Error to fetch event' + error);
   }
 };

@@ -1,4 +1,5 @@
 import { fetchSingleEvent } from "@/api/events";
+import { EventHero } from "@/sections/event";
 
 type Props = {
   params: {
@@ -7,14 +8,11 @@ type Props = {
 }
 
 export default async function EventPage({ params: { slug } }: Props) {
-  console.log(slug);
-  
-  const data = await fetchSingleEvent(slug);
-  
+  const { attributes: data } = await fetchSingleEvent(slug);
 
   return (
-    <div>
-      <h1 style={{ color: '#fff', fontSize: 70, padding: 100 }}>EventPage {slug}</h1>
+    <div className="event children-page">
+      <EventHero description={data.description} title={data.title} />
     </div>
-  )
-}
+  );
+};

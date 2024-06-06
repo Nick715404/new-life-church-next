@@ -1,4 +1,5 @@
 import styles from './Hero.module.scss';
+import { unbounded } from '@/constants/fonts';
 
 type EventHeroProps = {
   title: string,
@@ -10,7 +11,8 @@ export function EventHero({ description, title }: EventHeroProps) {
     <section className={styles.section}>
       <div className="container-small">
         <div className={styles.wrapper}>
-          <h1 className={styles.title}>{title}</h1>
+          <span className={styles.tag}>Событие</span>
+          <h1 className={`${styles.title} ${unbounded.className}`}>{title}</h1>
           <p className={styles.text}>{description}</p>
         </div>
       </div>

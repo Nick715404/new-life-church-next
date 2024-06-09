@@ -1,5 +1,5 @@
 import { IStrapiImage } from "./queries"
-import { ISpeaker } from "./speakers";
+import { ISpeakerData } from "./speakers";
 
 export interface IEvent {
   title: string;
@@ -14,5 +14,10 @@ export interface IEvent {
   event_type: 'ukv' | 'youthUral' | 'teensUral' | 'bussiness';
   background: { data: IStrapiImage };
   gallery?: { data: any };
-  speakers: { data: ISpeaker };
+  speakers: { data: ISpeakerData[] };
+  schedules: { data: ISchedule[] }
+}
+
+export interface ISchedule {
+
 }

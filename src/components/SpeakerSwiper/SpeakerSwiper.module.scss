@@ -1,0 +1,19 @@
+.image {
+  position: relative;
+  aspect-ratio: 0.7 /1;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.text {
+  display: block;
+  font-size: clamp(18px, 1.6vw, 30px);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 10px;
+  font-size: 16px;
+}

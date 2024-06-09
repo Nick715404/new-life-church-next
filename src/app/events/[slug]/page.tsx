@@ -1,5 +1,5 @@
 import { fetchSingleEvent } from "@/api/events";
-import { EventHero, EventSpeakers } from "@/sections/event";
+import { EventHero, EventSpeakers, Schedule } from "@/sections/event";
 
 type EventPageProps = {
   params: { slug: string, },
@@ -7,11 +7,12 @@ type EventPageProps = {
 
 export default async function EventPage({ params: { slug } }: EventPageProps) {
   const { attributes: data } = await fetchSingleEvent(slug);
-
+  console.log(data);
+  
   return (
     <div className="event children-page">
       <EventHero description={data.description} title={data.title} />
-      <EventSpeakers />
+      <EventSpeakers speakers={data.speakers} />
     </div>
   );
 };

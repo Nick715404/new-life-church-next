@@ -27,8 +27,9 @@ export const fetchSingleEvent = async (slug: string) => {
   const options = getOptions('GET');
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate=speakers.image`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate=speakers.image&populate=schedules`, {
       ...options,
+      cache: 'no-cache'
     });
 
     if (!response.ok) throw new Error('Error to fetch event');

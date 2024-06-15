@@ -17,6 +17,10 @@ export function ScheduleList({ data }: ScheduleListProps) {
             <div className={styles.day}>
               <div className={styles.date}>
                 <span className={styles.dayNumber}>{new Date(date).getDate()}</span>
+                <div className={styles.dayInfo}>
+                  <span className={styles.month}>{new Date(date).toLocaleDateString('ru', { month:'long' })}</span>
+                  <span className={styles.weekday}>{new Date(date).toLocaleDateString('ru', { weekday: 'long' })}</span>
+                </div>
               </div>
               <div className={styles.events}>
                 {

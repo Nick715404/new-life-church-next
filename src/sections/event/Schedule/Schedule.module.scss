@@ -1,5 +1,104 @@
-.title {
-  font-size: clamp(30px, 3.2vw, 60px);
-  line-height: 1.2;
-  margin-bottom: 50px;
+.section {
+  margin-bottom: 150px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 80px;
+  }
+
+  .title {
+    font-size: clamp(30px, 3.2vw, 60px);
+    line-height: 1.2;
+    margin-bottom: 50px;
+  }
+
+  .day {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2.4rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .date {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      width: 18%;
+      border-bottom: 1px solid #DBDBDB;
+      padding-bottom: 7.5px;
+
+      .dayNumber {
+        font-size: clamp(40px, 4vw, 60px);
+        color: #008b8e;
+      }
+
+      .dayInfo {
+        display: flex;
+        flex-direction: column;
+
+        .month {
+          display: block;
+          font-size: clamp(18px, 2.2vw, 22px);
+          text-transform: capitalize;
+          margin-bottom: 5px;
+        }
+
+        .weekday {
+          color: #828282;
+          font-size: 16px;
+          text-transform: capitalize;
+        }
+
+      }
+    }
+
+    .events {
+      margin-top: 0.4rem;
+      width: 100%;
+
+      .item {
+        display: flex;
+        align-items: center;
+        padding-bottom: 1.2rem;
+        border-bottom: 1px solid #DBDBDB;
+        margin-bottom: 1.8rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        span {
+          display: block;
+          margin: 0 10px;
+        }
+
+        .timeBox {
+          width: 20%;
+        }
+
+        .time {
+          border: 1px solid #9E9E9E;
+          color: #9E9E9E;
+          padding: 10px;
+          border-radius: 500px;
+          font-size: 20px;
+          width: fit-content;
+        }
+
+        .description {
+          width: 40%;
+        }
+
+        .description,
+        .speaker {
+          font-size: clamp(22px, 2.5vw, 30px);
+        }
+
+      }
+
+    }
+
+  }
+
 }

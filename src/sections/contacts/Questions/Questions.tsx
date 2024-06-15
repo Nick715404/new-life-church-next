@@ -1,5 +1,6 @@
 import { Accordion } from '@/components/Accordion/Accordion';
 import styles from './Questions.module.scss';
+import { contactsAccordion } from '@/constants/accordion';
 
 import { unbounded } from '@/constants/fonts';
 
@@ -14,7 +15,7 @@ const Questions = () => {
             </h2>
           </div>
           <div className={styles.accordionBox}>
-            <Accordion />
+            <Accordion data={contactsAccordion} />
           </div>
         </div>
       </div>

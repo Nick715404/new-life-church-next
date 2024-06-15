@@ -6,9 +6,7 @@ const Events = async () => {
   return (
     <section id='events' className={styles.section}>
       <div className="container">
-        <div className={styles.wrapper}>
-          <EventsList />
-        </div>
+        <EventsList />
       </div>
     </section>
   )

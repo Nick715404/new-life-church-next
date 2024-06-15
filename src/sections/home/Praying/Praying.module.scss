@@ -29,7 +29,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 100%;
+      width: 65%;
       height: 150%;
       background-image: url('/img/png/praying-home-section.png');
       background-size: cover;
@@ -46,7 +46,7 @@
       left: 0;
       z-index: 1;
       background: rgb(10, 10, 10);
-      background: linear-gradient(90deg, rgba(10, 10, 10, 1) 30%, rgba(28, 28, 28, 0) 100%);
+      background: linear-gradient(90deg, rgb(0, 0, 0) 30%, rgba(28, 28, 28, 0.177) 100%);
 
       @media (max-width: 1070px) {
         background: rgba(10, 10, 10, 0.492);

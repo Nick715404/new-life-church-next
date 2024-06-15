@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import styles from './PrayingButton.module.scss';
 
-import { muller } from '@/constants/fonts';
+import { montserrat, muller } from '@/constants/fonts';
 
 interface IProps {
   text: string;
@@ -8,9 +9,9 @@ interface IProps {
 
 const PrayingButton = ({ text }: IProps) => {
   return (
-    <button className={`${styles.button} ${muller.className}`}>
+    <Link href="/contacts" className={`${styles.button} ${montserrat.className}`}>
       {text}
-    </button>
+    </Link>
   )
 }
 

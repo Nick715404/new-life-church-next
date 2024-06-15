@@ -6,6 +6,11 @@ import { ISpeaker } from '@/interfaces/speakers';
 type EventSpeakersProps = { speakers: ISpeaker, };
 
 export function EventSpeakers({ speakers }: EventSpeakersProps) {
+
+  if (speakers.data.length === 0) {
+    return null;
+  };
+
   return (
     <section className={styles.section}>
       <div className="container-small">
@@ -13,15 +18,7 @@ export function EventSpeakers({ speakers }: EventSpeakersProps) {
           <h2 className={`${unbounded.className} ${styles.title}`}>
             Спикеры
           </h2>
-          {
-            speakers.data.length !== 0
-              ?
-              <SpeakerSwiper slides={speakers} />
-              :
-              <span className={styles.notFound}>
-                Спикеры пока не известны. В скором времени они появятся!
-              </span>
-          }
+          <SpeakerSwiper slides={speakers} />
         </div>
       </div>
     </section>

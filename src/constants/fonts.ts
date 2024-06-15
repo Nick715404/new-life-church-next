@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { Unbounded } from 'next/font/google'
+import { Montserrat, Unbounded } from 'next/font/google'
 
 export const muller = localFont({
   src: [
@@ -25,4 +25,25 @@ export const unbounded = Unbounded({
   weight: ['300', '400', '500'],
   style: 'normal',
   display: 'swap',
+});
+
+export const montserrat = Montserrat({
+  weight: ['500', '700'],
+  style: 'normal',
+  display: 'swap',
+});
+
+export const halvar = localFont({
+  src: [
+    {
+      path: '/fonts/Halvar-Breitschrift-Black-Desktop.woff',
+      weight: '900',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/Halvar-Breitschrift-Regular-Desktop.woff',
+      weight: '400',
+      style: 'normal'
+    },
+  ]
 })

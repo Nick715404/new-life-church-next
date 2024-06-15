@@ -1,6 +1,5 @@
+import { Gallery } from '@/components/Gallery/Gallery';
 import styles from './page.module.scss';
-
-import { PhotoGallery } from '@/components/PhotoGallery/PhotoGallery';
 import { About, Hero } from "@/sections/about/history/index";
 
 export default function HistoryPage() {
@@ -9,7 +8,7 @@ export default function HistoryPage() {
       <Hero />
       <div className={styles.wrapper}>
         <About />
-        <PhotoGallery />
+        {/* <Gallery gallery={} /> */}
       </div>
     </div>
   );

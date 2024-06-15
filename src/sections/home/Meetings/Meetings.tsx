@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Meetings.module.scss';
-import { unbounded } from '@/constants/fonts';
+import { halvar, unbounded } from '@/constants/fonts';
 import { Socials } from '@/components/Socials/Socials';
 
 const Meetings = () => {
   return (
     <section className={styles.section}>
-      <div className="container-small">
+      <div className="container">
         <div className={styles.wrapper}>
           <div className={styles.textContent}>
             <div className={styles.titleBox}>
-              <h2 className={`${styles.title} ${unbounded.className}`}>Хотим поближе<br />познакомиться<br />с вами</h2>
+              <h2 className={`${styles.title} ${halvar.className}`}>Хотим поближе<br />познакомиться<br />с вами</h2>
             </div>
             <div className={styles.textBox}>
               <p className={styles.text}>В мире часто бывает очень тяжело одному, когда вокруг суета, проблемы. Но Иисус Христос сделал все, для того, чтобы ты больше не оставался один на один с ними. Церковь – это место, где тебя принимают любым, молятся за твои проблемы и помогают ближе узнать Бога. </p>
@@ -20,8 +20,8 @@ const Meetings = () => {
           </div>
           <div className={styles.info}>
             <div className={styles.linkBox}>
-              <Link className={styles.link} href={'/about'}>
-                <span className={`${styles.linkTitle} ${unbounded.className}`}>
+              <Link className={styles.link} href={'/about/history'}>
+                <span className={`${styles.linkTitle} ${halvar.className}`}>
                   О церкви
                 </span>
                 <div className={styles.linkCircle}>

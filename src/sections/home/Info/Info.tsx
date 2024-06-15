@@ -3,17 +3,18 @@ import styles from './Info.module.scss';
 import { YearMessage } from '@/components/YearMessage/YearMessage';
 import { LastSpeeches } from '@/components/LastSpeeches/LastSpeeches';
 import { Calendar } from '@/components/Calendar/Calendar';
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 
 const InfoSection = () => {
   return (
     <section className={styles.section}>
       <div className="container-small">
-        <h2 className={`${styles.title} ${unbounded.className}`}>
-          Послание<br /> на год
-        </h2>
+
       </div>
       <div className="container">
+        <h2 className={`${styles.title} ${halvar.className}`}>
+          Послание<br /> на год
+        </h2>
         <div className={styles.wrapper}>
           <div className={styles.videos}>
             <YearMessage />

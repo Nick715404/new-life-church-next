@@ -1,12 +1,14 @@
-import { contactsAccordion } from '@/constants/accordion';
 import styles from './Accordion.module.scss';
 import { AccordionItem } from './AccordionItem';
+import { IAccordion } from '@/interfaces/accordion';
 
-const Accordion = () => {
+type AccordionProps = { data: IAccordion[], };
+
+const Accordion = ({ data }: AccordionProps) => {
   return (
     <div className={styles.accordion}>
       {
-        contactsAccordion.map(item => (
+        data.map(item => (
           <AccordionItem key={item.id} data={item} />
         ))
       }

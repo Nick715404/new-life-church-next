@@ -5,30 +5,18 @@ import styles from './Nav.module.scss';
 import { INavLink } from '@/interfaces/links';
 import { SubMenu } from '@/components/SubMenu/SubMenu';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useClickOutside } from '@/hooks/useClickOutside';
 
-interface IProps {
-  data: INavLink;
-}
+interface IProps { data: INavLink, }
 
 const NavLink = ({ data }: IProps) => {
   const [menu, setMenu] = useState<boolean>(false);
   const { subMenu, children } = data;
 
-  const onClickMenu = () => {
-    setMenu(!menu);
-  }
-
-  const onMouseEnter = () => {
-    setMenu(true);
-  }
-
-  const onMouseLeave = () => {
-    setMenu(false);
-  }
+  const onMouseEnter = () => setMenu(true);
+  const onMouseLeave = () => setMenu(false);
 
   return (
     <div

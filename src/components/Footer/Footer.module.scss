@@ -3,8 +3,21 @@
   color: #fff;
   background-color: #191919;
 
+  @media (max-width: 1070px) {
+    padding: 80px 0;
+  }
+
   @media (max-width: 768px) {
     padding: 100px 0;
+  }
+
+  .mobileFooter {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+
   }
 
   .wrapper {
@@ -12,10 +25,13 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 35px;
+    
+    @media (max-width: 1070px) {
+      flex-direction: column;
+    }
 
     @media (max-width: 768px) {
-      flex-direction: column-reverse;
-      gap: 40px;
+      display: none;
     }
 
     .meta {
@@ -32,21 +48,8 @@
         margin-bottom: 48px;
       }
 
-      .info {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        margin-bottom: 48px;
-
-        .infoText {
-          font-size: clamp(1.25rem, 1.1875rem + 0.3125vw, 1.5625rem);
-          color: #fff;
-        }
-
-      }
-
       .socials {
-        margin-bottom: 10px;
+        margin-bottom: 40px;
       }
 
     }
@@ -54,7 +57,8 @@
     .linksColumns {
       display: flex;
       justify-content: space-between;
-      width: 65%;
+      gap: 30px;
+      width: 60%;
 
       @media (max-width: 768px) {
         width: 100%;
@@ -89,7 +93,7 @@
 
         .linkListTitle {
           text-transform: uppercase;
-          margin-bottom: 32px;
+          margin-bottom: 22px;
 
           @media (max-width: 430px) {
             margin-bottom: 10px;
@@ -101,6 +105,37 @@
 
     }
 
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 48px;
+
+    .infoText {
+      font-size: 18px;
+      color: #fff;
+    }
+
+  }
+
+  .metaTitle {
+    display: block;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  .metaWrapper {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .logoWrapper {
+    margin-bottom: 30px;
   }
 
 }

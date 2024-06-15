@@ -7,6 +7,7 @@ type TButtonOwnProps<E extends ElementType = ElementType> = {
   style: 'black' | 'white' | boolean;
   text: string;
   as?: E,
+  accent?: boolean,
 }
 
 type TButtonProps<E extends ElementType> = TButtonOwnProps<E> & Omit<ComponentProps<E>, keyof TButtonOwnProps>;
@@ -17,6 +18,7 @@ function DonationButton<E extends ElementType = typeof defaultElement>({
   style,
   text,
   as,
+  accent,
   ...otherProps
 }: TButtonProps<E>) {
   const handleClassName = style === 'black' ? `${styles.donationButton} ${styles.black}` : `${styles.donationButton}`;
@@ -24,7 +26,7 @@ function DonationButton<E extends ElementType = typeof defaultElement>({
 
   return (
     <div className={muller.className}>
-      <TagName className={handleClassName} {...otherProps}>
+      <TagName className={`${handleClassName} ${accent ? styles.accent : ''}`} {...otherProps}>
         {text}
       </TagName>
     </div>

@@ -6,6 +6,8 @@ import { ScheduleList } from "./ScheduleList";
 type ScheduleProps = { schedule: ISchedule[], };
 
 export function Schedule({ schedule }: ScheduleProps) {
+  if (schedule.length === 0) { return null };
+
   return (
     <section className={styles.section}>
       <div className="container-small">

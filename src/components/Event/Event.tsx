@@ -3,7 +3,7 @@
 import styles from './Event.module.scss';
 
 import { IEvent } from '@/interfaces/events';
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -33,7 +33,7 @@ const Event = ({ data }: IProps) => {
           <div className={styles.tag}>
             Событие
           </div>
-          <h2 className={`${styles.title} ${unbounded.className}`}>{data.title}</h2>
+          <h2 className={`${styles.title} ${halvar.className}`}>{data.title}</h2>
           <div className={styles.descriptionBox}>
             <p className={styles.description}>
               {data.description}

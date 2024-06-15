@@ -33,7 +33,7 @@
   position: static;
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 15px;
   gap: 8px;
   border-radius: 50px;
   border: 1px solid transparent;
@@ -58,9 +58,12 @@
 }
 
 .icon {
+  position: relative;
+  top: 1px;
   transition: all .15s ease;
 }
 
 .rotate {
   transform: rotate(-180deg);
+  top: 0 !important;
 }

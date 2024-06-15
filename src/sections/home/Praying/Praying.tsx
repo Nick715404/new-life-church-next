@@ -1,5 +1,5 @@
-import { unbounded } from '@/constants/fonts';
 import styles from './Praying.module.scss';
+import { halvar } from '@/constants/fonts';
 import { PrayingButton } from '@/components/PrayingButton/PrayingButton';
 
 const Praying = () => {
@@ -9,7 +9,7 @@ const Praying = () => {
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <div className={styles.titleBox}>
-              <h2 className={`${styles.title} ${unbounded.className}`}>
+              <h2 className={`${styles.title} ${halvar.className}`}>
                 У вас есть молитвенная<br />нужда или свидетельство?
               </h2>
             </div>

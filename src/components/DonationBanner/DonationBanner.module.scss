@@ -1,0 +1,64 @@
+.section {
+  padding-bottom: 150px;
+
+  @media (max-width: 768px) {
+    padding-bottom: 80px;
+  }
+
+  .wrapper {
+    background-color: #D9D9D9;
+    padding: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    aspect-ratio: 3.5 / 1;
+    max-height: 433px;
+
+    .info {
+      display: flex;
+      align-items: end;
+
+      .infoBox {
+        gap: 30px;
+      }
+
+      .btn {
+        text-transform: uppercase;
+        font-size: 18px;
+        border-radius: 100px;
+        padding: 0 30px;
+        height: 60px;
+        transition: all .15s ease;
+
+        &:hover {
+          background-color: #FFAC00;
+          color: #fff;
+        }
+
+      }
+
+      .infoBox,
+      .priceBox {
+        display: flex;
+      }
+
+      .priceBox {
+        flex-direction: column;
+        color: #fff;
+
+        .price {
+          font-size: clamp(30px, 4.5vw, 60px);
+        }
+
+      }
+
+    }
+
+    .title {
+      font-size: clamp(30px, 3.5vw, 50px);
+      color: #fff;
+    }
+
+  }
+
+}

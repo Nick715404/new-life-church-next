@@ -13,7 +13,7 @@ export interface IEvent {
   publishedAt: string;
   event_type: 'ukv' | 'youthUral' | 'teensUral' | 'bussiness';
   background: { data: IStrapiImage };
-  gallery?: { data: any };
+  gallery: { data: TGalleryImage[] };
   speakers: { data: ISpeakerData[] },
   schedules: { data: ISchedule[] }
 }
@@ -28,5 +28,27 @@ export interface ISchedule {
     createdAt: string,
     updatedAt: string,
     publishedAt: string,
+  }
+}
+
+export type TGalleryImage = {
+  id: number,
+  attributes: {
+    name: string,
+    alternativeText: null | string,
+    caption: null | string,
+    width: number,
+    height: number,
+    formats: [Object],
+    hash: string,
+    ext: string,
+    mime: string,
+    size: number,
+    url: string,
+    previewUrl: null | string,
+    provider: string,
+    provider_metadata: null | Object,
+    createdAt: string,
+    updatedAt: string
   }
 }

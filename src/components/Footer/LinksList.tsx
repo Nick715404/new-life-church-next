@@ -1,7 +1,7 @@
-import { INavLink } from '@/interfaces/links';
 import styles from './Footer.module.scss';
 import Link from 'next/link';
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
+import { INavLink } from '@/interfaces/links';
 
 interface IProps {
   data: INavLink[];
@@ -11,7 +11,7 @@ interface IProps {
 const LinksList = ({ data, title }: IProps) => {
   return (
     <div className={styles.linkList}>
-      <h4 className={`${styles.linkListTitle} ${unbounded.className}`}>{title}</h4>
+      <h4 className={`${styles.linkListTitle} ${halvar.className}`}>{title}</h4>
       {
         data.map((link: INavLink, index: number) => (
           <Link key={index} className={styles.link} href={link.path}>{link.label}</Link>

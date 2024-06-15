@@ -1,6 +1,5 @@
 import styles from './JoinUs.module.scss';
-
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import { Socials } from '@/components/Socials/Socials';
 
 const JoinUs = () => {
@@ -9,7 +8,7 @@ const JoinUs = () => {
       <div className="container">
         <div className={styles.wrapper}>
           <div className={styles.titleBox}>
-            <h2 className={`${styles.title} ${unbounded.className}`}>
+            <h2 className={`${styles.title} ${halvar.className}`}>
               Хотите<br /> присоединиться<br /> к нам в соц сетях?
             </h2>
           </div>

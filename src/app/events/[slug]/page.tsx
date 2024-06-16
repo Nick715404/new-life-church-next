@@ -22,12 +22,12 @@ export default async function EventPage({ params: { slug } }: EventPageProps) {
     <div className="event children-page">
       <EventHero description={data.description} title={data.title} />
       <EventSpeakers speakers={data.speakers} />
-      <Schedule schedule={data.schedules.data} />
+      {/* <Schedule schedule={data.schedules.data} /> */}
       <Gallery gallery={data.gallery.data} />
-      <DonationBanner 
-      increasedPrice={data.increase_price} 
-      increasedDate={data.increase_date} 
-      price={data.reg_price} />
+      {/* <DonationBanner
+        increasedPrice={data.increase_price}
+        increasedDate={data.increase_date}
+        price={data.reg_price} /> */}
     </div>
   );
 };

@@ -9,10 +9,12 @@
 
   @media (max-width: 1070px) {
     border-radius: 30px;
+    margin-bottom: 120px;
   }
 
   @media (max-width: 768px) {
     border-radius: 0 0 15px 15px;
+    margin-bottom: 80px;
   }
 
   .wrapper {
@@ -23,6 +25,14 @@
     padding-bottom: 16rem;
     max-width: 50%;
 
+    @media (max-width: 1070px) {
+      padding-bottom: 0;
+      justify-content: center;
+      align-items: center;
+      max-width: unset;
+      text-align: center;
+    }
+
     .tag {
       display: block;
       font-size: 16px;
@@ -31,7 +41,7 @@
     }
 
     .title {
-      font-size: clamp(40px, 5.5vw, 70px);
+      font-size: clamp(30px, 5.5vw, 70px);
       font-weight: 400;
       text-transform: uppercase;
       line-height: 1.2;
@@ -40,7 +50,7 @@
     }
 
     .text {
-      font-size: clamp(18px, 2.7vw, 22px);
+      font-size: clamp(16px, 2.7vw, 22px);
       line-height: 1.2;
 
     }

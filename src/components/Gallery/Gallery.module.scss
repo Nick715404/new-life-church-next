@@ -9,6 +9,15 @@
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 60px;
+
+    @media (max-width: 1070px) {
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 30px;
+    }
+
   }
 
   .grid {
@@ -17,12 +26,28 @@
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 30px;
     grid-row-gap: 30px;
+
+    @media (max-width: 1070px) {
+      grid-column-gap: 15px;
+      grid-row-gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
+
   }
 
   .grid>.card:nth-child(1) {
     grid-area: 1 / 1 / 4 / 3;
     max-height: 860px;
     aspect-ratio: 0.8 / 1;
+
+    @media (max-width: 768px) {
+      max-height: unset;
+    }
+
   }
 
   .grid>.card:nth-child(2) {
@@ -43,6 +68,15 @@
     width: 100%;
     border-radius: 50px;
     overflow: hidden;
+
+    @media (max-width: 1070px) {
+      border-radius: 30px;
+    }
+
+    @media (max-width: 768px) {
+      border-radius: 15px;
+      aspect-ratio: 0.8 / 1;
+    }
 
     .image {
       width: 100%;

@@ -15,6 +15,7 @@
     display: flex;
     align-items: flex-start;
     margin-bottom: 2.4rem;
+    gap: 2.5rem;
 
     &:last-child {
       margin-bottom: 0;
@@ -25,7 +26,6 @@
       align-items: center;
       gap: 20px;
       width: 18%;
-      border-bottom: 1px solid #DBDBDB;
       padding-bottom: 6px;
 
       .dayNumber {
@@ -92,7 +92,7 @@
 
         .description,
         .speaker {
-          font-size: clamp(22px, 2.5vw, 30px);
+          font-size: clamp(16px, 2.1vw, 30px);
         }
 
       }

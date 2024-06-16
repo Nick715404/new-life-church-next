@@ -35,6 +35,11 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+
+      @media (max-width: 1070px) {
+        width: 100%;
+      }
+
     }
 
     &::before {
@@ -78,6 +83,11 @@
 
   .btnBox {
     width: fit-content;
+
+    @media (max-width: 1070px) {
+      margin: 0 auto;
+    }
+
     @media (max-width: 500px) {
       width: 100%;
     }

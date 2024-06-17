@@ -4,6 +4,7 @@ import { YearMessage } from '@/components/YearMessage/YearMessage';
 import { LastSpeeches } from '@/components/LastSpeeches/LastSpeeches';
 import { Calendar } from '@/components/Calendar/Calendar';
 import { halvar } from '@/constants/fonts';
+import { MotionBox } from '@/components/MotionBox';
 
 const InfoSection = () => {
   return (
@@ -12,12 +13,16 @@ const InfoSection = () => {
 
       </div>
       <div className="container">
-        <h2 className={`${styles.title} ${halvar.className}`}>
-          Послание<br /> на год
-        </h2>
+        <MotionBox>
+          <h2 className={`${styles.title} ${halvar.className}`}>
+            Послание<br /> на год
+          </h2>
+        </MotionBox>
         <div className={styles.wrapper}>
           <div className={styles.videos}>
-            <YearMessage />
+            <MotionBox delay={0.2}>
+              <YearMessage />
+            </MotionBox>
             <LastSpeeches />
           </div>
           <div className={styles.calendar}>

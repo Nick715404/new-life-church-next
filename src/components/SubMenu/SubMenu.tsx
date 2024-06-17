@@ -30,6 +30,7 @@ const SubMenu = ({ status, children, subMenu, ref, setMenu }: TProps) => {
                   key={index}
                   className={styles.submenuLink}
                   href={item.path}
+                  onClick={setMenu}
                 >
                   {item.label}
                 </Link>

@@ -1,6 +1,7 @@
 import styles from './Praying.module.scss';
 import { halvar } from '@/constants/fonts';
 import { PrayingButton } from '@/components/PrayingButton/PrayingButton';
+import { MotionBox } from '@/components/MotionBox';
 
 const Praying = () => {
   return (
@@ -8,14 +9,14 @@ const Praying = () => {
       <div className="container">
         <div className={styles.wrapper}>
           <div className={styles.content}>
-            <div className={styles.titleBox}>
+            <MotionBox delay={0.1} className={styles.titleBox}>
               <h2 className={`${styles.title} ${halvar.className}`}>
                 У вас есть молитвенная<br />нужда или свидетельство?
               </h2>
-            </div>
-            <div className={styles.btnBox}>
+            </MotionBox>
+            <MotionBox delay={0.25} className={styles.btnBox}>
               <PrayingButton text='хочу поделиться' />
-            </div>
+            </MotionBox>
           </div>
         </div>
       </div>

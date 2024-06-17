@@ -3,8 +3,9 @@ import styles from './Calendar.module.scss';
 import { IDataFromStrapi } from '@/interfaces/queries';
 import { ICalendar } from '@/interfaces/calendar';
 import { CalendarItem } from './CalendarItem';
+import { MotionBox } from '../MotionBox';
 
-const Calendar = async () => {
+export const Calendar = async () => {
 
   const events = await fetchAllCalendarEvents();
 
@@ -12,11 +13,15 @@ const Calendar = async () => {
     <div className={styles.calendar}>
       {
         events && events.data.map(({ id, attributes }) => (
-          <CalendarItem key={id} data={attributes} />
+          <MotionBox
+            key={id}
+            delay={+`0.${id + 3}`}
+            sideAnimation
+          >
+            <CalendarItem data={attributes} />
+          </MotionBox>
         ))
       }
     </div>
   )
-}
-
-export { Calendar };
+};

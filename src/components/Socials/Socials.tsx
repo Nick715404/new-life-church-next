@@ -3,6 +3,7 @@ import styles from './Socials.module.scss';
 import { SOCIAL_LINKS } from '@/seo/constants';
 import { ISocialLink } from '@/interfaces/links';
 import { SocialItem } from './SocialItem';
+import { MotionBox } from '../MotionBox';
 
 interface IProps {
   mode?: 'gray' | 'dark' | 'white';
@@ -18,7 +19,9 @@ const Socials = ({ mode, size }: IProps) => {
       <ul className={styles.list} style={{ gap: `${gapSize}px` }}>
         {
           SOCIAL_LINKS.map((link: ISocialLink<string>, index: number) => (
-            <SocialItem key={index} data={link} mode={mode} size={size} />
+            <MotionBox key={index} delay={+`0.${index + 4}`}>
+              <SocialItem data={link} mode={mode} size={size} />
+            </MotionBox>
           ))
         }
       </ul>

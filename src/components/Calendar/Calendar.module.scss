@@ -8,7 +8,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 15%;
+      padding: 1.6rem 0;
     }
 
     @media (max-width: 768px) {
@@ -37,11 +37,6 @@
     align-items: center;
     margin-bottom: 10px;
 
-    @media (max-width: 1070px) {
-      width: 35%;
-      justify-content: space-between;
-    }
-
     @media (max-width: 768px) {
       justify-content: start;
       width: 100%;
@@ -55,8 +50,14 @@
     color: #008b8e;
     width: 7.2rem;
 
+    @media (max-width: 1070px) {
+      width: 8rem;
+      justify-content: space-between;
+    }
+
     @media (max-width: 768px) {
       font-size: 60px;
+      width: 7.2rem;
     }
 
   }
@@ -78,7 +79,7 @@
 
   .events {
     @media (max-width: 1070px) {
-      width: 65%;
+      width: 58%;
       justify-content: space-evenly;
     }
 

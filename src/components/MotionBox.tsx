@@ -8,10 +8,11 @@ type Props = {
   children: React.ReactNode,
   delay?: number,
   full?: boolean;
-  className?: string
+  className?: string,
+  sideAnimation?: boolean
 };
 
-export function MotionBox({ children, delay, full, className }: Props) {
+export function MotionBox({ children, delay, full, className, sideAnimation }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
@@ -22,13 +23,21 @@ export function MotionBox({ children, delay, full, className }: Props) {
     }
   }, [isInView]);
 
+  const views = {
+    sideView: {
+      hidden: { opacity: 0, x: 75 },
+      visible: { opacity: 1, x: 0 },
+    },
+    bottomView: {
+      hidden: { opacity: 0, y: 75 },
+      visible: { opacity: 1, y: 0 },
+    }
+  }
+
   return (
     <motion.div
       ref={ref}
-      variants={{
-        hidden: { opacity: 0, y: 75 },
-        visible: { opacity: 1, y: 0 },
-      }}
+      variants={sideAnimation ? views.sideView : views.bottomView}
       initial='hidden'
       animate={mainControls}
       transition={{ delay: delay }}

@@ -1,12 +1,6 @@
 import styles from './Footer.module.scss';
-
-import { Logo } from '../Logo/Logo';
 import { Socials } from '../Socials/Socials';
-
-import { halvar, unbounded } from '@/constants/fonts';
-import { CONTACT_INFO } from '@/seo/constants';
-
-import Link from 'next/link';
+import { halvar } from '@/constants/fonts';
 import { DonationButton } from '../DontaionButton/DontaionButton';
 
 const Meta = () => {

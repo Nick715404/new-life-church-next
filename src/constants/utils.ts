@@ -1,3 +1,6 @@
+import { CONTACT_INFO } from "@/seo/constants"
+import { navLinks } from "./links"
+
 export const FOUNDATION_DATA = [
   {
     id: 1,

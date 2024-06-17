@@ -1,4 +1,5 @@
 import { INavLink } from "@/interfaces/links";
+import { CONTACT_INFO } from "@/seo/constants";
 
 export const navLinks: INavLink[] = [
   {
@@ -47,5 +48,29 @@ export const navLinks: INavLink[] = [
     path: '/contacts',
     children: false,
     subMenu: [],
+  },
+];
+
+export const footerContactsInfo = [
+  {
+    label: CONTACT_INFO.EMAIL,
+    path: `mailto: ${CONTACT_INFO.EMAIL}`,
+    imgPath: '/img/svg/email.svg',
+  },
+  {
+    label: CONTACT_INFO.PHONE,
+    path: `tel: ${CONTACT_INFO.PHONE}`,
+    imgPath: '/img/svg/phone.svg',
+  },
+];
+
+export const footerAccordionData = [
+  {
+    title: 'Меню',
+    items: navLinks,
+  },
+  {
+    title: 'Контакты',
+    items: footerContactsInfo,
   },
 ]

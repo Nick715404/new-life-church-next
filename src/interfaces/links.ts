@@ -14,3 +14,9 @@ export interface ISocialLink<T> {
   tag: T;
   path: T;
 }
+
+export interface IFooterContactsInfo {
+  label: string,
+  path: string,
+  imgPath: string,
+};

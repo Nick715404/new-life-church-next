@@ -1,3 +1,6 @@
+import { CONTACT_INFO } from "@/seo/constants";
+import { INavLink } from "./links";
+
 export interface ILinksBlocks<T> {
   big: {
     label: string
@@ -25,3 +28,8 @@ export interface IFoudationData {
   title: string;
   text: string;
 }
+
+export interface IFooterAccordion {
+  links: INavLink[],
+  contacts: typeof CONTACT_INFO,
+};

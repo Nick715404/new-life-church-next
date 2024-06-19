@@ -46,6 +46,7 @@ const Event = ({ data }: IProps) => {
         src={`${process.env.NEXT_PUBLIC_STRAPI_IMAGE}${url}`}
         alt={data.title}
         fill
+        priority
       />
       <Link className={styles.link} href={`/events/${data.slug}`} />
     </div>

@@ -42,6 +42,7 @@ const CustomIframe = ({ src, thumb, alt }: IProps) => {
                 height={100}
                 src="/img/svg/play-btn.svg"
                 alt="Play Button"
+                priority
               />
             </button>
             {
@@ -52,6 +53,7 @@ const CustomIframe = ({ src, thumb, alt }: IProps) => {
                 src={`${process.env.NEXT_PUBLIC_STRAPI_IMAGE}${thumb}`}
                 alt={alt}
                 fill
+                priority
               />
             }
           </>

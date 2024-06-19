@@ -29,8 +29,9 @@ export function FooterAccordionItem({ links, icons, title }: FooterAccordionItem
           alt='Стрелочка аккордиона' />
       </div>
       {
-        active && <div className={styles.body}>
-          <LinkList links={links} icons={icons} />
+        active &&
+        <div className={styles.body}>
+          <LinkList links={links} />
         </div>
       }
     </div>

@@ -8,18 +8,15 @@
   }
 
   @media (max-width: 768px) {
-    padding: 100px 0;
+    padding: 50px 0;
   }
 
-  .mobileFooter {
-    display: none;
-
-    .logo {
-      margin-bottom: 25px;
-    }
+  .policy {
+    padding-top: 24px;
+    border-top: 1px solid #545454;
 
     @media (max-width: 768px) {
-      display: block;
+     display: none;
     }
 
   }
@@ -29,9 +26,11 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 35px;
+    margin-bottom: 130px;
     
     @media (max-width: 1070px) {
       flex-direction: column;
+      margin-bottom: 65px;
     }
 
     @media (max-width: 768px) {

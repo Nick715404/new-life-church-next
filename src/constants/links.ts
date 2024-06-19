@@ -4,7 +4,7 @@ import { CONTACT_INFO } from "@/seo/constants";
 export const navLinks: INavLink[] = [
   {
     label: 'О нас',
-    path: '/about',
+    path: '/about/foundation',
     children: true,
     subMenu: [
       {
@@ -31,12 +31,12 @@ export const navLinks: INavLink[] = [
     children: false,
     subMenu: [],
   },
-  // {
-  //   label: 'Служения',
-  //   path: '/services',
-  //   children: false,
-  //   subMenu: [],
-  // },
+  {
+    label: 'Служения',
+    path: '/services',
+    children: false,
+    subMenu: [],
+  },
   // {
   //   label: 'Обучение',
   //   path: '/education',

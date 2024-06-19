@@ -1,8 +1,7 @@
 import styles from './FooterAccordion.module.scss';
-import { footerContactsInfo } from "@/constants/links"
-import { IFooterContactsInfo, INavLink } from "@/interfaces/links"
-import Image from 'next/image';
 import Link from "next/link"
+import Image from 'next/image';
+import { IFooterContactsInfo, INavLink } from "@/interfaces/links"
 
 type LinkListProps = {
   links: INavLink[] | IFooterContactsInfo[],
@@ -11,7 +10,7 @@ type LinkListProps = {
 
 export function LinkList({ links, icons }: LinkListProps) {
 
-  if (icons) {
+  if ((links as IFooterContactsInfo[]).some(item => item.imgPath)) {
     return (
       <>
         {

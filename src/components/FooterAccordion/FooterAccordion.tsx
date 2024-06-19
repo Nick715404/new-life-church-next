@@ -8,6 +8,7 @@ export function FooterAccordion() {
       {
         footerAccordionData.map((item, index) => (
           <FooterAccordionItem
+            key={index}
             links={item.items}
             title={item.title} />
         ))

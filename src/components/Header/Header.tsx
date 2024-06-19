@@ -23,7 +23,7 @@ const Header = () => {
           <MotionBox delay={0.2}>
             <Nav />
           </MotionBox>
-          <MotionBox>
+          <MotionBox className={styles.button}>
             <DonationButton
               style={mode}
               text='Пожертвовать'

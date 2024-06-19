@@ -13,10 +13,6 @@
     font-size: 14px;
   }
 
-  @media (max-width: 1070px) {
-    display: none;
-  }
-
   &:hover {
     border-color: transparent;
     background-color: #FFAC00;
@@ -47,4 +43,8 @@
     background-color: #FFAC00;
   }
 
+}
+
+.full {
+  width: 100%;
 }

@@ -40,4 +40,10 @@
 
   }
 
+  .button {
+    @media (max-width: 1070px) {
+      display: none;
+    }
+  }
+
 }

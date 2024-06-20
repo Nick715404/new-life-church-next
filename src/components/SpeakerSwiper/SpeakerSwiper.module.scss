@@ -26,3 +26,9 @@
   margin-bottom: 10px;
   font-size: clamp(14px, 1.5vw, 18px);
 }
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

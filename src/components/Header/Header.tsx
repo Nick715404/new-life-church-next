@@ -1,17 +1,17 @@
 'use client';
 
 import styles from './Header.module.scss';
-
 import { Nav } from '../Nav/Nav';
 import { Logo } from '../Logo/Logo';
 import { MotionBox } from '../MotionBox';
 import { usePathname } from 'next/navigation';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { DonationButton } from '../DontaionButton/DontaionButton';
+import { usePathStyles } from './usePathStyles';
 
 const Header = () => {
   const pathname = usePathname();
-  const mode = pathname !== '/' ? 'black' : 'white';
+  const mode = usePathStyles({ pathname });
 
   return (
     <header className={styles.header}>

@@ -3,6 +3,7 @@ import { fetchSingleEvent } from "@/api/events";
 import { Gallery } from "@/components/Gallery/Gallery";
 import { EventHero, EventSpeakers, Schedule } from "@/sections/event";
 import { DonationBanner } from "@/components/DonationBanner/DonationBanner";
+import { BigDescription } from "@/components/BigDescription/BigDescription";
 
 type EventPageProps = { params: { slug: string, }, };
 
@@ -11,23 +12,24 @@ export async function generateMetadata({ params: { slug } }: EventPageProps): Pr
 
   return {
     title: data.title,
-    description: data.description,
+    description: data.small_description,
   };
 };
 
 export default async function EventPage({ params: { slug } }: EventPageProps) {
-  const { attributes: data } = await fetchSingleEvent(slug);
+  const { attributes: data } = await fetchSingleEvent(slug);  
 
   return (
     <div className="event children-page">
-      <EventHero description={data.description} title={data.title} />
+      <EventHero description={data.small_description} title={data.title} background={data.background.data} />
+      <BigDescription data={data.full_description} />
       <EventSpeakers speakers={data.speakers} />
-      {/* <Schedule schedule={data.schedules.data} /> */}
+      <Schedule schedule={data.schedules.data} />
       <Gallery gallery={data.gallery.data} />
-      {/* <DonationBanner
+      <DonationBanner
         increasedPrice={data.increase_price}
         increasedDate={data.increase_date}
-        price={data.reg_price} /> */}
+        price={data.reg_price} />
     </div>
   );
 };

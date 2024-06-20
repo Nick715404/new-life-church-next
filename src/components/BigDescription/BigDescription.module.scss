@@ -1,0 +1,31 @@
+.section {
+  margin-bottom: 150px;
+
+  @media (max-width: 1070px) {
+    margin-bottom: 120px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 80px;
+  }
+
+  .title {
+    font-size: clamp(1.875rem, 1.925rem + 1vw, 3.125rem);
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  .link {
+    text-decoration: underline;
+  }
+
+  .descriptionParagraph {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .list {
+    margin-bottom: 20px;
+  }
+
+}

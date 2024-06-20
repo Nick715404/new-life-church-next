@@ -9,9 +9,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface IProps {
-  data: IEvent;
-}
+interface IProps { data: IEvent, };
 
 const Event = ({ data }: IProps) => {
   const [onEvent, setOnEvent] = useState<boolean>();
@@ -36,7 +34,7 @@ const Event = ({ data }: IProps) => {
           <h2 className={`${styles.title} ${halvar.className}`}>{data.title}</h2>
           <div className={styles.descriptionBox}>
             <p className={styles.description}>
-              {data.description}
+              {data.small_description}
             </p>
           </div>
         </div>

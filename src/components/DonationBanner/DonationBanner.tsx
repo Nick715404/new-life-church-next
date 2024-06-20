@@ -4,8 +4,8 @@ import { halvar } from '@/constants/fonts';
 
 type DonationBannerProps = {
   price: number,
-  increasedPrice: number,
-  increasedDate: string,
+  increasedPrice: number | undefined,
+  increasedDate: string | undefined,
 };
 
 export function DonationBanner({ increasedPrice, price, increasedDate }: DonationBannerProps) {
@@ -18,7 +18,9 @@ export function DonationBanner({ increasedPrice, price, increasedDate }: Donatio
             <div className={styles.infoBox}>
               <div className={styles.priceBox}>
                 <span className={`${styles.price} ${halvar.className}`}>{price}₽</span>
-                <span className={styles.upgradedPrice}>с {increasedDate} цена - {increasedPrice}₽</span>
+                {
+                  increasedDate && increasedPrice && <span className={styles.upgradedPrice}>с {increasedDate} цена - {increasedPrice}₽</span>
+                }
               </div>
               <button className={styles.btn}>Зарегистрироваться</button>
             </div>

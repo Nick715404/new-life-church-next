@@ -6,6 +6,8 @@ import { MotionBox } from '@/components/MotionBox';
 export const EventsList = async () => {
   const events = await fetchEvents();
 
+  console.log(events);
+
   return (
     <MotionBox className={styles.wrapper} delay={0.2}>
       {

@@ -9,7 +9,7 @@ export const fetchEvents = async () => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/events?populate=*`, {
       ...options,
-      // next: { revalidate: 180 }
+      next: { revalidate: 180 }
     });
 
     if (!response.ok) throw new Error('Error to fetch events');
@@ -27,7 +27,7 @@ export const fetchSingleEvent = async (slug: string) => {
   const options = getOptions('GET');
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate=speakers.image&populate=schedules&populate=gallery`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate=background&populate=speakers.image&populate=schedules&populate=gallery`, {
       ...options,
       cache: 'no-cache'
     });

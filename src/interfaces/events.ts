@@ -1,13 +1,15 @@
 import { IStrapiImage } from "./queries"
 import { ISpeakerData } from "./speakers";
+import { IBigDescriptionChildren } from "./utils";
 
 export interface IEvent {
   title: string;
-  description: string;
+  small_description: string;
+  full_description: IBigDescriptionChildren[];
   slug: string;
   reg_price: number;
-  increase_date: string;
-  increase_price: number;
+  increase_date?: string;
+  increase_price?: number;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

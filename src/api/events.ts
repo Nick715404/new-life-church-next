@@ -2,6 +2,7 @@ import { IQueryFromStrapi, IQueryFromStrapiSingle } from "@/interfaces/queries";
 import { getOptions } from "./options";
 import { IEvent } from "@/interfaces/events";
 
+
 export const fetchEvents = async () => {
 
   const options = getOptions('GET');

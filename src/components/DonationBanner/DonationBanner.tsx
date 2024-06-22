@@ -1,14 +1,18 @@
 import Image from 'next/image';
 import styles from './DonationBanner.module.scss';
 import { halvar } from '@/constants/fonts';
+import { FormChooser, FormChooserButton } from '../Forms';
+import { IEventType } from '@/interfaces/events';
 
 type DonationBannerProps = {
   price: number,
   increasedPrice: number | undefined,
   increasedDate: string | undefined,
+  type: IEventType,
+  slug?: string,
 };
 
-export function DonationBanner({ increasedPrice, price, increasedDate }: DonationBannerProps) {
+export function DonationBanner({ increasedPrice, price, increasedDate, type, slug }: DonationBannerProps) {
   return (
     <section className={styles.section}>
       <div className="container">
@@ -19,10 +23,12 @@ export function DonationBanner({ increasedPrice, price, increasedDate }: Donatio
               <div className={styles.priceBox}>
                 <span className={`${styles.price} ${halvar.className}`}>{price}₽</span>
                 {
-                  increasedDate && increasedPrice && <span className={styles.upgradedPrice}>с {increasedDate} цена - {increasedPrice}₽</span>
+                  increasedDate &&
+                  increasedPrice &&
+                  <span className={styles.upgradedPrice}>с {increasedDate} цена - {increasedPrice}₽</span>
                 }
               </div>
-              <button className={styles.btn}>Зарегистрироваться</button>
+              <FormChooserButton type={type} slug={slug} />
             </div>
           </div>
         </div>

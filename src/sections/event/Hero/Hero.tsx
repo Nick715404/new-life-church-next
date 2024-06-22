@@ -22,9 +22,10 @@ export function EventHero({ description, title, background }: EventHeroProps) {
       </div>
       <Image
         className={styles.background}
-        fill
         src={`${process.env.NEXT_PUBLIC_STRAPI_IMAGE}${background.attributes.url}`}
-        alt={`Обложка события - ${title}`} />
+        alt={`Обложка события - ${title}`}
+        priority
+        fill />
     </section>
   );
 };

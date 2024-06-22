@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer/Footer";
 
 import { montserrat } from "@/constants/fonts";
 import { META_DATA } from "@/seo/constants";
+import { StoreProvider } from "@/store";
 
 export const metadata = META_DATA;
 
@@ -16,14 +17,16 @@ interface IProps {
 
 export default function RootLayout({ children }: IProps) {
   return (
-    <html lang="ru">
-      <body className={montserrat.className}>
-        <div className="page">
-          <Header />
-          {children}
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="ru">
+        <body className={montserrat.className}>
+          <div className="page">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

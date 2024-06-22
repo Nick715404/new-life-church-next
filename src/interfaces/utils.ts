@@ -72,3 +72,5 @@ export interface ParagraphElement {
 export type Element = HeadingElement | ListElement | ParagraphElement;
 
 export type IBigDescriptionChildren = Element | ListItemElement | LinkElement | TextElement;
+
+export type CustomFormData = { [key: string]: any, };

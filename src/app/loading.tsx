@@ -1,4 +1,4 @@
-import { unbounded } from "@/constants/fonts";
+import { halvar } from "@/constants/fonts";
 import { CSSProperties } from "react";
 
 const layoutStyles: CSSProperties = {
@@ -16,17 +16,14 @@ const layoutStyles: CSSProperties = {
 }
 
 const titleStyles: CSSProperties = {
-  fontSize: '60px',
+  fontSize: 'clamp(20px, 3.2vw, 60px)',
   textTransform: 'uppercase',
 }
 
 const Loading = () => {
   return (
     <div style={layoutStyles}>
-      <span
-        className={unbounded.className}
-        style={titleStyles}
-      >
+      <span className={halvar.className} style={titleStyles}>
         Загрузка...
       </span>
     </div>

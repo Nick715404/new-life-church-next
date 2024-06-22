@@ -17,7 +17,7 @@ export async function generateMetadata({ params: { slug } }: EventPageProps): Pr
 };
 
 export default async function EventPage({ params: { slug } }: EventPageProps) {
-  const { attributes: data } = await fetchSingleEvent(slug);  
+  const { attributes: data } = await fetchSingleEvent(slug);
 
   return (
     <div className="event children-page">
@@ -27,6 +27,8 @@ export default async function EventPage({ params: { slug } }: EventPageProps) {
       <Schedule schedule={data.schedules.data} />
       <Gallery gallery={data.gallery.data} />
       <DonationBanner
+        slug={slug}
+        type={data.event_type}
         increasedPrice={data.increase_price}
         increasedDate={data.increase_date}
         price={data.reg_price} />

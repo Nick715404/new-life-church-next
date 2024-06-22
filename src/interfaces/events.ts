@@ -13,12 +13,14 @@ export interface IEvent {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  event_type: 'ukv' | 'youthUral' | 'teensUral' | 'bussiness';
+  event_type: IEventType;
   background: { data: IStrapiImage };
   gallery: { data: TGalleryImage[] };
   speakers: { data: ISpeakerData[] },
   schedules: { data: ISchedule[] }
 }
+
+export type IEventType = 'укв' | 'юсурал' | 'тинсурал' | 'бизнесс' | 'гдб' | 'default';
 
 export interface ISchedule {
   id: number,
@@ -53,4 +55,10 @@ export type TGalleryImage = {
     createdAt: string,
     updatedAt: string
   }
+}
+
+export interface IEventInitialState {
+  price: number,
+  increasedPrice: number,
+  type: string,
 }

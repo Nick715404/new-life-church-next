@@ -6,7 +6,6 @@ import { ISpeaker } from '@/interfaces/speakers';
 type EventSpeakersProps = { speakers: ISpeaker, };
 
 export function EventSpeakers({ speakers }: EventSpeakersProps) {
-
   if (speakers.data.length === 0) {
     return null;
   };

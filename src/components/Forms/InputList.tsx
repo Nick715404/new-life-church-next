@@ -17,7 +17,7 @@ export const InputList = ({ register, errors }: InputListProps) => {
             {item.text ? <span>{item.text}</span> : null}
             <input
               className={styles.input}
-              {...register(item.id!, { required: `Поле ${item.placeholder} обязательно для заполнения` })}
+              {...register(item.id!, { required: `*Поле ${item.placeholder} обязательно для заполнения` })}
               placeholder={item.placeholder ? item.placeholder : ''}
               type={item.type} />
             {errors[item.id as keyof CustomFormData] && <span className={styles.error}>{`${errors[item.id as keyof CustomFormData]?.message}`}</span>}

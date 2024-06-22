@@ -2,13 +2,10 @@
 
 import styles from './Forms.module.scss';
 import { halvar } from '@/constants/fonts';
-import { useForm } from "react-hook-form";
 import { InputList } from './InputList';
 import { CustomFormData } from '@/interfaces/utils';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/store/store';
-import { useEffect } from 'react';
-import { fetchEvent } from '@/store/eventSlice';
+import { useForms } from './useForms';
+import Link from 'next/link';
 
 type StandartFormProps = {
   chidren?: React.ReactNode,
@@ -16,30 +13,26 @@ type StandartFormProps = {
 };
 
 export function StandartForm({ chidren, slug }: StandartFormProps) {
-  const { register, handleSubmit, formState: { errors } } = useForm<CustomFormData>({ mode: "onBlur" });
-  const price = useSelector((state: RootState) => state.event.price);
-  const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    dispatch(fetchEvent(slug));
-  }, [dispatch, slug]);
-
-  const onSubmit = (data: unknown) => {
-    console.log(data);
-    console.log(typeof data);
-  };
+  const { errors, handleSubmit, onSubmit, price, register } = useForms({ slug: slug });
 
   return (
     <div className={styles.formBox}>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.standartForm}>
         <h3 className={`${styles.formTitle} ${halvar.className}`}>Регистрация</h3>
         <InputList register={register} errors={errors} />
         {chidren}
         <label className={styles.checkboxLabel}>
-          <input type="checkbox" name="" id="" />
-          <span>Я согласен с политикой...</span>
+          <input
+            {...register('agreement', { required: '*Поставь галочку' })}
+            type="checkbox"
+            className={styles.agreementChecbox} />
+          <span>Я согласен с <Link href='/policy'>Политикой обработки персональных данных</Link></span>
         </label>
-        <span>{`Сумма ${price}р`}</span>
+        {
+          errors['agreement' as keyof CustomFormData] &&
+          <span className={styles.error}>{`${errors['agreement' as keyof CustomFormData]?.message}`}</span>
+        }
+        <span className={`${halvar.className} ${styles.price}`}>{`Сумма ${price}р`}</span>
         <button type="submit" className={styles.submitBtn}>Отправить</button>
       </form>
     </div>

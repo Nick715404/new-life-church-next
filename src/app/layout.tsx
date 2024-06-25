@@ -4,6 +4,7 @@ import "@/styles/swiper.scss";
 
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
+import Head from "next/head";
 
 import { montserrat } from "@/constants/fonts";
 import { META_DATA } from "@/seo/constants";

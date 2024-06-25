@@ -24,8 +24,18 @@
     line-height: 1.6;
   }
 
-  .list {
+  ol, ul {
+    margin-left: 20px;
+  }
+
+  ol {
     margin-bottom: 20px;
+    list-style: decimal;
+  }
+
+  ul {
+    margin-bottom: 20px;
+    list-style: disc;
   }
 
 }

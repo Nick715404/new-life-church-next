@@ -20,7 +20,7 @@ export default async function EventPage({ params: { slug } }: EventPageProps) {
   const { attributes: data } = await fetchSingleEvent(slug);
 
   return (
-    <div className="event children-page">
+    <main className="event children-page">
       <EventHero description={data.small_description} title={data.title} background={data.background.data} />
       <BigDescription data={data.full_description} />
       <EventSpeakers speakers={data.speakers} />
@@ -32,6 +32,6 @@ export default async function EventPage({ params: { slug } }: EventPageProps) {
         increasedPrice={data.increase_price}
         increasedDate={data.increase_date}
         price={data.reg_price} />
-    </div>
+    </main>
   );
 };

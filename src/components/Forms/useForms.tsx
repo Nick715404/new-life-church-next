@@ -19,7 +19,6 @@ export const useForms = ({ slug }: useFormsProps) => {
   }, [dispatch, slug]);
 
   const onSubmit = (data: CustomFormData) => {
-    data.price = price;
     console.log(data);
   };
 

@@ -4,7 +4,7 @@ import { Hero, Events, InfoSection, Meetings, Praying, JoinUs } from '@/sections
 
 export default function HomePage() {
   return (
-    <div className='home children-page'>
+    <main className='home children-page'>
       <Hero />
       <div className={styles.whiteBox}>
         <Meetings />
@@ -13,6 +13,6 @@ export default function HomePage() {
         <Praying />
         <JoinUs />
       </div>
-    </div>
+    </main>
   );
 }

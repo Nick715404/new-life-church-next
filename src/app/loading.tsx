@@ -16,17 +16,17 @@ const layoutStyles: CSSProperties = {
 }
 
 const titleStyles: CSSProperties = {
-  fontSize: 'clamp(20px, 3.2vw, 60px)',
+  fontSize: 'clamp(20px, 2.2vw, 60px)',
   textTransform: 'uppercase',
 }
 
 const Loading = () => {
   return (
-    <div style={layoutStyles}>
+    <main style={layoutStyles}>
       <span className={halvar.className} style={titleStyles}>
         Загрузка...
       </span>
-    </div>
+    </main>
   );
 };
 

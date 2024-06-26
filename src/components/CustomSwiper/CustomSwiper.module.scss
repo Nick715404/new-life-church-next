@@ -4,6 +4,15 @@
   .slide {
     aspect-ratio: 1.4 / 1 !important;
     max-height: 300px !important;
+
+    @media (max-width: 1070px) {
+      aspect-ratio: unset;
+    }
+
+    @media (max-width: 768px) {
+      
+    }
+
   }
 
 }

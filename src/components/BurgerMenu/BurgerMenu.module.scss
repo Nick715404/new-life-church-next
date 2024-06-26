@@ -163,9 +163,28 @@
 
 }
 
+.childrenLinksList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.linkWithMenu {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.linkLayout {
+  text-align: center;
+}
+
 .submenuLink {
   color: #fff !important;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .open {

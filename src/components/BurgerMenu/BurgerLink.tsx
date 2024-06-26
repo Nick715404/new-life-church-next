@@ -3,21 +3,23 @@
 import styles from './BurgerMenu.module.scss';
 
 import { INavLink } from "@/interfaces/links"
-
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-type Props = {
-  data: INavLink;
-}
+type Props = { data: INavLink; onClose: () => any };
 
-const BurgerLink = ({ data }: Props) => {
+const BurgerLink = ({ data, onClose }: Props) => {
   const [menu, setMenu] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setMenu(!menu);
+    onClose();
+  }
 
   if (data.children) {
     return (
-      <li onClick={() => setMenu(!menu)} className={styles.linkLayout}>
+      <li onClick={() => setMenu(!menu)} className={menu ? `${styles.linkLayout} ${styles.linkWithMenu}` : styles.linkLayout}>
         <button className={styles.link}>
           <span>{data.label}</span>
           <Image
@@ -30,9 +32,9 @@ const BurgerLink = ({ data }: Props) => {
         </button>
         {
           menu ?
-            <ul>
+            <ul className={styles.childrenLinksList}>
               {data.subMenu.map((item, index) => (
-                <li className={styles.subMenuLayout} key={index}>
+                <li onClick={handleClick} className={styles.subMenuLayout} key={index}>
                   <Link className={styles.submenuLink} href={item.path}>{item.label}</Link>
                 </li>
               ))}
@@ -44,10 +46,8 @@ const BurgerLink = ({ data }: Props) => {
   }
 
   return (
-    <li className={styles.linkLayout}>
-      <Link className={styles.link} href={data.path}>
-        {data.label}
-      </Link>
+    <li onClick={handleClick} className={styles.linkLayout}>
+      <Link className={styles.link} href={data.path}>{data.label}</Link>
     </li>
   )
 }

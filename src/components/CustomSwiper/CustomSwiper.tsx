@@ -25,15 +25,16 @@ const CustomSwiper = ({ data }: IProps) => {
       className={styles.customSwiper}
       breakpoints={{
         320: {
-          slidesPerView: 1.2,
+          slidesPerView: 1.1,
           spaceBetween: 14,
           centeredSlides: true
         },
         768: {
-          slidesPerView: 1.5,
-          spaceBetween: 26,
+          slidesPerView: 1.3,
+          spaceBetween: 14,
+          centeredSlides: true
         },
-        900: {
+        1070: {
           slidesPerView: 2,
           centeredSlides: false
         }

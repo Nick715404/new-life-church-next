@@ -1,14 +1,13 @@
 "use client";
 
-import React from 'react';
+import styles from './BigDescription.module.scss';
 import { Rerender } from '.';
 import { halvar } from '@/constants/fonts';
-import styles from './BigDescription.module.scss';
 import { IBigDescriptionChildren, Element, ListItemElement, LinkElement } from "@/interfaces/utils";
 
 type BigDescriptionProps = { data: IBigDescriptionChildren[] };
 
-export const BigDescription: React.FC<BigDescriptionProps> = ({ data }) => {
+export const BigDescription = ({ data }: BigDescriptionProps) => {
   return (
     <section className={styles.section}>
       <div className="container">

@@ -61,4 +61,5 @@ export interface IEventInitialState {
   price: number,
   increasedPrice: number,
   type: string,
+  title: string,
 }

@@ -13,7 +13,7 @@ type StandartFormProps = {
 };
 
 export function StandartForm({ chidren, slug }: StandartFormProps) {
-  const { errors, handleSubmit, onSubmit, price, register } = useForms({ slug: slug });
+  const { errors, handleSubmit, onSubmit, price, register, isValid } = useForms({ slug: slug });
 
   return (
     <div className={styles.formBox}>
@@ -33,7 +33,11 @@ export function StandartForm({ chidren, slug }: StandartFormProps) {
           <span className={styles.error}>{`${errors['agreement' as keyof CustomFormData]?.message}`}</span>
         }
         <span className={`${halvar.className} ${styles.price}`}>{`Сумма ${price}р`}</span>
-        <button type="submit" className={styles.submitBtn}>Отправить</button>
+        <button
+          disabled={!isValid}
+          type='submit'
+          className={styles.submitBtn}>
+          Отправить</button>
       </form>
     </div>
   );

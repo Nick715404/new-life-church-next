@@ -17,7 +17,7 @@ const renderChildren = (children: (TextElement | ListItemElement | LinkElement |
   });
 };
 
-export const Rerender: React.FC<RendererProps> = ({ element }) => {
+export const Rerender = ({ element }: RendererProps) => {
   if (element.type === 'list-item') {
     return <li>{renderChildren(element.children)}</li>;
   }

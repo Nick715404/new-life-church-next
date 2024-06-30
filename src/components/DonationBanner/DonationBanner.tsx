@@ -31,9 +31,9 @@ export function DonationBanner({ increasedPrice, price, increasedDate, type, slu
               <FormChooserButton type={type} slug={slug} />
             </div>
           </div>
+          <Image className={styles.img} priority fill src="/img/png/praying-home-section.png" alt="" />
         </div>
       </div>
-      {/* <Image src={} alt='' /> */}
     </section>
   );
 };

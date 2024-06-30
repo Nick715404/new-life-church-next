@@ -8,6 +8,7 @@ const initialState: IEventInitialState = {
   increasedPrice: 0,
   price: 0,
   type: 'default',
+  title: '',
 }
 
 export const fetchEvent = createAsyncThunk(
@@ -28,20 +29,19 @@ export const fetchEvent = createAsyncThunk(
 )
 
 export const eventSlice = createSlice({
-  name: 'counter',
+  name: 'event',
   initialState,
   reducers: {
     addData: (state, action) => state = action.payload,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchEvent.pending, (state, action) => {})
       .addCase(fetchEvent.fulfilled, (state, action) => {
         state.increasedPrice = action.payload.attributes.increase_price!;
         state.price = action.payload.attributes.reg_price;
         state.type = action.payload.attributes.event_type;
+        state.title = action.payload.attributes.title;
       })
-      .addCase(fetchEvent.rejected, (state, action) => {})
   }
 })
 

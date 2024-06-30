@@ -31,6 +31,10 @@ export function SpeakerSwiper({ slides }: SpeakerSwiperProps) {
           centeredSlides: false,
         },
         1070: {
+          slidesPerView: 2.8,
+          spaceBetween: 50,
+        },
+        1170: {
           slidesPerView: 3.8,
           spaceBetween: 50,
         },

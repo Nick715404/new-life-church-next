@@ -12,16 +12,16 @@ export const META_DATA: Metadata = {
 
 export const SOCIAL_LINKS: ISocialLink<string>[] = [
   {
-    tag: 'twitter',
-    path: 'https://vk.com/nicklllson',
+    tag: 'telegramm',
+    path: 'https://t.me/wolruschel',
   },
   {
-    tag: 'instagram',
-    path: 'https://vk.com/nicklllson',
+    tag: 'vk',
+    path: 'https://vk.com/newlifechel',
   },
   {
-    tag: 'facebook',
-    path: 'https://vk.com/nicklllson',
+    tag: 'youtube-icon',
+    path: 'https://www.youtube.com/@NewLifeChelTV',
   },
 ];
 

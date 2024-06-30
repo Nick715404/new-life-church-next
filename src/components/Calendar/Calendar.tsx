@@ -6,7 +6,6 @@ import { CalendarItem } from './CalendarItem';
 import { MotionBox } from '../MotionBox';
 
 export const Calendar = async () => {
-
   const events = await fetchAllCalendarEvents();
 
   return (
@@ -16,8 +15,7 @@ export const Calendar = async () => {
           <MotionBox
             key={id}
             delay={+`0.${id + 3}`}
-            sideAnimation
-          >
+            sideAnimation>
             <CalendarItem data={attributes} />
           </MotionBox>
         ))

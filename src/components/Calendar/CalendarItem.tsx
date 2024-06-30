@@ -1,14 +1,14 @@
 import styles from './Calendar.module.scss';
 
 import { ICalendar } from "@/interfaces/calendar";
+import { useCalendar } from './useCalendar';
 
 type Props = {
   data: ICalendar;
 }
 
 const CalendarItem = ({ data }: Props) => {
-
-  const className = data.isWeekend ? `${styles.item} ${styles.weekend}` : `${styles.item}`;
+  const className = useCalendar({ day: data.day, styles: styles });
 
   return (
     <div className={className}>

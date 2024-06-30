@@ -28,6 +28,11 @@
     color: #f28a91;
   }
 
+  .weekend .time {
+    background-color: #f28a9147;
+    color: #f28a91;
+  }
+
   .dateWrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -125,7 +130,6 @@
 
   .time {
     width: fit-content;
-    border: 1px solid #008b8e;
     border-radius: 500px;
     padding: 10px 20px;
     color: #008b8e;
@@ -136,6 +140,7 @@
     line-height: 100%;
     letter-spacing: .5px;
     text-transform: uppercase;
+    background-color: #008c8e3d;
 
     @media (max-width: 768px) {
       font-size: 16px;

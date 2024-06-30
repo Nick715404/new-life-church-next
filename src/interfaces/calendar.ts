@@ -6,5 +6,4 @@ export interface ICalendar {
   month: string;
   day: string;
   title: string;
-  isWeekend: boolean;
 }

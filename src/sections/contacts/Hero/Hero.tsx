@@ -22,9 +22,7 @@ const Hero = () => {
               <p>Воскресенье 10:00; 13:00, 16:00 -<br /> (молодёжное богослужение)</p>
             </div>
           </div>
-          <div className={styles.form}>
-            <ContactsForm />
-          </div>
+          <ContactsForm />
         </div>
       </div>
     </section>

@@ -3,38 +3,33 @@ import { TFormData } from "@/interfaces/forms"
 export const formThemesVariants = [
   {
     id: 1,
-    title: 'test1',
-    value: 'test1',
+    title: 'Служение',
+    value: 'Служение',
   },
   {
     id: 2,
-    title: 'test2',
-    value: 'test1',
+    title: 'Домашние группы',
+    value: 'Домашки',
   },
   {
     id: 3,
-    title: 'test3',
-    value: 'test1',
+    title: 'Мероприятия',
+    value: 'Мероприятия',
   },
   {
     id: 4,
-    title: 'test4',
-    value: 'test4',
+    title: 'Молитвенная нужда',
+    value: 'Молитв. нужда',
   },
   {
     id: 5,
-    title: 'test5',
-    value: 'test5',
+    title: 'Благодарение',
+    value: 'Благодарение',
   },
   {
     id: 6,
-    title: 'test6',
-    value: 'test6',
-  },
-  {
-    id: 7,
-    title: 'test7',
-    value: 'test7',
+    title: 'Свободная тема',
+    value: 'Свободная тема',
   },
 ]
 

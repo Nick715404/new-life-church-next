@@ -2,20 +2,21 @@
 
 import styles from './ContactsForm.module.scss';
 import { unbounded } from '@/constants/fonts';
-import { useFormHook } from '@/hooks/useForm';
-import { formThemesVariants } from '@/constants/form';
-import { useState } from 'react';
-import CustomSelect from './CustomSelect';
-import { log } from 'console';
 import { ErrorMessage } from './Error';
-
+import { useContactsForm } from './useContactsForm';
+import { CustomSelect } from '../CustomSelect/CustomSelect';
 
 const ContactsForm = () => {
-  const { register, reset, handleSubmit, formState: { errors } } = useFormHook();
-  const onSubmit = (data: unknown) => {
-    alert(JSON.stringify(data));
-    // console.log(JSON.stringify(data));
-    reset();
+  const { errors, handleSubmit, onSubmit, register, formStatus } = useContactsForm();
+
+  if (formStatus === 'sended') {
+    return (
+      <div className={`${styles.formBox} ${styles.sended}`}>
+        <h3 className={`${styles.title} ${unbounded.className}`}>
+          Спасибо, что поделились с нами!
+        </h3>
+      </div>
+    )
   }
 
   return (
@@ -24,7 +25,7 @@ const ContactsForm = () => {
         Обратная связь
       </h3>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <CustomSelect />
+        <CustomSelect register={register} />
         <label htmlFor="name">
           <input
             id='name'
@@ -66,6 +67,12 @@ const ContactsForm = () => {
         <textarea
           placeholder='Ваше сообщение'
           className={`${styles.textarea} ${styles.formItem}`}
+          {...register('description', {
+            maxLength: {
+              value: 280,
+              message: 'Максимальное допустимое значение символов - 280'
+            }
+          })}
         />
         <button className={styles.btn} type='submit'>
           Отправить

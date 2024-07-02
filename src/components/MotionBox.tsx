@@ -2,17 +2,17 @@
 
 import classNames from 'classnames';
 import { useEffect, useRef } from 'react';
-import { motion, useAnimation, useInView } from 'framer-motion';
+import { HTMLMotionProps, motion, useAnimation, useInView } from 'framer-motion';
 
-type Props = {
-  children: React.ReactNode,
-  delay?: number,
+type Props = HTMLMotionProps<'div'> & {
+  children: React.ReactNode;
+  delay?: number;
   full?: boolean;
-  className?: string,
-  sideAnimation?: boolean
+  className?: string;
+  sideAnimation?: boolean;
 };
 
-export function MotionBox({ children, delay, full, className, sideAnimation }: Props) {
+export function MotionBox({ children, delay, full, className, sideAnimation, ...otherProps }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
@@ -36,6 +36,7 @@ export function MotionBox({ children, delay, full, className, sideAnimation }: P
 
   return (
     <motion.div
+      {...otherProps}
       ref={ref}
       variants={sideAnimation ? views.sideView : views.bottomView}
       initial='hidden'

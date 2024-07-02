@@ -1,5 +1,5 @@
 import styles from './TextRow.module.scss';
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import { IFoudationData } from '@/interfaces/utils';
 
 interface IProps {
@@ -10,10 +10,10 @@ const TextRow = ({ data }: IProps) => {
   return (
     <div className={styles.textRow}>
       <div className={styles.wrapper}>
-        <span className={`${styles.id} ${unbounded.className}`}>
+        <span className={`${styles.id} ${halvar.className}`}>
           {`0${data.id}`}
         </span>
-        <span className={`${styles.title} ${unbounded.className}`}>
+        <span className={`${styles.title} ${halvar.className}`}>
           {data.title}
         </span>
       </div>

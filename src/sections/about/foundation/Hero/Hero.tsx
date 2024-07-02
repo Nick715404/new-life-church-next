@@ -1,6 +1,5 @@
 import styles from './Hero.module.scss';
-import { unbounded } from '@/constants/fonts';
-import Image from 'next/image';
+import { halvar } from '@/constants/fonts';
 
 const Hero = () => {
   return (
@@ -8,7 +7,7 @@ const Hero = () => {
       <div className="container">
         <div className={styles.wrapper}>
           <span className={styles.subtitle}>Основание веры</span>
-          <h1 className={`${styles.title} ${unbounded.className}`}>
+          <h1 className={`${styles.title} ${halvar.className}`}>
             ОСНОВАНИЕ<br /> НАШЕЙ ВЕРЫ
           </h1>
         </div>

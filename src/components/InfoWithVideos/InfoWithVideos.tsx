@@ -1,4 +1,4 @@
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import styles from './InfoWithVideos.module.scss';
 
 interface IProps {
@@ -16,7 +16,7 @@ const InfoWithVideos = ({ title, text, videos, id }: IProps) => {
     <section id={id} className={styles.section}>
       <div className="container">
         <div className={styles.content}>
-          <h2 className={`${styles.title} ${unbounded.className}`}>
+          <h2 className={`${styles.title} ${halvar.className}`}>
             {title}
           </h2>
           <p className={styles.text}>{text}</p>

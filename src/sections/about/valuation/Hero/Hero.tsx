@@ -1,6 +1,7 @@
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import styles from './Hero.module.scss';
 import { LinksBlocks } from '@/components/LinksBlocks/LinksBlocks';
+import { MotionBox } from '@/components/MotionBox';
 
 const info = {
   big: {
@@ -30,13 +31,19 @@ const Hero = () => {
       <div className="container">
         <div className={styles.wrapper}>
           <div className={styles.content}>
-            <span className={styles.breadcrumbs}>Ценности</span>
-            <h1 className={`${unbounded.className} ${styles.title}`}>1 церковь —<br /> 1 видение</h1>
-            <p className={styles.text}>С момента основания нашей церкви в 1995 году мы знали, что церковь «Слово жизни» будет большой, богослужения будут проходить в разных районах Москвы и области и что независимо от количества богослужений и удаленности друг от друга, церковь «Слово жизни» будет ОДНОЙ ЦЕРКОВЬЮ.</p>
+            <MotionBox delay={0.3}>
+              <span className={styles.breadcrumbs}>Ценности</span>
+            </MotionBox>
+            <MotionBox>
+              <h1 className={`${halvar.className} ${styles.title}`}>1 церковь —<br /> 1 видение</h1>
+            </MotionBox>
+            <MotionBox delay={0.2}>
+              <p className={styles.text}>С момента основания нашей церкви в 1995 году мы знали, что церковь «Слово жизни» будет большой, богослужения будут проходить в разных районах Москвы и области и что независимо от количества богослужений и удаленности друг от друга, церковь «Слово жизни» будет ОДНОЙ ЦЕРКОВЬЮ.</p>
+            </MotionBox>
           </div>
-          <div className={styles.links}>
+          <MotionBox delay={0.6} className={styles.links}>
             <LinksBlocks data={info} />
-          </div>
+          </MotionBox>
         </div>
       </div>
     </section>

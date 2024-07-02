@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './Pastors.module.scss';
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import { IPastor } from "@/interfaces/pastors";
 import Image from 'next/image';
 import { useState } from 'react';
@@ -30,11 +30,11 @@ const Pastor = ({ data }: TProps) => {
       </div>
       <div className={styles.itemContent}>
         <div className={styles.textBox}>
-          <h3 className={`${styles.title} ${unbounded.className}`}>{data.name}</h3>
+          <h3 className={`${styles.title} ${halvar.className}`}>{data.name}</h3>
           <span>{data.rank}</span>
         </div>
         <button className={styles.btn} onClick={handleClick}>
-          <span className={`${styles.linkTitle} ${unbounded.className}`}>
+          <span className={`${styles.linkTitle} ${halvar.className}`}>
             Подробнее
           </span>
           <div className={styles.linkCircle}>

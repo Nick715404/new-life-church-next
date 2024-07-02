@@ -17,7 +17,6 @@ export function EventHero({ description, title, background }: EventHeroProps) {
           <span className={styles.tag}>Событие</span>
           <h1 className={`${styles.title} ${unbounded.className}`}>{title}</h1>
           <p className={styles.text}>{description}</p>
-
         </div>
       </div>
       <Image

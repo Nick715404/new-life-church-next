@@ -16,6 +16,21 @@
     max-height: 433px;
     overflow: hidden;
 
+    @media (max-width: 1070px) {
+      padding: 30px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-height: unset;
+      aspect-ratio: 2.5 / 1;
+    }
+
+    @media (max-width: 786px) {
+      aspect-ratio: 0.8 / 1;
+      max-height: 420px;
+      width: 100%;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -47,6 +62,10 @@
 
       .infoBox {
         gap: 30px;
+        @media (max-width: 1070px) {
+          flex-direction: column;
+          gap: 10px;
+        }
       }
 
       .btn {
@@ -75,6 +94,11 @@
 
         .price {
           font-size: clamp(30px, 4.5vw, 60px);
+
+          @media (max-width: 1070px) {
+            font-size: 50px;
+          }
+
         }
 
       }

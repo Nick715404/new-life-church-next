@@ -10,11 +10,12 @@ export default function ThanksPage() {
     <main className="thanks children-page">
       <div className="container">
         <div className={styles.wrapper}>
-          <MotionBox>
+          <MotionBox className={styles.imgBox}>
             <Image
+              priority
               className={styles.image}
               width={840}
-              height={840}
+              height={385}
               src="/img/png/thanks-img.webp"
               alt="Спасибо за пожертвование" />
           </MotionBox>

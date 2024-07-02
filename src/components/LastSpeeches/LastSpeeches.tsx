@@ -3,8 +3,6 @@ import styles from './LastSpeeches.module.scss';
 import { CustomSwiper } from '../CustomSwiper/CustomSwiper';
 import { fetchAllLastSpeeches } from '@/api/last-speeches';
 import { unbounded } from '@/constants/fonts';
-
-import { Suspense } from 'react';
 import { MotionBox } from '../MotionBox';
 
 const LastSpeeches = async () => {

@@ -24,12 +24,7 @@ const Header = () => {
             <Nav />
           </MotionBox>
           <MotionBox className={styles.button}>
-            <DonationButton
-              style={mode}
-              text='Пожертвовать'
-              as='button'
-              type='button'
-            />
+            <DonationButton as="link" href="/donation" text="пожертвовать" style={mode} />
           </MotionBox>
           <BurgerMenu mode={mode} />
         </div>

@@ -1,15 +1,16 @@
 import styles from './DonationButton.module.scss';
-
 import { muller } from "@/constants/fonts";
 import classNames from 'classnames';
 import { ComponentProps, ElementType } from 'react';
+import Link from 'next/link';
 
 type TButtonOwnProps<E extends ElementType = ElementType> = {
-  style: 'black' | 'white' | boolean;
+  style: 'black' | 'white';
   text: string;
-  as?: E,
-  accent?: boolean,
-  full?: boolean,
+  as?: E;
+  accent?: boolean;
+  full?: boolean;
+  href?: string;
 }
 
 type TButtonProps<E extends ElementType> = TButtonOwnProps<E> & Omit<ComponentProps<E>, keyof TButtonOwnProps>;
@@ -22,6 +23,7 @@ function DonationButton<E extends ElementType = typeof defaultElement>({
   as,
   accent,
   full,
+  href,
   ...otherProps
 }: TButtonProps<E>) {
   const handleClassName = {
@@ -31,13 +33,21 @@ function DonationButton<E extends ElementType = typeof defaultElement>({
   };
   const TagName = as || defaultElement;
 
-  return (
-    <div className={muller.className}>
-      <TagName className={`${handleClassName.style} ${handleClassName.accent} ${handleClassName.full}`} {...otherProps}>
-        {text}
-      </TagName>
-    </div>
-  )
-};
+  if (TagName === 'link') {
+    return (
+      <Link href={href || '#'} passHref>
+        <div className={`${handleClassName.style} ${handleClassName.accent} ${handleClassName.full}`} {...otherProps}>
+          {text}
+        </div>
+      </Link>
+    );
+  }
 
-export { DonationButton }
+  return (
+    <TagName className={`${handleClassName.style} ${handleClassName.accent} ${handleClassName.full}`} {...otherProps}>
+      {text}
+    </TagName>
+  );
+}
+
+export { DonationButton };

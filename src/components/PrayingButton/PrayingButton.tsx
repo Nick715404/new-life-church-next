@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './PrayingButton.module.scss';
 
-import { montserrat, muller } from '@/constants/fonts';
+import { montserrat } from '@/constants/fonts';
 
 interface IProps {
   text: string;

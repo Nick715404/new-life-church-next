@@ -12,7 +12,7 @@ export const InputList = ({ register, errors }: InputListProps) => {
   return (
     <>
       {
-        formData.map((item, index) => (
+        formData.map((item: any, index) => (
           <label key={index} className={styles.label}>
             {item.text ? <span>{item.text}</span> : null}
             <input

@@ -1,7 +1,7 @@
 'use client';
 
+import { halvar } from '@/constants/fonts';
 import styles from './Accordion.module.scss';
-import { unbounded } from '@/constants/fonts';
 import { IAccordion } from "@/interfaces/accordion";
 import { useState } from 'react';
 
@@ -19,7 +19,7 @@ const AccordionItem = ({ data }: TProps) => {
       aria-description='Вопрос аккордиона'
     >
       <div className={styles.accordionHeading}>
-        <div className={`${styles.accordionTitle} ${unbounded.className}`}>
+        <div className={`${styles.accordionTitle} ${halvar.className}`}>
           {data.title}
         </div>
         <div className={styles.icon}>

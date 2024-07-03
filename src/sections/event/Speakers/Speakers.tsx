@@ -1,6 +1,6 @@
 import styles from './Speakers.module.scss';
 import { SpeakerSwiper } from '@/components/SpeakerSwiper/SpeakerSwiper';
-import { unbounded } from "@/constants/fonts";
+import { halvar } from "@/constants/fonts";
 import { ISpeaker } from '@/interfaces/speakers';
 
 type EventSpeakersProps = { speakers: ISpeaker, };
@@ -14,7 +14,7 @@ export function EventSpeakers({ speakers }: EventSpeakersProps) {
     <section className={styles.section}>
       <div className="container-small">
         <div className="relative">
-          <h2 className={`${unbounded.className} ${styles.title}`}>
+          <h2 className={`${halvar.className} ${styles.title}`}>
             Спикеры
           </h2>
           <SpeakerSwiper slides={speakers} />

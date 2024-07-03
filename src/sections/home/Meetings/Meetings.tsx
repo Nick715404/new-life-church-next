@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Meetings.module.scss';
-import { halvar, unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import { Socials } from '@/components/Socials/Socials';
 import { MotionBox } from '@/components/MotionBox';
 

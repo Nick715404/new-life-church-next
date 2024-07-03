@@ -1,8 +1,7 @@
-import { Accordion } from '@/components/Accordion/Accordion';
 import styles from './Questions.module.scss';
+import { Accordion } from '@/components/Accordion/Accordion';
 import { contactsAccordion } from '@/constants/accordion';
-
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import { MotionBox } from '@/components/MotionBox';
 
 const Questions = () => {
@@ -11,7 +10,7 @@ const Questions = () => {
       <div className="container-small">
         <div className={styles.wrapper}>
           <MotionBox className={styles.titleBox}>
-            <h2 className={`${styles.title} ${unbounded.className}`}>
+            <h2 className={`${styles.title} ${halvar.className}`}>
               Есть<br /> вопросы?
             </h2>
           </MotionBox>

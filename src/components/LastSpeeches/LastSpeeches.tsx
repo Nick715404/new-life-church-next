@@ -2,7 +2,7 @@ import styles from './LastSpeeches.module.scss';
 
 import { CustomSwiper } from '../CustomSwiper/CustomSwiper';
 import { fetchAllLastSpeeches } from '@/api/last-speeches';
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import { MotionBox } from '../MotionBox';
 
 const LastSpeeches = async () => {
@@ -11,7 +11,7 @@ const LastSpeeches = async () => {
   return (
     <div className={styles.lastSpeeches}>
       <MotionBox className={styles.titleBox}>
-        <h3 className={`${styles.title} ${unbounded.className}`}>
+        <h3 className={`${styles.title} ${halvar.className}`}>
           Последние<br /> проповеди
         </h3>
       </MotionBox>

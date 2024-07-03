@@ -33,7 +33,7 @@ export const formThemesVariants = [
   },
 ]
 
-export const formData: TFormData[] = [
+export const formData = [
   {
     type: 'text',
     placeholder: 'Фамилия',

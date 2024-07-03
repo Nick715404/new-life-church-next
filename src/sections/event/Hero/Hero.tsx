@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import styles from './Hero.module.scss';
-import { unbounded } from '@/constants/fonts';
+import Image from 'next/image';
+import { halvar } from '@/constants/fonts';
 import { IStrapiImage } from '@/interfaces/queries';
 
 type EventHeroProps = {
@@ -15,7 +15,7 @@ export function EventHero({ description, title, background }: EventHeroProps) {
       <div className="container-small">
         <div className={styles.wrapper}>
           <span className={styles.tag}>Событие</span>
-          <h1 className={`${styles.title} ${unbounded.className}`}>{title}</h1>
+          <h1 className={`${styles.title} ${halvar.className}`}>{title}</h1>
           <p className={styles.text}>{description}</p>
         </div>
       </div>

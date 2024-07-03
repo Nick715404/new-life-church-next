@@ -33,3 +33,67 @@ export const FOUNDATION_DATA = [
     text: 'Это то, что может искать каждый рожденный свыше человек, оно наполняет нас духовной силой для жизни и служения Господу. Одним из внешних знамений крещения Духом является говорение на новых языках.',
   },
 ]
+
+
+export const HISTORY_DATA = [
+  {
+    // - Элемент таба
+    number: 200,
+    subtitle: 'properties',
+    text: 'Nibh sed pulvinar proin gravida hendrerit lectus a. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a. Cursus metus aliquam.',
+    icon: '+',
+  },
+  {
+    // - Элемент таба
+    number: 300,
+    subtitle: 'clients',
+    text: 'Nibh sed pulvinar proin gravida hendrerit lectus a. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a. Cursus metus aliquam.',
+    icon: '+',
+  },
+  {
+    // - Элемент таба
+    number: 100,
+    subtitle: 'happy clients',
+    text: 'Nibh sed pulvinar proin gravida hendrerit lectus a. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a. Cursus metus aliquam.',
+    icon: '%',
+  },
+];
+
+export const donationData = [
+  {
+    title: 'Адрес',
+    text: "454006, г. Челябинск, ул. Красноармейская, дом 57",
+  },
+  {
+    title: 'ОГРН',
+    text: "1027400001200 выдан 13 июня 2007",
+  },
+  {
+    title: 'ИНН',
+    text: "7447017381",
+  },
+  {
+    title: 'КПП',
+    text: "745301001",
+  },
+  {
+    title: 'БИК',
+    text: "047501602",
+  },
+  {
+    title: 'КОР.СЧ.',
+    text: "30101810700000000602",
+  },
+  {
+    title: 'РАС.СЧЕТ',
+    text: "40703810972020100237",
+  },
+  {
+    title: 'БАНК',
+    text: "Челябинское отделение № 8597 г. Челябинск",
+  },
+  {
+    title: 'Назначение платежа',
+    text: "Добровольные пожертвования на уставную деятельность. НДС не облагается.",
+  },
+]

@@ -16,6 +16,7 @@ const Pastor = ({ data }: TProps) => {
   const handleClick = () => {
     setStatus(!status);
   }
+  
   return (
     <div id={`pastor-${data.id}`} className={styles.item}>
       <div className={styles.imgBox}>

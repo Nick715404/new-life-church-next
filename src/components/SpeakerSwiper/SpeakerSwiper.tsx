@@ -16,19 +16,19 @@ export function SpeakerSwiper({ slides }: SpeakerSwiperProps) {
       spaceBetween={20}
       breakpoints={{
         320: {
-          slidesPerView: 1.2,
+          slidesPerView: 1.15,
           spaceBetween: 20,
           centeredSlides: true,
         },
         640: {
           slidesPerView: 1.8,
           spaceBetween: 20,
-          centeredSlides: true,
+          centeredSlides: false,
         },
         768: {
           slidesPerView: 2.2,
           spaceBetween: 40,
-          centeredSlides: false,
+          // centeredSlides: false,
         },
         1070: {
           slidesPerView: 2.8,

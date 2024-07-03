@@ -57,6 +57,7 @@
       }
 
       .phoneLink {
+        display: block;
         margin-bottom: 15px;
         color: #191919;
       }
@@ -68,6 +69,11 @@
       }
 
     }
+
+    .formBox {
+      width: 40%;
+    }
+
 
   }
 

@@ -4,6 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { halvar } from '@/constants/fonts';
 import { MotionBox } from '@/components/MotionBox';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Спасибо - Церковь Слово Жизни г. Челябинск'
+}
 
 export default function ThanksPage() {
   return (

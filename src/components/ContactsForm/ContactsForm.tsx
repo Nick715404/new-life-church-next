@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './ContactsForm.module.scss';
-import { unbounded } from '@/constants/fonts';
+import { halvar,  } from '@/constants/fonts';
 import { ErrorMessage } from './Error';
 import { useContactsForm } from './useContactsForm';
 import { CustomSelect } from '../CustomSelect/CustomSelect';
@@ -12,7 +12,7 @@ const ContactsForm = () => {
   if (formStatus === 'sended') {
     return (
       <div className={`${styles.formBox} ${styles.sended}`}>
-        <h3 className={`${styles.title} ${unbounded.className}`}>
+        <h3 className={`${styles.title} ${halvar.className}`}>
           Спасибо, что поделились с нами!
         </h3>
       </div>
@@ -21,7 +21,7 @@ const ContactsForm = () => {
 
   return (
     <div className={styles.formBox}>
-      <h3 className={`${styles.title} ${unbounded.className}`}>
+      <h3 className={`${styles.title} ${halvar.className}`}>
         Обратная связь
       </h3>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>

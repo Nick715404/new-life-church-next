@@ -50,6 +50,10 @@
       text-align: center;
     }
 
+    @media (max-width: 768px) {
+      min-height: 85dvh;
+    }
+
     .tag {
       display: block;
       font-size: 16px;

@@ -10,12 +10,12 @@ const Meta = () => {
       <div className={styles.socials}>
         <Socials mode='white' size='small' />
       </div>
-      <div className="">
+      <div>
         <DonationButton
           style='white'
           text='Пожертвовать'
-          as='button'
-          type='button'
+          as='link'
+          href="/donation"
           accent
         />
       </div>

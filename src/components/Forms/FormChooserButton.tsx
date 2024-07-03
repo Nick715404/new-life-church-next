@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { Modal } from '../Modal/Modal';
 import styles from './Forms.module.scss';
 import { FormChooser } from './FormChooser';
+import { Modal } from '../Modal/Modal';
 import { IEventType } from '@/interfaces/events';
+import { useState } from 'react';
 
 type FormChooseButtonProps = { type: IEventType, slug?: string, };
 

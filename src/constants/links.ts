@@ -49,6 +49,12 @@ export const navLinks: INavLink[] = [
     children: false,
     subMenu: [],
   },
+  {
+    label: 'Документы',
+    path: '/docs',
+    children: false,
+    subMenu: [],
+  },
 ];
 
 export const footerContactsInfo = [

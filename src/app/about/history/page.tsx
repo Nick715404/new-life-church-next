@@ -1,6 +1,11 @@
-import { Gallery } from '@/components/Gallery/Gallery';
 import styles from './page.module.scss';
+import { Gallery } from '@/components/Gallery/Gallery';
 import { About, Hero } from "@/sections/about/history/index";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'История Церкви - Церковь Слово Жизни г. Челябинск'
+}
 
 export default function HistoryPage() {
   return (

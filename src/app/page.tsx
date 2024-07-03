@@ -1,6 +1,11 @@
 import styles from './page.module.scss';
+import { Metadata } from 'next';
 
 import { Hero, Events, InfoSection, Meetings, Praying, JoinUs } from '@/sections/home/index';
+
+export const metadata: Metadata = {
+  title: 'Главная - Церковь Слово Жизни г. Челябинск'
+}
 
 export default function HomePage() {
   return (

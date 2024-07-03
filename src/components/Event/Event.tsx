@@ -1,23 +1,16 @@
 'use client';
 
 import styles from './Event.module.scss';
-
-import { IEvent } from '@/interfaces/events';
-import { halvar } from '@/constants/fonts';
-
-import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useEvent } from './useEvent';
+import { halvar } from '@/constants/fonts';
+import { IEvent } from '@/interfaces/events';
 
 interface IProps { data: IEvent, };
 
 const Event = ({ data }: IProps) => {
-  const [onEvent, setOnEvent] = useState<boolean>();
-  const url = data.background.data.attributes.url;
-  const className = onEvent ? `${styles.event} ${styles.up}` : `${styles.event}`;
-
-  const handleMouseOn = () => setOnEvent(true);
-  const handleMouseLeave = () => setOnEvent(false);
+  const { className, handleMouseLeave, handleMouseOn, url } = useEvent({ data: data });
 
   return (
     <div

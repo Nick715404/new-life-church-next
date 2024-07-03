@@ -1,0 +1,23 @@
+.verse {
+  margin-bottom: 150px;
+
+  @media (max-width: 1070px) {
+    margin-bottom: 120px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 80px;
+  }
+
+  .verseTitle {
+    font-size: clamp(30px, 6vw, 50px);
+    margin-bottom: 45px;
+  }
+
+  .verseText {
+    line-height: 1.7;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+}

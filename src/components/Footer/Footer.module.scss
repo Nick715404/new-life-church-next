@@ -119,6 +119,11 @@
     .infoText {
       font-size: 18px;
       color: #fff;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
     }
 
   }

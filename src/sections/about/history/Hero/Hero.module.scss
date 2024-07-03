@@ -11,10 +11,12 @@
 
   @media (max-width: 1070px) {
     border-radius: 30px;
+    min-height: 60dvh;
   }
 
   @media (max-width: 768px) {
     border-radius: 0 0 15px 15px;
+    min-height: 50dvh;
   }
 
   .background {
@@ -42,6 +44,7 @@
     }
 
     .subtitle {
+      display: block;
       text-transform: uppercase;
       margin-bottom: 45px;
     }

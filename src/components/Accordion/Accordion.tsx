@@ -1,3 +1,4 @@
+import { MotionBox } from '../MotionBox';
 import styles from './Accordion.module.scss';
 import { AccordionItem } from './AccordionItem';
 import { IAccordion } from '@/interfaces/accordion';
@@ -9,7 +10,9 @@ const Accordion = ({ data }: AccordionProps) => {
     <div className={styles.accordion}>
       {
         data.map(item => (
-          <AccordionItem key={item.id} data={item} />
+          <MotionBox sideAnimation delay={+`0.${item.id}`} key={item.id}>
+            <AccordionItem data={item} />
+          </MotionBox>
         ))
       }
     </div>

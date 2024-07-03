@@ -1,5 +1,6 @@
+import { MotionBox } from '@/components/MotionBox';
 import styles from './Hero.module.scss';
-import { unbounded } from '@/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import Image from 'next/image';
 
 const Hero = () => {
@@ -7,8 +8,12 @@ const Hero = () => {
     <section className={styles.section}>
       <div className="container">
         <div className={styles.wrapper}>
-          <span className={styles.subtitle}>История церкви</span>
-          <h1 className={`${styles.title} ${unbounded.className}`}>История<br /> нашей церкви</h1>
+          <MotionBox delay={0.2}>
+            <span className={styles.subtitle}>История церкви</span>
+          </MotionBox>
+          <MotionBox>
+            <h1 className={`${styles.title} ${halvar.className}`}>История<br /> нашей церкви</h1>
+          </MotionBox>
         </div>
       </div>
       <Image

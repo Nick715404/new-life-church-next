@@ -26,7 +26,7 @@ export function StandartForm({ chidren, slug }: StandartFormProps) {
             {...register('agreement', { required: '*Поставь галочку' })}
             type="checkbox"
             className={styles.agreementChecbox} />
-          <span>Я согласен с <Link href='/policy'>Политикой обработки персональных данных</Link></span>
+          <span>Я согласен с <Link href='/docs'>Политикой обработки персональных данных</Link></span>
         </label>
         {
           errors['agreement' as keyof CustomFormData] &&

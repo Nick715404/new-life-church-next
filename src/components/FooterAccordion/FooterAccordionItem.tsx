@@ -14,7 +14,7 @@ type FooterAccordionItemProps = {
   icons?: boolean,
 }
 
-export function FooterAccordionItem({ links, icons, title }: FooterAccordionItemProps) {
+export function FooterAccordionItem({ links, title }: FooterAccordionItemProps) {
   const [active, setActive] = useState<boolean>(false);
 
   return (

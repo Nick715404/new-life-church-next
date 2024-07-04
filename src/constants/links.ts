@@ -59,8 +59,8 @@ export const navLinks: INavLink[] = [
 
 export const footerContactsInfo = [
   {
-    label: CONTACT_INFO.EMAIL,
-    path: `mailto: ${CONTACT_INFO.EMAIL}`,
+    label: 'Телеграм',
+    path: `${CONTACT_INFO.EMAIL}`,
     imgPath: '/img/svg/email.svg',
   },
   {

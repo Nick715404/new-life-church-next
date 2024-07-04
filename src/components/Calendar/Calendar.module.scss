@@ -62,7 +62,8 @@
 
     @media (max-width: 768px) {
       font-size: 60px;
-      width: 7.2rem;
+      width: 6.5rem;
+      margin-left: 10px;
     }
 
   }
@@ -126,6 +127,12 @@
 
   .timeWrapper {
     min-width: 7.2rem;
+
+    @media (max-width: 768px) {
+      width: 6.5rem;
+      margin-left: 10px;
+    }
+
   }
 
   .time {

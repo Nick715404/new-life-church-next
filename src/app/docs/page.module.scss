@@ -11,6 +11,10 @@
     z-index: 2;
     padding-bottom: 200px;
 
+    @media (max-width: 768px) {
+      padding-bottom: 80px;
+    }
+
     .subtitle {
       display: block;
       text-transform: uppercase;
@@ -18,7 +22,7 @@
     }
 
     .title {
-      font-size: clamp(35px, 5vw, 70px);
+      font-size: clamp(30px, 5vw, 70px);
       text-transform: uppercase;
     }
 
@@ -31,12 +35,22 @@
     margin: 0 auto;
     margin-bottom: 150px;
 
+    @media (max-width: 768px) {
+     align-items: center;
+     text-align: center;
+    }
+
     .link {
+      display: block;
       font-size: 30px;
       color: #191919;
       text-decoration: underline;
       text-transform: uppercase;
       transition: all .15s ease;
+
+      @media (max-width: 768px) {
+        font-size: 22px;
+      }
 
       &:hover {
         color: #FFAD01;

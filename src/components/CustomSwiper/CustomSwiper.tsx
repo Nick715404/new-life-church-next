@@ -27,16 +27,13 @@ const CustomSwiper = ({ data }: IProps) => {
         320: {
           slidesPerView: 1.1,
           spaceBetween: 14,
-          centeredSlides: true
         },
         768: {
           slidesPerView: 1.3,
           spaceBetween: 14,
-          centeredSlides: true
         },
         1070: {
           slidesPerView: 2,
-          centeredSlides: false
         }
       }}
     >

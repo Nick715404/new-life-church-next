@@ -1,9 +1,19 @@
+'use client'
+
 import styles from './JoinUs.module.scss';
 import { halvar } from '@/constants/fonts';
 import { Socials } from '@/components/Socials/Socials';
 import { MotionBox } from '@/components/MotionBox';
+import { useEffect, useState } from 'react';
 
 const JoinUs = () => {
+  const [width, setWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const windowWidth: number | undefined = window.screen.availWidth;
+    setWidth(windowWidth);
+  }, [width]);
+
   return (
     <div className={styles.joinUs}>
       <div className="container">
@@ -14,7 +24,11 @@ const JoinUs = () => {
             </h2>
           </MotionBox>
           <div className={styles.socials}>
-            <Socials mode='dark' size='big' />
+            {
+              width < 768 ?
+                <Socials size='medium' mode='dark' /> :
+                <Socials mode='dark' size='big' />
+            }
           </div>
         </div>
       </div>

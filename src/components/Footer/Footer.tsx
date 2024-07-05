@@ -1,7 +1,6 @@
-import { Logo } from '../Logo/Logo';
 import styles from './Footer.module.scss';
+import { Logo } from '../Logo/Logo';
 import { LinksColumns } from './LinksColumns';
-
 import { Meta } from './Meta';
 import { MobileFooter } from '../MobileFooter/MobileFooter';
 import { PrivacyPolicy } from '../PrivacyPolicy/PrivacyPolicy';

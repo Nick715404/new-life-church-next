@@ -11,7 +11,9 @@
   z-index: 9999;
 
   @media (max-width: 768px) {
-    position: absolute;
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    z-index: 99999999;
   }
 
   .wrapper {
@@ -25,7 +27,7 @@
 
     @media (max-width: 1070px) {
       border-radius: 30px;
-      padding: 20px 15px; 
+      padding: 20px 15px;
       margin: 0 10px;
     }
 
@@ -40,8 +42,8 @@
       background-color: transparent;
 
       @media (max-width: 768px) {
-       top: 18px;
-       right: 10px;
+        top: 18px;
+        right: 10px;
       }
 
     }

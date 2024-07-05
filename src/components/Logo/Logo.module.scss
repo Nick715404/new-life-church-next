@@ -10,6 +10,7 @@
 
   .img {
     transition: all .15s ease;
+    
     @media (max-width: 1281px) {
       width: 100% !important;
       height: auto;

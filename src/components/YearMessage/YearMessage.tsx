@@ -6,7 +6,6 @@ import { fetchYearMessage } from '@/api/year-message';
 export const YearMessage = async () => {
   const video = await fetchYearMessage();
   const thumbnail = video.attributes.thumbnail.data.attributes.url;
-  console.log(thumbnail);
 
   return (
     <div className={styles.yearMessage}>

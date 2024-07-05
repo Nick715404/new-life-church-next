@@ -50,7 +50,9 @@ const BurgerMenu = ({ mode }: IProps) => {
           </div>
         </div>
         <div className={styles.listBox}>
-          <BurgerMenuList onClose={() => setOpen(false)} />
+          <div className="container">
+            <BurgerMenuList onClose={() => setOpen(false)} />
+          </div>
         </div>
       </div>
     </>

@@ -138,25 +138,26 @@
 
   .listBox {
     height: 100%;
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
   }
 
   .list {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    gap: 18px;
 
     .link {
-      font-size: 20px;
+      font-size: 18px;
       color: #fff;
       background-color: transparent;
       display: flex;
       align-items: center;
       gap: 10px;
       transition: all .15s ease;
+      padding: 10px;
     }
 
   }
@@ -166,26 +167,23 @@
 .childrenLinksList {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 15px;
 }
 
 .linkWithMenu {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.linkLayout {
-  text-align: center;
+  gap: 10px;
 }
 
 .submenuLink {
-  color: #fff !important;
+  color: #ffffffa9 !important;
   font-size: 16px;
   padding: 10px 10px;
+}
+
+.youtube {
+  margin-top: 15px;
 }
 
 .open {

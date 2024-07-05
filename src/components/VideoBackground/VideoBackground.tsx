@@ -16,6 +16,7 @@ const VideoBackground = ({ src, isMuted, isAutoPlay, isLoop }: IProps<boolean>) 
         muted={isMuted}
         autoPlay={isAutoPlay}
         loop={isLoop}
+        playsInline
       />
     </div>
   )

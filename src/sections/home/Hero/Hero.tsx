@@ -1,6 +1,5 @@
-import { MotionBox } from '@/components/MotionBox';
 import styles from './Hero.module.scss';
-
+import { MotionBox } from '@/components/MotionBox';
 import { VideoBackground } from '@/components/VideoBackground/VideoBackground';
 import { halvar } from '@/constants/fonts';
 
@@ -20,7 +19,7 @@ const Hero = () => {
         </div>
       </div>
       <VideoBackground
-        src="/videos/placeholder.mp4"
+        src="/videos/main.mp4"
         isAutoPlay
         isLoop
         isMuted

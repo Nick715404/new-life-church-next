@@ -4,6 +4,9 @@
   .slide {
     aspect-ratio: 1.4 / 1 !important;
     max-height: 300px !important;
+    border-radius: 20px;
+    overflow: hidden;
+    max-height: 254px !important;
 
     @media (max-width: 1070px) {
       aspect-ratio: unset;

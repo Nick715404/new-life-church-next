@@ -41,6 +41,13 @@
     -webkit-transform: translateY(-90px);
     -ms-transform: translateY(-90px);
     transform: translateY(-90px);
+
+    @media (max-width: 768px) {
+      -webkit-transform: translateY(-45px);
+      -ms-transform: translateY(-45px);
+      transform: translateY(-45px);
+    }
+    
   }
 
   &::after {

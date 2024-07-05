@@ -38,8 +38,8 @@ const CustomIframe = ({ src, thumb, alt }: IProps) => {
             <button onClick={handleClick} className={styles.btn}>
               <Image
                 className={styles.playBtn}
-                width={100}
-                height={100}
+                width={80}
+                height={80}
                 src="/img/svg/play-btn.svg"
                 alt="Play Button"
                 priority

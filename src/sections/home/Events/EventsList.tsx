@@ -8,11 +8,9 @@ export const EventsList = async () => {
 
   return (
     <MotionBox className={styles.wrapper} delay={0.2}>
-      {
-        events && events.map(({ id, attributes }) => (
-          <Event key={id} data={attributes} />
-        ))
-      }
+      {events && events.map(({ id, attributes }) => (
+        <Event key={id} data={attributes} />
+      ))}
     </MotionBox>
   );
 };

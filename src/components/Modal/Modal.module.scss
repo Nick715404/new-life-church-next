@@ -19,11 +19,27 @@
     width: 100%;
     z-index: 99;
 
+    @media (max-width: 1070px) {
+      border-radius: 30px;
+      padding: 20px 15px; 
+      margin: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      border-radius: 15px;
+    }
+
     .close {
       position: absolute;
       top: 35px;
       right: 35px;
       background-color: transparent;
+
+      @media (max-width: 768px) {
+       top: 18px;
+       right: 10px;
+      }
+
     }
 
   }

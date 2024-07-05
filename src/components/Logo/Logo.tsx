@@ -5,8 +5,8 @@ import Image from "next/image";
 interface IProps { mode?: 'black' | boolean | 'white' };
 
 const Logo = ({ mode }: IProps) => {
-  const whiteLogo = "./img/svg/logo-white.svg";
-  const blackLogo = "./img/svg/logo-black.svg";
+  const whiteLogo = "/img/svg/logo-white.svg";
+  const blackLogo = "/img/svg/logo-black.svg";
 
   return (
     <Link className={styles.link} href='/'>

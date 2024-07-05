@@ -119,14 +119,14 @@ main {
   margin: 0 auto;
 
   @media (max-width: 768px) {
-    width: 90%;
+    width: 92%;
   }
 
 }
 
 .container {
   max-width: 1443px;
-  width: 92%;
+  width: 94%;
   margin: 0 auto;
 }
 
@@ -167,4 +167,8 @@ main {
 .donation,
 .docs {
   background-color: #fff;
+}
+
+.hidden {
+  overflow: hidden !important;
 }

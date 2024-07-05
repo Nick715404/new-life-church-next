@@ -16,7 +16,7 @@ const Hero = () => {
               <h1 className={`${styles.title} ${halvar.className}`}>Мы любим<br />Бога и людей</h1>
             </MotionBox>
             <MotionBox delay={0.2} className={styles.textBox}>
-              <p className={styles.text}>Nibh sed pulvinar proin gravida hendrerit lectus a. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a. Cursus metus aliquam.</p>
+              <p className={styles.text}>Рады показать вам нашу благословенную команду, которая служит людям и любит Господа.</p>
             </MotionBox>
           </div>
           <MotionBox delay={0.6}>

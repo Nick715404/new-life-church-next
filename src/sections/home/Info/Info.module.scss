@@ -22,6 +22,10 @@
     width: 65%;
     top: 5%;
 
+    @media (max-width: 1455px) {
+      width: 67%;
+    }
+
     @media (max-width: 1070px) {
       width: 100% !important;
       position: static;

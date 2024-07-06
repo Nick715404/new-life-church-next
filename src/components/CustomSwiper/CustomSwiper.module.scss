@@ -9,7 +9,8 @@
     max-height: 254px !important;
 
     @media (max-width: 1070px) {
-      aspect-ratio: unset;
+      aspect-ratio: 1.8 / 1 !important;
+      max-height: unset !important;
     }
 
     @media (max-width: 768px) {

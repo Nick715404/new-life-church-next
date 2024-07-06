@@ -1,0 +1,81 @@
+.formBox {
+  width: 100%;
+
+  .donateForm {
+    margin-bottom: 55px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 20px;
+    }
+
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (max-width: 1070px) {
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      gap: 14px;
+      justify-content: space-between;
+    }
+
+  }
+
+  .input {
+    border: 1px solid #B1B1B1;
+    border-radius: 100px;
+    padding: 21px 29px;
+    font-size: 18px;
+    width: 45%;
+
+    @media (max-width:1282px) {
+      padding: 15px 20px;
+      width: 60%;
+    }
+
+    @media (max-width: 1070px) {
+      width: 169px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 0;
+      width: 169px;
+    }
+
+    @media (max-width: 380px) {
+      font-size: 16px;
+      margin-bottom: 0;
+      width: 149px;
+    }
+
+  }
+
+  .button {
+    max-width: 60%;
+  }
+
+  .text {
+    @media (max-width: 1070px) {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+      text-align: left;
+    }
+
+    a {
+      color: #FFAD01;
+      text-decoration: underline;
+    }
+
+  }
+
+}

@@ -19,8 +19,8 @@ export default function ThanksPage() {
             <Image
               priority
               className={styles.image}
-              width={840}
-              height={385}
+              width={610}
+              height={245}
               src="/img/png/thanks-img.webp"
               alt="Спасибо за пожертвование" />
           </MotionBox>

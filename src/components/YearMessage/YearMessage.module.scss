@@ -10,6 +10,10 @@
     overflow: hidden;
     max-height: 511px;
 
+    @media (max-width: 1070px) {
+     aspect-ratio: 1.78 / 1; 
+    }
+
     @media (max-width: 768px) {
     border-radius: 13px; 
     }

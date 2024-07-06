@@ -8,10 +8,10 @@ export const PASTORS_TEAM = [
   },
   {
     id: 2,
-    name: 'Евгений Луканин',
+    name: 'Карина Давыдова',
     rank: 'Пастор церкви',
     description: '',
-    thumbnail: '/img/pastors/pastorEugene.jpg',
+    thumbnail: '/img/pastors/pastorKarina.png',
   },
   {
     id: 3,
@@ -47,5 +47,26 @@ export const PASTORS_TEAM = [
     rank: 'Детский пастор',
     description: '',
     thumbnail: '/img/pastors/pastorOlga.jpg',
+  },
+  {
+    id: 8,
+    name: 'Евгений Луканин ',
+    rank: 'Пастор церкви',
+    description: '',
+    thumbnail: '/img/pastors/pastorEugene.jpg ',
+  },
+  {
+    id: 9,
+    name: 'София Соколова',
+    rank: 'Лидер молодежного прославления',
+    description: '',
+    thumbnail: '/img/pastors/sofia.png',
+  },
+  {
+    id: 10,
+    name: 'Ксения Халиулина',
+    rank: 'Лидер прославления',
+    description: '',
+    thumbnail: '/img/pastors/ksenia.png',
   },
 ]

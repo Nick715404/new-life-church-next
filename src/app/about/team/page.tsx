@@ -2,7 +2,7 @@ import { Hero, Pastors } from '@/sections/about/team/index';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Команда - Церковь Слово Жизни г. Челябинск'
+  title: 'Команда'
 }
 
 export default function About() {

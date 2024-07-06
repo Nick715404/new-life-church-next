@@ -135,9 +135,27 @@
   width: 60%;
   max-width: unset !important;
 
+  br {
+    display: none;
+
+    @media (max-width: 1070px) {
+      display: block;
+    }
+
+  }
+
+  @media (max-width: 1070px) {
+    width: 100%;
+    text-align: center;
+    aspect-ratio: 1.5 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .title {
     color: rgb(62, 191, 62);
-    font-size: clamp(40px, 4vw, 60px);
+    font-size: clamp(30px, 4vw, 60px);
   }
 }
 

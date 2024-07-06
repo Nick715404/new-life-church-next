@@ -13,7 +13,7 @@ const ContactsForm = () => {
     return (
       <div className={`${styles.formBox} ${styles.sended}`}>
         <h3 className={`${styles.title} ${halvar.className}`}>
-          Спасибо, что поделились с нами!
+          Спасибо, что поделились <br /> с нами!
         </h3>
       </div>
     )

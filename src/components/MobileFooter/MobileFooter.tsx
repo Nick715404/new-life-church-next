@@ -21,11 +21,10 @@ export function MobileFooter({ }: MobileFooterProps) {
         <DonationButton
           style='white'
           text='Пожертвовать'
-          as='button'
-          type='button'
+          as='link'
+          href='/donation'
           accent
-          full
-        />
+          full />
       </div>
       <div className={styles.socials}>
         <Socials mode='white' size='small' />

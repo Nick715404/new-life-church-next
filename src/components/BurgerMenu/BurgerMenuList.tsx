@@ -19,12 +19,13 @@ export const BurgerMenuList = ({ onClose }: IProps) => {
       </li>
       <li className={styles.donateBtn}>
         <DonationButton
+          onClick={onClose}
           full
           style='white'
           accent
           text='Пожертвовать'
-          as='button'
-          type='button' />
+          as='link'
+          href='/donation' />
       </li>
     </ul>
   );

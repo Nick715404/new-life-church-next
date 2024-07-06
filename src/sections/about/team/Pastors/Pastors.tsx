@@ -13,7 +13,7 @@ const Pastors = () => {
               <h2 className={`${styles.title} ${halvar.className}`}>Пасторская<br />команда</h2>
             </MotionBox>
             <MotionBox delay={0.1}>
-              <p className={styles.text}>Nibh sed pulvinar proin gravida hendrerit lectus a. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a. Cursus metus aliquam.</p>
+              <p className={styles.text}>Люди, которые взяли ответсвенность за служения и посвещены в служение.</p>
             </MotionBox>
           </div>
           <PastorsList />

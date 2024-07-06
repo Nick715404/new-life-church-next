@@ -39,3 +39,24 @@ export const getPaymentStatus = async () => {
     throw new Error(error);
   }
 }
+
+type TDonation = {
+  price: number,
+}
+
+export const getDonation = async (data: TDonation) => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/orders/donation`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+
+    return await response.text();
+  }
+  catch (error: any) {
+    throw new Error(error);
+  }
+};

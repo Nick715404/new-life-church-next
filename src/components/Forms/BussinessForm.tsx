@@ -1,7 +1,14 @@
-type BussinessFormProps = {}
+import { StandartForm } from "./StandartForm";
+import { useForms } from "./useForms";
 
-export function BussinessForm({ }: BussinessFormProps) {
+type BussinessFormProps = { slug: string, };
+
+export function BussinessForm({ slug }: BussinessFormProps) {
+  const {register } = useForms({ slug: slug });
+
   return (
-    <div>BussinessForm</div>
+    <StandartForm slug={slug}>
+      <input {...register('occupation')} type="text" />
+    </StandartForm>
   );
 };

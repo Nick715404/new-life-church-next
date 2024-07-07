@@ -17,11 +17,11 @@ export const SOCIAL_LINKS: ISocialLink<string>[] = [
   },
   {
     tag: 'vk',
-    path: 'https://vk.com/newlifechel',
+    path: 'https://vk.com/wolrus.chel',
   },
   {
     tag: 'youtube-icon',
-    path: 'https://www.youtube.com/@NewLifeChelTV',
+    path: 'https://youtube.com/@wolruscheltv?si=EEPoRUHLjpU4aqez',
   },
 ];
 

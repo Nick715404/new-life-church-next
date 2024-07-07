@@ -8,11 +8,11 @@ import { useForms } from './useForms';
 import Link from 'next/link';
 
 type StandartFormProps = {
-  chidren?: React.ReactNode,
+  children?: React.ReactNode,
   slug: string,
 };
 
-export function StandartForm({ chidren, slug }: StandartFormProps) {
+export function StandartForm({ children, slug }: StandartFormProps) {
   const { errors, handleSubmit, onSubmit, price, register, isValid } = useForms({ slug: slug });
 
   return (
@@ -20,7 +20,7 @@ export function StandartForm({ chidren, slug }: StandartFormProps) {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.standartForm}>
         <h3 className={`${styles.formTitle} ${halvar.className}`}>Регистрация</h3>
         <InputList register={register} errors={errors} />
-        {chidren}
+        {children}
         <label className={styles.checkboxLabel}>
           <input
             {...register('agreement', { required: '*Поставь галочку' })}

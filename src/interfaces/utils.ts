@@ -82,4 +82,5 @@ export type CustomFormData = {
   firstName: string,
   lastName: string,
   phone: string,
+  occupation?: string,
 };

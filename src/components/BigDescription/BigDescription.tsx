@@ -10,7 +10,7 @@ type BigDescriptionProps = { data: IBigDescriptionChildren[] };
 export const BigDescription = ({ data }: BigDescriptionProps) => {
   return (
     <section className={styles.section}>
-      <div className="container">
+      <div className="container-small">
         <h2 className={`${halvar.className} ${styles.title}`}>Описание</h2>
         {data.map((element, index) => (
           <Rerender key={index} element={element as Element | ListItemElement | LinkElement} />

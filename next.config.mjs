@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        // hostname: 'chel.wolrus.org'
-        hostname: '127.0.0.1'
+        hostname: 'chel.wolrus.org'
+        // hostname: '127.0.0.1'
       }
     ]
   },

@@ -21,7 +21,7 @@ export const useForms = ({ slug }: useFormsProps) => {
     }),
     (prev, next) => prev.price === next.price && prev.title === next.title
   );
-  const description = `Регистрация на событие - ${eventData.title}`;
+  const description = "Добровольное пожертвование";
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {

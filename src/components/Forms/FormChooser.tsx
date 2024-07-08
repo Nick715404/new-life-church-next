@@ -9,7 +9,7 @@ export function FormChooser({ type, slug }: FormChooserProps) {
     case 'default':
       return <StandartForm slug={slug!} />;
     case 'бизнесс':
-      return <BussinessForm />;
+      return <BussinessForm slug={slug!} />;
     case 'гдб':
       return <GDBForm />;
     case 'тинсурал':

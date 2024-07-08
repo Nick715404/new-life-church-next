@@ -10,16 +10,11 @@ export const Calendar = async () => {
 
   return (
     <div className={styles.calendar}>
-      {
-        events && events.data.map(({ id, attributes }) => (
-          <MotionBox
-            key={id}
-            delay={+`0.${id + 3}`}
-            sideAnimation>
-            <CalendarItem data={attributes} />
-          </MotionBox>
-        ))
-      }
+      {events && events.data.map(({ id, attributes }) => (
+        <MotionBox key={id} delay={+`0.${id + 3}`} sideAnimation>
+          <CalendarItem data={attributes} />
+        </MotionBox>
+      ))}
     </div>
   )
 };

@@ -2,6 +2,7 @@ import styles from './Calendar.module.scss';
 
 import { ICalendar } from "@/interfaces/calendar";
 import { useCalendar } from './useCalendar';
+import { CalendarEvent } from './CalendarEvent';
 
 type Props = {
   data: ICalendar;
@@ -26,18 +27,9 @@ const CalendarItem = ({ data }: Props) => {
         </div>
       </div>
       <div className={styles.events}>
-        <div className={styles.event}>
-          <div className={styles.timeWrapper}>
-            <div className={styles.time}>
-              {data.time}
-            </div>
-          </div>
-          <div className={styles.descrWrapper}>
-            <div className={styles.title}>
-              {data.title}
-            </div>
-          </div>
-        </div>
+        {data.calendar_items.data.map(item => (
+          <CalendarEvent key={item.id} time={item.attributes.time} title={item.attributes.title} />
+        ))}
       </div>
     </div>
   )

@@ -102,13 +102,11 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    margin-top: 10px;
 
     @media (max-width: 768px) {
-      align-items: flex-start;
-    }
-
-    &:nth-child(2) {
-      margin-top: 10px;
+      align-items: center;
+      margin-top: 16px;
     }
 
   }
@@ -120,15 +118,17 @@
     text-transform: capitalize;
 
     @media (max-width: 768px) {
-      font-size: 20px;
+      font-size: 18px;
     }
 
   }
 
   .timeWrapper {
     min-width: 7.2rem;
+    display: block;
 
     @media (max-width: 768px) {
+      min-width: unset;
       width: 6.5rem;
       margin-left: 10px;
     }
@@ -136,6 +136,7 @@
   }
 
   .time {
+    display: block;
     width: fit-content;
     border-radius: 500px;
     padding: 10px 20px;

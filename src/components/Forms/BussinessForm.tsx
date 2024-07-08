@@ -1,5 +1,5 @@
 import { StandartForm } from "./StandartForm";
-import { useForms } from "./useForms";
+import { useForms } from "./useEventsForms";
 
 type BussinessFormProps = { slug: string, };
 

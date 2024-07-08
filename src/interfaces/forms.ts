@@ -6,7 +6,6 @@ export type TFormData = {
 }
 
 export type TPaymentForm = {
-  description: string,
   price: number,
   email: string,
   agreement: boolean,
@@ -15,4 +14,5 @@ export type TPaymentForm = {
   firstName: string,
   lastName: string,
   phone: string,
+  eventType: string,
 };

@@ -4,7 +4,7 @@ import styles from './Forms.module.scss';
 import { halvar } from '@/constants/fonts';
 import { InputList } from './InputList';
 import { CustomFormData } from '@/interfaces/utils';
-import { useForms } from './useForms';
+import { useEventsForms } from './useEventsForms';
 import Link from 'next/link';
 
 type StandartFormProps = {
@@ -13,7 +13,7 @@ type StandartFormProps = {
 };
 
 export function StandartForm({ children, slug }: StandartFormProps) {
-  const { errors, handleSubmit, onSubmit, price, register, isValid } = useForms({ slug: slug });
+  const { errors, handleSubmit, onSubmit, price, register, isValid } = useEventsForms({ slug: slug });
 
   return (
     <div className={styles.formBox}>

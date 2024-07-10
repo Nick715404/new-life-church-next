@@ -17,7 +17,7 @@ export function ScheduleItem({ data }: ScheduleItemProps) {
         <span className={styles.time}>{costumeTime}</span>
       </div>
       <span className={styles.description}>{description}</span>
-      <span className={styles.speaker}>{speaker}</span>
+      <span className={styles.speaker}>{speaker ? speaker : null}</span>
     </div>
   );
 };

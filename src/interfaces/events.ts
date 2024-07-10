@@ -28,7 +28,7 @@ export interface ISchedule {
     date: string,
     time: string,
     description: string,
-    speaker: string,
+    speaker?: string,
     createdAt: string,
     updatedAt: string,
     publishedAt: string,

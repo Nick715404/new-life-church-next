@@ -46,7 +46,7 @@ const CustomSwiper = ({ data }: IProps) => {
               alt='Последняя проповедь'
             />
           </SwiperSlide>
-        ))
+        )).reverse()
       }
     </Swiper>
   )

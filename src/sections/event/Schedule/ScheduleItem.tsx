@@ -9,6 +9,7 @@ export function ScheduleItem({ data }: ScheduleItemProps) {
   const costumeTime = new Date(`2024-01-01T${time}`).toLocaleTimeString([], {
     hour: '2-digit',
     minute: '2-digit',
+    hour12: false
   });
 
   return (
@@ -17,7 +18,8 @@ export function ScheduleItem({ data }: ScheduleItemProps) {
         <span className={styles.time}>{costumeTime}</span>
       </div>
       <span className={styles.description}>{description}</span>
-      <span className={styles.speaker}>{speaker ? speaker : null}</span>
+
+      {speaker ? <span className={styles.speaker}>{speaker}</span> : null}
     </div>
   );
 };

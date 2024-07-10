@@ -17,6 +17,12 @@
     margin-bottom: 2.4rem;
     gap: 2.5rem;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+      margin-bottom: 2rem;
+      gap: 1rem;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -27,6 +33,10 @@
       gap: 20px;
       width: 18%;
       padding-bottom: 6px;
+
+      @media (max-width: 768px) {
+        width: fit-content;
+      }
 
       .dayNumber {
         font-size: clamp(40px, 4vw, 60px);
@@ -64,6 +74,10 @@
         border-bottom: 1px solid #DBDBDB;
         margin-bottom: 1.8rem;
 
+        @media (max-width: 768px) {
+          gap: 2rem;
+        }
+
         &:last-child {
           margin-bottom: 0;
         }
@@ -71,10 +85,20 @@
         span {
           display: block;
           margin: 0 10px;
+
+          @media (max-width: 768px) {
+            margin: 0;
+          }
+
         }
 
         .timeBox {
           width: 20%;
+
+          @media (max-width: 768px) {
+            margin: 0;
+          }
+
         }
 
         .time {

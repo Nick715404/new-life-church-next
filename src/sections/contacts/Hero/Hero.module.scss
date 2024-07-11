@@ -1,9 +1,22 @@
 .section {
   min-height: 100dvh;
-  background-color: #D9D9D9;
   border-radius: 100px;
   margin-bottom: 100px;
   padding-top: 16%;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 2;
+  }
 
   @media (max-width: 1600px) {
     border-radius: 50px;
@@ -19,12 +32,20 @@
     padding-top: 150px;
   }
 
+  .background {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
   .wrapper {
+    position: relative;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding-bottom: 50px;
     gap: 70px;
+    z-index: 8;
 
     @media (max-width: 1070px) {
       flex-direction: column;
@@ -41,6 +62,7 @@
       flex-direction: column;
       font-size: clamp(18px, 3.7vw, 22px);
       line-height: 1.2;
+      color: #fff;
 
       @media (max-width: 1070px) {
         text-align: center;
@@ -59,7 +81,8 @@
       .phoneLink {
         display: block;
         margin-bottom: 15px;
-        color: #191919;
+        color: #fff;
+        text-decoration: underline; 
       }
 
       .textBox {

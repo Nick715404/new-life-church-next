@@ -1,3 +1,4 @@
+import { MotionBox } from '@/components/MotionBox';
 import styles from './page.module.scss';
 import { halvar } from '@/constants/fonts';
 import { Metadata } from 'next';
@@ -14,13 +15,23 @@ export default function DocsPage() {
         <div className="container">
           <div className={styles.wrapper}>
             <div className={styles.content}>
-              <span className={styles.subtitle}>документы</span>
-              <h1 className={`${styles.title} ${halvar.className}`}>Юредическая <br /> документация</h1>
+              <MotionBox delay={0.2}>
+                <span className={styles.subtitle}>документы</span>
+              </MotionBox>
+              <MotionBox>
+                <h1 className={`${styles.title} ${halvar.className}`}>Юридическая <br /> документация</h1>
+              </MotionBox>
             </div>
             <div className={styles.linkList}>
-              <a className={styles.link} download href="/docs/ustav.pdf">Устав</a>
-              <a className={styles.link} download href="/docs/privacy.pdf">Персональные данные</a>
-              <a className={styles.link} download href="/docs/">Публичная оферта о заключении <br /> договора пожертвований</a>
+              <MotionBox delay={0.3}>
+                <a className={styles.link} target='_blank' href="/docs/ustav.pdf">Устав</a>
+              </MotionBox>
+              <MotionBox delay={0.4}>
+                <a className={styles.link} target='_blank' href="/docs/privacy.pdf">Персональные данные</a>
+              </MotionBox>
+              <MotionBox delay={0.5}>
+                <a className={styles.link} target='_blank' href="/docs/public-offer.pdf">Публичная оферта о заключении <br /> договора пожертвований</a>
+              </MotionBox>
             </div>
           </div>
         </div>

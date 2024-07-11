@@ -1,5 +1,3 @@
-import { TFormData } from "@/interfaces/forms"
-
 export const formThemesVariants = [
   {
     id: 1,

@@ -1,24 +1,25 @@
 .payment {
-  margin-bottom: 150px;
+  margin-bottom: 106px;
   position: relative;
 
   @media (max-width: 1070px) {
-    margin-bottom: 120px;
+    margin-bottom: 80px;
   }
 
   @media (max-width: 768px) {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
 
   .wrapper {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    // justify-content: space-between;
     gap: 40px;
 
     @media (max-width: 660px) {
       flex-direction: column;
       align-items: flex-start;
+      justify-content: space-between;
     }
 
     .imgBox {
@@ -43,6 +44,12 @@
     }
 
     .content {
+      width: 57%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
       .title {
         font-size: 30px;
         line-height: 1.2;
@@ -60,6 +67,11 @@
         text-decoration: underline;
         color: #FFAD01;
         margin-bottom: 44px;
+
+        @media (max-width: 768px) {
+          margin-bottom: 20px;
+        }
+
       }
 
       .text {

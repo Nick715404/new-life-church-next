@@ -72,28 +72,41 @@
       justify-content: flex-end;
     }
 
+    .formWrapper {
+      width: 40%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+      
+    }
+
     .content {
       display: flex;
       flex-direction: column;
       font-size: clamp(18px, 3.7vw, 22px);
       line-height: 1.2;
 
-      .text {
+      .textBox {
+        display: block;
         margin-bottom: 30px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .text {
 
         @media (max-width: 768px) {
           font-size: 16px;
           color: #CFCFCF;
-          margin-bottom: 15px;
+          margin-bottom: 15px !important;
 
           br {
-            display: none;
+            display: block;
           }
 
-        }
-  
-        &:last-child {
-          margin-bottom: 0;
         }
       }
 

@@ -1,5 +1,5 @@
-import { MotionBox } from '../MotionBox';
 import styles from './Accordion.module.scss';
+import { MotionBox } from '../MotionBox';
 import { AccordionItem } from './AccordionItem';
 import { IAccordion } from '@/interfaces/accordion';
 

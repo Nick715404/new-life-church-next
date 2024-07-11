@@ -15,6 +15,30 @@
     border-radius: 25px;
   }
 
+
+  .checkboxLabel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 16px;
+    }
+
+    .agreementChecbox {
+      width: 30px;
+      height: 30px;
+    }
+
+  }
+
   .optionsBox {
     position: relative;
     top: -10px;

@@ -1,10 +1,11 @@
 'use client';
 
 import styles from './ContactsForm.module.scss';
-import { halvar,  } from '@/constants/fonts';
+import { halvar, } from '@/constants/fonts';
 import { ErrorMessage } from './Error';
 import { useContactsForm } from './useContactsForm';
 import { CustomSelect } from '../CustomSelect/CustomSelect';
+import Link from 'next/link';
 
 const ContactsForm = () => {
   const { errors, handleSubmit, onSubmit, register, formStatus } = useContactsForm();
@@ -74,6 +75,14 @@ const ContactsForm = () => {
             }
           })}
         />
+        <label className={styles.checkboxLabel}>
+          <input
+            {...register('agreement', { required: '*Поставь галочку' })}
+            type="checkbox"
+            className={styles.agreementChecbox} />
+          <span className={styles.checkboxTitle}>Я согласен с <Link href='/docs'>Политикой обработки персональных данных</Link></span>
+        </label>
+        <ErrorMessage message={errors?.agreement?.message || ''} />
         <button className={styles.btn} type='submit'>
           Отправить
         </button>

@@ -1,5 +1,6 @@
 import styles from './Hero.module.scss';
 
+import Image from 'next/image';
 import { ContactsForm } from '@/components/ContactsForm/ContactsForm';
 import { MotionBox } from '@/components/MotionBox';
 import { halvar } from '@/constants/fonts';
@@ -34,6 +35,7 @@ const Hero = () => {
           </MotionBox>
         </div>
       </div>
+      <Image className={styles.background} priority fill src="/img/png/contacts-bg.webp" alt="Пожертвовать" />
     </section>
   );
 };

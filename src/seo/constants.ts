@@ -8,6 +8,9 @@ export const META_DATA: Metadata = {
   },
   description: 'Местная религиозная организация Христиан Веры Евангельской (Пятидесятников) Церковь "Слово жизни" г.Челябинска',
   keywords: 'Церковь, Челябинск, Новая жизнь, Господь, Бог, Иисус, Служения, Проповеди, Христиане, Христианство, Храм, Божий, Вечеря, Пастор, Конференция веры, водное крещение, ЮС, ЮСУрал',
+  verification: {
+    google: "aygDZlYIS3BZrWq4JTveRdt2Kk0CX2nUcw3pRcQKTRY"
+  }
 };
 
 export const SOCIAL_LINKS: ISocialLink<string>[] = [

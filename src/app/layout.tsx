@@ -20,6 +20,9 @@ export default function RootLayout({ children }: IProps) {
   return (
     <StoreProvider>
       <html lang="ru">
+        <Head>
+          <meta name="google-site-verification" content="aygDZlYIS3BZrWq4JTveRdt2Kk0CX2nUcw3pRcQKTRY" />
+        </Head>
         <body className={montserrat.className}>
           <div className="page">
             <Header />

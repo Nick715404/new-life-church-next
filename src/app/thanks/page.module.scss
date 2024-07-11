@@ -60,6 +60,7 @@
       font-size: 16px;
       text-transform: uppercase;
       transition: all .15s ease;
+      color: #000;
 
       &:hover {
         background-color: transparent;
@@ -73,6 +74,10 @@
   .imgBox {
     position: relative;
     max-width: 55%;
+
+    @media(max-width: 768px) {
+      max-width: 100%;
+    }
 
     .image {
       object-fit: cover;

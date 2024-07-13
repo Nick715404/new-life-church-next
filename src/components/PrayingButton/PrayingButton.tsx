@@ -5,11 +5,12 @@ import { montserrat } from '@/constants/fonts';
 
 interface IProps {
   text: string;
+  path?: string,
 }
 
-const PrayingButton = ({ text }: IProps) => {
+const PrayingButton = ({ text, path }: IProps) => {
   return (
-    <Link href="/contacts" className={`${styles.button} ${montserrat.className}`}>
+    <Link href={path ? path : "/contacts"} className={`${styles.button} ${montserrat.className}`}>
       {text}
     </Link>
   )

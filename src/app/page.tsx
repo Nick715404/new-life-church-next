@@ -1,7 +1,8 @@
 import styles from './page.module.scss';
 import { Metadata } from 'next';
 
-import { Hero, Events, InfoSection, Meetings, Praying, JoinUs } from '@/sections/home/index';
+import { Hero, Events, InfoSection, Meetings, JoinUs } from '@/sections/home/index';
+import { LinkBanner } from '@/components/LinkBanner/LinkBanner';
 
 export const metadata: Metadata = {
   title: 'Главная - Церковь Слово Жизни г. Челябинск'
@@ -15,7 +16,7 @@ export default function HomePage() {
         <Meetings />
         <InfoSection />
         <Events />
-        <Praying />
+        <LinkBanner path='/contacts' title='У вас есть молитвенная нужда или свидетельство?' />
         <JoinUs />
       </div>
     </main>

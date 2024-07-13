@@ -1,0 +1,101 @@
+.section {
+  padding-bottom: 150px;
+
+  @media (max-width: 1070px) {
+    padding-bottom: 120px;
+  }
+
+  .wrapper {
+    position: relative;
+    background-color: #bebebe;
+    padding: 65px;
+    border-radius: 30px;
+    overflow: hidden;
+
+    @media (max-width: 1070px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (max-width: 500px) {
+      aspect-ratio: 1 / 1.43;
+      padding: 30px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 65%;
+      height: 150%;
+      background-image: url('/img/png/praying-home-section.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @media (max-width: 1070px) {
+        width: 100%;
+      }
+
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background: rgb(10, 10, 10);
+      background: linear-gradient(90deg, rgb(0, 0, 0) 30%, rgba(28, 28, 28, 0.177) 100%);
+
+      @media (max-width: 1070px) {
+        background: rgba(10, 10, 10, 0.492);
+      }
+
+    }
+
+    .title {
+      font-size: clamp(25px, 4vw, 30px);
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      max-width: 680px;
+
+      @media (max-width: 768px) {
+        max-width: unset;
+      }
+
+    }
+
+  }
+
+  .content {
+    position: relative;
+    z-index: 5;
+
+    @media (max-width: 500px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+  }
+
+  .btnBox {
+    width: fit-content;
+
+    @media (max-width: 1070px) {
+      margin: 0 auto;
+    }
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
+
+}

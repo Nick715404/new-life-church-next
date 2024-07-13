@@ -149,7 +149,8 @@ main {
 }
 
 .team,
-.docs {
+.docs,
+.hello {
   @media (max-width: 1600px) {
     border-radius: 50px;
   }
@@ -165,7 +166,8 @@ main {
 .event,
 .thanks,
 .donation,
-.docs {
+.docs,
+.hello {
   background-color: #fff;
 }
 

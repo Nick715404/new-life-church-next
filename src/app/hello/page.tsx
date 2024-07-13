@@ -24,7 +24,7 @@ export default function HelloPage() {
             </MotionBox>
           </div>
         </div>
-        <Image priority className={styles.background} fill src="/img/png/hello-bg.png" alt='Задний фон страницы Приветствия' />
+        <Image priority className={styles.background} fill src="/img/png/hello-bg.webp" alt='Задний фон страницы Приветствия' />
       </section>
 
       <section className={styles.info}>
@@ -72,7 +72,7 @@ export default function HelloPage() {
               </div>
             </div>
             <div className={styles.imgBox}>
-              <Image className={styles.image} fill src="/img/png/davidovs-family.png" alt='Старшие пасторы церкви Слово Жизни г. Челябинск' />
+              <Image priority className={styles.image} fill src="/img/png/davidovs-family.webp" alt='Старшие пасторы церкви Слово Жизни г. Челябинск' />
             </div>
           </div>
         </div>

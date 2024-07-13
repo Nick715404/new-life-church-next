@@ -473,7 +473,8 @@
       aspect-ratio: 0.7 / 1;
       max-height: unset;
       background-position: 70% 9rem;
-      max-height: 590px;
+      display: flex;
+      flex-direction: column;
     }
 
     .leftGradient {
@@ -603,7 +604,6 @@
       .link {
         display: block;
         padding: 16px 28px;
-        text-align: center;
         width: 100%;
         border: 1px solid transparent;
         background-color: #FFAD01;
@@ -611,7 +611,8 @@
         color: #191919;
         transition: all .15s ease;
         text-transform: uppercase;
-
+        text-align: center;
+        
         &:hover {
           border-color: #fff;
           background-color: transparent;

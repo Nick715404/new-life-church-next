@@ -47,7 +47,7 @@ export default function HelloPage() {
 
             <div className={styles.footer}>
               <p>
-                Мы проводим еженедельные богослужения и транслируем их онлайн <Link href="https://www.youtube.com/@wolruschelTV">(https://www.youtube.com/@wolruschelTV)</Link>, благословляем детей, проводим венчания, участвуем в социальной жизни города.
+                Мы проводим еженедельные богослужения и транслируем их <Link href="https://www.youtube.com/@wolruschelTV">онлайн</Link>, благословляем детей, проводим венчания, участвуем в социальной жизни города.
               </p>
               <p>
                 Мы хотим помочь человеку в его духовном поиске, поддержать молитвой и наставлением.

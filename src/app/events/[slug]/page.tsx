@@ -26,12 +26,7 @@ export default async function EventPage({ params: { slug } }: EventPageProps) {
       <EventSpeakers speakers={data.speakers} />
       <Schedule schedule={data.schedules.data} />
       <Gallery gallery={data.gallery.data} />
-      <DonationBanner
-        slug={slug}
-        type={data.event_type}
-        increasedPrice={data.increase_price}
-        increasedDate={data.increase_date}
-        price={data.reg_price} />
+      <DonationBanner data={data.event_items.data} eventType={data.event_type} />
     </main>
   );
 };

@@ -17,8 +17,9 @@ export interface IEvent {
   background: { data: IStrapiImage };
   gallery: { data: TGalleryImage[] };
   speakers: { data: ISpeakerData[] },
-  schedules: { data: ISchedule[] }
-}
+  schedules: { data: ISchedule[] },
+  event_items: { data: TEventItems[], },
+};
 
 export type IEventType = 'укв' | 'юсурал' | 'тинсурал' | 'бизнесс' | 'гдб' | 'default';
 
@@ -62,4 +63,16 @@ export interface IEventInitialState {
   increasedPrice: number,
   type: string,
   title: string,
+}
+
+export type TEventItems = {
+  id: number,
+  attributes: {
+    createdAt: string,
+    updatedAt: string,
+    price: string,
+    increased_price_date: string,
+    increase_price: string,
+    paymentType: string,
+  }
 }

@@ -5,7 +5,7 @@ export type TFormData = {
   id?: string,
 }
 
-export type TPaymentForm = {
+export type TStandartForm = {
   price: number,
   email: string,
   agreement: boolean,
@@ -16,3 +16,7 @@ export type TPaymentForm = {
   phone: string,
   eventType: string,
 };
+
+export type TYouthPaymentForm = TStandartForm & {
+  settlement?: boolean,
+}

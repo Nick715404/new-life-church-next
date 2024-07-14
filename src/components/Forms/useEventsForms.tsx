@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { getPayment } from "@/api/payments";
-import { TPaymentForm } from "@/interfaces/forms";
+import { TStandartForm } from "@/interfaces/forms";
 
 type useEventsForms = { slug: string, };
 
-export const useEventsForms = ({ slug }: useEventsForms) => {
-  const { register, handleSubmit, formState: { errors, isLoading, isValid } } = useForm<CustomFormData>({ mode: "onBlur" });
+export const useEventsForms = <T extends {}>({ slug }: useEventsForms) => {
+  const { register, handleSubmit, formState: { errors, isLoading, isValid } } = useForm<T>({ mode: "onBlur" });
 
   const eventData = useSelector(
     (state: RootState) => ({
@@ -31,7 +31,7 @@ export const useEventsForms = ({ slug }: useEventsForms) => {
 
   const onSubmit = async (data: CustomFormData) => {
 
-    const backendData: TPaymentForm = {
+    const backendData: TStandartForm = {
       price: eventData.price,
       email: data.email,
       agreement: data.agreement,

@@ -1,36 +1,18 @@
 import Image from 'next/image';
 import styles from './DonationBanner.module.scss';
 import { halvar } from '@/constants/fonts';
-import { FormChooser, FormChooserButton } from '../Forms';
-import { IEventType } from '@/interfaces/events';
+import { IEventType, TEventItems } from '@/interfaces/events';
+import { DontaionBannerList } from './DontaionBannerList';
 
-type DonationBannerProps = {
-  price: number,
-  increasedPrice: number | undefined,
-  increasedDate: string | undefined,
-  type: IEventType,
-  slug?: string,
-};
+type DonationBannerProps = { data: TEventItems[], eventType: IEventType };
 
-export function DonationBanner({ increasedPrice, price, increasedDate, type, slug }: DonationBannerProps) {
+export function DonationBanner({ data, eventType }: DonationBannerProps) {
   return (
     <section className={styles.section}>
       <div className="container">
         <div className={styles.wrapper}>
           <h2 className={`${styles.title} ${halvar.className}`}>Добровольное<br /> пожертвование</h2>
-          <div className={styles.info}>
-            <div className={styles.infoBox}>
-              <div className={styles.priceBox}>
-                <span className={`${styles.price} ${halvar.className}`}>{price}₽</span>
-                {
-                  increasedDate &&
-                  increasedPrice &&
-                  <span className={styles.upgradedPrice}>с {increasedDate} цена - {increasedPrice}₽</span>
-                }
-              </div>
-              <FormChooserButton type={type} slug={slug} />
-            </div>
-          </div>
+          <DontaionBannerList items={data} eventType={eventType} />
           <picture className={styles.picture}>
             <source srcSet='/img/png/donation-banner.webp' media='(min-width: 769px)' />
             <Image className={styles.img} priority fill src="/img/png/donation-banner-phone.webp" alt="" />

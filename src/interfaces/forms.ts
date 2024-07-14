@@ -15,6 +15,7 @@ export type TStandartForm = {
   lastName: string,
   phone: string,
   eventType: string,
+  role: string,
 };
 
 export type TYouthPaymentForm = TStandartForm & {

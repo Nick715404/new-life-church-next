@@ -3,9 +3,9 @@ import { FormChooserButton } from '../Forms';
 import styles from './DonationBanner.module.scss';
 import { IEventType, TEventItems } from '@/interfaces/events'
 
-type DonationBannerItemProps = { item: TEventItems, eventType: IEventType };
+type DonationBannerItemProps = { item: TEventItems, eventType: IEventType, slug: string, };
 
-export const DonationBannerItem = ({ item, eventType }: DonationBannerItemProps) => {
+export const DonationBannerItem = ({ item, eventType, slug }: DonationBannerItemProps) => {
   const types: { paymentType: string, value: string }[] = [
     { paymentType: "standard", value: "" },
     { paymentType: "businessMan", value: "Регистрация для предпринимателей" },
@@ -13,7 +13,6 @@ export const DonationBannerItem = ({ item, eventType }: DonationBannerItemProps)
     { paymentType: "pastor", value: "Регистрация для пасторов" },
   ];
 
-  // Найти элемент в массиве types, который соответствует paymentType
   const selectedType = types.find(type => type.paymentType === item.attributes.paymentType);
   const increasedDate = new Date(item.attributes.increased_price_date).toLocaleDateString([], {
     day: 'numeric',
@@ -29,9 +28,7 @@ export const DonationBannerItem = ({ item, eventType }: DonationBannerItemProps)
           {item.attributes.increase_price && item.attributes.increase_price ?
             <span className={styles.increasedPriceText}>{increasedDate} - {item.attributes.increase_price}р</span> : null}
         </div>
-        <div className="">
-          <FormChooserButton type={eventType} />
-        </div>
+        <FormChooserButton type={eventType} slug={slug} price={+item.attributes.price} role={item.attributes.paymentType} />
       </div>
     </div>
   )

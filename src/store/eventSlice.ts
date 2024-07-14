@@ -9,6 +9,7 @@ const initialState: IEventInitialState = {
   price: 0,
   type: 'default',
   title: '',
+  role: 'default',
 }
 
 export const fetchEvent = createAsyncThunk(
@@ -32,20 +33,23 @@ export const eventSlice = createSlice({
   name: 'event',
   initialState,
   reducers: {
-    addData: (state, action) => state = action.payload,
+    addPrice: (state, action) => {
+      state.price = action.payload;
+    },
+    addRole: (state, action) => {
+      state.role = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchEvent.fulfilled, (state, action) => {
         state.increasedPrice = action.payload.attributes.increase_price!;
-        state.price = action.payload.attributes.reg_price;
         state.type = action.payload.attributes.event_type;
         state.title = action.payload.attributes.title;
       })
   }
 })
 
-// Action creators are generated for each case reducer function
-export const { addData } = eventSlice.actions;
+export const { addPrice, addRole } = eventSlice.actions;
 
 export default eventSlice.reducer;

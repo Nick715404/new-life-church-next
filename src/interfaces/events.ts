@@ -21,7 +21,7 @@ export interface IEvent {
   event_items: { data: TEventItems[], },
 };
 
-export type IEventType = 'укв' | 'юсурал' | 'тинсурал' | 'бизнесс' | 'гдб' | 'default';
+export type IEventType = 'uralFaithCond' | 'youthUral' | 'teensUral' | 'business' | 'worshipConf' | 'default';
 
 export interface ISchedule {
   id: number,
@@ -63,6 +63,7 @@ export interface IEventInitialState {
   increasedPrice: number,
   type: string,
   title: string,
+  role: string,
 }
 
 export type TEventItems = {

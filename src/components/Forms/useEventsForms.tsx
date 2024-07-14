@@ -16,11 +16,12 @@ export const useEventsForms = <T extends {}>({ slug }: useEventsForms) => {
 
   const eventData = useSelector(
     (state: RootState) => ({
-      price: state.event.price,
       title: state.event.title,
       eventType: state.event.type,
+      price: state.event.price,
+      role: state.event.role
     }),
-    (prev, next) => prev.price === next.price && prev.title === next.title && prev.eventType === next.eventType
+    (prev, next) => prev.title === next.title && prev.eventType === next.eventType && prev.price === next.price && prev.role === next.role
   );
   const description = "Добровольное пожертвование";
   const dispatch = useDispatch<AppDispatch>();
@@ -41,12 +42,13 @@ export const useEventsForms = <T extends {}>({ slug }: useEventsForms) => {
       lastName: data.lastName,
       phone: data.phone,
       eventType: eventData.eventType,
+      role: eventData.role,
     };
 
     console.log(backendData);
 
-    const linkHref = await getPayment(backendData);
-    window.location.href = linkHref;
+    // const linkHref = await getPayment(backendData);
+    // window.location.href = linkHref;
   };
 
   return {

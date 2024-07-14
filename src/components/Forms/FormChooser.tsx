@@ -8,15 +8,15 @@ export function FormChooser({ type, slug }: FormChooserProps) {
   switch (type) {
     case 'default':
       return <StandartForm slug={slug!} />;
-    case 'бизнесс':
+    case 'business':
       return <BussinessForm slug={slug!} />;
-    case 'гдб':
+    case 'uralFaithCond':
       return <GDBForm />;
-    case 'тинсурал':
+    case 'teensUral':
       return <TeensForm />;
-    case 'укв':
+    case 'worshipConf':
       return <StandartForm slug={slug!} />;
-    case 'юсурал':
+    case 'youthUral':
       return <StandartForm slug={slug!} />;
   }
 };

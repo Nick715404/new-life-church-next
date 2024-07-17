@@ -7,7 +7,7 @@ type FormChooserProps = { type: IEventType, slug?: string };
 export function FormChooser({ type, slug }: FormChooserProps) {
   switch (type) {
     case 'default':
-      return <StandartForm slug={slug!} />;
+      return null;
     case 'business':
       return <BussinessForm slug={slug!} />;
     case 'uralFaithCond':
@@ -15,8 +15,8 @@ export function FormChooser({ type, slug }: FormChooserProps) {
     case 'teensUral':
       return <TeensForm />;
     case 'worshipConf':
-      return <StandartForm slug={slug!} />;
+      return null;
     case 'youthUral':
-      return <StandartForm slug={slug!} />;
+      return <YouthForm slug={slug!} />;
   }
 };

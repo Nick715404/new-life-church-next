@@ -21,3 +21,9 @@ export type TStandartForm = {
 export type TYouthPaymentForm = TStandartForm & {
   settlement?: boolean,
 }
+
+export type TBussinesPaymentForm = TStandartForm & {
+  career: string,
+}
+
+export type IFormType = 'uralFaithCond' | 'youthUral' | 'teensUral' | 'business' | 'worshipConf' | 'default';

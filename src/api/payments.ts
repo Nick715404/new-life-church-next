@@ -1,9 +1,7 @@
-import { TPaymentForm } from "@/interfaces/forms";
+import { TBussinesPaymentForm, TYouthPaymentForm } from "@/interfaces/forms";
 import { getOptions } from "./options";
 
-export const getPayment = async (data: TPaymentForm) => {
-  console.log(data);
-
+export const getPayment = async (data: TBussinesPaymentForm | TYouthPaymentForm) => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/orders/payment`, {
       method: 'POST',

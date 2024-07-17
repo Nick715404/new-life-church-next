@@ -1,15 +1,13 @@
 import styles from './Forms.module.scss';
-import { formData } from "@/constants/form"
-import { TStandartForm } from '@/interfaces/forms';
-import { CustomFormData } from "@/interfaces/utils";
+import { formData } from "@/constants/form";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 
-type InputListProps = {
-  register: UseFormRegister<TStandartForm>,
-  errors: FieldErrors<TStandartForm>
+type InputListProps<T extends {}> = {
+  register: UseFormRegister<T>,
+  errors: FieldErrors<Partial<T>>
 };
 
-export const InputList = ({ register, errors }: InputListProps) => {
+export const InputList = <T extends {}>({ register, errors }: InputListProps<T>) => {
   return (
     <>
       {
@@ -21,7 +19,7 @@ export const InputList = ({ register, errors }: InputListProps) => {
               {...register(item.id!, { required: `*Поле ${item.placeholder} обязательно для заполнения` })}
               placeholder={item.placeholder ? item.placeholder : ''}
               type={item.type} />
-            {errors[item.id as keyof TStandartForm] && <span className={styles.error}>{`${errors[item.id as keyof TStandartForm]?.message}`}</span>}
+            {errors[item.id as keyof T] && <span className={styles.error}>{`${errors[item.id as keyof T]?.message}`}</span>}
           </label>
         ))
       }

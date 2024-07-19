@@ -14,7 +14,7 @@ export const DonationBannerItem = ({ item, eventType, slug }: DonationBannerItem
   ];
 
   const selectedType = types.find(type => type.paymentType === item.attributes.paymentType);
-  const increasedDate = new Date(item.attributes.increased_price_date).toLocaleDateString([], {
+  const increasedDate = new Date(item.attributes.increased_price_date).toLocaleDateString('ru-RU', {
     day: 'numeric',
     month: 'long'
   });

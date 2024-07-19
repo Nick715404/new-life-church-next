@@ -53,11 +53,6 @@ export const paymentInfoAccordion = [
     description: '745301001',
   },
   {
-    id: 6,
-    title: 'КПП',
-    description: '745301001',
-  },
-  {
     id: 7,
     title: 'БИК',
     description: '047501602',

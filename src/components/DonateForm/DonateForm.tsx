@@ -21,9 +21,15 @@ export function DonateForm() {
     <div className={styles.formBox}>
       <form onSubmit={handleSubmit(providePayment)} className={styles.donateForm}>
         <label className={styles.label}>
-          <input {...register('price')} placeholder='Сумма' className={styles.input} type="number" />
+          {/* <input {...register('price')} placeholder='Сумма' className={styles.input} type="number" /> */}
           <div className={styles.button}>
-            <DonationButton full as='button' type='submit' style='white' text='Пожертвовать' accent />
+            <DonationButton
+              full
+              as='link'
+              href='https://qr.nspk.ru/AS1A002A2S9UIG3N8DDOQ0KKATENFNFH?type=01&bank=100000000111&crc=DC5D'
+              style='white'
+              text='Пожертвовать'
+              accent />
           </div>
         </label>
       </form>

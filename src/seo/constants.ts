@@ -29,6 +29,6 @@ export const SOCIAL_LINKS: ISocialLink<string>[] = [
 ];
 
 export const CONTACT_INFO = {
-  EMAIL: 'https://t.me/wolruschel',
+  EMAIL: 'chel.wolrus@yandex.ru',
   PHONE: '+7 (351) 261 70 01',
 };

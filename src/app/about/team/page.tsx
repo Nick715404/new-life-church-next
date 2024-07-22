@@ -2,7 +2,10 @@ import { Hero, Pastors } from '@/sections/about/team/index';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Команда'
+  title: 'Команда',
+  alternates: {
+    canonical: 'https://wolrus-chel.ru/about/team'
+  }
 }
 
 export default function About() {

@@ -7,7 +7,10 @@ import { MotionBox } from '@/components/MotionBox';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Спасибо - Церковь Слово Жизни г. Челябинск'
+  title: 'Спасибо - Церковь Слово Жизни г. Челябинск',
+  alternates: {
+    canonical: 'https://wolrus-chel.ru/thanks'
+  }
 }
 
 export default function ThanksPage() {

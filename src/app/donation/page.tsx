@@ -7,7 +7,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Пожертвование'
+  title: 'Пожертвование',
+  alternates: {
+    canonical: 'https://wolrus-chel.ru/donation'
+  }
 }
 
 const DonationPage = () => {

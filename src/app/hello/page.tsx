@@ -6,7 +6,10 @@ import { MotionBox } from '@/components/MotionBox';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Добро пожаловать'
+  title: 'Добро пожаловать',
+  alternates: {
+    canonical: 'https://wolrus-chel.ru/hello'
+  }
 }
 
 export default function HelloPage() {

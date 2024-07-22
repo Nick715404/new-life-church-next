@@ -5,7 +5,10 @@ import { Hero, Events, InfoSection, Meetings, JoinUs } from '@/sections/home/ind
 import { LinkBanner } from '@/components/LinkBanner/LinkBanner';
 
 export const metadata: Metadata = {
-  title: 'Главная - Церковь Слово Жизни г. Челябинск'
+  title: 'Главная - Церковь Слово Жизни г. Челябинск',
+  alternates: {
+    canonical: 'https://wolrus-chel.ru/'
+  }
 }
 
 export default function HomePage() {

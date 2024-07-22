@@ -13,6 +13,9 @@ export async function generateMetadata({ params: { slug } }: EventPageProps): Pr
   return {
     title: data.title,
     description: data.small_description,
+    alternates: {
+      canonical: `https://wolrus-chel.ru/about/events/${data.slug}`
+    }
   };
 };
 

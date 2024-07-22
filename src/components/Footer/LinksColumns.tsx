@@ -12,8 +12,8 @@ const LinksColumns = () => {
       <div className={styles.linkList}>
         <h4 className={`${styles.linkListTitle} ${halvar.className}`}>Контакты</h4>
         <div className={styles.info}>
-          <Link className={`${styles.infoText} ${halvar.className}`} href={`${CONTACT_INFO.EMAIL}`}>
-            Телеграмм
+          <Link className={`${styles.infoText} ${halvar.className}`} href={`mailto: ${CONTACT_INFO.EMAIL}`}>
+            {CONTACT_INFO.EMAIL}
           </Link>
           <Link className={`${styles.infoText} ${halvar.className}`} href={`tel: ${CONTACT_INFO.PHONE}`}>
             {CONTACT_INFO.PHONE}

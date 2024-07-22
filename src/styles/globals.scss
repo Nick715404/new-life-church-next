@@ -154,6 +154,7 @@ main {
   @media (max-width: 1600px) {
     border-radius: 50px;
   }
+
   @media (max-width: 768px) {
     border-radius: 0 0 15px 15px;
   }
@@ -173,4 +174,28 @@ main {
 
 .hidden {
   overflow: hidden !important;
+}
+
+#item-1 {
+  &::after {
+    background-image: url('/img/png/yellow-blur.png');
+  }
+}
+
+#item-3 {
+  &::after {
+    background-image: url('/img/png/green-blur.png');
+  }
+}
+
+#item-5 {
+  &::after {
+    background-image: url('/img/png/red-blur.png');
+  }
+}
+
+#item-7 {
+  &::after {
+    background-image: url('/img/png/blue-blur.png');
+  }
 }

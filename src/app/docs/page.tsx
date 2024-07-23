@@ -24,13 +24,13 @@ export default function DocsPage() {
             </div>
             <div className={styles.linkList}>
               <MotionBox delay={0.3}>
-                <a className={styles.link} target='_blank' href="/docs/ustav.pdf">Устав</a>
+                <a className={styles.link} target='_blank' href="/docs/ustav.docx">Устав</a>
               </MotionBox>
               <MotionBox delay={0.4}>
-                <a className={styles.link} target='_blank' href="/docs/privacy.pdf">Персональные данные</a>
+                <a className={styles.link} target='_blank' href="/docs/privacy.docx">Персональные данные</a>
               </MotionBox>
               <MotionBox delay={0.5}>
-                <a className={styles.link} target='_blank' href="/docs/public-offer.pdf">Публичная оферта о заключении <br /> договора пожертвований</a>
+                <a className={styles.link} target='_blank' href="/docs/public-offer.docx">Публичная оферта о заключении <br /> договора пожертвований</a>
               </MotionBox>
             </div>
           </div>

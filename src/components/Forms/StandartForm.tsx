@@ -16,8 +16,8 @@ export function StandartForm<T extends FieldValues>({ children, onSubmit, handle
     <div className={styles.formBox}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.standartForm}>
         <h3 className={`${styles.formTitle} ${halvar.className}`}>Регистрация</h3>
-        {children}    
-        <span className={`${halvar.className} ${styles.price}`}>{`Сумма ${price}р`}</span>
+        {children}
+        <span className={`${halvar.className} ${styles.price}`}>{`Сумма ${price}р на добровольное пожертвование`}</span>
         <button disabled={!isValid} type='submit' className={styles.submitBtn}>
           Отправить
         </button>

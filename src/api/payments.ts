@@ -11,7 +11,7 @@ export const getPayment = async (data: TBussinesPaymentForm | TYouthPaymentForm)
       },
     });
 
-    return await response.text();
+    return await response.json();
   }
   catch (error: any) {
     throw new Error(error);
@@ -30,7 +30,6 @@ export const getPaymentStatus = async () => {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   }
   catch (error: any) {

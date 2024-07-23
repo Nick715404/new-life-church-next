@@ -17,9 +17,9 @@ export function YouthForm({ slug }: YouthFormProps) {
       price: price,
       type: eventData.eventType,
     }
-    // console.log(backendData)
-    const link = await getPayment(backendData);
-    window.location.href = link;
+    
+    const { url } = await getPayment(backendData);
+    window.location.href = url;
   };
 
   return (

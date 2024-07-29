@@ -4,7 +4,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: 'Ценности - Церковь Слово Жизни г. Челябинск',
   alternates: {
-    canonical: 'https://wolrus-chel.ru/about/valuation'
+    canonical: `${process.env.SITE_DOMEN}/about/valuation`
   }
 }
 

@@ -4,7 +4,10 @@ import { halvar } from '@/constants/fonts';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Документы - Церковь Слово Жизни г. Челябинск'
+  title: 'Документы - Церковь Слово Жизни г. Челябинск',
+  alternates: {
+    canonical: `${process.env.SITE_DOMEN}/docs`,
+  },
 }
 
 export default function DocsPage() {

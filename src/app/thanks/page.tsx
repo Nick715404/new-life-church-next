@@ -9,8 +9,8 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Спасибо - Церковь Слово Жизни г. Челябинск',
   alternates: {
-    canonical: 'https://wolrus-chel.ru/thanks'
-  }
+    canonical: `${process.env.SITE_DOMEN}/thanks`,
+  },
 }
 
 export default function ThanksPage() {

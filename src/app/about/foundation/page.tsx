@@ -9,7 +9,7 @@ import { FoundationTabs } from '@/components/FoundationTabs/FoundationTabs';
 export const metadata: Metadata = {
   title: 'Основание - Церковь Слово Жизни г. Челябинск',
   alternates: {
-    canonical: 'https://wolrus-chel.ru/about/foundation'
+    canonical: `${process.env.SITE_DOMEN}/about/foundation`
   }
 }
 

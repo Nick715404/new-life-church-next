@@ -7,7 +7,7 @@ import { LinkBanner } from '@/components/LinkBanner/LinkBanner';
 export const metadata: Metadata = {
   title: 'Главная - Церковь Слово Жизни г. Челябинск',
   alternates: {
-    canonical: 'https://wolrus-chel.ru/'
+    canonical: `${process.env.SITE_DOMEN}`
   }
 }
 

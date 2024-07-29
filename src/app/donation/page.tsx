@@ -9,7 +9,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Пожертвование',
   alternates: {
-    canonical: 'https://wolrus-chel.ru/donation'
+    canonical: `${process.env.SITE_DOMEN}/donation`
   }
 }
 

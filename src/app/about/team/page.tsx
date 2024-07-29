@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Команда',
   alternates: {
-    canonical: 'https://wolrus-chel.ru/about/team'
+    canonical: `${process.env.SITE_DOMEN}/about/team`
   }
 }
 

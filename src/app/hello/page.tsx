@@ -8,7 +8,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Добро пожаловать',
   alternates: {
-    canonical: 'https://wolrus-chel.ru/hello'
+    canonical: `${process.env.SITE_DOMEN}/hello`
   }
 }
 

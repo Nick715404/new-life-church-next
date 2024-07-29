@@ -1,0 +1,68 @@
+.error {
+  position: fixed;
+  background-color: rgb(232, 64, 64);
+  color: #fff;
+  padding: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 9;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+
+  @media (max-width: 768px) {
+    padding: 1.4rem;
+    border-radius: 7.5px;
+    width: 100%;
+    bottom: 0;
+    border-radius: 25px 25px 0px 0px;
+    left: 0;
+    height: 270px;
+  }
+
+  @media (max-width: 390px) {
+    height: 250px;
+  }
+
+  h2 {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 8px;
+
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+
+    @media (max-width: 390px) {
+      font-size: 24px;
+    }
+
+  }
+
+  span {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  button {
+    padding: 15px 30px;
+    width: 100%;
+    border-radius: 100px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 2px solid white;
+    color: #fff;
+  }
+
+}
+
+.close {
+ transform: translateY(120%);
+
+ @media (max-width: 768px) {
+  transform: translateY(100%);
+ }
+
+}

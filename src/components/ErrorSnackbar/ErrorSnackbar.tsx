@@ -14,8 +14,6 @@ export function ErrorSnackbar({ title, text }: ErrorSnackbarProps) {
 
   const handleClick = () => setVisible(false);
 
-  // if (visible === false) return null;
-
   return (
     <div className={`${styles.error} ${visible === false ? styles.close : null}`}>
       <h2>{title}</h2>

@@ -22,8 +22,7 @@ const Hero = () => {
         src="/videos/main.mp4"
         isAutoPlay
         isLoop
-        isMuted
-      />
+        isMuted />
     </section>
   )
 }

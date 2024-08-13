@@ -1,0 +1,58 @@
+span {
+  display: block;
+}
+
+.label {
+  font-size: 16px;
+}
+
+.fileInput {
+  margin-bottom: 32px;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+
+  &::file-selector-button {
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    transition: all .15s ease;
+
+    &:hover,
+    &:active {
+      background-color: #ffac00;
+      color: #fff;
+    }
+
+  }
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.textWithLink {
+  display: flex;
+  gap: 5px;
+}
+
+.link {
+  color: #ffac00;
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.text {
+  margin-bottom: 10px;
+}
+
+.error {
+  margin: -30px 0 30px 10px;
+  font-size: 14px;
+  color: rgb(236, 20, 20);
+}

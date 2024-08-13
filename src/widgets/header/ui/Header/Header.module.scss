@@ -1,0 +1,49 @@
+.header {
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  left: 0;
+  z-index: 99;
+
+  @media (max-width: 1070px) {
+    top: 50px;
+  }
+
+  @media (max-width: 768px) {
+    top: 30px;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      gap: 20px;
+    }
+
+  }
+
+  .logo {
+    @media (max-width: 1281px) {
+      width: 15%;
+      min-width: 12%;
+    }
+
+    @media (max-width: 1070px) {
+      width: fit-content;
+    }
+
+    @media (max-width: 768px) {
+      width: 65%;
+    }
+
+  }
+
+  .button {
+    @media (max-width: 1070px) {
+      display: none;
+    }
+  }
+
+}

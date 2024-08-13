@@ -1,0 +1,168 @@
+.section {
+  margin-bottom: 150px;
+
+  @media (max-width: 1070px) {
+    margin-bottom: 120px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 80px;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: minmax(300px, auto);
+    grid-column-gap: 50px;
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content {
+      max-width: 605px;
+      width: 100%;
+      margin-bottom: 30px;
+
+      .title {
+        font-size: clamp(30px, 4.5vw, 60px);
+        line-height: 1;
+        margin-bottom: 20px;
+      }
+
+      .text {
+        font-size: clamp(16px, 3.8vw, 22px);
+        line-height: 1.5;
+
+
+      }
+
+    }
+
+  }
+
+}
+
+.item {
+  max-width: 620px;
+  width: 90%;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: unset;
+  }
+
+  .imgBox {
+    position: relative;
+    max-width: 620px;
+    max-height: 750px;
+    aspect-ratio: 1.65 / 2;
+    border-radius: 50px;
+    overflow: hidden;
+
+    @media (max-width: 1070px) {
+      border-radius: 25px;
+    }
+
+    @media (max-width: 768px) {
+      border-radius: 25px;
+      width: 100%;
+      max-width: unset;
+    }
+
+    .img {
+      object-fit: cover;
+      height: auto;
+    }
+
+  }
+
+  .itemContent {
+    position: relative;
+    padding: 6% 5%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+
+    @media (max-width: 1070px) {
+      flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+      padding: 5% 3%;
+    }
+
+    .title {
+      font-size: clamp(18px, 1.4vw, 30px);
+      margin-bottom: 10px;
+
+      @media (max-width: 1070px) {
+        font-size: clamp(18px, 2.4vw, 30px);
+      }
+
+      @media (max-width: 768px) {
+        font-size: clamp(18px, 6.4vw, 30px);
+      }
+    }
+
+  }
+
+  .moreDescription {
+    width: 100%;
+    padding: 0px 35px 30px;
+
+    @media (max-width: 768px) {
+      padding: 0 5% 3%;
+    }
+
+    .description {
+      line-height: 1.2;
+      font-size: 16px;
+    }
+
+  }
+
+  .btn {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: 1400px) {
+      gap: 10px;
+    }
+
+    .linkTitle {
+      font-size: 18px;
+      color: #000;
+      @media (max-width: 1400px) {
+        font-size: 14px;
+      }
+    }
+
+    .linkCircle {
+      width: 40px;
+      aspect-ratio: 1 / 1;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #000;
+
+      .linkImg {
+        transform: rotate(90deg);
+        transition: all .15s ease;
+      }
+
+    }
+
+  }
+
+}
+
+.up {
+  transform: rotate(-90deg) !important;
+}

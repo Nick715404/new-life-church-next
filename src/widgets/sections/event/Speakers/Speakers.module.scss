@@ -1,0 +1,30 @@
+.title {
+  font-size: clamp(30px, 3.2vw, 60px);
+  line-height: 1.2;
+  margin-bottom: 50px;
+
+  @media (max-width: 1070px) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 25px;
+  }
+
+}
+
+.section {
+  margin-bottom: 150px;
+
+  @media (max-width: 1070px) {
+    margin-bottom: 120px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 80px;
+  }
+}
+
+.notFound {
+  font-size: 22px;
+}

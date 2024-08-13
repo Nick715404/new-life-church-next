@@ -3,8 +3,8 @@ import styles from './Hero.module.scss';
 import Image from 'next/image';
 import { ContactsForm } from '@/components/ContactsForm/ContactsForm';
 import { MotionBox } from '@/components/MotionBox';
-import { halvar } from '@/shared/constants/fonts';
 import Link from 'next/link';
+import { halvar } from '@/constants/fonts';
 
 const Hero = () => {
 	return (

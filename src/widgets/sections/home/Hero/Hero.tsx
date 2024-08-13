@@ -1,7 +1,7 @@
 import styles from './Hero.module.scss';
 import { MotionBox } from '@/components/MotionBox';
 import { VideoBackground } from '@/components/VideoBackground/VideoBackground';
-import { halvar } from '@/shared/constants/fonts';
+import { halvar } from '@/constants/fonts';
 
 const Hero = () => {
 	return (

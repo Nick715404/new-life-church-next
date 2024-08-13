@@ -1,7 +1,7 @@
 import styles from './Schedule.module.scss';
-import { halvar } from '@/shared/constants/fonts';
 import { ISchedule } from '@/shared/interfaces/events';
 import { ScheduleList } from './ScheduleList';
+import { halvar } from '@/constants/fonts';
 
 type ScheduleProps = { schedule: ISchedule[] };
 

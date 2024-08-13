@@ -1,8 +1,8 @@
 import styles from './Questions.module.scss';
 import { Accordion } from '@/components/Accordion/Accordion';
 import { contactsAccordion } from '@/shared/constants/accordion';
-import { halvar } from '@/shared/constants/fonts';
 import { MotionBox } from '@/components/MotionBox';
+import { halvar } from '@/constants/fonts';
 
 const Questions = () => {
 	return (

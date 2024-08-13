@@ -2,10 +2,10 @@ import styles from './styles.module.scss';
 import { Metadata } from 'next';
 import { fetchSingleEvent } from '@/api/events';
 import { Gallery } from '@/components/Gallery/Gallery';
-import { EventHero, EventSpeakers, Schedule } from '@/sections/event';
 import { DonationBanner } from '@/components/DonationBanner/DonationBanner';
 import { BigDescription } from '@/components/BigDescription/BigDescription';
 import { ErrorSnackbar } from '@/components/ErrorSnackbar/ErrorSnackbar';
+import { EventHero, EventSpeakers } from '@/widgets/sections/event';
 
 type EventPageProps = { params: { slug: string } };
 

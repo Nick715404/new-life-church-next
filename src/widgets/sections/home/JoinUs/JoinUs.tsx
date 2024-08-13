@@ -1,10 +1,10 @@
 'use client';
 
 import styles from './JoinUs.module.scss';
-import { halvar } from '@/shared/constants/fonts';
 import { Socials } from '@/components/Socials/Socials';
 import { MotionBox } from '@/components/MotionBox';
 import { useEffect, useState } from 'react';
+import { halvar } from '@/constants/fonts';
 
 const JoinUs = () => {
 	const [width, setWidth] = useState<number>(0);

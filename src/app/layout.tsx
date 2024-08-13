@@ -16,16 +16,16 @@ interface IProps {
 
 export default function RootLayout({ children }: IProps) {
 	return (
-		<StoreProvider>
-			<html lang='ru'>
-				<body className={montserrat.className}>
-					<div className='page'>
+		<html lang='ru'>
+			<body className={montserrat.className}>
+				<div className='page'>
+					<StoreProvider>
 						<Header />
 						{children}
 						<Footer />
-					</div>
-				</body>
-			</html>
-		</StoreProvider>
+					</StoreProvider>
+				</div>
+			</body>
+		</html>
 	);
 }

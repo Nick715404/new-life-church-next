@@ -1,6 +1,6 @@
 import styles from './Speakers.module.scss';
 import { SpeakerSwiper } from '@/components/SpeakerSwiper/SpeakerSwiper';
-import { halvar } from '@/shared/constants/fonts';
+import { halvar } from '@/constants/fonts';
 import { ISpeaker } from '@/shared/interfaces/speakers';
 
 type EventSpeakersProps = { speakers: ISpeaker };

@@ -1,7 +1,7 @@
 import styles from './Hero.module.scss';
 import Image from 'next/image';
-import { halvar } from '@/shared/constants/fonts';
 import { IStrapiImage } from '@/shared/interfaces/queries';
+import { halvar } from '@/constants/fonts';
 
 type EventHeroProps = {
 	title: string;

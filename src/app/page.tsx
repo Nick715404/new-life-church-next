@@ -2,8 +2,13 @@ import styles from './page.module.scss';
 import { Metadata } from 'next';
 
 import { LinkBanner } from '@/components/LinkBanner/LinkBanner';
-import { Hero } from '@/widgets/sections/contacts';
-import { Meetings, InfoSection, Events, JoinUs } from '@/widgets/sections/home';
+import {
+	Meetings,
+	InfoSection,
+	Events,
+	JoinUs,
+	Hero,
+} from '@/widgets/sections/home';
 
 export const metadata: Metadata = {
 	title: 'Главная - Церковь Слово Жизни г. Челябинск',

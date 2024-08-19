@@ -1,24 +1,22 @@
 import styles from './Forms.module.scss';
-import { TYouthPaymentForm } from '@/shared/interfaces/forms';
-import { StandartForm } from './StandartForm';
-
 import Link from 'next/link';
-import { FileInput, PaymentFileInput } from '@/entities/PaymentFileInput';
 import { InputList } from './InputList';
+import { StandartForm } from './StandartForm';
 import { useEventsForms } from '../model/useEventsForms';
+import { TYouthPaymentForm } from '@/shared/interfaces/forms';
+import { FileInput, PaymentFileInput } from '@/entities/PaymentFileInput';
 
 type YouthFormProps = { slug: string };
 
 export function YouthForm({ slug }: YouthFormProps) {
-	const { register, errors, handleSubmit, isValid, price, eventData } =
+	const { register, errors, handleSubmit, isValid, price } =
 		useEventsForms<TYouthPaymentForm>({ slug: slug });
 
 	const onSubmit = async (data: TYouthPaymentForm) => {
-		if (data.paymentFile) {
-			const { paymentFile } = data;
-			const fileUrl = URL.createObjectURL(paymentFile[0]);
-			console.log(data);
-		}
+		const { paymentFile, ...otherData } = data;
+		const formData = new FormData();
+		formData.append('paymentFile', paymentFile![0]);
+		formData.append('formData', JSON.stringify(otherData));
 	};
 
 	return (

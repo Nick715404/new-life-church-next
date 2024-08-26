@@ -12,44 +12,44 @@ import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface IProps {
-  data: IDataFromStrapi<ILastSermon>[]
+	data: IDataFromStrapi<ILastSermon>[];
 }
 
 const CustomSwiper = ({ data }: IProps) => {
-  return (
-    <Swiper
-      slidesPerView={2}
-      spaceBetween={26}
-      navigation={true}
-      modules={[Navigation]}
-      className={styles.customSwiper}
-      breakpoints={{
-        320: {
-          slidesPerView: 1.1,
-          spaceBetween: 14,
-        },
-        768: {
-          slidesPerView: 1.3,
-          spaceBetween: 14,
-        },
-        1070: {
-          slidesPerView: 2,
-        }
-      }}
-    >
-      {
-        data.map(({ id, attributes }) => (
-          <SwiperSlide className={styles.slide} key={id}>
-            <CustomIframe
-              thumb={attributes.thumbnail.data.attributes.url}
-              src={attributes.link}
-              alt='Последняя проповедь'
-            />
-          </SwiperSlide>
-        )).reverse()
-      }
-    </Swiper>
-  )
-}
+	return (
+		<Swiper
+			slidesPerView={2}
+			spaceBetween={26}
+			navigation={true}
+			modules={[Navigation]}
+			className={styles.customSwiper}
+			breakpoints={{
+				320: {
+					slidesPerView: 1.1,
+					spaceBetween: 14,
+				},
+				768: {
+					slidesPerView: 1.3,
+					spaceBetween: 14,
+				},
+				1070: {
+					slidesPerView: 2,
+				},
+			}}
+		>
+			{data
+				.map(({ id, attributes }) => (
+					<SwiperSlide className={styles.slide} key={id}>
+						<CustomIframe
+							thumb={attributes.thumbnail.data.attributes.url}
+							src={attributes.link}
+							alt='Последняя проповедь'
+						/>
+					</SwiperSlide>
+				))
+				.reverse()}
+		</Swiper>
+	);
+};
 
 export { CustomSwiper };

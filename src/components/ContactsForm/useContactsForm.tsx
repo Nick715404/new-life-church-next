@@ -3,6 +3,7 @@
 import { sendContactsFormData } from '@/api/forms';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { submitForm } from './ContactsForm.api';
 
 export type TContactsForm<T> = {
 	name: T;
@@ -24,9 +25,19 @@ export const useContactsForm = () => {
 		'not_sended'
 	);
 
+	const phoneFormating = (number: string) => {
+		const newPhone = number.replace(/\D/g, '');
+		return newPhone;
+	};
+
 	const onSubmit: SubmitHandler<TContactsForm<string>> = async data => {
-		console.log(data);
-		setFormStatus(prev => (prev = 'sended'));
+		const formatedPhone = phoneFormating(data.phone);
+		const response = await submitForm({ ...data, phone: formatedPhone });
+		if (response.status === 'success') {
+			setFormStatus('sended');
+		} else {
+			setFormStatus('not_sended');
+		}
 		reset();
 	};
 

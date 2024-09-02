@@ -2,32 +2,32 @@ export const formThemesVariants = [
 	{
 		id: 1,
 		title: 'Служение',
-		value: 'services',
+		value: 'Служение',
 	},
 	{
 		id: 2,
 		title: 'Домашние группы',
-		value: 'homeGroups',
+		value: 'Домашние группы',
 	},
 	{
 		id: 3,
 		title: 'Мероприятия',
-		value: 'events',
+		value: 'Мероприятия',
 	},
 	{
 		id: 4,
 		title: 'Молитвенная нужда',
-		value: 'prayerNeeds',
+		value: 'Молитвенная нужда',
 	},
 	{
 		id: 5,
 		title: 'Благодарение',
-		value: 'thanks',
+		value: 'Благодарение',
 	},
 	{
 		id: 6,
 		title: 'Свободная тема',
-		value: 'freeTheme',
+		value: 'Свободная тема',
 	},
 ];
 

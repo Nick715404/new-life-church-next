@@ -8,7 +8,7 @@ import { CustomSelect } from '../CustomSelect/CustomSelect';
 import Link from 'next/link';
 import { MotionBox } from '../MotionBox';
 
-const ContactsForm = () => {
+export const ContactsForm = () => {
 	const { errors, handleSubmit, onSubmit, register, formStatus } =
 		useContactsForm();
 
@@ -94,5 +94,3 @@ const ContactsForm = () => {
 		</MotionBox>
 	);
 };
-
-export { ContactsForm };

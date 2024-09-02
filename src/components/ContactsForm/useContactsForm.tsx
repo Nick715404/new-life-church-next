@@ -24,6 +24,9 @@ export const useContactsForm = () => {
 	const [formStatus, setFormStatus] = useState<'sended' | 'not_sended'>(
 		'not_sended'
 	);
+	const [isLoading, setIsLoading] = useState<'loading' | 'loaded' | 'waiting'>(
+		'waiting'
+	);
 
 	const phoneFormating = (number: string) => {
 		const newPhone = number.replace(/\D/g, '');
@@ -31,14 +34,17 @@ export const useContactsForm = () => {
 	};
 
 	const onSubmit: SubmitHandler<TContactsForm<string>> = async data => {
+		setIsLoading('loading');
 		const formatedPhone = phoneFormating(data.phone);
 		const response = await submitForm({ ...data, phone: formatedPhone });
+		setIsLoading('loaded');
 		if (response.status === 'success') {
 			setFormStatus('sended');
 		} else {
 			setFormStatus('not_sended');
 		}
 		reset();
+		setIsLoading('waiting');
 	};
 
 	return {
@@ -47,5 +53,6 @@ export const useContactsForm = () => {
 		errors,
 		onSubmit,
 		formStatus,
+		isLoading,
 	};
 };

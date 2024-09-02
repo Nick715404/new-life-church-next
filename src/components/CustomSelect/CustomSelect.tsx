@@ -6,13 +6,18 @@ import { TContactsForm } from '../ContactsForm/useContactsForm';
 
 type CustomSelectProps = Readonly<{
 	register: UseFormRegister<TContactsForm<string>>;
+	isDisabled?: boolean;
 }>;
 
-export const CustomSelect: FC<CustomSelectProps> = ({ register }) => {
+export const CustomSelect: FC<CustomSelectProps> = ({
+	register,
+	isDisabled,
+}) => {
 	return (
 		<select
 			{...register('theme')}
 			defaultValue='default'
+			disabled={isDisabled}
 			className={`${styles.select} ${styles.formItem}`}
 		>
 			<option value='default' disabled>

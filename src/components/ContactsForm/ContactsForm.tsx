@@ -9,8 +9,10 @@ import Link from 'next/link';
 import { MotionBox } from '../MotionBox';
 
 export const ContactsForm = () => {
-	const { errors, handleSubmit, onSubmit, register, formStatus } =
+	const { errors, handleSubmit, onSubmit, register, formStatus, isLoading } =
 		useContactsForm();
+
+	const disableWhileLoading = isLoading === 'loading' && true;
 
 	if (formStatus === 'sended') {
 		return (
@@ -26,13 +28,17 @@ export const ContactsForm = () => {
 		<MotionBox delay={0.4} className={styles.formBox}>
 			<h3 className={`${styles.title} ${halvar.className}`}>Обратная связь</h3>
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-				<CustomSelect register={register} />
+				<CustomSelect
+					isDisabled={isLoading === 'loading' && true}
+					register={register}
+				/>
 				<label htmlFor='name'>
 					<input
 						id='name'
 						placeholder='Имя'
 						className={`${styles.input} ${styles.formItem}`}
 						type='text'
+						disabled={disableWhileLoading}
 						{...register('name', {
 							required: 'Поле "Имя" обязательно к заполнению',
 						})}
@@ -44,6 +50,7 @@ export const ContactsForm = () => {
 						placeholder='Email'
 						className={`${styles.input} ${styles.formItem}`}
 						type='email'
+						disabled={disableWhileLoading}
 						{...register('email', {
 							required: 'Поле "Email" обязательно к заполнению',
 						})}
@@ -55,6 +62,7 @@ export const ContactsForm = () => {
 						placeholder='Телефон'
 						className={`${styles.input} ${styles.formItem}`}
 						type='text'
+						disabled={disableWhileLoading}
 						{...register('phone', {
 							required: 'Поле "Телефон" обязательно к заполнению',
 							minLength: {
@@ -68,6 +76,7 @@ export const ContactsForm = () => {
 				<textarea
 					placeholder='Ваше сообщение'
 					className={`${styles.textarea} ${styles.formItem}`}
+					disabled={disableWhileLoading}
 					{...register('description', {
 						maxLength: {
 							value: 280,
@@ -80,6 +89,7 @@ export const ContactsForm = () => {
 						{...register('agreement', { required: '*Поставь галочку' })}
 						type='checkbox'
 						className={styles.agreementChecbox}
+						disabled={disableWhileLoading}
 					/>
 					<span className={styles.checkboxTitle}>
 						Я согласен с{' '}
@@ -87,8 +97,12 @@ export const ContactsForm = () => {
 					</span>
 				</label>
 				<ErrorMessage message={errors?.agreement?.message || ''} />
-				<button className={styles.btn} type='submit'>
-					Отправить
+				<button
+					style={{ pointerEvents: isLoading === 'loading' ? 'none' : 'auto' }}
+					className={styles.btn}
+					type='submit'
+				>
+					{isLoading === 'loading' ? 'Загрузка...' : 'Отправить'}
 				</button>
 			</form>
 		</MotionBox>

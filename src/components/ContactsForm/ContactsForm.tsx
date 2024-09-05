@@ -24,6 +24,17 @@ export const ContactsForm = () => {
 		);
 	}
 
+	if (formStatus === 'not_sended') {
+		return (
+			<div className={`${styles.formBox} ${styles.sended}`}>
+				<h3 className={`${styles.title} ${halvar.className} ${styles.error}`}>
+					Кажется что то пошло не так
+				</h3>
+				<p className={styles.error}>Попробуйте еще раз или свяжитесь с нами через соц-сети</p>
+			</div>
+		);
+	}
+
 	return (
 		<MotionBox delay={0.4} className={styles.formBox}>
 			<h3 className={`${styles.title} ${halvar.className}`}>Обратная связь</h3>

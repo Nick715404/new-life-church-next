@@ -21,8 +21,8 @@ export const useContactsForm = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<TContactsForm<string>>();
-	const [formStatus, setFormStatus] = useState<'sended' | 'not_sended'>(
-		'not_sended'
+	const [formStatus, setFormStatus] = useState<'sended' | 'waiting' | 'not_sended'>(
+		'waiting'
 	);
 	const [isLoading, setIsLoading] = useState<'loading' | 'loaded' | 'waiting'>(
 		'waiting'
@@ -45,6 +45,11 @@ export const useContactsForm = () => {
 		}
 		reset();
 		setIsLoading('waiting');
+
+		setTimeout(() => {
+			setFormStatus('waiting')
+		}, 2500)
+
 	};
 
 	return {

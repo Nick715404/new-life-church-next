@@ -24,7 +24,7 @@ export const submitForm = async (
 			throw new Error('Error while submiting form');
 		}
 
-		const data = response.json();
+		const data = await response.json();
 
 		console.log(data);
 		return data;

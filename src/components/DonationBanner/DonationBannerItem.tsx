@@ -1,35 +1,50 @@
-import { halvar } from '@/constants/fonts';
-import { FormChooserButton } from '../Forms';
+'use client';
+
 import styles from './DonationBanner.module.scss';
-import { IEventType, TEventItems } from '@/interfaces/events'
+import { halvar } from '@/constants/fonts';
+import { TEventItems } from '@/interfaces/events';
+import { DonationButton } from '../DontaionButton/DontaionButton';
+import { useDonationBanner } from './useDonationBanner';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
-type DonationBannerItemProps = { item: TEventItems, eventType: IEventType, slug: string, };
+type DonationBannerItemProps = {
+	item: TEventItems;
+};
 
-export const DonationBannerItem = ({ item, eventType, slug }: DonationBannerItemProps) => {
-  const types: { paymentType: string, value: string }[] = [
-    { paymentType: "standard", value: "" },
-    { paymentType: "businessMan", value: "Регистрация для предпринимателей" },
-    { paymentType: "startupper", value: "Регистрация для начинающих предпринимателей" },
-    { paymentType: "pastor", value: "Регистрация для пасторов" },
-  ];
+export const DonationBannerItem = ({ item }: DonationBannerItemProps) => {
+	const {
+		attributes: { price, increase_price, paymentType, increased_price_date },
+	} = item;
 
-  const selectedType = types.find(type => type.paymentType === item.attributes.paymentType);
-  const increasedDate = new Date(item.attributes.increased_price_date).toLocaleDateString('ru-RU', {
-    day: 'numeric',
-    month: 'long'
-  });
+	const { increasedDate, selectedType } = useDonationBanner({
+		date: increased_price_date,
+		paymentType: paymentType,
+	});
 
-  return (
-    <div className={styles.item}>
-      <span className={styles.description}>{selectedType?.value}</span>
-      <div className={styles.info}>
-        <div className={styles.priceInfo}>
-          <span className={`${styles.price} ${halvar.className}`}>{item.attributes.price}р</span>
-          {item.attributes.increase_price && item.attributes.increase_price ?
-            <span className={styles.increasedPriceText}>{increasedDate} - {item.attributes.increase_price}р</span> : null}
-        </div>
-        <FormChooserButton type={eventType} slug={slug} price={+item.attributes.price} role={item.attributes.paymentType} />
-      </div>
-    </div>
-  )
-}
+	const href = useSelector((state: RootState) => state.event.formLink);
+
+	return (
+		<div className={styles.item}>
+			<span className={styles.description}>{selectedType?.value}</span>
+			<div className={styles.info}>
+				<div className={styles.priceInfo}>
+					<span className={`${styles.price} ${halvar.className}`}>
+						{price}р
+					</span>
+					{increase_price && increase_price ? (
+						<span className={styles.increasedPriceText}>
+							{increasedDate} - {increase_price}р
+						</span>
+					) : null}
+				</div>
+				<DonationButton
+					as='link'
+					href={href}
+					text='Зарегистрироваться'
+					style='white'
+				/>
+			</div>
+		</div>
+	);
+};

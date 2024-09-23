@@ -1,0 +1,44 @@
+.box {
+  margin-bottom: 35px;
+}
+
+.finalText,
+.donationBox {
+  margin-bottom: 20px;
+}
+
+.donationLink {
+  color: #ffad01;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.labelText {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input {
+
+  &::-webkit-file-upload-button {
+    background-color: #ffad01;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 100px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 2px solid #ffad01;
+
+    &:hover {
+      background-color: transparent;
+      transition: all .15s ease;
+    }
+
+  }
+
+}
+
+.error {
+  display: block;
+  color: red;
+}

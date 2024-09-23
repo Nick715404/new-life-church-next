@@ -1,54 +1,55 @@
-import { fetchSingleEvent } from '@/api/events'
-import { getOptions } from '@/api/options'
-import { IEvent, IEventInitialState } from '@/interfaces/events'
-import { IQueryFromStrapiSingle } from '@/interfaces/queries'
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { fetchSingleEvent } from '@/api/events';
+import { getOptions } from '@/api/options';
+import { IEvent, IEventInitialState } from '@/interfaces/events';
+import { IQueryFromStrapiSingle } from '@/interfaces/queries';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState: IEventInitialState = {
-  increasedPrice: 0,
-  price: 0,
-  type: 'default',
-  title: '',
-  role: 'default',
-}
+	increasedPrice: 0,
+	price: 0,
+	type: 'default',
+	title: '',
+	role: 'default',
+	formLink: '',
+};
 
-export const fetchEvent = createAsyncThunk(
-  'event',
-  async (slug: string) => {
-    const options = getOptions('GET');
+export const fetchEvent = createAsyncThunk('event', async (slug: string) => {
+	const options = getOptions('GET');
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate=background&populate=speakers.image&populate=schedules&populate=gallery`, {
-      ...options,
-      cache: 'no-cache'
-    });
+	const response = await fetch(
+		`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate=background&populate=speakers.image&populate=schedules&populate=gallery`,
+		{
+			...options,
+			cache: 'no-cache',
+		}
+	);
 
-    if (!response.ok) throw new Error('Error to fetch event');
+	if (!response.ok) throw new Error('Error to fetch event');
 
-    const { data }: IQueryFromStrapiSingle<IEvent> = await response.json();
-    return data;
-  }
-)
+	const { data }: IQueryFromStrapiSingle<IEvent> = await response.json();
+	return data;
+});
 
 export const eventSlice = createSlice({
-  name: 'event',
-  initialState,
-  reducers: {
-    addPrice: (state, action) => {
-      state.price = action.payload;
-    },
-    addRole: (state, action) => {
-      state.role = action.payload;
-    },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchEvent.fulfilled, (state, action) => {
-        state.increasedPrice = action.payload.attributes.increase_price!;
-        state.type = action.payload.attributes.event_type;
-        state.title = action.payload.attributes.title;
-      })
-  }
-})
+	name: 'event',
+	initialState,
+	reducers: {
+		addPrice: (state, action) => {
+			state.price = action.payload;
+		},
+		addRole: (state, action) => {
+			state.role = action.payload;
+		},
+	},
+	extraReducers: builder => {
+		builder.addCase(fetchEvent.fulfilled, (state, action) => {
+			state.increasedPrice = action.payload.attributes.increase_price!;
+			state.type = action.payload.attributes.event_type;
+			state.title = action.payload.attributes.title;
+			state.formLink = action.payload.attributes.form_link;
+		});
+	},
+});
 
 export const { addPrice, addRole } = eventSlice.actions;
 

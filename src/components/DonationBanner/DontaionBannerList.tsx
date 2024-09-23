@@ -1,17 +1,18 @@
-import { halvar } from "@/constants/fonts";
-import styles from "./DonationBanner.module.scss";
-import { FormChooserButton } from "../Forms";
-import { IEventType, TEventItems } from "@/interfaces/events";
-import { DonationBannerItem } from "./DonationBannerItem";
+import styles from './DonationBanner.module.scss';
 
-type DontaionBannerListProps = { items: TEventItems[], eventType: IEventType, slug: string, }
+import { TEventItems } from '@/interfaces/events';
+import { DonationBannerItem } from './DonationBannerItem';
 
-export const DontaionBannerList = ({ items, eventType, slug }: DontaionBannerListProps) => {
-  return (
-    <div className={styles.itemsList}>
-      {items.map((item) => (
-        <DonationBannerItem key={item.id} item={item} eventType={eventType} slug={slug} />
-      ))}
-    </div>
-  );
+type DontaionBannerListProps = {
+	items: TEventItems[];
+};
+
+export const DontaionBannerList = ({ items }: DontaionBannerListProps) => {
+	return (
+		<div className={styles.itemsList}>
+			{items.map(item => (
+				<DonationBannerItem key={item.id} item={item} />
+			))}
+		</div>
+	);
 };

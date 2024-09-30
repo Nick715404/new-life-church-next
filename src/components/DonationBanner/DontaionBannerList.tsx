@@ -1,6 +1,6 @@
 import styles from './DonationBanner.module.scss';
 
-import { TEventItems } from '@/interfaces/events';
+import { TEventItems } from '@/types/events';
 import { DonationBannerItem } from './DonationBannerItem';
 
 type DontaionBannerListProps = {

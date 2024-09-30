@@ -7,7 +7,6 @@ export interface IEvent {
 	small_description: string;
 	full_description: IBigDescriptionChildren[];
 	slug: string;
-	form_link: string;
 	reg_price: number;
 	increase_date?: string;
 	increase_price?: number;
@@ -83,5 +82,6 @@ export type TEventItems = {
 		increased_price_date: string;
 		increase_price: string;
 		paymentType: string;
+		form_link: string;
 	};
 };

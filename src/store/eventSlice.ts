@@ -1,7 +1,7 @@
 import { fetchSingleEvent } from '@/api/events';
 import { getOptions } from '@/api/options';
-import { IEvent, IEventInitialState } from '@/interfaces/events';
-import { IQueryFromStrapiSingle } from '@/interfaces/queries';
+import { IEvent, IEventInitialState } from '@/types/events';
+import { IQueryFromStrapiSingle } from '@/types/queries';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState: IEventInitialState = {
@@ -46,7 +46,6 @@ export const eventSlice = createSlice({
 			state.increasedPrice = action.payload.attributes.increase_price!;
 			state.type = action.payload.attributes.event_type;
 			state.title = action.payload.attributes.title;
-			state.formLink = action.payload.attributes.form_link;
 		});
 	},
 });

@@ -1,11 +1,10 @@
 import styles from './Forms.module.scss';
-import { TYouthPaymentForm } from '@/interfaces/forms';
+import { TYouthPaymentForm } from '@/types/forms';
 import { StandartForm } from './StandartForm';
 import { useEventsForms } from './useEventsForms';
 import { InputList } from './InputList';
 import Link from 'next/link';
 import { UploadFileInput } from '../UploadFileInput';
-import { sendRegistration } from '@/api/forms';
 
 type YouthFormProps = { slug: string };
 

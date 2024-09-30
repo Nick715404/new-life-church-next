@@ -2,11 +2,9 @@
 
 import styles from './DonationBanner.module.scss';
 import { halvar } from '@/constants/fonts';
-import { TEventItems } from '@/interfaces/events';
+import { TEventItems } from '@/types/events';
 import { DonationButton } from '../DontaionButton/DontaionButton';
 import { useDonationBanner } from './useDonationBanner';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
 
 type DonationBannerItemProps = {
 	item: TEventItems;
@@ -14,15 +12,19 @@ type DonationBannerItemProps = {
 
 export const DonationBannerItem = ({ item }: DonationBannerItemProps) => {
 	const {
-		attributes: { price, increase_price, paymentType, increased_price_date },
+		attributes: {
+			price,
+			increase_price,
+			paymentType,
+			increased_price_date,
+			form_link,
+		},
 	} = item;
 
 	const { increasedDate, selectedType } = useDonationBanner({
 		date: increased_price_date,
 		paymentType: paymentType,
 	});
-
-	const href = useSelector((state: RootState) => state.event.formLink);
 
 	return (
 		<div className={styles.item}>
@@ -40,7 +42,7 @@ export const DonationBannerItem = ({ item }: DonationBannerItemProps) => {
 				</div>
 				<DonationButton
 					as='link'
-					href={href}
+					href={form_link}
 					text='Зарегистрироваться'
 					style='white'
 				/>

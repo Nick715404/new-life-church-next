@@ -1,20 +1,18 @@
-import { ISchedule } from "@/interfaces/events";
+import { ISchedule } from '@/types/events';
 
 type ScheduleDateProps = {
-  date: string,
-  scheduleItem: ISchedule,
+	date: string;
+	scheduleItem: ISchedule;
 };
 
 export function ScheduleDate({ date, scheduleItem }: ScheduleDateProps) {
-  return (
-    <div>
-      {
-        date === scheduleItem.attributes.date
-          ?
-          <span>{date}</span>
-          :
-          <span>{scheduleItem.attributes.date}</span>
-      }
-    </div>
-  );
-};
+	return (
+		<div>
+			{date === scheduleItem.attributes.date ? (
+				<span>{date}</span>
+			) : (
+				<span>{scheduleItem.attributes.date}</span>
+			)}
+		</div>
+	);
+}

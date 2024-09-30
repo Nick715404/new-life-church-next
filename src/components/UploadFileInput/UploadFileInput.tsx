@@ -1,7 +1,7 @@
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import styles from './styles.module.scss';
 import Link from 'next/link';
-import { TYouthPaymentForm } from '@/interfaces/forms';
+import { TYouthPaymentForm } from '@/types/forms';
 
 type UploadFileInputProps = {
 	register: UseFormRegister<TYouthPaymentForm>;

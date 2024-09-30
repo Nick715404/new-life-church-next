@@ -1,44 +1,45 @@
-import { IQueryFromStrapi, IQueryFromStrapiSingle } from "@/interfaces/queries";
-import { getOptions } from "./options";
-import { IEvent } from "@/interfaces/events";
-
+import { IQueryFromStrapi, IQueryFromStrapiSingle } from '@/types/queries';
+import { getOptions } from './options';
+import { IEvent } from '@/types/events';
 
 export const fetchEvents = async () => {
+	const options = getOptions('GET');
 
-  const options = getOptions('GET');
+	try {
+		const response = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/events?populate=*`,
+			{
+				...options,
+				next: { revalidate: 180 },
+			}
+		);
 
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/events?populate=*`, {
-      ...options,
-      next: { revalidate: 180 }
-    });
+		if (!response.ok) throw new Error('Error to fetch events');
 
-    if (!response.ok) throw new Error('Error to fetch events');
-
-    const { data }: IQueryFromStrapi<IEvent> = await response.json();
-    return data;
-  }
-  catch (error) {
-    throw new Error('Error to fetch events');
-  }
+		const { data }: IQueryFromStrapi<IEvent> = await response.json();
+		return data;
+	} catch (error) {
+		throw new Error('Error to fetch events');
+	}
 };
 
 export const fetchSingleEvent = async (slug: string) => {
+	const options = getOptions('GET');
 
-  const options = getOptions('GET');
+	try {
+		const response = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate=background&populate=speakers.image&populate=schedules&populate=gallery&populate=event_items`,
+			{
+				...options,
+				cache: 'no-cache',
+			}
+		);
 
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate=background&populate=speakers.image&populate=schedules&populate=gallery&populate=event_items`, {
-      ...options,
-      cache: 'no-cache'
-    });
+		if (!response.ok) throw new Error('Error to fetch event');
 
-    if (!response.ok) throw new Error('Error to fetch event');
-
-    const { data }: IQueryFromStrapiSingle<IEvent> = await response.json();
-    return data;
-  }
-  catch (error) {
-    throw new Error('Error to fetch event' + error);
-  }
+		const { data }: IQueryFromStrapiSingle<IEvent> = await response.json();
+		return data;
+	} catch (error) {
+		throw new Error('Error to fetch event' + error);
+	}
 };

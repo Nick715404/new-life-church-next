@@ -1,7 +1,5 @@
-import { fetchAllCalendarEvents } from '@/api/calender';
 import styles from './Calendar.module.scss';
-import { IDataFromStrapi } from '@/interfaces/queries';
-import { ICalendar } from '@/interfaces/calendar';
+import { fetchAllCalendarEvents } from '@/api/calender';
 import { CalendarItem } from './CalendarItem';
 import { MotionBox } from '../MotionBox';
 

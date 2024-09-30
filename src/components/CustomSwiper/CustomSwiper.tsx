@@ -4,8 +4,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from './CustomSwiper.module.scss';
 
-import { ILastSermon } from '@/interfaces/last-sermons';
-import { IDataFromStrapi } from '@/interfaces/queries';
+import { ILastSermon } from '@/types/last-sermons';
+import { IDataFromStrapi } from '@/types/queries';
 import { CustomIframe } from '../CustomIframe/CustomIframe';
 
 import { Navigation } from 'swiper/modules';

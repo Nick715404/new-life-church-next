@@ -1,27 +1,14 @@
-'use client';
-
 import styles from './DonationBanner.module.scss';
 import Image from 'next/image';
 import { halvar } from '@/constants/fonts';
-import { TEventItems } from '@/interfaces/events';
+import { TEventItems } from '@/types/events';
 import { DontaionBannerList } from './DontaionBannerList';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '@/store/store';
-import { useEffect } from 'react';
-import { fetchEvent } from '@/store/eventSlice';
 
 type DonationBannerProps = {
 	data: TEventItems[];
-	slug: string;
 };
 
-export function DonationBanner({ data, slug }: DonationBannerProps) {
-	const dispatch = useDispatch<AppDispatch>();
-
-	useEffect(() => {
-		dispatch(fetchEvent(slug));
-	}, [slug]);
-
+export function DonationBanner({ data }: DonationBannerProps) {
 	return (
 		<section className={styles.section}>
 			<div className='container'>

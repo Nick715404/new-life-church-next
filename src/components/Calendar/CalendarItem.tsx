@@ -1,6 +1,6 @@
 import styles from './Calendar.module.scss';
 
-import { ICalendar } from '@/interfaces/calendar';
+import { ICalendar } from '@/types/calendar';
 import { useCalendar } from './useCalendar';
 import { CalendarEvent } from './CalendarEvent';
 

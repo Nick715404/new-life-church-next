@@ -3,7 +3,7 @@
 import styles from './Forms.module.scss';
 import { FormChooser } from './FormChooser';
 import { Modal } from '../Modal/Modal';
-import { IEventType } from '@/interfaces/events';
+import { IEventType } from '@/types/events';
 import { useState } from 'react';
 import { useStopScrolling } from '@/hooks/useStopScrolling';
 import { useDispatch } from 'react-redux';

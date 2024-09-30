@@ -1,21 +1,19 @@
-import { IInfoTab } from '@/interfaces/utils';
+import { IInfoTab } from '@/types/utils';
 import styles from './InfoTabs.module.scss';
 import { Tab } from './Tab';
 
 interface IProps {
-  data: IInfoTab[];
+	data: IInfoTab[];
 }
 
 const InfoTabs = ({ data }: IProps) => {
-  return (
-    <div className={styles.infoTabs}>
-      {
-        data.map((item, index) => (
-          <Tab key={index} data={item} />
-        ))
-      }
-    </div>
-  )
-}
+	return (
+		<div className={styles.infoTabs}>
+			{data.map((item, index) => (
+				<Tab key={index} data={item} />
+			))}
+		</div>
+	);
+};
 
 export { InfoTabs };

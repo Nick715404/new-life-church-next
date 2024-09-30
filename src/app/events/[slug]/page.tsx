@@ -1,4 +1,3 @@
-import styles from './styles.module.scss';
 import { Metadata } from 'next';
 import { fetchSingleEvent } from '@/api/events';
 import { Gallery } from '@/components/Gallery/Gallery';
@@ -36,7 +35,7 @@ export default async function EventPage({ params: { slug } }: EventPageProps) {
 			<EventSpeakers speakers={data.speakers} />
 			<Schedule schedule={data.schedules.data} />
 			<Gallery gallery={data.gallery.data} />
-			<DonationBanner data={data.event_items.data} slug={slug} />
+			<DonationBanner data={data.event_items.data} />
 		</main>
 	);
 }

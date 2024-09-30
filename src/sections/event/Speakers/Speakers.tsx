@@ -1,25 +1,23 @@
 import styles from './Speakers.module.scss';
 import { SpeakerSwiper } from '@/components/SpeakerSwiper/SpeakerSwiper';
-import { halvar } from "@/constants/fonts";
-import { ISpeaker } from '@/interfaces/speakers';
+import { halvar } from '@/constants/fonts';
+import { ISpeaker } from '@/types/speakers';
 
-type EventSpeakersProps = { speakers: ISpeaker, };
+type EventSpeakersProps = { speakers: ISpeaker };
 
 export function EventSpeakers({ speakers }: EventSpeakersProps) {
-  if (speakers.data.length === 0) {
-    return null;
-  };
+	if (speakers.data.length === 0) {
+		return null;
+	}
 
-  return (
-    <section className={styles.section}>
-      <div className="container-small">
-        <div className="relative">
-          <h2 className={`${halvar.className} ${styles.title}`}>
-            Спикеры
-          </h2>
-          <SpeakerSwiper slides={speakers} />
-        </div>
-      </div>
-    </section>
-  );
-};
+	return (
+		<section className={styles.section}>
+			<div className='container-small'>
+				<div className='relative'>
+					<h2 className={`${halvar.className} ${styles.title}`}>Спикеры</h2>
+					<SpeakerSwiper slides={speakers} />
+				</div>
+			</div>
+		</section>
+	);
+}

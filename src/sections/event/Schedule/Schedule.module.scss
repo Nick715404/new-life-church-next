@@ -16,11 +16,21 @@
     align-items: flex-start;
     margin-bottom: 2.4rem;
     gap: 2.5rem;
+    background-color: #F3F4F9;
+    padding: 30px;
+    border-radius: 20px;
+
+    @media (max-width: 1070px) {
+      flex-direction: column;
+    }
 
     @media (max-width: 768px) {
-      flex-direction: column;
       margin-bottom: 2rem;
       gap: 1rem;
+    }
+
+    @media (max-width: 375px) {
+      padding: 15px;
     }
 
     &:last-child {
@@ -31,7 +41,7 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      width: 18%;
+      width: 215px;
       padding-bottom: 6px;
 
       @media (max-width: 768px) {
@@ -52,6 +62,11 @@
           font-size: clamp(18px, 2.2vw, 22px);
           text-transform: capitalize;
           margin-bottom: 5px;
+
+          @media (max-width: 768px) {
+            margin-bottom: 0px;
+          }
+
         }
 
         .weekday {
@@ -69,17 +84,32 @@
 
       .item {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         padding-bottom: 26px;
-        border-bottom: 1px solid #DBDBDB;
-        margin-bottom: 1.8rem;
 
         @media (max-width: 768px) {
-          gap: 2rem;
+          justify-content: space-between;
         }
 
         &:last-child {
-          margin-bottom: 0;
+          padding-bottom: 0;
+        }
+
+        .info {
+          display: flex;
+          // justify-content: space-between;
+          width: 100%;
+          gap: 2rem;
+
+          @media (max-width: 768px) {
+            width: 70%;
+          }
+
+          @media (max-width: 490px) {
+            flex-direction: column;
+            gap: 0;
+          }
+
         }
 
         span {
@@ -104,19 +134,41 @@
         .time {
           border: 1px solid #9E9E9E;
           color: #9E9E9E;
-          padding: 10px;
+          padding: 6px 10px;
           border-radius: 500px;
           font-size: 20px;
           width: fit-content;
-        }
 
-        .description {
-          width: 40%;
+          @media (max-width: 768px) {
+            font-size: 16px;
+          }
+
+          @media (max-width: 375px) {
+            font-size: 14px;
+          }
+
         }
 
         .description,
         .speaker {
           font-size: clamp(16px, 2.1vw, 25px);
+        }
+
+        .description {
+          width: 40%;
+
+          @media (max-width: 490px) {
+            width: 100%;
+          }
+        }
+
+        .speaker {
+          color: #828282;
+
+          @media (max-width: 490px) {
+            font-size: 14px;
+          }
+
         }
 
       }

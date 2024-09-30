@@ -1,36 +1,37 @@
 import styles from './Schedule.module.scss';
-import { useDate } from './useDate';
-import { ScheduleItem } from './ScheduleItem';
 import { ISchedule } from '@/types/events';
 import { Fragment } from 'react';
+import { ScheduleItemsList } from './ScheduleItemsList';
 
 type ScheduleListProps = { data: ISchedule[] };
 
 export function ScheduleList({ data }: ScheduleListProps) {
-	const { groupedEvents } = useDate({ data: data });
-
 	return (
 		<div className='schedule'>
-			{Object.keys(groupedEvents).map(date => (
-				<Fragment key={date}>
+			{data.map(date => (
+				<Fragment key={date.id}>
 					<div className={styles.day}>
 						<div className={styles.date}>
 							<span className={styles.dayNumber}>
-								{new Date(date).getDate()}
+								{new Date(date.attributes.date).getDate()}
 							</span>
 							<div className={styles.dayInfo}>
 								<span className={styles.month}>
-									{new Date(date).toLocaleDateString('ru', { month: 'long' })}
+									{new Date(date.attributes.date).toLocaleDateString('ru', {
+										month: 'long',
+									})}
 								</span>
 								<span className={styles.weekday}>
-									{new Date(date).toLocaleDateString('ru', { weekday: 'long' })}
+									{new Date(date.attributes.date).toLocaleDateString('ru', {
+										weekday: 'long',
+									})}
 								</span>
 							</div>
 						</div>
 						<div className={styles.events}>
-							{groupedEvents[date].map(item => (
-								<ScheduleItem key={item.id} data={item} />
-							))}
+							<ScheduleItemsList
+								schedule_items={date.attributes.schedule_items.data}
+							/>
 						</div>
 					</div>
 				</Fragment>

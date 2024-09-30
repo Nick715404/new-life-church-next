@@ -1,12 +1,14 @@
 import styles from './Schedule.module.scss';
-import { ISchedule } from '@/types/events';
+import { TScheduleItem } from '@/types/events';
 
-type ScheduleItemProps = { data: ISchedule };
+type ScheduleItemProps = { data: TScheduleItem };
 
 export function ScheduleItem({ data }: ScheduleItemProps) {
-	const { time, description, speaker } = data.attributes;
+	const {
+		attributes: { event_description, event_speaker, time },
+	} = data;
 
-	const costumeTime = new Date(`2024-01-01T${time}`).toLocaleTimeString([], {
+	const costumeTime = new Date('1970-01-01T' + time).toLocaleTimeString([], {
 		hour: '2-digit',
 		minute: '2-digit',
 		hour12: false,
@@ -17,9 +19,13 @@ export function ScheduleItem({ data }: ScheduleItemProps) {
 			<div className={styles.timeBox}>
 				<span className={styles.time}>{costumeTime}</span>
 			</div>
-			<span className={styles.description}>{description}</span>
+			<div className={styles.info}>
+				<span className={styles.description}>{event_description}</span>
 
-			{speaker ? <span className={styles.speaker}>{speaker}</span> : null}
+				{event_speaker ? (
+					<span className={styles.speaker}>{event_speaker}</span>
+				) : null}
+			</div>
 		</div>
 	);
 }

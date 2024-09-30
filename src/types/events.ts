@@ -33,14 +33,25 @@ export interface ISchedule {
 	id: number;
 	attributes: {
 		date: string;
-		time: string;
-		description: string;
-		speaker?: string;
 		createdAt: string;
 		updatedAt: string;
 		publishedAt: string;
+		schedule_items: {
+			data: TScheduleItem[] | [];
+		};
 	};
 }
+
+export type TScheduleItem = {
+	id: number;
+	attributes: {
+		createdAt: string;
+		updatedAt: string;
+		time: string;
+		event_description: string;
+		event_speaker: string;
+	};
+};
 
 export type TGalleryImage = {
 	id: number;

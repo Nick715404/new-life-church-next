@@ -28,7 +28,7 @@ export const fetchSingleEvent = async (slug: string) => {
 
 	try {
 		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate=background&populate=speakers.image&populate=schedules&populate=gallery&populate=event_items`,
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate[background]=*&populate[speakers][populate][image]=*&populate[schedules][populate][schedule_items]=*&populate[gallery]=*&populate[event_items]=*`,
 			{
 				...options,
 				cache: 'no-cache',

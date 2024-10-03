@@ -1,5 +1,10 @@
 export const formThemesVariants = [
 	{
+		id: 0,
+		title: 'Консультация пастора',
+		value: 'Консультация пастора',
+	},
+	{
 		id: 1,
 		title: 'Служение',
 		value: 'Служение',

@@ -1,8 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 900px;
-  height: 100dvh;
+  min-height: 100dvh;
   border-radius: 100px 100px 0 0;
 
   @media (max-width: 1600px) {

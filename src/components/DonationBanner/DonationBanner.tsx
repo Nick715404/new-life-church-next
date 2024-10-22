@@ -28,7 +28,7 @@ export function DonationBanner({ data }: DonationBannerProps) {
 							priority
 							fill
 							src='/img/png/donation-banner-phone.webp'
-							alt=''
+							alt='Добровольное пожертвование'
 						/>
 					</picture>
 				</div>

@@ -44,12 +44,15 @@ export const DonationBannerItem = ({ item }: DonationBannerItemProps) => {
 						</span>
 					) : null}
 				</div>
-				<DonationButton
-					as='link'
-					href={form_link}
-					text='Зарегистрироваться'
-					style='white'
-				/>
+				<div className={styles.buttonBox}>
+					<DonationButton
+						as='link'
+						href={form_link}
+						text='Зарегистрироваться'
+						style='white'
+						full
+					/>
+				</div>
 			</div>
 		</div>
 	);

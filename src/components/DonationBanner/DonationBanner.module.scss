@@ -96,7 +96,7 @@
 
       .description {
         display: block;
-        text-align: right;
+        text-align: left;
         color: #fff;
         margin-bottom: 16px;
 
@@ -126,7 +126,7 @@
         flex-direction: column;
         color: #fff;
         min-width: fit-content;
-        align-items: center;
+        align-items: flex-start;
 
         @media (max-width: 768px) {
           align-items: flex-start;

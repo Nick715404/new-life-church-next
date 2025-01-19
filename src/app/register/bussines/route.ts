@@ -18,22 +18,18 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(req: Request) {
 	try {
-		const { email, first_name, last_name } = await req.json();
+		const body = await req.json();
 
-		console.log('Received data:', {
-			email,
-			first_name,
-			last_name,
-		});
+		console.log('Received data:', body);
 
-		const html = await render(Email({ text: 'awdawd' }));
+		// const html = await render(Email({ text: 'awdawd' }));
 
-		await transporter.sendMail({
-			from: process.env.EMAIL_USER,
-			to: email,
-			subject: 'Your Message',
-			html: html,
-		});
+		// await transporter.sendMail({
+		// 	from: process.env.EMAIL_USER,
+		// 	to: email,
+		// 	subject: 'Your Message',
+		// 	html: html,
+		// });
 
 		return NextResponse.json({
 			success: true,

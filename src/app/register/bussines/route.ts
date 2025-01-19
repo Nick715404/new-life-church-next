@@ -16,20 +16,33 @@ const transporter = nodemailer.createTransport({
 	},
 });
 
+type TEmailBody = {
+	id: number;
+	jsonrpc: string;
+	method: 'POST' | 'GET';
+	params: TEmailBodyParams;
+};
+
+type TEmailBodyParams = {
+	email: string;
+	last_name: string;
+	first_name: string;
+};
+
 export async function POST(req: Request) {
 	try {
-		const body = await req.json();
+		const { params }: TEmailBody = await req.json();
 
-		console.log('Received data:', body);
+		console.log('Received data:', params);
 
-		// const html = await render(Email({ text: 'awdawd' }));
+		const html = await render(Email({ text: 'awdawd' }));
 
-		// await transporter.sendMail({
-		// 	from: process.env.EMAIL_USER,
-		// 	to: email,
-		// 	subject: 'Your Message',
-		// 	html: html,
-		// });
+		await transporter.sendMail({
+			from: process.env.EMAIL_USER,
+			to: params.email,
+			subject: 'Your Message',
+			html: html,
+		});
 
 		return NextResponse.json({
 			success: true,

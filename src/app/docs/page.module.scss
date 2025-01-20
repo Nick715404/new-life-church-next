@@ -36,8 +36,8 @@
     margin-bottom: 150px;
 
     @media (max-width: 768px) {
-     align-items: center;
-     text-align: center;
+      align-items: center;
+      text-align: center;
     }
 
     .link {
@@ -63,6 +63,43 @@
   .wrapper {
     display: flex;
     flex-direction: column;
+  }
+
+}
+
+.info {
+  margin-bottom: 150px;
+  position: relative;
+
+  @media (max-width: 1070px) {
+    margin-bottom: 120px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 80px;
+  }
+
+  .title {
+    font-size: 30px;
+    margin-bottom: 26px;
+    text-align: center;
+  }
+
+  .List {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+
+    .item {
+      color: #333;
+      line-height: 1.2;
+    }
+
   }
 
 }

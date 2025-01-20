@@ -2,6 +2,7 @@ import { MotionBox } from '@/components/MotionBox';
 import styles from './page.module.scss';
 import { halvar } from '@/constants/fonts';
 import { Metadata } from 'next';
+import { paymentInfoAccordion } from '@/constants/accordion';
 
 export const metadata: Metadata = {
 	title: 'Документы - Церковь Слово Жизни г. Челябинск',
@@ -54,6 +55,22 @@ export default function DocsPage() {
 									Публичная оферта о заключении <br /> договора пожертвований
 								</a>
 							</MotionBox>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section className={styles.info}>
+				<div className='container'>
+					<div className={styles.wrapper}>
+						<h2 className={`${styles.title} ${halvar.className}`}>Реквизиты</h2>
+						<div className={styles.listBox}>
+							<ul className={styles.List}>
+								{paymentInfoAccordion.map(item => (
+									<li className={styles.item} key={item.id}>
+										<b>{item.title}:</b> {item.description}
+									</li>
+								))}
+							</ul>
 						</div>
 					</div>
 				</div>

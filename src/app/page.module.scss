@@ -11,8 +11,11 @@
     padding-top: 70px;
   }
 
-  @media (max-width: 1070px) {
+  @media (max-width: 1600px) {
     border-radius: 30px;
+  }
+
+  @media (max-width: 1070px) {
     margin-top: -95px;
   }
 

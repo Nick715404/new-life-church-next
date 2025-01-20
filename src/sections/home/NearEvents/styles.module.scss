@@ -1,0 +1,13 @@
+.nearEventsSection {
+  margin-bottom: 120px;
+
+  .title {
+    font-size: clamp(30px, 4.2vw, 50px);
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 25px;
+    }
+
+  }
+}

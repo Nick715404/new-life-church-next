@@ -1,12 +1,14 @@
 import styles from './page.module.scss';
 
 import { LinkBanner } from '@/components/LinkBanner/LinkBanner';
+import { halvar } from '@/constants/fonts';
 import {
 	Hero,
 	Events,
 	InfoSection,
 	Meetings,
 	JoinUs,
+	NearEvents,
 } from '@/sections/home/index';
 import { Metadata } from 'next';
 
@@ -24,6 +26,7 @@ export default function HomePage() {
 			<div className={styles.whiteBox}>
 				<Meetings />
 				<InfoSection />
+				<NearEvents />
 				<Events />
 				<LinkBanner
 					path='/contacts'

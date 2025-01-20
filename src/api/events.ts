@@ -1,6 +1,7 @@
 import { IQueryFromStrapi, IQueryFromStrapiSingle } from '@/types/queries';
 import { getOptions } from './options';
 import { IEvent } from '@/types/events';
+import { TNearEvent } from '@/components/swipers/ui/NearEventsSwiper/model';
 
 export const fetchEvents = async () => {
 	const options = getOptions('GET');
@@ -41,5 +42,25 @@ export const fetchSingleEvent = async (slug: string) => {
 		return data;
 	} catch (error) {
 		throw new Error('Error to fetch event' + error);
+	}
+};
+
+export const fetchNearEvents = async () => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/near-events?populate=*`,
+			{ next: { revalidate: 180 } }
+		);
+
+		if (!res.ok) {
+			throw new Error('Ошибка в получении последних мероприятий');
+		}
+
+		const { data } = await res.json();
+
+		return data;
+	} catch (error) {
+		console.error(error);
+		throw new Error('Ошибка в получении последних мероприятий');
 	}
 };

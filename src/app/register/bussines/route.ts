@@ -31,16 +31,15 @@ type TEmailBodyParams = {
 
 export async function POST(req: Request) {
 	try {
-		const { params }: TEmailBody = await req.json();
+		const {
+			params: { email, first_name, last_name },
+		}: TEmailBody = await req.json();
 
-		console.log('Received data:', params);
-
-		const html = await render(Email({ text: 'awdawd' }));
-
+		const html = await render(Email({ first_name, last_name }));
 		await transporter.sendMail({
 			from: process.env.EMAIL_USER,
-			to: params.email,
-			subject: 'Your Message',
+			to: email,
+			subject: 'Регистрация на БВПП 2025',
 			html: html,
 		});
 

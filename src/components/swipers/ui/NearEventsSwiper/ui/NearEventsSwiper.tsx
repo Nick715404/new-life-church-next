@@ -56,6 +56,8 @@ export const NearEventsSwiper = ({ items }: NearEventsSwiperProps) => {
 					day: 'numeric',
 					month: 'long',
 				});
+
+				console.log(startDate);
 				return (
 					<Fragment key={index}>
 						<SwiperSlide className={styles.slide}>

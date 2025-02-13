@@ -7,7 +7,7 @@ export async function POST(req: Request) {
 
 	// Настройки для Робокассы
 	const mrhLogin = 'chelwolrus';
-	const mrhPass1 = 'Z40HVdcuY3NwbL9qhR0a'; // Твой первый пароль от Робокассы
+	const mrhPass1 = 'Z40HVdcuY3NwbL9qhR0a';
 	const mrhPass1Test = 'E4yDEi3zLvRCk42TB4Gy';
 	const mrhPass2Test = 'v8gR6IDycL2JzyYPL6Q9';
 

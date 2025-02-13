@@ -9,7 +9,6 @@ export async function POST(req: Request) {
 	const invId = formData.get('InvId')?.toString();
 	const signatureValue = formData.get('SignatureValue')?.toString();
 
-	// Параметры для проверки подписи
 	const merchantLogin = 'chelwolrus'; // Логин Робокассы
 	const merchantPass2 = 'KA8I23IzWY3PQfrYvqJ3'; // Второй пароль из настроек Робокассы
 

@@ -17,11 +17,11 @@ type TBusinessRegisterProviderContext = {
 
 const BusinessRegisterProviderContext =
 	createContext<TBusinessRegisterProviderContext | null>(null);
-type FormType = 'Подросток' | 'Бизнесмэн' | 'Пастор';
+type FormType = 'Подросток' | 'Предприниматель' | 'Пастор';
 
 export const BusinessRegisterProvider = (props: RegisterProviderProps) => {
 	const { children } = props;
-	const [formType, setFormType] = useState<FormType>('Бизнесмэн');
+	const [formType, setFormType] = useState<FormType>('Предприниматель');
 	const persons = useSelector(
 		(state: RootState) => state.event.registerPersons
 	);

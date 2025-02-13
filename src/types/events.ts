@@ -81,7 +81,7 @@ export interface IEventInitialState {
 export type TRegisterPerson = {
 	id: number;
 	attributes: {
-		person_type: 'Подросток' | 'Бизнесмэн' | 'Пастор';
+		person_type: 'Подросток' | 'Предприниматель' | 'Пастор';
 		createdAt: Date;
 		updatedAt: Date;
 		publishedAt: Date;

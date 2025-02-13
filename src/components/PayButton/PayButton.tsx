@@ -46,7 +46,7 @@ const PayButton = ({ className, price }: TPayButtonProps) => {
 	return (
 		<button
 			className={className}
-			// onClick={handleClick}
+			onClick={handleClick}
 			rel='noopener noreferrer'
 			type='submit'
 		>

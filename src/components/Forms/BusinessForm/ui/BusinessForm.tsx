@@ -1,14 +1,15 @@
 'use client';
 
+import { RootState } from '@/store/store';
+import { useSelector } from 'react-redux';
 import { FormInput, FormRadio } from '../../ui';
+import PayButton from '@/components/PayButton/PayButton';
 import { BusinessFormFilter } from './BusinessFormFilter';
+import { RegisterPrice } from '@/components/RegisterPrice/ui';
 import { useBusinessRegisterContext } from '@/providers/BusinessRegisterProvider/ui';
 import { useForm } from 'react-hook-form';
+
 import styles from '../model/styles.module.scss';
-import { RegisterPrice } from '@/components/RegisterPrice/ui';
-import PayButton from '@/components/PayButton/PayButton';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
 
 type FormFields = {
 	first_name: string;
@@ -20,6 +21,8 @@ type FormFields = {
 	pastor_type?: string;
 	occupation?: string;
 	source?: string;
+	email: string;
+	phone: string;
 };
 
 export const BusinessForm = () => {
@@ -32,10 +35,6 @@ export const BusinessForm = () => {
 		person => person.attributes.person_type === formType
 	);
 
-	const savedData =
-		typeof window !== 'undefined' ? sessionStorage.getItem('formData') : null;
-	const initialValues = savedData ? JSON.parse(savedData) : {};
-
 	const {
 		register,
 		handleSubmit,
@@ -46,7 +45,14 @@ export const BusinessForm = () => {
 
 	const onSubmit = (data: FormFields) => {
 		if (typeof window !== 'undefined') {
-			sessionStorage.setItem('formData', JSON.stringify(data));
+			localStorage.setItem(
+				'formData',
+				JSON.stringify({
+					...data,
+					eventType: 'business',
+					personType: currentPerson?.attributes.person_type,
+				})
+			);
 		}
 		console.log(data);
 	};
@@ -79,6 +85,21 @@ export const BusinessForm = () => {
 					placeholder='Введите отчество'
 				/>
 				<FormInput<FormFields>
+					label='Телефон'
+					name='phone'
+					register={register}
+					errors={errors}
+					placeholder='Введите номер телефона'
+				/>
+				<FormInput<FormFields>
+					label='Email'
+					name='email'
+					register={register}
+					errors={errors}
+					placeholder='Введите email'
+					type='email'
+				/>
+				<FormInput<FormFields>
 					label='Город'
 					name='city'
 					register={register}
@@ -94,7 +115,7 @@ export const BusinessForm = () => {
 				/>
 
 				{/* Уникальные поля */}
-				{formType === 'Бизнесмэн' && (
+				{formType === 'Предприниматель' && (
 					<FormInput<FormFields>
 						label='Отраслевое направление'
 						name='vector'

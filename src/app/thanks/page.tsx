@@ -4,12 +4,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { halvar } from '@/constants/fonts';
 import { MotionBox } from '@/components/MotionBox';
-
+import { eventSwitcher } from '@/utils/register/session';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './page.module.scss';
-import { useEffect } from 'react';
 
 export default function ThanksPage() {
-	useEffect(() => {}, []);
+	const router = useRouter();
+
+	const storeManipulate = async (storedData: any) => {
+		const data = JSON.parse(storedData);
+		const res = await eventSwitcher(data);
+		if (res?.status === 'done') {
+			localStorage.removeItem('formData');
+		} else {
+			router.push('/payment-error');
+		}
+	};
+
+	useEffect(() => {
+		const storedData = localStorage.getItem('formData');
+		if (storedData) {
+			storeManipulate(storedData);
+		}
+	}, []);
+
 	return (
 		<main className='thanks children-page'>
 			<div className='container'>

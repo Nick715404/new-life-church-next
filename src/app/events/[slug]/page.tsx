@@ -4,6 +4,7 @@ import { Gallery } from '@/components/Gallery/Gallery';
 import { EventHero, EventSpeakers, Schedule } from '@/sections/event';
 import { DonationBanner } from '@/components/DonationBanner/DonationBanner';
 import { BigDescription } from '@/components/BigDescription/BigDescription';
+import PayButton from '@/components/PayButton/PayButton';
 
 type EventPageProps = { params: { slug: string } };
 
@@ -31,11 +32,14 @@ export default async function EventPage({ params: { slug } }: EventPageProps) {
 				title={data.title}
 				background={data.background.data}
 			/>
-			<BigDescription data={data.full_description} />
+			{data.full_description && <BigDescription data={data.full_description} />}
 			<EventSpeakers speakers={data.speakers} />
 			<Schedule schedule={data.schedules.data} />
 			<Gallery gallery={data.gallery.data} />
-			<DonationBanner data={data.event_items.data} />
+			<DonationBanner
+				register_persons={data.register_persons.data}
+				event_type={data.event_type}
+			/>
 		</main>
 	);
 }

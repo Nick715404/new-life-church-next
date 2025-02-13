@@ -1,0 +1,53 @@
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  margin-bottom: 10px;
+}
+
+.input {
+  border: 1px solid #101010;
+  padding: 20px;
+  font-size: 22px;
+  border-radius: 100px;
+
+  &:focus {
+    outline: none;
+    outline-color: #b67f13;
+    outline-width: 2px;
+  }
+
+  &:active {
+    outline: none;
+    outline-color: #b67f13;
+    outline-width: 2px;
+  }
+}
+
+.radioGroup {
+  .legend {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .radioLabel {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+  }
+
+  .radioInput {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.error {
+  color: rgb(176, 15, 15);
+  margin-left: 20px;
+  margin-top: 8px;
+}

@@ -18,16 +18,10 @@ export interface IEvent {
 	gallery: { data: TGalleryImage[] };
 	speakers: { data: ISpeakerData[] };
 	schedules: { data: ISchedule[] };
-	event_items: { data: TEventItems[] };
+	register_persons: { data: TRegisterPerson[] };
 }
 
-export type IEventType =
-	| 'uralFaithCond'
-	| 'youthUral'
-	| 'teensUral'
-	| 'business'
-	| 'worshipConf'
-	| 'default';
+export type IEventType = 'БизнесКонференция' | 'ЮсУрал' | 'ТинсУрал';
 
 export interface ISchedule {
 	id: number;
@@ -84,15 +78,15 @@ export interface IEventInitialState {
 	formLink: string;
 }
 
-export type TEventItems = {
+export type TRegisterPerson = {
 	id: number;
 	attributes: {
-		createdAt: string;
-		updatedAt: string;
-		price: string;
-		increased_price_date: string;
-		increase_price: string;
-		paymentType: string;
-		form_link: string;
+		person_type: 'Подросток' | 'Бизнесмэн' | 'Пастор';
+		createdAt: Date;
+		updatedAt: Date;
+		publishedAt: Date;
+		init_price: number;
+		new_price: number;
+		price_update_date: Date;
 	};
 };

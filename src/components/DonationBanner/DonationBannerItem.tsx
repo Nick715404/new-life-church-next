@@ -21,6 +21,17 @@ export const DonationBannerItem = ({ item }: DonationBannerItemProps) => {
 		},
 	} = item;
 
+	const paymentLink: Record<string, string> = {
+		Предприниматель: 'businessman',
+		'Подросток до 20 лет': 'children',
+		Пастор: 'pastor',
+		Прихожанин: 'standart',
+	};
+
+	const formLinkProvider: Record<string, string> = {
+		Бизнес: `/register/business/${paymentLink[paymentType]}`,
+	};
+
 	const { increasedDate, selectedType, priceSwitcher, increasedPriceSwitcher } =
 		useDonationBanner({
 			date: increased_price_date,
@@ -32,7 +43,7 @@ export const DonationBannerItem = ({ item }: DonationBannerItemProps) => {
 
 	return (
 		<div className={styles.item}>
-			<span className={styles.description}>{selectedType?.value}</span>
+			<span className={styles.description}>{paymentType}</span>
 			<div className={styles.info}>
 				<div className={styles.priceInfo}>
 					<span className={`${styles.price} ${halvar.className}`}>
@@ -47,7 +58,7 @@ export const DonationBannerItem = ({ item }: DonationBannerItemProps) => {
 				<div className={styles.buttonBox}>
 					<DonationButton
 						as='link'
-						href={form_link}
+						href={formLinkProvider[form_link]}
 						text='Зарегистрироваться'
 						style='white'
 						full

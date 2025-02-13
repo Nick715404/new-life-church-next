@@ -1,14 +1,33 @@
-import styles from './DonationBanner.module.scss';
+'use client';
+
 import Image from 'next/image';
 import { halvar } from '@/constants/fonts';
-import { TEventItems } from '@/types/events';
-import { DontaionBannerList } from './DontaionBannerList';
+import { TRegisterPerson } from '@/types/events';
+import styles from './DonationBanner.module.scss';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getRegisterPersons, getEventType } from '@/store/eventSlice';
+import { Popup } from '../Popup/ui';
+import { PopupTrigger } from '../Popup/ui/PopupTrigger';
+import { PopupContent } from '../Popup/ui/PopupContent';
+import { BusinessForm } from '../forms';
+import { BusinessRegisterProvider } from '@/providers/BusinessRegisterProvider/ui';
+import { FormSwitcher } from '../forms/ui/FormSwitcher';
 
-type DonationBannerProps = {
-	data: TEventItems[];
+type TDonationBannerProps = {
+	register_persons: TRegisterPerson[];
+	event_type: string;
 };
 
-export function DonationBanner({ data }: DonationBannerProps) {
+export function DonationBanner(props: TDonationBannerProps) {
+	const { register_persons, event_type } = props;
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getRegisterPersons(register_persons));
+		dispatch(getEventType(event_type));
+	}, [dispatch]);
+
 	return (
 		<section className={styles.section}>
 			<div className='container'>
@@ -17,18 +36,27 @@ export function DonationBanner({ data }: DonationBannerProps) {
 						Добровольное
 						<br /> пожертвование
 					</h2>
-					<DontaionBannerList items={data} />
+					<div className={styles.btnBox}>
+						<Popup>
+							<PopupTrigger className={styles.btn}>
+								Зарегистрироваться
+							</PopupTrigger>
+							<PopupContent>
+								<FormSwitcher />
+							</PopupContent>
+						</Popup>
+					</div>
 					<picture className={styles.picture}>
 						<source
 							srcSet='/img/png/donation-banner.webp'
 							media='(min-width: 769px)'
 						/>
 						<Image
-							className={styles.img}
-							priority
 							fill
-							src='/img/png/donation-banner-phone.webp'
+							priority
+							className={styles.img}
 							alt='Добровольное пожертвование'
+							src='/img/png/donation-banner-phone.webp'
 						/>
 					</picture>
 				</div>

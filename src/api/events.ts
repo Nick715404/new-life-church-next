@@ -1,7 +1,6 @@
 import { IQueryFromStrapi, IQueryFromStrapiSingle } from '@/types/queries';
 import { getOptions } from './options';
 import { IEvent } from '@/types/events';
-import { TNearEvent } from '@/components/swipers/ui/NearEventsSwiper/model';
 
 export const fetchEvents = async () => {
 	const options = getOptions('GET');
@@ -11,7 +10,7 @@ export const fetchEvents = async () => {
 			`${process.env.NEXT_PUBLIC_STRAPI_URL}/events?populate=*`,
 			{
 				...options,
-				next: { revalidate: 180 },
+				cache: 'no-cache',
 			}
 		);
 
@@ -29,7 +28,7 @@ export const fetchSingleEvent = async (slug: string) => {
 
 	try {
 		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate[background]=*&populate[speakers][populate][image]=*&populate[schedules][populate][schedule_items]=*&populate[gallery]=*&populate[event_items]=*`,
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate[background]=*&populate[speakers][populate][image]=*&populate[schedules][populate][schedule_items]=*&populate[gallery]=*&populate[register_persons]=*`,
 			{
 				...options,
 				cache: 'no-cache',

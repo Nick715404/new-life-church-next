@@ -15,12 +15,12 @@ export async function POST(req: Request) {
 	const invId = 0; // Уникальный ID заказа
 	const invDesc = 'Добровольное пожертвование'; // Описание заказа
 	const outSum = price.toFixed(2); // Сумма платежа
-	const isTest = 1;
+	const isTest = 0;
 
 	// Генерация подписи (CRC)
 	const crc = crypto
 		.createHash('md5')
-		.update(`${mrhLogin}:${outSum}:${invId}:${mrhPass1Test}`)
+		.update(`${mrhLogin}:${outSum}:${invId}:${mrhPass1}`)
 		.digest('hex');
 
 	// Формирование URL для Робокассы

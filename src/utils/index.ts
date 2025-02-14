@@ -1,1 +1,2 @@
-export * from './register';
+export * from './register/session';
+export * from './send-email';

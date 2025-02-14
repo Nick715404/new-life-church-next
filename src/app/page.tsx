@@ -27,7 +27,7 @@ export default function HomePage() {
 				<Meetings />
 				<InfoSection />
 				<NearEvents />
-				<Events />
+				{/* <Events /> */}
 				<LinkBanner
 					path='/contacts'
 					title='У вас есть молитвенная нужда или свидетельство?'

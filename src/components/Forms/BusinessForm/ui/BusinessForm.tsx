@@ -196,6 +196,9 @@ export const BusinessForm = () => {
 							className={styles.submitBtn}
 							price={currentPerson?.attributes.init_price}
 						/>
+						<button type='submit' className={styles.submitBtn}>
+							awdjiawjd
+						</button>
 					</>
 				)}
 			</form>

@@ -1,5 +1,5 @@
 // utils/session.ts
-import { sendDataToBusiness } from '@/api/register';
+import { sendDataToBusiness, sendDataToYouthUral } from '@/api/register';
 import { NextResponse } from 'next/server';
 
 let sessionData: Record<string, any> = {}; // Пример сессии в памяти
@@ -18,6 +18,7 @@ export function eventSwitcher(data: any) {
 	if (data.eventType === 'business') {
 		return sendDataToBusiness(data);
 	}
-	if (data.eventType === 'youtural') {
+	if (data.eventType === 'youthural') {
+		return sendDataToYouthUral(data);
 	}
 }

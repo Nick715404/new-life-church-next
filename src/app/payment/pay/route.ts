@@ -6,14 +6,14 @@ export async function POST(req: Request) {
 	const { price } = await req.json();
 
 	// Настройки для Робокассы
-	const mrhLogin = 'chelwolrus';
-	const mrhPass1 = 'Z40HVdcuY3NwbL9qhR0a';
-	const mrhPass1Test = 'E4yDEi3zLvRCk42TB4Gy';
-	const mrhPass2Test = 'v8gR6IDycL2JzyYPL6Q9';
+	const mrhLogin = `${process.env.MRC_LOGIN}`;
+	const mrhPass1 = `${process.env.MRC_PASS_1}`;
+	const mrhPass1Test = `${process.env.MRH_PASS_1_TEST}`;
+	const mrhPass2Test = `${process.env.MRH_PASS_2_TEST}`;
 
 	// Данные для заказа
-	const invId = 5; // Уникальный ID заказа
-	const invDesc = 'desc'; // Описание заказа
+	const invId = 0; // Уникальный ID заказа
+	const invDesc = 'Добровольное пожертвование'; // Описание заказа
 	const outSum = price.toFixed(2); // Сумма платежа
 	const isTest = 1;
 

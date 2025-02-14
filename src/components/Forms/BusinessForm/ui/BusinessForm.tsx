@@ -38,7 +38,7 @@ export const BusinessForm = () => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid },
 	} = useForm<FormFields>({
 		mode: 'onBlur',
 	});
@@ -195,6 +195,7 @@ export const BusinessForm = () => {
 						<PayButton
 							className={styles.submitBtn}
 							price={currentPerson?.attributes.init_price}
+							isValid={isValid}
 						/>
 						<button type='submit' className={styles.submitBtn}>
 							awdjiawjd

@@ -5,6 +5,8 @@ import crypto from 'crypto';
 export async function POST(req: Request) {
 	const { price } = await req.json();
 
+	console.log(price);
+
 	// Настройки для Робокассы
 	const mrhLogin = `${process.env.MRC_LOGIN}`;
 	const mrhPass1 = `${process.env.MRC_PASS_1}`;
@@ -14,7 +16,7 @@ export async function POST(req: Request) {
 	// Данные для заказа
 	const invId = 0; // Уникальный ID заказа
 	const invDesc = 'Добровольное пожертвование'; // Описание заказа
-	const outSum = price.toFixed(2); // Сумма платежа
+	const outSum = price; // Сумма платежа
 	const isTest = 0;
 
 	// Генерация подписи (CRC)

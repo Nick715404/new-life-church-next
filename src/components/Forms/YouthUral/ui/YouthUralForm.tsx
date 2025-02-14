@@ -27,7 +27,7 @@ export const YouthUralForm = () => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid },
 	} = useForm<FormFields>({
 		mode: 'onBlur',
 	});
@@ -139,6 +139,7 @@ export const YouthUralForm = () => {
 							/>
 						</div>
 						<PayButton
+							isValid={isValid}
 							className={styles.submitBtn}
 							price={currentPerson?.attributes.init_price}
 						/>

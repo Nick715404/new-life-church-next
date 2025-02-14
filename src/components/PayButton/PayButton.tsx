@@ -5,11 +5,21 @@ import { useEffect, useState } from 'react';
 type TPayButtonProps = {
 	className?: string;
 	price: number;
+	isValid: boolean;
 };
 
-const PayButton = ({ className, price }: TPayButtonProps) => {
+const PayButton = ({ className, price, isValid }: TPayButtonProps) => {
+	const [disabled, setDisabled] = useState<boolean>(false);
 	const [paymentUrl, setPaymentUrl] = useState<string | null>(null);
 	const router = useRouter();
+
+	useEffect(() => {
+		if (!isValid) {
+			setDisabled(true);
+		} else {
+			setDisabled(false);
+		}
+	}, [isValid]);
 
 	useEffect(() => {
 		const fetchPaymentUrl = async () => {
@@ -33,7 +43,7 @@ const PayButton = ({ className, price }: TPayButtonProps) => {
 		};
 
 		fetchPaymentUrl();
-	}, []);
+	}, [price]);
 
 	const handleClick = () => {
 		router.push(paymentUrl!);
@@ -49,6 +59,7 @@ const PayButton = ({ className, price }: TPayButtonProps) => {
 			onClick={handleClick}
 			rel='noopener noreferrer'
 			type='submit'
+			disabled={disabled}
 		>
 			Зарегистрироваться
 		</button>

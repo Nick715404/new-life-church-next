@@ -10,8 +10,6 @@ import { getRegisterPersons, getEventType } from '@/store/eventSlice';
 import { Popup } from '../Popup/ui';
 import { PopupTrigger } from '../Popup/ui/PopupTrigger';
 import { PopupContent } from '../Popup/ui/PopupContent';
-import { BusinessForm } from '../forms';
-import { BusinessRegisterProvider } from '@/providers/BusinessRegisterProvider/ui';
 import { FormSwitcher } from '../forms/ui/FormSwitcher';
 
 type TDonationBannerProps = {

@@ -197,9 +197,6 @@ export const BusinessForm = () => {
 							price={currentPerson?.attributes.init_price}
 							isValid={isValid}
 						/>
-						<button type='submit' className={styles.submitBtn}>
-							awdjiawjd
-						</button>
 					</>
 				)}
 			</form>

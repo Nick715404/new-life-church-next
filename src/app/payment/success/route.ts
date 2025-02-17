@@ -9,7 +9,10 @@ import {
 import crypto from 'crypto';
 
 export async function POST(req: Request) {
+	const data = await req.json();
 	const formData = await req.formData();
+
+	console.log(data);
 
 	const outSum = formData.get('OutSum')?.toString();
 	const invId = formData.get('InvId')?.toString();

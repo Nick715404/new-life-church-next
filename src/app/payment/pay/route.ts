@@ -1,22 +1,35 @@
 // app/api/payment/route.ts
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
+import { sendDataToBusiness } from '@/api/register';
+import { registrySwitcher } from '@/utils/register/register-switcher';
+
+type TClientData = {
+	first_name: string;
+	last_name: string;
+	sur_name: string;
+	phone: string;
+	email: string;
+	city: string;
+	church: string;
+	vector: string;
+	source: string;
+	pastor_type: string;
+	eventType: 'business' | 'youthural';
+	personType: string;
+	price: number;
+	occupation: string | null;
+};
 
 export async function POST(req: Request) {
-	const { price } = await req.json();
+	const data = await req.json();
 
-	console.log(price);
-
-	// Настройки для Робокассы
 	const mrhLogin = `${process.env.MRC_LOGIN}`;
 	const mrhPass1 = `${process.env.MRC_PASS_1}`;
-	const mrhPass1Test = `${process.env.MRH_PASS_1_TEST}`;
-	const mrhPass2Test = `${process.env.MRH_PASS_2_TEST}`;
 
-	// Данные для заказа
-	const invId = 0; // Уникальный ID заказа
+	const invId = Math.floor(Math.random() * 1000000); // Уникальный ID заказа
 	const invDesc = 'Добровольное пожертвование'; // Описание заказа
-	const outSum = price; // Сумма платежа
+	const outSum = data.price; // Сумма платежа
 	const isTest = 0;
 
 	// Генерация подписи (CRC)
@@ -27,6 +40,8 @@ export async function POST(req: Request) {
 
 	// Формирование URL для Робокассы
 	const url = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=${mrhLogin}&OutSum=${outSum}&InvId=${invId}&Description=${encodeURIComponent(invDesc)}&SignatureValue=${crc}&IsTest=${isTest}`;
+
+	await registrySwitcher(data, invId, data.eventType);
 
 	// Отправляем сгенерированный URL на клиент
 	return NextResponse.json({ paymentUrl: url });

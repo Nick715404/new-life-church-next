@@ -1,35 +1,81 @@
+import {
+	deleteBusinessPerson,
+	deleteYouthuralPerson,
+	findUniquePersonOfBusiness,
+	findUniquePersonOfYouthUral,
+	updateBusinessPersonStatus,
+	updateYouthuralPersonStatus,
+} from '@/api/register';
 import crypto from 'crypto';
 
 export async function POST(req: Request) {
-	// Получаем данные из тела запроса
 	const formData = await req.formData();
 
-	// Извлекаем параметры из данных формы
 	const outSum = formData.get('OutSum')?.toString();
 	const invId = formData.get('InvId')?.toString();
-	const signatureValue = formData.get('SignatureValue')?.toString();
+	const signatureValue = formData
+		.get('SignatureValue')
+		?.toString()
+		.toLowerCase();
 
-	const merchantLogin = 'chelwolrus'; // Логин Робокассы
-	const merchantPass2 = 'KA8I23IzWY3PQfrYvqJ3'; // Второй пароль из настроек Робокассы
+	const merchantPass2 = `${process.env.MRC_PASS_2}`;
 
 	// Генерация подписи для проверки
 	const correctSignature = crypto
 		.createHash('md5')
 		.update(`${outSum}:${invId}:${merchantPass2}`)
-		.digest('hex');
+		.digest('hex')
+		.toUpperCase();
 
-	// Проверка подписи
-	if (correctSignature === signatureValue) {
-		// Подпись верна — процессируем платеж
+	console.log('Полученные данные:', { outSum, invId, signatureValue });
+	console.log('Сгенерированная подпись:', correctSignature);
+	console.log('Ожидаемая подпись:', signatureValue);
+
+	const findPersonFunctions = [
+		{ findPerson: findUniquePersonOfBusiness, tableName: 'business' },
+		{ findPerson: findUniquePersonOfYouthUral, tableName: 'youthural' },
+	];
+
+	let currentPerson = null;
+	let currentTableName = '';
+
+	for (let { findPerson, tableName } of findPersonFunctions) {
+		currentPerson = await findPerson(`${invId}`);
+		if (currentPerson) {
+			currentTableName = tableName;
+			break;
+		}
+	}
+
+	console.log({
+		currentPerson,
+		currentTableName,
+	});
+
+	if (!currentPerson || !invId) {
+		console.log('Пользователь не найден');
+		return;
+	}
+
+	if (correctSignature === signatureValue && currentPerson) {
 		console.log(`Платеж прошел успешно! ID заказа: ${invId}, сумма: ${outSum}`);
 
-		// Возвращаем ответ в формате "OK<номер заказа>"
+		if (currentTableName === 'business') {
+			await updateBusinessPersonStatus(currentPerson?.id, 'payed');
+		} else if (currentTableName === 'youthural') {
+			await updateYouthuralPersonStatus(currentPerson?.id, 'payed');
+		}
+
 		return new Response(`OK${invId}`, { status: 200 });
 	} else {
-		// Подпись неверна — возможная ошибка
 		console.log(`Ошибка: неверная подпись для заказа с ID: ${invId}`);
 
-		// Возвращаем ошибку
+		if (currentTableName === 'business') {
+			await deleteBusinessPerson(currentPerson.id);
+		} else if (currentTableName === 'youthural') {
+			await deleteYouthuralPerson(currentPerson.id);
+		}
+
 		return new Response('Invalid signature', { status: 400 });
 	}
 }

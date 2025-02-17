@@ -1,61 +1,14 @@
 'use client';
 
-import { RootState } from '@/store/store';
-import { useSelector } from 'react-redux';
 import { FormInput, FormRadio } from '../../ui';
-import PayButton from '@/components/PayButton/PayButton';
 import { BusinessFormFilter } from './BusinessFormFilter';
 import { RegisterPrice } from '@/components/RegisterPrice/ui';
-import { useBusinessRegisterContext } from '@/providers/BusinessRegisterProvider/ui';
-import { useForm } from 'react-hook-form';
-
+import { type FormFields, useBusinessForm } from '../model';
 import styles from '../model/styles.module.scss';
 
-type FormFields = {
-	first_name: string;
-	last_name: string;
-	sur_name: string;
-	city: string;
-	church: string;
-	vector?: string;
-	pastor_type?: string;
-	occupation?: string;
-	source?: string;
-	email: string;
-	phone: string;
-};
-
 export const BusinessForm = () => {
-	const { formType } = useBusinessRegisterContext();
-	const persons = useSelector(
-		(state: RootState) => state.event.registerPersons
-	);
-
-	const currentPerson = persons.find(
-		person => person.attributes.person_type === formType
-	);
-
-	const {
-		register,
-		handleSubmit,
-		formState: { errors, isValid },
-	} = useForm<FormFields>({
-		mode: 'onBlur',
-	});
-
-	const onSubmit = (data: FormFields) => {
-		if (typeof window !== 'undefined') {
-			localStorage.setItem(
-				'formData',
-				JSON.stringify({
-					...data,
-					eventType: 'business',
-					personType: currentPerson?.attributes.person_type,
-				})
-			);
-		}
-		console.log(data);
-	};
+	const { errors, handleSubmit, onSubmit, register, formType, currentPerson } =
+		useBusinessForm();
 
 	return (
 		<div>
@@ -164,6 +117,8 @@ export const BusinessForm = () => {
 						id='agreement'
 						className={styles.checkbox}
 						required
+						checked
+						onChange={() => {}}
 					/>
 					<p>
 						Я даю согласие Местной религиозной организации Библейский центр
@@ -188,15 +143,14 @@ export const BusinessForm = () => {
 					<>
 						<div className=''>
 							<RegisterPrice
+								nextPrice={currentPerson.attributes.new_price}
 								date={currentPerson.attributes.price_update_date}
 								price={currentPerson.attributes.init_price}
 							/>
 						</div>
-						<PayButton
-							className={styles.submitBtn}
-							price={currentPerson?.attributes.init_price}
-							isValid={isValid}
-						/>
+						<button type='submit' className={styles.submitBtn}>
+							Зарегистрироваться
+						</button>
 					</>
 				)}
 			</form>

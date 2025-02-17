@@ -90,3 +90,5 @@ export type TRegisterPerson = {
 		price_update_date: Date;
 	};
 };
+
+export type TEventType = 'business' | 'youthural';

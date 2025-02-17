@@ -44,19 +44,6 @@ export function DonationBanner(props: TDonationBannerProps) {
 							</PopupContent>
 						</Popup>
 					</div>
-					<picture className={styles.picture}>
-						<source
-							srcSet='/img/png/donation-banner.webp'
-							media='(min-width: 769px)'
-						/>
-						<Image
-							fill
-							priority
-							className={styles.img}
-							alt='Добровольное пожертвование'
-							src='/img/png/donation-banner-phone.webp'
-						/>
-					</picture>
 				</div>
 			</div>
 		</section>

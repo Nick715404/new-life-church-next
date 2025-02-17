@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form';
 import styles from '../model/styles.module.scss';
 import { RegisterPrice } from '@/components/RegisterPrice/ui';
 import PayButton from '@/components/PayButton/PayButton';
+import { useRouter } from 'next/navigation';
+import { fetchPaymentUrl } from '@/utils/register/payment';
 
 type FormFields = {
 	first_name: string;
@@ -21,8 +23,10 @@ export const YouthUralForm = () => {
 	const persons = useSelector(
 		(state: RootState) => state.event.registerPersons
 	);
+	const router = useRouter();
 
 	const currentPerson = persons[0];
+	const price = currentPerson?.attributes.init_price;
 
 	const {
 		register,
@@ -32,25 +36,17 @@ export const YouthUralForm = () => {
 		mode: 'onBlur',
 	});
 
-	const onSubmit = (data: FormFields) => {
-		if (typeof window !== 'undefined') {
-			localStorage.setItem(
-				'formData',
-				JSON.stringify({
-					...data,
-					home_cover: data.home_cover ? 'Нужно расселение' : '',
-					eventType: 'youthural',
-					personType: currentPerson?.attributes.person_type,
-				})
-			);
-		}
-
-		console.log({
+	const onSubmit = async (data: FormFields) => {
+		const clientData = {
 			...data,
 			home_cover: data.home_cover ? 'Нужно расселение' : '',
 			eventType: 'youthural',
 			personType: currentPerson?.attributes.person_type,
-		});
+			price: price,
+		};
+
+		const paymentData = await fetchPaymentUrl(clientData);
+		router.push(paymentData.paymentUrl);
 	};
 
 	return (
@@ -134,17 +130,13 @@ export const YouthUralForm = () => {
 					<>
 						<div className=''>
 							<RegisterPrice
+								nextPrice={currentPerson.attributes.new_price}
 								date={currentPerson.attributes.price_update_date}
 								price={currentPerson.attributes.init_price}
 							/>
 						</div>
-						<PayButton
-							isValid={isValid}
-							className={styles.submitBtn}
-							price={currentPerson?.attributes.init_price}
-						/>
 						<button type='submit' className={styles.submitBtn}>
-							awdjiawjd
+							Зарегистрироваться
 						</button>
 					</>
 				)}

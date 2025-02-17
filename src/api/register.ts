@@ -1,3 +1,5 @@
+import { TBusinessPerson } from '@/types/persons';
+
 type TBusinesEvent = {
 	church: string;
 	city: string;
@@ -12,6 +14,8 @@ type TBusinesEvent = {
 	phone: string;
 	email: string;
 	personType: string;
+	status: 'pending' | 'payed' | 'notPayed';
+	personId: string;
 };
 
 export const sendDataToBusiness = async (
@@ -34,6 +38,66 @@ export const sendDataToBusiness = async (
 	} catch (error) {
 		console.error(error);
 		throw new Error('Ошибка в регистрации пользователя на Бизнес конференцию');
+	}
+};
+
+export const findUniquePersonOfBusiness = async (
+	invId: string
+): Promise<TBusinessPerson | undefined> => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/biznes-konferencziyas?filters[personId][$eq]=${invId}`
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const updateBusinessPersonStatus = async (
+	userId: number,
+	newStatus: 'payed' | 'notPayed' | 'pending'
+) => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/biznes-konferencziyas/${userId}`,
+			{
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ data: { status: newStatus } }),
+			}
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const deleteBusinessPerson = async (userId: number) => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/biznes-konferencziyas/${userId}`,
+			{
+				method: 'DELETE',
+			}
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
 	}
 };
 
@@ -66,5 +130,65 @@ export const sendDataToYouthUral = async (
 	} catch (error) {
 		console.error(error);
 		throw new Error('Ошибка в регистрации пользователя на Бизнес конференцию');
+	}
+};
+
+export const findUniquePersonOfYouthUral = async (
+	invId: string
+): Promise<TBusinessPerson | undefined> => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/yus-urals?filters[personId][$eq]=${invId}`
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const updateYouthuralPersonStatus = async (
+	userId: number,
+	newStatus: 'payed' | 'notPayed' | 'pending'
+) => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/yus-urals/${userId}`,
+			{
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ data: { status: newStatus } }),
+			}
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const deleteYouthuralPerson = async (userId: number) => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/yus-urals/${userId}`,
+			{
+				method: 'DELETE',
+			}
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
 	}
 };

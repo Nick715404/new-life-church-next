@@ -46,7 +46,7 @@ export async function POST(req: Request) {
 
 	for (let { findPerson, tableName } of findPersonFunctions) {
 		currentPerson = await findPerson(`${invId}`);
-		if (currentPerson) {
+		if (currentPerson && currentPerson.data.length > 0) {
 			currentTableName = tableName;
 			break;
 		}

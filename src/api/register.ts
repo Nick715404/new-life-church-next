@@ -161,7 +161,7 @@ export const updateYouthuralPersonStatus = async (
 		const res = await fetch(
 			`${process.env.NEXT_PUBLIC_STRAPI_URL}/yus-urals/${userId}`,
 			{
-				method: 'PATCH',
+				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json',
 				},

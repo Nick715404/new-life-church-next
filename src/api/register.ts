@@ -66,13 +66,16 @@ export const updateBusinessPersonStatus = async (
 		const res = await fetch(
 			`${process.env.NEXT_PUBLIC_STRAPI_URL}/biznes-konferencziyas/${userId}`,
 			{
-				method: 'PATCH',
+				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({ data: { status: newStatus } }),
 			}
 		);
+
+		const data = await res.json();
+		console.log(data);
 
 		return await res.json();
 	} catch (error) {

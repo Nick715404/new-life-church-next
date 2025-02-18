@@ -24,13 +24,18 @@ type TClientData = {
 export async function POST(req: Request) {
 	const data = await req.json();
 
+	console.log({
+		mrcLogin: process.env.MRC_LOGIN,
+		mrcPass: process.env.MRC_PASS_1_TEST,
+	});
+
 	const mrhLogin = `${process.env.MRC_LOGIN}`;
-	const mrhPass1 = `${process.env.MRC_PASS_1}`;
+	const mrhPass1 = `${process.env.MRH_PASS_1_TEST}`;
 
 	const invId = Math.floor(Math.random() * 1000000); // Уникальный ID заказа
 	const invDesc = 'Добровольное пожертвование'; // Описание заказа
 	const outSum = data.price; // Сумма платежа
-	const isTest = 0;
+	const isTest = 1;
 
 	// Генерация подписи (CRC)
 	const crc = crypto

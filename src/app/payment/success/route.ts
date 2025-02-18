@@ -24,14 +24,14 @@ export async function POST(req: Request) {
 		?.toString()
 		.toLowerCase();
 
-	const merchantPass2 = `${process.env.MRC_PASS_2}`;
+	const merchantPass2 = `${process.env.MRH_PASS_2_TEST}`;
 
 	// Генерация подписи для проверки
 	const correctSignature = crypto
 		.createHash('md5')
 		.update(`${outSum}:${invId}:${merchantPass2}`)
 		.digest('hex')
-		.toUpperCase();
+		.toLowerCase();
 
 	console.log('Полученные данные:', { outSum, invId, signatureValue });
 	console.log('Сгенерированная подпись:', correctSignature);
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
 	}
 
 	console.log({
-		currentPerson,
+		currentPerson: currentPerson?.data,
 		currentTableName,
 	});
 
@@ -67,17 +67,17 @@ export async function POST(req: Request) {
 		console.log(`Платеж прошел успешно! ID заказа: ${invId}, сумма: ${outSum}`);
 
 		if (currentTableName === 'business') {
-			await updateBusinessPersonStatus(currentPerson?.id, 'payed');
-			await sendPaymentSuccessBusinessEmail(
-				currentPerson.attributes.email,
-				currentPerson.attributes.first_name
-			);
+			// await updateBusinessPersonStatus(currentPerson?.id, 'payed');
+			// await sendPaymentSuccessBusinessEmail(
+			// 	'',
+			// 	''
+			// );
 		} else if (currentTableName === 'youthural') {
-			await updateYouthuralPersonStatus(currentPerson?.id, 'payed');
-			await sendPaymentSuccessYouthuralEmail(
-				currentPerson.attributes.email,
-				currentPerson.attributes.first_name
-			);
+			// await updateYouthuralPersonStatus(00, 'payed');
+			// await sendPaymentSuccessYouthuralEmail(
+			// 	currentPerson.attributes.email,
+			// 	currentPerson.attributes.first_name
+			// );
 		}
 
 		return new Response(`OK${invId}`, { status: 200 });
@@ -85,17 +85,17 @@ export async function POST(req: Request) {
 		console.log(`Ошибка: неверная подпись для заказа с ID: ${invId}`);
 
 		if (currentTableName === 'business') {
-			await deleteBusinessPerson(currentPerson.id);
-			await sendPaymentErrorBusinessEmail(
-				currentPerson.attributes.email,
-				currentPerson.attributes.first_name
-			);
+			// await deleteBusinessPerson(currentPerson.id);
+			// await sendPaymentErrorBusinessEmail(
+			// 	currentPerson.attributes.email,
+			// 	currentPerson.attributes.first_name
+			// );
 		} else if (currentTableName === 'youthural') {
-			await deleteYouthuralPerson(currentPerson.id);
-			await sendPaymentErrorYouthuralEmail(
-				currentPerson.attributes.email,
-				currentPerson.attributes.first_name
-			);
+			// await deleteYouthuralPerson(currentPerson.id);
+			// await sendPaymentErrorYouthuralEmail(
+			// 	currentPerson.attributes.email,
+			// 	currentPerson.attributes.first_name
+			// );
 		}
 
 		return new Response('Invalid signature', { status: 400 });

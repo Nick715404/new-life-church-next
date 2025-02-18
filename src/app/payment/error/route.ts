@@ -27,11 +27,11 @@ export async function POST(req: Request) {
 		}
 
 		if (currentPerson && invId) {
-			// if (currentTableName === 'business') {
-			// 	await deleteBusinessPerson(currentPerson.id);
-			// } else if (currentTableName === 'youthural') {
-			// 	await deleteYouthuralPerson(currentPerson.id);
-			// }
+			if (currentTableName === 'business') {
+				await deleteBusinessPerson(currentPerson?.data[0].id);
+			} else if (currentTableName === 'youthural') {
+				await deleteYouthuralPerson(currentPerson?.data[0].id);
+			}
 
 			return new Response(`Person has been removed`, { status: 200 });
 		}

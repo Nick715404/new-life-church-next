@@ -30,12 +30,12 @@ export async function POST(req: Request) {
 	});
 
 	const mrhLogin = `${process.env.MRC_LOGIN}`;
-	const mrhPass1 = `${process.env.MRH_PASS_1_TEST}`;
+	const mrhPass1 = `${process.env.MRC_PASS_1}`;
 
 	const invId = Math.floor(Math.random() * 1000000); // Уникальный ID заказа
 	const invDesc = 'Добровольное пожертвование'; // Описание заказа
 	const outSum = data.price; // Сумма платежа
-	const isTest = 1;
+	const isTest = 0;
 
 	// Генерация подписи (CRC)
 	const crc = crypto

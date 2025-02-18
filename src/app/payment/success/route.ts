@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 		?.toString()
 		.toLowerCase();
 
-	const merchantPass2 = `${process.env.MRH_PASS_2_TEST}`;
+	const merchantPass2 = `${process.env.MRC_PASS_2}`;
 
 	const correctSignature = crypto
 		.createHash('md5')

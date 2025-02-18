@@ -54,7 +54,7 @@ export async function POST(req: Request) {
 	}
 
 	console.log({
-		currentPerson: currentPerson?.data,
+		currentPerson: currentPerson?.data[0].attributes,
 		currentTableName,
 	});
 
@@ -67,17 +67,17 @@ export async function POST(req: Request) {
 		console.log(`Платеж прошел успешно! ID заказа: ${invId}, сумма: ${outSum}`);
 
 		if (currentTableName === 'business') {
-			// await updateBusinessPersonStatus(currentPerson?.id, 'payed');
-			// await sendPaymentSuccessBusinessEmail(
-			// 	'',
-			// 	''
-			// );
+			await updateBusinessPersonStatus(currentPerson?.data[0].id, 'payed');
+			await sendPaymentSuccessBusinessEmail(
+				currentPerson?.data[0].attributes.email,
+				currentPerson?.data[0].attributes.first_name
+			);
 		} else if (currentTableName === 'youthural') {
-			// await updateYouthuralPersonStatus(00, 'payed');
-			// await sendPaymentSuccessYouthuralEmail(
-			// 	currentPerson.attributes.email,
-			// 	currentPerson.attributes.first_name
-			// );
+			await updateYouthuralPersonStatus(currentPerson?.data[0].id, 'payed');
+			await sendPaymentSuccessYouthuralEmail(
+				currentPerson?.data[0].attributes.email,
+				currentPerson?.data[0].attributes.first_name
+			);
 		}
 
 		return new Response(`OK${invId}`, { status: 200 });
@@ -85,17 +85,17 @@ export async function POST(req: Request) {
 		console.log(`Ошибка: неверная подпись для заказа с ID: ${invId}`);
 
 		if (currentTableName === 'business') {
-			// await deleteBusinessPerson(currentPerson.id);
-			// await sendPaymentErrorBusinessEmail(
-			// 	currentPerson.attributes.email,
-			// 	currentPerson.attributes.first_name
-			// );
+			await deleteBusinessPerson(currentPerson?.data[0].id);
+			await sendPaymentErrorBusinessEmail(
+				currentPerson?.data[0].attributes.email,
+				currentPerson?.data[0].attributes.first_name
+			);
 		} else if (currentTableName === 'youthural') {
-			// await deleteYouthuralPerson(currentPerson.id);
-			// await sendPaymentErrorYouthuralEmail(
-			// 	currentPerson.attributes.email,
-			// 	currentPerson.attributes.first_name
-			// );
+			await deleteYouthuralPerson(currentPerson?.data[0].id);
+			await sendPaymentErrorYouthuralEmail(
+				currentPerson?.data[0].attributes.email,
+				currentPerson?.data[0].attributes.first_name
+			);
 		}
 
 		return new Response('Invalid signature', { status: 400 });

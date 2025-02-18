@@ -6,6 +6,12 @@ import {
 	updateBusinessPersonStatus,
 	updateYouthuralPersonStatus,
 } from '@/api/register';
+import {
+	sendPaymentSuccessYouthuralEmail,
+	sendPaymentSuccessBusinessEmail,
+	sendPaymentErrorBusinessEmail,
+	sendPaymentErrorYouthuralEmail,
+} from '@/utils/emails';
 import crypto from 'crypto';
 
 export async function POST(req: Request) {
@@ -65,8 +71,16 @@ export async function POST(req: Request) {
 
 		if (currentTableName === 'business') {
 			await updateBusinessPersonStatus(currentPerson?.id, 'payed');
+			await sendPaymentSuccessBusinessEmail(
+				currentPerson.attributes.email,
+				currentPerson.attributes.first_name
+			);
 		} else if (currentTableName === 'youthural') {
 			await updateYouthuralPersonStatus(currentPerson?.id, 'payed');
+			await sendPaymentSuccessYouthuralEmail(
+				currentPerson.attributes.email,
+				currentPerson.attributes.first_name
+			);
 		}
 
 		return new Response(`OK${invId}`, { status: 200 });
@@ -75,8 +89,16 @@ export async function POST(req: Request) {
 
 		if (currentTableName === 'business') {
 			await deleteBusinessPerson(currentPerson.id);
+			await sendPaymentErrorBusinessEmail(
+				currentPerson.attributes.email,
+				currentPerson.attributes.first_name
+			);
 		} else if (currentTableName === 'youthural') {
 			await deleteYouthuralPerson(currentPerson.id);
+			await sendPaymentErrorYouthuralEmail(
+				currentPerson.attributes.email,
+				currentPerson.attributes.first_name
+			);
 		}
 
 		return new Response('Invalid signature', { status: 400 });

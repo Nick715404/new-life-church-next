@@ -25,7 +25,7 @@ export async function POST(req: Request) {
 	const data = await req.json();
 
 	const mrhLogin = `${process.env.MRC_LOGIN}`;
-	const mrhPass1 = `${process.env.MRH_PASS_1_TEST}`;
+	const mrhPass1 = `${process.env.MRH_PASS_1}`;
 
 	const invId = Math.floor(Math.random() * 1000000); // Уникальный ID заказа
 	const invDesc = 'Добровольное пожертвование'; // Описание заказа

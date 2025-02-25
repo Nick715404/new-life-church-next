@@ -91,4 +91,4 @@ export type TRegisterPerson = {
 	};
 };
 
-export type TEventType = 'business' | 'youthural';
+export type TEventType = 'business' | 'youthural' | 'faithconf';

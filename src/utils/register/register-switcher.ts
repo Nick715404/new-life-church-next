@@ -1,4 +1,8 @@
-import { sendDataToBusiness, sendDataToYouthUral } from '@/api/register';
+import {
+	sendDataToBusiness,
+	sendDataToFaithConf,
+	sendDataToYouthUral,
+} from '@/api/register';
 import type { TEventType } from '@/types/events';
 
 export const registrySwitcher = async (
@@ -16,6 +20,12 @@ export const registrySwitcher = async (
 			break;
 		case 'youthural':
 			await sendDataToYouthUral({
+				personId: `${invId}`,
+				status: 'pending',
+				...data,
+			});
+		case 'faithconf':
+			await sendDataToFaithConf({
 				personId: `${invId}`,
 				status: 'pending',
 				...data,

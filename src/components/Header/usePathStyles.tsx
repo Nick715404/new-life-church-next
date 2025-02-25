@@ -3,11 +3,12 @@ type usePathStylesProps = { pathname: string };
 export function usePathStyles({ pathname }: usePathStylesProps) {
 	const whitePaths = [
 		'/',
-		'/events/youth-ural',
 		'/donation',
 		'/contacts',
 		'/hello',
+		'/events/youth-ural',
 		'/events/business-conf',
+		'/events/ural-faith-conf',
 	];
 	return whitePaths.includes(pathname) ? 'white' : 'black';
 }

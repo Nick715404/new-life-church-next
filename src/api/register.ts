@@ -132,7 +132,7 @@ export const sendDataToYouthUral = async (
 		return { status: 'done' };
 	} catch (error) {
 		console.error(error);
-		throw new Error('Ошибка в регистрации пользователя на Бизнес конференцию');
+		throw new Error('Ошибка в регистрации пользователя на ЮС Урал');
 	}
 };
 
@@ -182,6 +182,89 @@ export const deleteYouthuralPerson = async (userId: number) => {
 	try {
 		const res = await fetch(
 			`${process.env.NEXT_PUBLIC_STRAPI_URL}/yus-urals/${userId}`,
+			{
+				method: 'DELETE',
+			}
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const sendDataToFaithConf = async (
+	data: TSendDataToYouthUral
+): Promise<{ status: 'done' }> => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/faith-confs`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json',
+				},
+				body: JSON.stringify({ data }),
+			}
+		);
+
+		return { status: 'done' };
+	} catch (error) {
+		console.error(error);
+		throw new Error('Ошибка в регистрации пользователя на УКВ');
+	}
+};
+
+export const findUniquePersonOfFaithConf = async (
+	invId: string
+): Promise<TBusinessPerson | undefined> => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/faith-confs?filters[personId][$eq]=${invId}`
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const updateFaithConfPersonStatus = async (
+	userId: number,
+	newStatus: 'payed' | 'notPayed' | 'pending'
+) => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/faith-confs/${userId}`,
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ data: { status: newStatus } }),
+			}
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const deleteFaithConfsPerson = async (userId: number) => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/faith-confs/${userId}`,
 			{
 				method: 'DELETE',
 			}

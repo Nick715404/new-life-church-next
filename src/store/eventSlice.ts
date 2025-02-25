@@ -3,7 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type TInitialState = {
 	registerPersons: TRegisterPerson[];
-	eventType: 'ТинсУрал' | 'ЮсУрал' | 'БизнесКонференция' | 'Прихожанин' | '';
+	eventType:
+		| 'ТинсУрал'
+		| 'ЮсУрал'
+		| 'БизнесКонференция'
+		| 'КонференцияВеры'
+		| '';
 };
 
 const initialState: TInitialState = {

@@ -2,9 +2,8 @@
 
 import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
-import { BusinessForm } from '../BusinessForm/ui';
-import { YouthUralForm } from '../YouthUral/ui';
 import { TeensUralForm } from '../TeensUral/ui';
+import { FaithConferenceForm, YouthUralForm, BusinessForm } from '../';
 import { BusinessRegisterProvider } from '@/providers/BusinessRegisterProvider/ui';
 
 export const FormSwitcher = () => {
@@ -21,6 +20,8 @@ export const FormSwitcher = () => {
 			return <TeensUralForm />;
 		case 'ЮсУрал':
 			return <YouthUralForm />;
+		case 'КонференцияВеры':
+			return <FaithConferenceForm />;
 		default:
 			return;
 	}

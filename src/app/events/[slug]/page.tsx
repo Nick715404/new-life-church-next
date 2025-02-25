@@ -4,7 +4,6 @@ import { Gallery } from '@/components/Gallery/Gallery';
 import { EventHero, EventSpeakers, Schedule } from '@/sections/event';
 import { DonationBanner } from '@/components/DonationBanner/DonationBanner';
 import { BigDescription } from '@/components/BigDescription/BigDescription';
-import PayButton from '@/components/PayButton/PayButton';
 
 type EventPageProps = { params: { slug: string } };
 

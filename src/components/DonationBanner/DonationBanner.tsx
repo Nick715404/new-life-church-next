@@ -11,6 +11,8 @@ import { Popup } from '../Popup/ui';
 import { PopupTrigger } from '../Popup/ui/PopupTrigger';
 import { PopupContent } from '../Popup/ui/PopupContent';
 import { FormSwitcher } from '../forms/ui/FormSwitcher';
+import { usePathname } from 'next/navigation';
+import { AdditionalRegister } from '../forms';
 
 type TDonationBannerProps = {
 	register_persons: TRegisterPerson[];
@@ -20,11 +22,30 @@ type TDonationBannerProps = {
 export function DonationBanner(props: TDonationBannerProps) {
 	const { register_persons, event_type } = props;
 	const dispatch = useDispatch();
+	const pathname = usePathname();
 
 	useEffect(() => {
 		dispatch(getRegisterPersons(register_persons));
 		dispatch(getEventType(event_type));
 	}, [dispatch]);
+
+	if (pathname === '/events/ural-faith-conf') {
+		return (
+			<section className={styles.section}>
+				<div className='container'>
+					<div className={styles.wrapper}>
+						<h2 className={`${styles.title} ${halvar.className}`}>
+							Добровольное
+							<br /> пожертвование
+						</h2>
+						<div className={styles.additionalRegister}>
+							<AdditionalRegister />
+						</div>
+					</div>
+				</div>
+			</section>
+		);
+	}
 
 	return (
 		<section className={styles.section}>

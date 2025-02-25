@@ -27,7 +27,7 @@ export function DonationBanner(props: TDonationBannerProps) {
 	useEffect(() => {
 		dispatch(getRegisterPersons(register_persons));
 		dispatch(getEventType(event_type));
-	}, [dispatch]);
+	}, [dispatch, register_persons, event_type]);
 
 	if (pathname === '/events/ural-faith-conf') {
 		return (

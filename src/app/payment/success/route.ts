@@ -3,6 +3,7 @@ import {
 	deleteFaithConfsPerson,
 	deleteYouthuralPerson,
 	findUniquePersonOfBusiness,
+	findUniquePersonOfFaithConf,
 	findUniquePersonOfYouthUral,
 	updateBusinessPersonStatus,
 	updateFaithConfPersonStatus,
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
 	const findPersonFunctions = [
 		{ findPerson: findUniquePersonOfBusiness, tableName: 'business' },
 		{ findPerson: findUniquePersonOfYouthUral, tableName: 'youthural' },
-		{ findPerson: findUniquePersonOfYouthUral, tableName: 'faithconf' },
+		{ findPerson: findUniquePersonOfFaithConf, tableName: 'faithconf' },
 	];
 
 	let currentPerson = null;
@@ -61,6 +62,8 @@ export async function POST(req: Request) {
 		console.log('Пользователь не найден');
 		return;
 	}
+
+	console.log(currentTableName);
 
 	if (correctSignature === signatureValue && currentPerson) {
 		console.log(`Платеж прошел успешно! ID заказа: ${invId}, сумма: ${outSum}`);

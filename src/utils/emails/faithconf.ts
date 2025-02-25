@@ -6,10 +6,10 @@ export async function sendPaymentSuccessFaithConfEmail(
 ) {
 	try {
 		const transporter = nodemailer.createTransport({
-			service: 'gmail', // Или другой почтовый сервис
+			service: 'gmail',
 			auth: {
-				user: process.env.EMAIL_USER, // Ваш email
-				pass: process.env.EMAIL_PASS, // Пароль приложения (Gmail) или API-ключ
+				user: process.env.EMAIL_USER,
+				pass: process.env.EMAIL_PASS,
 			},
 		});
 
@@ -20,8 +20,11 @@ export async function sendPaymentSuccessFaithConfEmail(
   
     <p>Вы можете узнать больше о мероприятии по ссылке:</p>
     <p>
-      <a href='https://t.me/predprinimateli_urala' target="_blank" style="color: #007bff; text-decoration: none;">
-        Перейти в сообщество
+      <a href='https://t.me/ukvchel' target="_blank" style="color: #007bff; text-decoration: none;">
+        Перейти в телеграм
+      </a>
+      <a href='https://vk.com/ukvchel' target="_blank" style="color: #007bff; text-decoration: none;">
+        Перейти в вк
       </a>
     </p>
   
@@ -52,10 +55,10 @@ export async function sendPaymentErrorFaithConfEmail(
 ) {
 	try {
 		const transporter = nodemailer.createTransport({
-			service: 'gmail', // Или другой почтовый сервис
+			service: 'gmail',
 			auth: {
-				user: process.env.EMAIL_USER, // Ваш email
-				pass: process.env.EMAIL_PASS, // Пароль приложения (Gmail) или API-ключ
+				user: process.env.EMAIL_USER,
+				pass: process.env.EMAIL_PASS,
 			},
 		});
 

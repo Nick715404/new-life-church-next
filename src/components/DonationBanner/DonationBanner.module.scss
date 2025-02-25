@@ -21,13 +21,18 @@
     @media (max-width: 1070px) {
       padding: 30px;
       max-height: unset;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     @media (max-width: 786px) {
-      flex-direction: column;
-      align-items: flex-start;
       min-height: 490px;
       width: 100%;
+    }
+
+    @media (max-width: 375px) {
+      padding: 15px;
+      border-radius: 15px;
     }
 
     .picture {
@@ -70,8 +75,7 @@
       margin-bottom: 30px;
 
       @media (max-width: 1070px) {
-        top: 30px;
-        left: 30px;
+        position: static;
       }
 
     }
@@ -199,5 +203,28 @@
 
   @media (max-width: 786px) {
     left: 30px;
+  }
+}
+
+.additionalRegister {
+
+  @media (max-width: 1070px) {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar {
+    width: 0;
   }
 }

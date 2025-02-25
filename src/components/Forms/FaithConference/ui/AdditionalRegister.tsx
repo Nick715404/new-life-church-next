@@ -9,7 +9,7 @@ import { SeminarsForLeaderAndPastors } from './SeminarsForLeaderAndPastors';
 
 export const AdditionalRegister = () => {
 	return (
-		<div className=''>
+		<>
 			<div className={styles.regItem}>
 				<div className={styles.title}>Регистрация на конференцию</div>
 				<Popup>
@@ -41,6 +41,6 @@ export const AdditionalRegister = () => {
 					</PopupContent>
 				</Popup>
 			</div>
-		</div>
+		</>
 	);
 };

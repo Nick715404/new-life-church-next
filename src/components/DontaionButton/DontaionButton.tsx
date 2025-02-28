@@ -1,6 +1,6 @@
-import styles from './DonationButton.module.scss';
 import { ComponentProps, ElementType } from 'react';
 import Link from 'next/link';
+import styles from './DonationButton.module.scss';
 
 type TButtonOwnProps<E extends ElementType = ElementType> = {
 	style: 'black' | 'white';

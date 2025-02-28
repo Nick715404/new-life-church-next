@@ -37,10 +37,6 @@ export async function POST(req: Request) {
 		.digest('hex')
 		.toLowerCase();
 
-	console.log('Полученные данные:', { outSum, invId, signatureValue });
-	console.log('Сгенерированная подпись:', correctSignature);
-	console.log('Ожидаемая подпись:', signatureValue);
-
 	const findPersonFunctions = [
 		{ findPerson: findUniquePersonOfBusiness, tableName: 'business' },
 		{ findPerson: findUniquePersonOfYouthUral, tableName: 'youthural' },
@@ -63,7 +59,13 @@ export async function POST(req: Request) {
 		return;
 	}
 
-	console.log(currentTableName);
+	console.log('Зарегистрирован пользователь - ', currentPerson);
+	console.log(
+		`Пользователь зарегистрирован на мероприятие - ${currentTableName}`
+	);
+	console.log('Дополнительные данные заказа - ', {
+		price: outSum,
+	});
 
 	if (correctSignature === signatureValue && currentPerson) {
 		console.log(`Платеж прошел успешно! ID заказа: ${invId}, сумма: ${outSum}`);

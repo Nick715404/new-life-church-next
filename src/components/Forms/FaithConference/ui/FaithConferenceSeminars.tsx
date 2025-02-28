@@ -1,5 +1,5 @@
-import { FormInput } from '../../ui';
-import { FormFields, useFaithConfAndSeminars } from '../model';
+import { FormInput, FormSelect } from '../../ui';
+import { FormFields, options, useFaithConfAndSeminars } from '../model';
 import { RegisterPrice } from '@/components/RegisterPrice/ui';
 
 import styles from '../model/styles.module.scss';
@@ -52,6 +52,13 @@ export const FaithConferenceAndSeminarsForm = () => {
 					register={register}
 					errors={errors}
 					placeholder='Укажите город'
+				/>
+				<FormSelect<FormFields>
+					name='role'
+					errors={errors}
+					options={options}
+					register={register}
+					label='Ваше служение'
 				/>
 				<label htmlFor='agreement' className={styles.checkboxLabel}>
 					<input

@@ -104,11 +104,11 @@ export const deleteBusinessPerson = async (userId: number) => {
 	}
 };
 
-type TSendDataToYouthUral = {
+type TSendDataToEvent = {
 	church: string;
 	city: string;
 	email: string;
-	eventType: 'youthural';
+	eventType: 'youthural' | 'business' | 'faithconf';
 	first_name: string;
 	home_cover: false;
 	last_name: string;
@@ -117,7 +117,7 @@ type TSendDataToYouthUral = {
 };
 
 export const sendDataToYouthUral = async (
-	data: TSendDataToYouthUral
+	data: TSendDataToEvent
 ): Promise<{ status: 'done' }> => {
 	try {
 		const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/yus-urals`, {
@@ -197,7 +197,7 @@ export const deleteYouthuralPerson = async (userId: number) => {
 };
 
 export const sendDataToFaithConf = async (
-	data: TSendDataToYouthUral
+	data: TSendDataToEvent
 ): Promise<{ status: 'done' }> => {
 	try {
 		const res = await fetch(

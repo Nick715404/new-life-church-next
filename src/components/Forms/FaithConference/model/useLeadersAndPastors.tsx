@@ -28,7 +28,6 @@ export const useLeadersAndPastors = () => {
 		const clientData = {
 			...data,
 			eventType: 'faithconf',
-			personType: currentPerson?.attributes.person_type,
 			registerType: 'Семинары для пасторов и лидеров',
 			price: 1500,
 		};

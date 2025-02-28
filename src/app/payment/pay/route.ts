@@ -1,25 +1,6 @@
-// app/api/payment/route.ts
-import { NextResponse } from 'next/server';
 import crypto from 'crypto';
-import { sendDataToBusiness } from '@/api/register';
 import { registrySwitcher } from '@/utils/register/register-switcher';
-
-type TClientData = {
-	first_name: string;
-	last_name: string;
-	sur_name: string;
-	phone: string;
-	email: string;
-	city: string;
-	church: string;
-	vector: string;
-	source: string;
-	pastor_type: string;
-	eventType: 'business' | 'youthural';
-	personType: string;
-	price: number;
-	occupation: string | null;
-};
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
 	const data = await req.json();
@@ -39,9 +20,9 @@ export async function POST(req: Request) {
 		.digest('hex');
 
 	// Формирование URL для Робокассы
-	const url = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=${mrhLogin}&OutSum=${outSum}&InvId=${invId}&Description=${encodeURIComponent(invDesc)}&SignatureValue=${crc}&IsTest=${isTest}`;
-
-	console.log(data);
+	const url = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=${mrhLogin}&OutSum=${outSum}&InvId=${invId}&Description=${encodeURIComponent(
+		invDesc
+	)}&SignatureValue=${crc}&IsTest=${isTest}`;
 
 	await registrySwitcher(data, invId, data.eventType);
 

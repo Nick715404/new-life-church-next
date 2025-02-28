@@ -13,6 +13,7 @@ export type FormFields = {
 	phone: string;
 	church: string;
 	city: string;
+	role: string;
 };
 
 export const useFaithConf = () => {

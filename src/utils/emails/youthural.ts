@@ -20,7 +20,7 @@ export async function sendPaymentSuccessYouthuralEmail(
   
     <p>Вы можете узнать больше о мероприятии по ссылке:</p>
     <p>
-      <a href='#' target="_blank" style="color: #007bff; text-decoration: none;">
+      <a href='https://vk.com/youthural.conf' target="_blank" style="color: #007bff; text-decoration: none;">
         Перейти в сообщество
       </a>
     </p>

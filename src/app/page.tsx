@@ -1,7 +1,6 @@
 import styles from './page.module.scss';
 
 import { LinkBanner } from '@/components/LinkBanner/LinkBanner';
-import { halvar } from '@/constants/fonts';
 import {
 	Hero,
 	Events,
@@ -27,7 +26,7 @@ export default function HomePage() {
 				<Meetings />
 				<InfoSection />
 				<NearEvents />
-				{/* <Events /> */}
+				<Events />
 				<LinkBanner
 					path='/contacts'
 					title='У вас есть молитвенная нужда или свидетельство?'

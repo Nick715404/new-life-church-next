@@ -59,7 +59,9 @@ export async function POST(req: Request) {
 		return;
 	}
 
-	console.log('Зарегистрирован пользователь - ', currentPerson);
+	console.log('Зарегистрирован пользователь - ', {
+		...currentPerson?.data[0].attributes,
+	});
 	console.log(
 		`Пользователь зарегистрирован на мероприятие - ${currentTableName}`
 	);

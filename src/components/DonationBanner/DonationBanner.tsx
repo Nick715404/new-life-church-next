@@ -10,9 +10,9 @@ import { getRegisterPersons, getEventType } from '@/store/eventSlice';
 import { Popup } from '../Popup/ui';
 import { PopupTrigger } from '../Popup/ui/PopupTrigger';
 import { PopupContent } from '../Popup/ui/PopupContent';
-import { FormSwitcher } from '../forms/ui/FormSwitcher';
+import { FormSwitcher } from '../Forms/ui/FormSwitcher';
 import { usePathname } from 'next/navigation';
-import { AdditionalRegister } from '../forms';
+import { AdditionalRegister } from '../Forms';
 
 type TDonationBannerProps = {
 	register_persons: TRegisterPerson[];

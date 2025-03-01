@@ -3,7 +3,7 @@
 import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
 import { TeensUralForm } from '../TeensUral/ui';
-import { FaithConferenceForm, YouthUralForm, BusinessForm } from '../';
+import { FaithConferenceForm, YouthUralForm, BusinessForm } from '..';
 import { BusinessRegisterProvider } from '@/providers/BusinessRegisterProvider/ui';
 
 export const FormSwitcher = () => {

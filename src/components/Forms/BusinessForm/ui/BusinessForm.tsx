@@ -1,11 +1,12 @@
 'use client';
 
+import { halvar } from '@/constants/fonts';
 import { FormInput, FormRadio } from '../../ui';
 import { BusinessFormFilter } from './BusinessFormFilter';
-import { RegisterPrice } from '@/components/RegisterPrice/ui';
 import { type FormFields, useBusinessForm } from '../model';
+import { RegisterPrice } from '@/components/RegisterPrice/ui';
+
 import styles from '../model/styles.module.scss';
-import { halvar } from '@/constants/fonts';
 
 export const BusinessForm = () => {
 	const { errors, handleSubmit, onSubmit, register, formType, currentPerson } =

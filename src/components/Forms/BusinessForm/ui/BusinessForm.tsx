@@ -5,6 +5,7 @@ import { BusinessFormFilter } from './BusinessFormFilter';
 import { RegisterPrice } from '@/components/RegisterPrice/ui';
 import { type FormFields, useBusinessForm } from '../model';
 import styles from '../model/styles.module.scss';
+import { halvar } from '@/constants/fonts';
 
 export const BusinessForm = () => {
 	const { errors, handleSubmit, onSubmit, register, formType, currentPerson } =
@@ -12,6 +13,9 @@ export const BusinessForm = () => {
 
 	return (
 		<div>
+			<h3 className={`${styles.title} ${halvar.className}`}>
+				Выберите тип <br /> регистрации
+			</h3>
 			<BusinessFormFilter />
 			{/* Форма */}
 			<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -88,7 +92,7 @@ export const BusinessForm = () => {
 					/>
 				)}
 
-				{formType === 'Подросток' && (
+				{formType === 'Молодежь' && (
 					<FormRadio<FormFields>
 						label='Выберите статус'
 						name='occupation'

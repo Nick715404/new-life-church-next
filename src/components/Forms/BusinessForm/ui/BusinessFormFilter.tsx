@@ -24,7 +24,9 @@ export const BusinessFormFilter = () => {
 								})}
 								onClick={() => setFormType!(attributes.person_type)}
 							>
-								{attributes.person_type}
+								{attributes.person_type === 'Молодежь'
+									? 'Молодежь до 21 года'
+									: attributes.person_type}
 							</button>
 						</Fragment>
 					))}

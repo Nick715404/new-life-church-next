@@ -17,7 +17,7 @@ type TBusinessRegisterProviderContext = {
 
 const BusinessRegisterProviderContext =
 	createContext<TBusinessRegisterProviderContext | null>(null);
-type FormType = 'Подросток' | 'Предприниматель' | 'Пастор';
+type FormType = 'Молодежь' | 'Предприниматель' | 'Пастор';
 
 export const BusinessRegisterProvider = (props: RegisterProviderProps) => {
 	const { children } = props;

@@ -108,7 +108,7 @@ type TSendDataToEvent = {
 	church: string;
 	city: string;
 	email: string;
-	eventType: 'youthural' | 'business' | 'faithconf';
+	eventType: 'youthural' | 'business' | 'faithconf' | 'chelfire';
 	first_name: string;
 	home_cover: false;
 	last_name: string;
@@ -265,6 +265,89 @@ export const deleteFaithConfsPerson = async (userId: number) => {
 	try {
 		const res = await fetch(
 			`${process.env.NEXT_PUBLIC_STRAPI_URL}/faith-confs/${userId}`,
+			{
+				method: 'DELETE',
+			}
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const sendDataToChelFire = async (
+	data: TSendDataToEvent
+): Promise<{ status: 'done' }> => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/fire-chels`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json',
+				},
+				body: JSON.stringify({ data }),
+			}
+		);
+
+		return { status: 'done' };
+	} catch (error) {
+		console.error(error);
+		throw new Error('Ошибка в регистрации пользователя на УКВ');
+	}
+};
+
+export const findUniquePersonOfChelFire = async (
+	invId: string
+): Promise<TBusinessPerson | undefined> => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/fire-chels?filters[personId][$eq]=${invId}`
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const updateChelFirePersonStatus = async (
+	userId: number,
+	newStatus: 'payed' | 'notPayed' | 'pending'
+) => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/fire-chels/${userId}`,
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ data: { status: newStatus } }),
+			}
+		);
+
+		return await res.json();
+	} catch (error) {
+		if (error instanceof Error) {
+			console.log(error.message);
+			return;
+		}
+	}
+};
+
+export const deleteChelFirePerson = async (userId: number) => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}/fire-chels/${userId}`,
 			{
 				method: 'DELETE',
 			}

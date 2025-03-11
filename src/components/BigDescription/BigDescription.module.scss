@@ -26,8 +26,10 @@
 
   }
 
-  ol, ul {
+  ol,
+  ul {
     margin-left: 20px;
+
   }
 
   ol {
@@ -40,4 +42,8 @@
     list-style: disc;
   }
 
+}
+
+.listElement {
+  padding-bottom: 10px;
 }

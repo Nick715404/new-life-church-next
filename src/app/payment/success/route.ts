@@ -1,11 +1,14 @@
 import {
 	deleteBusinessPerson,
+	deleteChelFirePerson,
 	deleteFaithConfsPerson,
 	deleteYouthuralPerson,
 	findUniquePersonOfBusiness,
+	findUniquePersonOfChelFire,
 	findUniquePersonOfFaithConf,
 	findUniquePersonOfYouthUral,
 	updateBusinessPersonStatus,
+	updateChelFirePersonStatus,
 	updateFaithConfPersonStatus,
 	updateYouthuralPersonStatus,
 } from '@/api/register';
@@ -16,6 +19,8 @@ import {
 	sendPaymentErrorYouthuralEmail,
 	sendPaymentSuccessFaithConfEmail,
 	sendPaymentErrorFaithConfEmail,
+	sendPaymentSuccessChelFire,
+	sendPaymentErrorChelFireEmail,
 } from '@/utils/emails';
 import crypto from 'crypto';
 
@@ -29,7 +34,7 @@ export async function POST(req: Request) {
 		?.toString()
 		.toLowerCase();
 
-	const merchantPass2 = `${process.env.MRC_PASS_2}`;
+	const merchantPass2 = `${process.env.MRH_PASS_2_TEST}`;
 
 	const correctSignature = crypto
 		.createHash('md5')
@@ -41,6 +46,7 @@ export async function POST(req: Request) {
 		{ findPerson: findUniquePersonOfBusiness, tableName: 'business' },
 		{ findPerson: findUniquePersonOfYouthUral, tableName: 'youthural' },
 		{ findPerson: findUniquePersonOfFaithConf, tableName: 'faithconf' },
+		{ findPerson: findUniquePersonOfChelFire, tableName: 'chelfire' },
 	];
 
 	let currentPerson = null;
@@ -90,6 +96,12 @@ export async function POST(req: Request) {
 				currentPerson?.data[0].attributes.email,
 				currentPerson?.data[0].attributes.first_name
 			);
+		} else if (currentTableName === 'chelfire') {
+			await updateChelFirePersonStatus(currentPerson?.data[0].id, 'payed');
+			await sendPaymentSuccessChelFire(
+				currentPerson?.data[0].attributes.email,
+				currentPerson?.data[0].attributes.first_name
+			);
 		}
 
 		return new Response(`OK${invId}`, { status: 200 });
@@ -111,6 +123,12 @@ export async function POST(req: Request) {
 		} else if (currentTableName === 'faithconf') {
 			await deleteFaithConfsPerson(currentPerson?.data[0].id);
 			await sendPaymentErrorFaithConfEmail(
+				currentPerson?.data[0].attributes.email,
+				currentPerson?.data[0].attributes.first_name
+			);
+		} else if (currentTableName === 'chelfire') {
+			await deleteChelFirePerson(currentPerson?.data[0].id);
+			await sendPaymentErrorChelFireEmail(
 				currentPerson?.data[0].attributes.email,
 				currentPerson?.data[0].attributes.first_name
 			);

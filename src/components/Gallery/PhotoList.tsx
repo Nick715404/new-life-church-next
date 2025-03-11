@@ -16,6 +16,7 @@ export function PhotoList({ data }: PhotoListProps) {
 						height={400}
 						src={`${process.env.NEXT_PUBLIC_STRAPI_IMAGE}${photo.attributes.url}`}
 						alt='Фотография события'
+						priority
 					/>
 				</div>
 			))}

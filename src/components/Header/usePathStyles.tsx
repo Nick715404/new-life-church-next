@@ -9,6 +9,7 @@ export function usePathStyles({ pathname }: usePathStylesProps) {
 		'/events/youth-ural',
 		'/events/business-conf',
 		'/events/ural-faith-conf',
+		'/events/chel-fire',
 	];
 	return whitePaths.includes(pathname) ? 'white' : 'black';
 }

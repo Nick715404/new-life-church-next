@@ -9,6 +9,8 @@ import {
 } from '@/types/utils';
 import { DescrtipionLink, Heading, List, Paragraph } from '.';
 
+import styles from './BigDescription.module.scss';
+
 type RendererProps = {
 	element: Element | ListItemElement | LinkElement;
 };
@@ -31,7 +33,9 @@ const renderChildren = (
 
 export const Rerender = ({ element }: RendererProps) => {
 	if (element.type === 'list-item') {
-		return <li>{renderChildren(element.children)}</li>;
+		return (
+			<li className='description-li'>{renderChildren(element.children)}</li>
+		);
 	}
 
 	if (element.type === 'link') {

@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 type TInitialState = {
 	registerPersons: TRegisterPerson[];
 	eventType:
-		| 'ТинсУрал'
+		| 'ОгоньЧел'
 		| 'ЮсУрал'
 		| 'БизнесКонференция'
 		| 'КонференцияВеры'
@@ -21,15 +21,9 @@ const eventSlice = createSlice({
 	initialState,
 	reducers: {
 		getRegisterPersons(state, action) {
-			console.log({
-				payload: action.payload,
-			});
 			state.registerPersons = [...action.payload];
 		},
 		getEventType(state, action) {
-			console.log({
-				payload: action.payload,
-			});
 			state.eventType = action.payload;
 		},
 	},

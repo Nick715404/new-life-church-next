@@ -81,14 +81,23 @@ export interface IEventInitialState {
 export type TRegisterPerson = {
 	id: number;
 	attributes: {
-		person_type: 'Молодежь' | 'Предприниматель' | 'Пастор';
+		person_type:
+			| 'Молодежь'
+			| 'Предприниматель'
+			| 'Пастор'
+			| 'Подросток'
+			| 'РодительИлиСлужитель';
 		createdAt: Date;
 		updatedAt: Date;
 		publishedAt: Date;
 		init_price: number;
 		new_price: number;
 		price_update_date: Date;
+		label: string;
 	};
 };
 
-export type TEventType = 'business' | 'youthural' | 'faithconf';
+export type TChelFirePersonType = 'Подросток' | 'РодительИлиСлужитель';
+export type TBusinessPersonType = 'Молодежь' | 'Предприниматель' | 'Пастор';
+
+export type TEventType = 'business' | 'youthural' | 'faithconf' | 'chelfire';

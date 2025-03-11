@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { halvar } from '@/constants/fonts';
 import { TRegisterPerson } from '@/types/events';
 import styles from './DonationBanner.module.scss';

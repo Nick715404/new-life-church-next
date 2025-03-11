@@ -1,9 +1,9 @@
 'use client';
 
 import { RootState } from '@/store/store';
-import { TRegisterPerson } from '@/types/events';
-import { createContext, useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { TBusinessPersonType, TRegisterPerson } from '@/types/events';
+import { createContext, useContext, useState } from 'react';
 
 type RegisterProviderProps = {
 	children?: React.ReactNode;
@@ -17,7 +17,7 @@ type TBusinessRegisterProviderContext = {
 
 const BusinessRegisterProviderContext =
 	createContext<TBusinessRegisterProviderContext | null>(null);
-type FormType = 'Молодежь' | 'Предприниматель' | 'Пастор';
+type FormType = TBusinessPersonType;
 
 export const BusinessRegisterProvider = (props: RegisterProviderProps) => {
 	const { children } = props;

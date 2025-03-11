@@ -1,5 +1,6 @@
 import {
 	sendDataToBusiness,
+	sendDataToChelFire,
 	sendDataToFaithConf,
 	sendDataToYouthUral,
 } from '@/api/register';
@@ -31,5 +32,11 @@ export const registrySwitcher = async (
 				...data,
 			});
 			break;
+		case 'chelfire':
+			await sendDataToChelFire({
+				personId: `${invId}`,
+				status: 'pending',
+				...data,
+			});
 	}
 };

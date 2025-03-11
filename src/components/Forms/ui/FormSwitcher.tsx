@@ -2,9 +2,10 @@
 
 import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
-import { TeensUralForm } from '../TeensUral/ui';
+import { ChelFire } from '../TeensUral/ui';
 import { FaithConferenceForm, YouthUralForm, BusinessForm } from '..';
 import { BusinessRegisterProvider } from '@/providers/BusinessRegisterProvider/ui';
+import { ChelFireProvider } from '@/providers';
 
 export const FormSwitcher = () => {
 	const { eventType } = useSelector((state: RootState) => state.event);
@@ -16,8 +17,12 @@ export const FormSwitcher = () => {
 					<BusinessForm />
 				</BusinessRegisterProvider>
 			);
-		case 'ТинсУрал':
-			return <TeensUralForm />;
+		case 'ОгоньЧел':
+			return (
+				<ChelFireProvider>
+					<ChelFire />
+				</ChelFireProvider>
+			);
 		case 'ЮсУрал':
 			return <YouthUralForm />;
 		case 'КонференцияВеры':

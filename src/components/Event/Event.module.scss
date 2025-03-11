@@ -47,7 +47,7 @@
       -ms-transform: translateY(-45px);
       transform: translateY(-45px);
     }
-    
+
   }
 
   &::after {
@@ -78,7 +78,7 @@
 
     .title {
       color: #fff;
-      font-size: clamp(28px, 4.8vw, 80px);
+      font-size: clamp(20px, 4.2vw, 80px);
       text-transform: uppercase;
       line-height: 1;
       margin-bottom: 32px;
@@ -86,6 +86,7 @@
 
       @media (max-width: 768px) {
         margin-bottom: 16px;
+        max-width: 100%;
       }
 
     }
@@ -99,7 +100,7 @@
 
       .description {
         color: #fff;
-        font-size: clamp(16px, 1.9vw, 22px);
+        font-size: clamp(14px, 1.9vw, 22px);
       }
 
     }

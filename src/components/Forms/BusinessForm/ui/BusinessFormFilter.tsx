@@ -2,13 +2,14 @@ import { useBusinessRegisterContext } from '@/providers/BusinessRegisterProvider
 import classNames from 'classnames';
 import { Fragment, useEffect } from 'react';
 import styles from '../model/styles.module.scss';
+import { TBusinessPersonType } from '@/types/events';
 
 export const BusinessFormFilter = () => {
 	const { formType, setFormType, persons } = useBusinessRegisterContext();
 
 	useEffect(() => {
 		if (persons && persons.length > 0) {
-			setFormType!(persons[0].attributes.person_type);
+			setFormType!(persons[0].attributes.person_type as TBusinessPersonType);
 		}
 	}, [persons]);
 
@@ -22,7 +23,9 @@ export const BusinessFormFilter = () => {
 								className={classNames(styles.filterBtn, {
 									[styles.active]: formType === attributes.person_type,
 								})}
-								onClick={() => setFormType!(attributes.person_type)}
+								onClick={() =>
+									setFormType!(attributes.person_type as TBusinessPersonType)
+								}
 							>
 								{attributes.person_type === 'Молодежь'
 									? 'Молодежь до 21 года'

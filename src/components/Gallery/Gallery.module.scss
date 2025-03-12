@@ -24,6 +24,10 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
   }
 
   .card:first-child {
@@ -39,6 +43,10 @@
     border-radius: 50px;
     overflow: hidden;
     aspect-ratio: 1/1;
+
+    @media (max-width: 768px) {
+      border-radius: 20px;
+    }
 
     .image {
       width: 100%;

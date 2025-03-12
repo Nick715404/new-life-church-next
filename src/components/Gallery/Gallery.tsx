@@ -12,7 +12,7 @@ export function Gallery({ gallery }: GalleryProps) {
 	return (
 		<section className={styles.gallery}>
 			<div className='container'>
-				<h2 className={styles.title}>Галлерея</h2>
+				<h2 className={styles.title}>Галерея</h2>
 				<PhotoList data={gallery} />
 			</div>
 		</section>

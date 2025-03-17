@@ -2,6 +2,7 @@ import styles from './Hero.module.scss';
 import Image from 'next/image';
 import { halvar } from '@/constants/fonts';
 import { IStrapiImage } from '@/types/queries';
+import { EventDate } from '@/components/EventDate/ui';
 
 type EventHeroProps = {
 	title: string;
@@ -15,6 +16,7 @@ export function EventHero({ description, title, background }: EventHeroProps) {
 			<div className='container-small'>
 				<div className={styles.wrapper}>
 					<span className={styles.tag}>Событие</span>
+					<EventDate>5 июня - 7 июня</EventDate>
 					<h1 className={`${styles.title} ${halvar.className}`}>{title}</h1>
 					<p className={styles.text}>{description}</p>
 				</div>

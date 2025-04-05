@@ -19,7 +19,8 @@ export const RegisterPrice = ({ date, price, nextPrice }: TRegisterPrice) => {
 			<span className={`${halvar.className} ${styles.price}`}>{price} руб</span>
 			{date && price && (
 				<span>
-					С {normalData} цена будет составлять - {nextPrice} руб
+					С {normalData} сумма добровольного пожертвования будет составлять -{' '}
+					{nextPrice} руб
 				</span>
 			)}
 		</div>

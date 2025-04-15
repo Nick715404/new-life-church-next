@@ -95,11 +95,6 @@ export const ChelFire = () => {
 						placeholder='Телефон одного из родителей'
 					/>
 				)}
-				<FormCheckbox<FormFields>
-					name='homeCover'
-					register={register}
-					label='Мне нужно расселение'
-				/>
 				<label htmlFor='agreement' className={styles.checkboxLabel}>
 					<input
 						type='checkbox'

@@ -20,7 +20,7 @@ type FormFields = {
 	city: string;
 };
 
-const price = 100;
+const price = 700;
 
 export const YouthMgnForm = () => {
 	const router = useRouter();

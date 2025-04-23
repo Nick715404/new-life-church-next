@@ -20,14 +20,10 @@ type FormFields = {
 	city: string;
 };
 
-export const YouthMgnForm = () => {
-	const persons = useSelector(
-		(state: RootState) => state.event.registerPersons
-	);
-	const router = useRouter();
+const price = 100;
 
-	const currentPerson = persons[0];
-	const price = currentPerson?.attributes.init_price;
+export const YouthMgnForm = () => {
+	const router = useRouter();
 
 	const {
 		register,
@@ -43,7 +39,7 @@ export const YouthMgnForm = () => {
 			home_cover: data.home_cover ? 'Нужно расселение' : '',
 			eventType: 'youthuralmgn',
 			personType: 'Молодежь',
-			price: 700,
+			price,
 		};
 
 		const paymentData = await fetchPaymentUrl(clientData);
@@ -130,7 +126,7 @@ export const YouthMgnForm = () => {
 				</label>
 
 				<div>
-					<RegisterPrice price={100} date={undefined} nextPrice={undefined} />
+					<RegisterPrice price={price} date={undefined} nextPrice={undefined} />
 				</div>
 				<button type='submit' className={styles.submitBtn}>
 					Зарегистрироваться

@@ -62,11 +62,6 @@ export default function YouthMagnitPage() {
 								и высвободят Божье слово в нашу жизнь. Будет мощно!
 							</p>
 						</div>
-						<div className={styles.linkBox}>
-							<Link className={styles.link} href='#register'>
-								Регистрация
-							</Link>
-						</div>
 					</div>
 					<div className={styles.rightBox}>
 						<SpeakersSwiper />
@@ -106,7 +101,7 @@ export default function YouthMagnitPage() {
 				</div>
 			</section>
 
-			<section className={styles.register}>
+			<section id='register' className={styles.register}>
 				<div className={styles.wrapper}>
 					<div className={`${styles.box} ${styles.left}`}>
 						<h2 className={`${styles.title} ${halvar.className}`}>

@@ -42,8 +42,8 @@ export const YouthMgnForm = () => {
 			...data,
 			home_cover: data.home_cover ? 'Нужно расселение' : '',
 			eventType: 'youthuralmgn',
-			personType: currentPerson?.attributes.person_type,
-			price: price,
+			personType: 'Молодежь',
+			price: 700,
 		};
 
 		const paymentData = await fetchPaymentUrl(clientData);

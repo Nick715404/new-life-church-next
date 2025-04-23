@@ -3,7 +3,12 @@
 import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
 import { ChelFire } from '../TeensUral/ui';
-import { FaithConferenceForm, YouthUralForm, BusinessForm } from '..';
+import {
+	FaithConferenceForm,
+	YouthUralForm,
+	BusinessForm,
+	YouthMgnForm,
+} from '..';
 import { BusinessRegisterProvider } from '@/providers/BusinessRegisterProvider/ui';
 import { ChelFireProvider } from '@/providers';
 
@@ -27,6 +32,8 @@ export const FormSwitcher = () => {
 			return <YouthUralForm />;
 		case 'КонференцияВеры':
 			return <FaithConferenceForm />;
+		case 'ЮсМагнитагорск':
+			return <YouthMgnForm />;
 		default:
 			return;
 	}

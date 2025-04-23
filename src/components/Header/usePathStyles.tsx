@@ -10,6 +10,7 @@ export function usePathStyles({ pathname }: usePathStylesProps) {
 		'/events/business-conf',
 		'/events/ural-faith-conf',
 		'/events/chel-fire',
+		'/youth-magnitogorsk',
 	];
 	return whitePaths.includes(pathname) ? 'white' : 'black';
 }

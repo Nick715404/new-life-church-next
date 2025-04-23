@@ -2,14 +2,17 @@ import {
 	deleteBusinessPerson,
 	deleteChelFirePerson,
 	deleteFaithConfsPerson,
+	deleteYouthMgnPerson,
 	deleteYouthuralPerson,
 	findUniquePersonOfBusiness,
 	findUniquePersonOfChelFire,
 	findUniquePersonOfFaithConf,
+	findUniquePersonOfYouthMgn,
 	findUniquePersonOfYouthUral,
 	updateBusinessPersonStatus,
 	updateChelFirePersonStatus,
 	updateFaithConfPersonStatus,
+	updateYouthMgnPersonStatus,
 	updateYouthuralPersonStatus,
 } from '@/api/register';
 import {
@@ -22,6 +25,10 @@ import {
 	sendPaymentSuccessChelFire,
 	sendPaymentErrorChelFireEmail,
 } from '@/utils/emails';
+import {
+	sendPaymentErrorYouthMgnEmail,
+	sendPaymentSuccessYouthMgnEmail,
+} from '@/utils/emails/youth-mgn';
 import crypto from 'crypto';
 
 export async function POST(req: Request) {
@@ -47,6 +54,7 @@ export async function POST(req: Request) {
 		{ findPerson: findUniquePersonOfYouthUral, tableName: 'youthural' },
 		{ findPerson: findUniquePersonOfFaithConf, tableName: 'faithconf' },
 		{ findPerson: findUniquePersonOfChelFire, tableName: 'chelfire' },
+		{ findPerson: findUniquePersonOfYouthMgn, tableName: 'youthuralmgn' },
 	];
 
 	let currentPerson = null;
@@ -102,6 +110,12 @@ export async function POST(req: Request) {
 				currentPerson?.data[0].attributes.email,
 				currentPerson?.data[0].attributes.first_name
 			);
+		} else if (currentTableName === 'youthuralmgn') {
+			await updateYouthMgnPersonStatus(currentPerson?.data[0].id, 'payed');
+			await sendPaymentSuccessYouthMgnEmail(
+				currentPerson?.data[0].attributes.email,
+				currentPerson?.data[0].attributes.first_name
+			);
 		}
 
 		return new Response(`OK${invId}`, { status: 200 });
@@ -129,6 +143,12 @@ export async function POST(req: Request) {
 		} else if (currentTableName === 'chelfire') {
 			await deleteChelFirePerson(currentPerson?.data[0].id);
 			await sendPaymentErrorChelFireEmail(
+				currentPerson?.data[0].attributes.email,
+				currentPerson?.data[0].attributes.first_name
+			);
+		} else if (currentTableName === 'youthuralmgn') {
+			await deleteYouthMgnPerson(currentPerson?.data[0].id);
+			await sendPaymentErrorYouthMgnEmail(
 				currentPerson?.data[0].attributes.email,
 				currentPerson?.data[0].attributes.first_name
 			);

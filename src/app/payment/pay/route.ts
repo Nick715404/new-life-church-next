@@ -13,7 +13,6 @@ export async function POST(req: Request) {
 	const outSum = data.price;
 	const isTest = 0;
 
-	// Генерация подписи (CRC)
 	const crc = crypto
 		.createHash('md5')
 		.update(`${mrhLogin}:${outSum}:${invId}:${mrhPass1}`)

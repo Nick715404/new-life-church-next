@@ -100,4 +100,9 @@ export type TRegisterPerson = {
 export type TChelFirePersonType = 'Подросток' | 'РодительИлиСлужитель';
 export type TBusinessPersonType = 'Молодежь' | 'Предприниматель' | 'Пастор';
 
-export type TEventType = 'business' | 'youthural' | 'faithconf' | 'chelfire';
+export type TEventType =
+	| 'business'
+	| 'youthural'
+	| 'faithconf'
+	| 'chelfire'
+	| 'youthuralmgn';

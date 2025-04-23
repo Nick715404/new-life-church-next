@@ -1,14 +1,14 @@
 'use client';
 
-import { useRef } from 'react';
 import Image from 'next/image';
 import { ArrowIcon } from '@/components/Icons';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper/types';
+import { useRef } from 'react';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from '../model/styles.module.scss';
 import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
 
 const speakers = [
 	{
@@ -35,10 +35,10 @@ export const SpeakersSwiper = () => {
 		<>
 			<Swiper
 				loop
-				// modules={[Autoplay]}
-				// autoplay={{
-				// 	delay: 4500,
-				// }}
+				modules={[Autoplay]}
+				autoplay={{
+					delay: 4500,
+				}}
 				className={styles.swiper}
 				onSwiper={swiper => {
 					if (swiper) {
@@ -53,7 +53,8 @@ export const SpeakersSwiper = () => {
 							<div className={styles.image}>
 								<Image
 									fill
-									quality={100}
+									priority
+									quality={80}
 									src={speaker.image}
 									alt={speaker.label}
 									style={{ objectFit: 'cover' }}

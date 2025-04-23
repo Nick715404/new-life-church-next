@@ -41,6 +41,7 @@ export default function YouthMagnitPage() {
 						fill
 						alt=''
 						priority
+						quality={70}
 						className={styles.img}
 						style={{ objectFit: 'cover', zIndex: 0 }}
 						src='/img/youth-magnit/youth-mgn.jpg'

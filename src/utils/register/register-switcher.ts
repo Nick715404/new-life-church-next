@@ -39,11 +39,13 @@ export const registrySwitcher = async (
 				status: 'pending',
 				...data,
 			});
+			break;
 		case 'youthuralmgn':
 			await sendDataToYouthMgn({
 				personId: `${invId}`,
 				status: 'pending',
 				...data,
 			});
+			break;
 	}
 };

@@ -94,7 +94,7 @@ export default function YouthMagnitPage() {
 						event='Дневное богослужение'
 					/>
 					<SchedulesItem
-						time='13:00 '
+						time='18:00 '
 						speaker='Армен Асатрян'
 						event='Вечернее богослужение'
 					/>

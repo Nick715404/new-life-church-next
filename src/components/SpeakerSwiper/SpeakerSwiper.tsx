@@ -1,17 +1,25 @@
 'use client';
 
+import { ISpeaker } from '@/types/speakers';
+import { SpeakerSwiperItem } from './SpeakerSwiperItem';
+import { Mousewheel } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
-
-import { ISpeaker } from '@/types/speakers';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { SpeakerSwiperItem } from './SpeakerSwiperItem';
 
 type SpeakerSwiperProps = { slides: ISpeaker };
 
 export function SpeakerSwiper({ slides }: SpeakerSwiperProps) {
 	return (
 		<Swiper
+			id='speakers-swiper'
+			modules={[Mousewheel]}
+			freeMode={false}
+			mousewheel={{
+				forceToAxis: true,
+				releaseOnEdges: true,
+			}}
 			slidesPerView={3.8}
 			spaceBetween={20}
 			breakpoints={{

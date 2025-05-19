@@ -11,7 +11,7 @@ export function EventSpeakers({ speakers }: EventSpeakersProps) {
 	}
 
 	return (
-		<section className={styles.section}>
+		<section className={styles.section} id='speakers-section'>
 			<div className='container-small'>
 				<div className='relative'>
 					<h2 className={`${halvar.className} ${styles.title}`}>Спикеры</h2>

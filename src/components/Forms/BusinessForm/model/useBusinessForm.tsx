@@ -12,7 +12,6 @@ export type FormFields = {
 	city: string;
 	church: string;
 	vector?: string;
-	pastor_type?: string;
 	occupation?: string;
 	source?: string;
 	email: string;

@@ -83,16 +83,6 @@ export const BusinessForm = () => {
 					/>
 				)}
 
-				{formType === 'Пастор' && (
-					<FormInput<FormFields>
-						label='Какой пастор?'
-						name='pastor_type'
-						register={register}
-						errors={errors}
-						placeholder='Введите тип пастора'
-					/>
-				)}
-
 				{formType === 'Молодежь' && (
 					<FormRadio<FormFields>
 						label='Выберите статус'
@@ -108,7 +98,7 @@ export const BusinessForm = () => {
 
 				{/* Общий вопрос для всех */}
 				<FormInput<FormFields>
-					label='Откуда узнал о конференции?'
+					label='Откуда вы узнали о конференции?'
 					name='source'
 					register={register}
 					errors={errors}

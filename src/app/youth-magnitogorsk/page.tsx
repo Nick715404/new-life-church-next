@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
-import styles from './styles.module.scss';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+import type { Metadata } from 'next';
 import { halvar } from '@/constants/fonts';
-import { SchedulesItem, SpeakersSwiper } from '@/widgets/youth-mgn/ui';
 import { YouthMgnForm } from '@/components/Forms';
+import { SchedulesItem, SpeakersSwiper } from '@/widgets/youth-mgn/ui';
+
+import styles from './styles.module.scss';
 
 export const metadata: Metadata = {
 	title: 'ЮС Магнитогорск | Регистрация на мероприятие',

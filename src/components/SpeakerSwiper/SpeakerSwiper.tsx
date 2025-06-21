@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-type SpeakerSwiperProps = { slides: ISpeaker };
+type SpeakerSwiperProps = { slides: ISpeaker | null };
 
 export function SpeakerSwiper({ slides }: SpeakerSwiperProps) {
 	return (
@@ -45,11 +45,12 @@ export function SpeakerSwiper({ slides }: SpeakerSwiperProps) {
 				},
 			}}
 		>
-			{slides.data.map(slide => (
-				<SwiperSlide key={slide.id}>
-					<SpeakerSwiperItem data={slide} />
-				</SwiperSlide>
-			))}
+			{slides &&
+				slides.data.map(slide => (
+					<SwiperSlide key={slide.id}>
+						<SpeakerSwiperItem data={slide} />
+					</SwiperSlide>
+				))}
 		</Swiper>
 	);
 }

@@ -1,0 +1,163 @@
+.aboutContainer {}
+
+.contentWrapper {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 90px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+}
+
+.mainContent {
+  max-width: 70%;
+
+  @media (max-width: 1024px) {
+    max-width: 100%;
+  }
+}
+
+.textContent {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0 24px;
+  flex-wrap: wrap;
+
+}
+
+.primaryButton {
+  height: 44px;
+  padding: 0 24px;
+  background-color: #FFBA0D;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #e6a800;
+  }
+}
+
+.regularText {
+  margin: 0 0 16px;
+  color: #dedede;
+}
+
+.benefitsList {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.benefitItem {
+  margin-bottom: 8px;
+  color: #dedede;
+}
+
+.toggleButton {
+  color: #0066cc;
+  cursor: pointer;
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 22px;
+
+  @media (max-width: 768px) {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  background: #272727;
+  height: fit-content;
+  padding: 20px;
+  color: #fff;
+  border-radius: 20px;
+  width: fit-content;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.contactTitle {
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 0;
+    flex-grow: 1;
+  }
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all .15s ease-in-out;
+
+  &:hover {
+    background-color: #383838;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    margin-left: 12px;
+  }
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.emailIcon {
+  display: block;
+}
+
+.contactText {
+  display: flex;
+  font-size: 16px;
+  line-height: 22px;
+  // min-width: fit-content;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

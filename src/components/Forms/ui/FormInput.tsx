@@ -15,18 +15,37 @@ type FormInputProps<T extends FieldValues> = {
   errors?: FieldErrors<T>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
+const EMAIL_REGEX =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 export const FormInput = <T extends FieldValues>(props: FormInputProps<T>) => {
   const { label, name, register, errors, ...rest } = props;
   const errorMessage = errors?.[name]?.message as string | undefined;
+
+  const getValidationRules = () => {
+    const rules: any = {
+      required: `Поле ${label} должно быть заполнено`,
+    };
+
+    if (props.type === 'email') {
+      rules.validate = (value: string) => {
+        if (/[A-Z]/.test(value)) {
+          return 'Email не должен содержать заглавные буквы';
+        }
+
+        return EMAIL_REGEX.test(value) || 'Введите корректный email';
+      };
+    }
+
+    return rules;
+  };
 
   return (
     <label htmlFor={name} className={styles.label}>
       <span className={styles.text}>{label}</span>
       <input
         id={name}
-        {...register(name, {
-          required: `Поле ${label} должно быть заполнено`,
-        })}
+        {...register(name, getValidationRules())}
         {...rest}
         className={styles.input}
       />

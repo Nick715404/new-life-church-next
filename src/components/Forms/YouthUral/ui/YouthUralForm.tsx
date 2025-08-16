@@ -80,6 +80,7 @@ export const YouthUralForm = () => {
         <FormInput<FormFields>
           label="Электронная почта"
           name="email"
+          type="email"
           register={register}
           errors={errors}
           placeholder="Введите почту"

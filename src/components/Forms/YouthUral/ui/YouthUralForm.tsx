@@ -16,6 +16,7 @@ type FormFields = {
   church: string;
   home_cover: any;
   city: string;
+  age: string;
 };
 
 export const YouthUralForm = () => {
@@ -30,14 +31,17 @@ export const YouthUralForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<FormFields>({
     mode: 'onBlur',
   });
 
   const onSubmit = async (data: FormFields) => {
+    const age = data.age.split('-').toReversed().join('.');
+
     const clientData = {
       ...data,
+      age,
       home_cover: data.home_cover ? 'Нужно расселение' : '',
       eventType: 'youthural',
       personType: currentPerson?.attributes.person_type,
@@ -64,6 +68,14 @@ export const YouthUralForm = () => {
           register={register}
           errors={errors}
           placeholder="Введите фамилию"
+        />
+        <FormInput<FormFields>
+          label="Дата рождения"
+          name="age"
+          register={register}
+          errors={errors}
+          type="date"
+          placeholder="Введите дату рождения"
         />
         <FormInput<FormFields>
           label="Электронная почта"

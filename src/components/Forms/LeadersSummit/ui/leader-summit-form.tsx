@@ -73,10 +73,8 @@ export const LeaderSummitForm = () => {
       price: currentPrice,
     };
 
-    console.log({ clientData });
-
-    // const paymentData = await fetchPaymentUrl(clientData);
-    // router.push(paymentData.paymentUrl);
+    const paymentData = await fetchPaymentUrl(clientData);
+    router.push(paymentData.paymentUrl);
   };
 
   return (

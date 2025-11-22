@@ -3,63 +3,65 @@ import { getOptions } from './options';
 import { IEvent } from '@/types/events';
 
 export const fetchEvents = async () => {
-	const options = getOptions('GET');
+  const options = getOptions('GET');
 
-	try {
-		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_STRAPI_URL}/events?populate=*`,
-			{
-				...options,
-				cache: 'no-cache',
-			}
-		);
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/events?populate=*`,
+      {
+        ...options,
+        cache: 'no-cache',
+      },
+    );
 
-		if (!response.ok) throw new Error('Error to fetch events');
+    if (!response.ok) throw new Error('Error to fetch events');
 
-		const { data }: IQueryFromStrapi<IEvent> = await response.json();
-		return data;
-	} catch (error) {
-		throw new Error('Error to fetch events');
-	}
+    const { data }: IQueryFromStrapi<IEvent> = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error('Error to fetch events');
+  }
 };
 
 export const fetchSingleEvent = async (slug: string) => {
-	const options = getOptions('GET');
+  const options = getOptions('GET');
 
-	try {
-		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate[background]=*&populate[speakers][populate][image]=*&populate[schedules][populate][schedule_items]=*&populate[gallery]=*&populate[register_persons]=*`,
-			{
-				...options,
-				cache: 'no-cache',
-			}
-		);
+  console.log(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/`);
 
-		if (!response.ok) throw new Error('Error to fetch event');
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/event/${slug}?populate[background]=*&populate[speakers][populate][image]=*&populate[schedules][populate][schedule_items]=*&populate[gallery]=*&populate[register_persons]=*`,
+      {
+        ...options,
+        cache: 'no-cache',
+      },
+    );
 
-		const { data }: IQueryFromStrapiSingle<IEvent> = await response.json();
-		return data;
-	} catch (error) {
-		throw new Error('Error to fetch event' + error);
-	}
+    if (!response.ok) throw new Error('Error to fetch event');
+
+    const { data }: IQueryFromStrapiSingle<IEvent> = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error('Error to fetch event' + error);
+  }
 };
 
 export const fetchNearEvents = async () => {
-	try {
-		const res = await fetch(
-			`${process.env.NEXT_PUBLIC_STRAPI_URL}/near-events?populate=*`,
-			{ next: { revalidate: 180 } }
-		);
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/near-events?populate=*`,
+      { next: { revalidate: 180 } },
+    );
 
-		if (!res.ok) {
-			throw new Error('Ошибка в получении последних мероприятий');
-		}
+    if (!res.ok) {
+      throw new Error('Ошибка в получении последних мероприятий');
+    }
 
-		const { data } = await res.json();
+    const { data } = await res.json();
 
-		return data;
-	} catch (error) {
-		console.error(error);
-		throw new Error('Ошибка в получении последних мероприятий');
-	}
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Ошибка в получении последних мероприятий');
+  }
 };

@@ -8,37 +8,37 @@ import { BigDescription } from '@/components/BigDescription/BigDescription';
 type EventPageProps = { params: { slug: string } };
 
 export async function generateMetadata({
-	params: { slug },
+  params: { slug },
 }: EventPageProps): Promise<Metadata> {
-	const { attributes: data } = await fetchSingleEvent(slug);
+  const { attributes: data } = await fetchSingleEvent(slug);
 
-	return {
-		title: data.title,
-		description: data.small_description,
-		alternates: {
-			canonical: `${process.env.SITE_DOMEN}/about/events/${data.slug}`,
-		},
-	};
+  return {
+    title: data.title,
+    description: data.small_description,
+    alternates: {
+      canonical: `${process.env.SITE_DOMEN}/about/events/${data.slug}`,
+    },
+  };
 }
 
 export default async function EventPage({ params: { slug } }: EventPageProps) {
-	const { attributes: data } = await fetchSingleEvent(slug);
+  const { attributes: data } = await fetchSingleEvent(slug);
 
-	return (
-		<main className='event children-page'>
-			<EventHero
-				description={data.small_description}
-				title={data.title}
-				background={data.background.data}
-			/>
-			{data.full_description && <BigDescription data={data.full_description} />}
-			<EventSpeakers speakers={data.speakers} />
-			<Schedule schedule={data.schedules.data} />
-			<Gallery gallery={data.gallery.data} />
-			<DonationBanner
-				register_persons={data.register_persons.data}
-				event_type={data.event_type}
-			/>
-		</main>
-	);
+  return (
+    <main className="event children-page">
+      <EventHero
+        description={data.small_description}
+        title={data.title}
+        background={data.background.data}
+      />
+      {data.full_description && <BigDescription data={data.full_description} />}
+      <EventSpeakers speakers={data.speakers} />
+      <Schedule schedule={data.schedules.data} />
+      <Gallery gallery={data.gallery.data} />
+      <DonationBanner
+        register_persons={data.register_persons.data}
+        event_type={data.event_type}
+      />
+    </main>
+  );
 }

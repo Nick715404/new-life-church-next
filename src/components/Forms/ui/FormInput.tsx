@@ -13,18 +13,19 @@ type FormInputProps<T extends FieldValues> = {
   name: Path<T>;
   register: UseFormRegister<T>;
   errors?: FieldErrors<T>;
+  isFree?: boolean;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const EMAIL_REGEX =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export const FormInput = <T extends FieldValues>(props: FormInputProps<T>) => {
-  const { label, name, register, errors, ...rest } = props;
+  const { label, name, register, errors, isFree, ...rest } = props;
   const errorMessage = errors?.[name]?.message as string | undefined;
 
   const getValidationRules = () => {
     const rules: any = {
-      required: `Поле ${label} должно быть заполнено`,
+      required: isFree ? false : `Поле ${label} должно быть заполнено`,
     };
 
     if (props.type === 'email') {

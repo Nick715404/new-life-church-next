@@ -13,6 +13,7 @@ export const registrySwitcher = async (
   invId: number,
   eventType: TEventType,
 ) => {
+  console.log({ eventType });
   switch (eventType) {
     case 'business':
       await sendDataToBusiness({

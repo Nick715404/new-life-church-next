@@ -12,7 +12,7 @@ export function usePathStyles({ pathname }: usePathStylesProps) {
     '/events/chel-fire',
     '/youth-magnitogorsk',
     '/yearforgod',
-    'globalnyj-liderskij-sammit',
+    '/events/globalnyj-liderskij-sammit',
   ];
   return whitePaths.includes(pathname) ? 'white' : 'black';
 }

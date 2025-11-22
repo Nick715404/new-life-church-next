@@ -16,19 +16,7 @@ export async function sendPaymentSuccessLeaderSummitEmail(
     const emailContent = `
     <h1>Здравствуйте, <strong>${name}</strong>!</h1>
   
-    <p>Спасибо за регистрацию на мероприятие: <strong>ЮС Магнитагорск 25</strong>.</p>
-  
-    <p>Вы можете узнать больше о мероприятии по ссылке:</p>
-    <p>
-      <a href='https://vk.com/youthmgn.conf' target="_blank" style="color: #007bff; text-decoration: none;">
-        Перейти в группу ВК
-      </a>
-    </p>
-    <p>
-       <a href='https://t.me/youthmgn_conf' target="_blank" style="color: #007bff; text-decoration: none;">
-        Перейти в телеграм
-      </a>
-    </p>
+    <p>Спасибо за регистрацию на мероприятие: <strong>ГСЛ 2025</strong>.</p>
   
     <p>С уважением,<br>Команда организаторов</p>
   `;
@@ -36,7 +24,7 @@ export async function sendPaymentSuccessLeaderSummitEmail(
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: `Регистрация на ЮС Магнитагорск 25`,
+      subject: `Регистрация на ГСЛ 2025`,
       html: emailContent,
     };
 
@@ -65,7 +53,7 @@ export async function sendPaymentErrorLeaderSummitEmail(
     const emailContent = `
     <h1>Здравствуйте, <strong>${name}</strong>!</h1>
   
-    <p>Кажется что-то пошло не так во время регистрации на мероприятие ЮС Магнитагорск  25</p>
+    <p>Кажется что-то пошло не так во время регистрации на мероприятие ГСЛ 2025</p>
   
     <p>Пожалуйста напишите нам и мы ответим на все ваши вопросы.</p>
   
@@ -75,7 +63,7 @@ export async function sendPaymentErrorLeaderSummitEmail(
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: `Регистрация на ЮсУрал 25`,
+      subject: `Регистрация на ГСЛ 2025`,
       html: emailContent,
     };
 

@@ -22,8 +22,6 @@ export async function POST(req: Request) {
     invDesc,
   )}&SignatureValue=${crc}&IsTest=${isTest}`;
 
-  console.log({ data });
-
   await registrySwitcher(data, invId, data.eventType);
 
   return NextResponse.json({ paymentUrl: url });

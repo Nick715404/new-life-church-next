@@ -104,6 +104,8 @@ export const deleteBusinessPerson = async (userId: number) => {
   }
 };
 
+// -------------------------
+
 type TSendDataToEvent = {
   church: string;
   city: string;
@@ -114,6 +116,8 @@ type TSendDataToEvent = {
   last_name: string;
   personType: string;
   phone: string;
+  promocode?: string;
+  price?: string;
 };
 
 export const sendDataToYouthUral = async (
@@ -195,6 +199,8 @@ export const deleteYouthuralPerson = async (userId: number) => {
     }
   }
 };
+
+// -------------------------
 
 export const sendDataToFaithConf = async (
   data: TSendDataToEvent,
@@ -278,6 +284,8 @@ export const deleteFaithConfsPerson = async (userId: number) => {
     }
   }
 };
+
+// -------------------------
 
 export const sendDataToChelFire = async (
   data: TSendDataToEvent,
@@ -452,7 +460,7 @@ export const updateLeaderSummitPersonStatus = async (
 ) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_URL}/leader-summit/${userId}`,
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/leader-summits/${userId}`,
       {
         method: 'PUT',
         headers: {
@@ -504,5 +512,30 @@ export const deleteLeaderSummitPerson = async (userId: number) => {
       console.log(error.message);
       return;
     }
+  }
+};
+
+// -------------------------
+
+export const sendDataToLeaderSummit = async (
+  data: TSendDataToEvent,
+): Promise<{ status: 'done' }> => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/leader-summits`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({ data }),
+      },
+    );
+
+    return { status: 'done' };
+  } catch (error) {
+    console.error(error);
+    throw new Error('Ошибка в регистрации пользователя на ГСЛ');
   }
 };

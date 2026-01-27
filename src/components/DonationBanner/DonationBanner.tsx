@@ -14,58 +14,58 @@ import { usePathname } from 'next/navigation';
 import { AdditionalRegister } from '../Forms';
 
 type TDonationBannerProps = {
-	register_persons: TRegisterPerson[];
-	event_type: string;
+  register_persons: TRegisterPerson[];
+  event_type: string;
 };
 
 export function DonationBanner(props: TDonationBannerProps) {
-	const { register_persons, event_type } = props;
-	const dispatch = useDispatch();
-	const pathname = usePathname();
+  const { register_persons, event_type } = props;
+  const dispatch = useDispatch();
+  const pathname = usePathname();
 
-	useEffect(() => {
-		dispatch(getRegisterPersons(register_persons));
-		dispatch(getEventType(event_type));
-	}, [dispatch, register_persons, event_type]);
+  useEffect(() => {
+    dispatch(getRegisterPersons(register_persons));
+    dispatch(getEventType(event_type));
+  }, [dispatch, register_persons, event_type]);
 
-	if (pathname === '/events/ural-faith-conf') {
-		return (
-			<section className={styles.section}>
-				<div className='container'>
-					<div className={styles.wrapper}>
-						<h2 className={`${styles.title} ${halvar.className}`}>
-							Добровольное
-							<br /> пожертвование
-						</h2>
-						<div className={styles.additionalRegister}>
-							<AdditionalRegister />
-						</div>
-					</div>
-				</div>
-			</section>
-		);
-	}
+  if (pathname === '/events/ural-faith-conf') {
+    return (
+      <section className={styles.section}>
+        <div className="container">
+          <div className={styles.wrapper}>
+            <h2 className={`${styles.title} ${halvar.className}`}>
+              Добровольное
+              <br /> пожертвование
+            </h2>
+            <div className={styles.additionalRegister}>
+              <AdditionalRegister />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
-	return (
-		<section className={styles.section}>
-			<div className='container'>
-				<div className={styles.wrapper}>
-					<h2 className={`${styles.title} ${halvar.className}`}>
-						Добровольное
-						<br /> пожертвование
-					</h2>
-					<div className={styles.btnBox}>
-						<Popup>
-							<PopupTrigger className={styles.btn}>
-								Зарегистрироваться
-							</PopupTrigger>
-							<PopupContent>
-								<FormSwitcher />
-							</PopupContent>
-						</Popup>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className={styles.section}>
+      <div className="container">
+        <div className={styles.wrapper}>
+          <h2 className={`${styles.title} ${halvar.className}`}>
+            Добровольное
+            <br /> пожертвование
+          </h2>
+          <div className={styles.btnBox}>
+            <Popup>
+              <PopupTrigger className={styles.btn}>
+                Зарегистрироваться
+              </PopupTrigger>
+              <PopupContent>
+                <FormSwitcher />
+              </PopupContent>
+            </Popup>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

@@ -8,39 +8,31 @@ import { FaithConferenceAndSeminarsForm } from './FaithConferenceSeminars';
 import { SeminarsForLeaderAndPastors } from './SeminarsForLeaderAndPastors';
 
 export const AdditionalRegister = () => {
-	return (
-		<>
-			<div className={styles.regItem}>
-				<div className={styles.title}>Регистрация на конференцию</div>
-				<Popup>
-					<PopupTrigger className={styles.btn}>Зарегистрироваться</PopupTrigger>
-					<PopupContent>
-						<FormSwitcher />
-					</PopupContent>
-				</Popup>
-			</div>
-			<div className={styles.regItem}>
-				<div className={styles.title}>
-					Регистрация на семинары <br /> для пасторов и лидеров
-				</div>
-				<Popup>
-					<PopupTrigger className={styles.btn}>Зарегистрироваться</PopupTrigger>
-					<PopupContent>
-						<SeminarsForLeaderAndPastors />
-					</PopupContent>
-				</Popup>
-			</div>
-			<div className={styles.regItem}>
-				<div className={styles.title}>
-					Регистрация на <br /> семинары и конференцию
-				</div>
-				<Popup>
-					<PopupTrigger className={styles.btn}>Зарегистрироваться</PopupTrigger>
-					<PopupContent>
-						<FaithConferenceAndSeminarsForm />
-					</PopupContent>
-				</Popup>
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div className={styles.regItem}>
+        <div className={styles.title}>Регистрация на конференцию</div>
+        <Popup>
+          <PopupTrigger className={styles.btn}>Зарегистрироваться</PopupTrigger>
+          <PopupContent>
+            <FormSwitcher />
+          </PopupContent>
+        </Popup>
+      </div>
+      <div className={styles.regItem}>
+        <div className={styles.title}>
+          Регистрация на семинары <br /> для пасторов и лидеров
+        </div>
+        <Popup>
+          <PopupTrigger className={styles.btn}>Зарегистрироваться</PopupTrigger>
+          <PopupContent>
+            <SeminarsForLeaderAndPastors />
+          </PopupContent>
+        </Popup>
+        <p className={styles.description}>
+          В регистрацию на семинары входит <br /> и регистрация на конференцию*
+        </p>
+      </div>
+    </>
+  );
 };

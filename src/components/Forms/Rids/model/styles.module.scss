@@ -1,0 +1,54 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filterBtn {
+  padding: 20px;
+  border-radius: 100px;
+  font-size: 16px;
+  transition: all .15s ease;
+
+  &:hover {
+    background: #636363;
+    color: white;
+  }
+}
+
+.filterBtn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.submitBtn {
+  all: unset;
+  background-color: #000;
+  border: 2px solid #000;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 100px;
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: all .15s ease;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+    color: #000;
+  }
+}
+
+.checkboxLabel {
+  display: flex;
+  gap: 20px;
+  align-items: start;
+}

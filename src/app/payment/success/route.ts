@@ -3,18 +3,21 @@ import {
   deleteChelFirePerson,
   deleteFaithConfsPerson,
   deleteLeaderSummitPerson,
+  deleteRidsConfPerson,
   deleteYouthMgnPerson,
   deleteYouthuralPerson,
   findUniquePersonOfBusiness,
   findUniquePersonOfChelFire,
   findUniquePersonOfFaithConf,
   findUniquePersonOfLeaderSummit,
+  findUniquePersonOfRidsConf,
   findUniquePersonOfYouthMgn,
   findUniquePersonOfYouthUral,
   updateBusinessPersonStatus,
   updateChelFirePersonStatus,
   updateFaithConfPersonStatus,
   updateLeaderSummitPersonStatus,
+  updateRidsPersonStatus,
   updateYouthMgnPersonStatus,
   updateYouthuralPersonStatus,
 } from '@/api/register';
@@ -32,6 +35,10 @@ import {
   sendPaymentErrorLeaderSummitEmail,
   sendPaymentSuccessLeaderSummitEmail,
 } from '@/utils/emails/leader-summit';
+import {
+  sendPaymentErrorRidsEmail,
+  sendPaymentSuccessRidsEmail,
+} from '@/utils/emails/rids';
 import {
   sendPaymentErrorYouthMgnEmail,
   sendPaymentSuccessYouthMgnEmail,
@@ -63,6 +70,7 @@ export async function POST(req: Request) {
     { findPerson: findUniquePersonOfChelFire, tableName: 'chelfire' },
     { findPerson: findUniquePersonOfYouthMgn, tableName: 'youthuralmgn' },
     { findPerson: findUniquePersonOfLeaderSummit, tableName: 'leadersummit' },
+    { findPerson: findUniquePersonOfRidsConf, tableName: 'conf-rids' },
   ];
 
   let currentPerson = null;
@@ -130,6 +138,12 @@ export async function POST(req: Request) {
         currentPerson?.data[0].attributes.email,
         currentPerson?.data[0].attributes.first_name,
       );
+    } else if (currentTableName === 'conf-rids') {
+      await updateRidsPersonStatus(currentPerson?.data[0].id, 'payed');
+      await sendPaymentSuccessRidsEmail(
+        currentPerson?.data[0].attributes.email,
+        currentPerson?.data[0].attributes.first_name,
+      );
     }
 
     return new Response(`OK${invId}`, { status: 200 });
@@ -169,6 +183,12 @@ export async function POST(req: Request) {
     } else if (currentTableName === 'leadersummit') {
       await deleteLeaderSummitPerson(currentPerson?.data[0].id);
       await sendPaymentErrorLeaderSummitEmail(
+        currentPerson?.data[0].attributes.email,
+        currentPerson?.data[0].attributes.first_name,
+      );
+    } else if (currentTableName === 'conf-rids') {
+      await deleteRidsConfPerson(currentPerson?.data[0].id);
+      await sendPaymentErrorRidsEmail(
         currentPerson?.data[0].attributes.email,
         currentPerson?.data[0].attributes.first_name,
       );

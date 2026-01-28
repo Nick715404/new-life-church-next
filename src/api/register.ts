@@ -539,3 +539,88 @@ export const sendDataToLeaderSummit = async (
     throw new Error('Ошибка в регистрации пользователя на ГСЛ');
   }
 };
+
+// -------------------------
+
+export const sendDataToRidsConf = async (
+  data: TSendDataToEvent,
+): Promise<{ status: 'done' }> => {
+  try {
+    await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/konferencziya-ri-d-sls`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({ data }),
+      },
+    );
+
+    return { status: 'done' };
+  } catch (error) {
+    console.error(error);
+    throw new Error('Ошибка в регистрации пользователя на УКВ');
+  }
+};
+
+export const findUniquePersonOfRidsConf = async (
+  invId: string,
+): Promise<TBusinessPerson | undefined> => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/konferencziya-ri-d-sls?filters[personId][$eq]=${invId}`,
+    );
+
+    return await res.json();
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message);
+      return;
+    }
+  }
+};
+
+export const updateRidsPersonStatus = async (
+  userId: number,
+  newStatus: 'payed' | 'notPayed' | 'pending',
+) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/konferencziya-ri-d-sls/${userId}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data: { status: newStatus } }),
+      },
+    );
+
+    return await res.json();
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message);
+      return;
+    }
+  }
+};
+
+export const deleteRidsConfPerson = async (userId: number) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/konferencziya-ri-d-sls/${userId}`,
+      {
+        method: 'DELETE',
+      },
+    );
+
+    return await res.json();
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message);
+      return;
+    }
+  }
+};

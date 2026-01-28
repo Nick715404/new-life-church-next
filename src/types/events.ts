@@ -110,4 +110,5 @@ export type TEventType =
   | 'faithconf'
   | 'chelfire'
   | 'youthuralmgn'
+  | 'conf-rids'
   | 'leadersummit';

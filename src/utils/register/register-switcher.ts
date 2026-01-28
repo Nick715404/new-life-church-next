@@ -3,6 +3,7 @@ import {
   sendDataToChelFire,
   sendDataToFaithConf,
   sendDataToLeaderSummit,
+  sendDataToRidsConf,
   sendDataToYouthMgn,
   sendDataToYouthUral,
 } from '@/api/register';
@@ -13,7 +14,6 @@ export const registrySwitcher = async (
   invId: number,
   eventType: TEventType,
 ) => {
-  console.log({ eventType });
   switch (eventType) {
     case 'business':
       await sendDataToBusiness({
@@ -30,6 +30,13 @@ export const registrySwitcher = async (
       });
     case 'faithconf':
       await sendDataToFaithConf({
+        personId: `${invId}`,
+        status: 'pending',
+        ...data,
+      });
+      break;
+    case 'conf-rids':
+      await sendDataToRidsConf({
         personId: `${invId}`,
         status: 'pending',
         ...data,

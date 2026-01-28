@@ -2,6 +2,8 @@
 
 import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
+
+// All Forms
 import { ChelFire } from '../TeensUral/ui';
 import {
   FaithConferenceForm,
@@ -9,6 +11,8 @@ import {
   BusinessForm,
   YouthMgnForm,
 } from '..';
+import { RidsForm } from '../Rids/ui';
+
 import { BusinessRegisterProvider } from '@/providers/BusinessRegisterProvider/ui';
 import { ChelFireProvider } from '@/providers';
 import { LeaderSummitForm } from '../LeadersSummit';
@@ -37,6 +41,9 @@ export const FormSwitcher = () => {
       return <YouthMgnForm />;
     case 'СаммитЛидеров': {
       return <LeaderSummitForm />;
+    }
+    case 'КонференцияРодДетСлуж': {
+      return <RidsForm />;
     }
     default:
       return;

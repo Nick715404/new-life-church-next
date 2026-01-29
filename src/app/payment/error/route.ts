@@ -1,44 +1,49 @@
 import {
-	deleteBusinessPerson,
-	deleteYouthuralPerson,
-	findUniquePersonOfBusiness,
-	findUniquePersonOfYouthUral,
+  deleteBusinessPerson,
+  deleteRidsConfPerson,
+  deleteYouthuralPerson,
+  findUniquePersonOfBusiness,
+  findUniquePersonOfRidsConf,
+  findUniquePersonOfYouthUral,
 } from '@/api/register';
 
 export async function POST(req: Request) {
-	try {
-		const formData = await req.formData();
-		const invId = formData.get('InvId')?.toString();
+  try {
+    const formData = await req.formData();
+    const invId = formData.get('InvId')?.toString();
 
-		const findPersonFunctions = [
-			{ findPerson: findUniquePersonOfBusiness, tableName: 'business' },
-			{ findPerson: findUniquePersonOfYouthUral, tableName: 'youthural' },
-		];
+    const findPersonFunctions = [
+      { findPerson: findUniquePersonOfBusiness, tableName: 'business' },
+      { findPerson: findUniquePersonOfYouthUral, tableName: 'youthural' },
+      { findPerson: findUniquePersonOfRidsConf, tableName: 'conf-rids' },
+    ];
 
-		let currentPerson = null;
-		let currentTableName = '';
+    let currentPerson = null;
+    let currentTableName = '';
 
-		for (let { findPerson, tableName } of findPersonFunctions) {
-			currentPerson = await findPerson(`${invId}`);
-			if (currentPerson) {
-				currentTableName = tableName;
-				break;
-			}
-		}
+    for (let { findPerson, tableName } of findPersonFunctions) {
+      currentPerson = await findPerson(`${invId}`);
+      if (currentPerson) {
+        currentTableName = tableName;
+        break;
+      }
+    }
 
-		if (currentPerson && invId) {
-			if (currentTableName === 'business') {
-				await deleteBusinessPerson(currentPerson?.data[0].id);
-			} else if (currentTableName === 'youthural') {
-				await deleteYouthuralPerson(currentPerson?.data[0].id);
-			}
+    if (currentPerson && invId) {
+      if (currentTableName === 'business') {
+        await deleteBusinessPerson(currentPerson?.data[0].id);
+      } else if (currentTableName === 'youthural') {
+        await deleteYouthuralPerson(currentPerson?.data[0].id);
+      } else if (currentTableName === 'conf-rids') {
+        await deleteRidsConfPerson(currentPerson?.data[0].id);
+      }
 
-			return new Response(`Person has been removed`, { status: 200 });
-		}
-	} catch (error) {
-		if (error instanceof Error) {
-			console.log(error.message);
-			return;
-		}
-	}
+      return new Response(`Person has been removed`, { status: 200 });
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message);
+      return;
+    }
+  }
 }

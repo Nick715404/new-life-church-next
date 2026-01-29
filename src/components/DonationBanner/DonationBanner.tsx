@@ -34,7 +34,7 @@ export function DonationBanner(props: TDonationBannerProps) {
         <div className="container">
           <div className={styles.wrapper}>
             <h2 className={`${styles.title} ${halvar.className}`}>
-              Добровольное
+              Рекомендуемое
               <br /> пожертвование
             </h2>
             <div className={styles.additionalRegister}>
@@ -51,7 +51,7 @@ export function DonationBanner(props: TDonationBannerProps) {
       <div className="container">
         <div className={styles.wrapper}>
           <h2 className={`${styles.title} ${halvar.className}`}>
-            Добровольное
+            Рекомендуемое
             <br /> пожертвование
           </h2>
           <div className={styles.btnBox}>

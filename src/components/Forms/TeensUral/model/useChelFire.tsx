@@ -7,46 +7,45 @@ import { fetchPaymentUrl } from '@/utils/register/payment';
 import { useForm } from 'react-hook-form';
 
 export const useChelFire = () => {
-	const { formType } = useChelFireContext();
-	const router = useRouter();
-	const persons = useSelector(
-		(state: RootState) => state.event.registerPersons
-	);
+  const { formType } = useChelFireContext();
+  const router = useRouter();
+  const persons = useSelector(
+    (state: RootState) => state.event.registerPersons,
+  );
 
-	const currentPerson = persons.find(
-		person => person.attributes.person_type === formType
-	);
+  const currentPerson = persons.find(
+    (person) => person.attributes.person_type === formType,
+  );
 
-	const price = currentPerson?.attributes.init_price;
+  const price = currentPerson?.attributes.init_price;
 
-	const {
-		register,
-		handleSubmit,
-		formState: { errors, isValid },
-	} = useForm<FormFields>({
-		mode: 'onBlur',
-	});
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FormFields>({
+    mode: 'onBlur',
+  });
 
-	const onSubmit = async (data: FormFields) => {
-		const clientData = {
-			...data,
-			homeCover: data.homeCover ? 'Нужно расселение' : '',
-			eventType: 'chelfire',
-			personType: currentPerson?.attributes.person_type,
-			price: price,
-		};
+  const onSubmit = async (data: FormFields) => {
+    const clientData = {
+      ...data,
+      homeCover: data.homeCover ? 'Нужно расселение' : '',
+      eventType: 'chelfire',
+      personType: currentPerson?.attributes.person_type,
+      price: price,
+    };
 
-		console.log(clientData);
-		const paymentData = await fetchPaymentUrl(clientData);
-		router.push(paymentData.paymentUrl);
-	};
-	return {
-		onSubmit,
-		register,
-		handleSubmit,
-		errors,
-		isValid,
-		formType,
-		currentPerson,
-	};
+    const paymentData = await fetchPaymentUrl(clientData);
+    router.push(paymentData.paymentUrl);
+  };
+  return {
+    onSubmit,
+    register,
+    handleSubmit,
+    errors,
+    isValid,
+    formType,
+    currentPerson,
+  };
 };

@@ -9,4 +9,5 @@ export type FormFields = {
   adultName?: string;
   adultPhone?: string;
   homeCover: boolean;
+  promocode?: string;
 };

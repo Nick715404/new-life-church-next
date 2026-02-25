@@ -5,8 +5,17 @@ import { useRouter } from 'next/navigation';
 import { useChelFireContext } from '@/providers';
 import { fetchPaymentUrl } from '@/utils/register/payment';
 import { useForm } from 'react-hook-form';
+import { ChangeEvent, useMemo, useState } from 'react';
+
+export const PROMOCODE = {
+  promoCodedPrice: 500,
+  promocodeText: 'ВОЛОНТЕРТИНС',
+};
 
 export const useChelFire = () => {
+  const [promoError, setPromoError] = useState<string>('');
+  const [isPromoApplied, setIsPromoApplied] = useState<boolean>(false);
+
   const { formType } = useChelFireContext();
   const router = useRouter();
   const persons = useSelector(
@@ -17,7 +26,7 @@ export const useChelFire = () => {
     (person) => person.attributes.person_type === formType,
   );
 
-  const price = currentPerson?.attributes.init_price;
+  const price = currentPerson?.attributes.init_price ?? 1000;
 
   const {
     register,
@@ -27,13 +36,32 @@ export const useChelFire = () => {
     mode: 'onBlur',
   });
 
+  const onPromoChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value.trim().toUpperCase();
+
+    if (value === '') {
+      setPromoError('');
+      setIsPromoApplied(false);
+    } else if (value === PROMOCODE.promocodeText) {
+      setPromoError('');
+      setIsPromoApplied(true);
+    } else {
+      setPromoError('Неверный промокод');
+      setIsPromoApplied(false);
+    }
+  };
+
+  const currentPrice = useMemo(() => {
+    return isPromoApplied ? PROMOCODE.promoCodedPrice : price;
+  }, [isPromoApplied, price]);
+
   const onSubmit = async (data: FormFields) => {
     const clientData = {
       ...data,
       homeCover: data.homeCover ? 'Нужно расселение' : '',
       eventType: 'chelfire',
       personType: currentPerson?.attributes.person_type,
-      price: price,
+      price: currentPrice,
     };
 
     const paymentData = await fetchPaymentUrl(clientData);
@@ -47,5 +75,8 @@ export const useChelFire = () => {
     isValid,
     formType,
     currentPerson,
+    currentPrice,
+    onPromoChange,
+    promoError,
   };
 };

@@ -10,8 +10,17 @@ import { RegisterPrice } from '@/components/RegisterPrice/ui';
 import styles from '../model/styles.module.scss';
 
 export const ChelFire = () => {
-  const { errors, handleSubmit, onSubmit, register, formType, currentPerson } =
-    useChelFire();
+  const {
+    errors,
+    handleSubmit,
+    onSubmit,
+    register,
+    formType,
+    currentPerson,
+    currentPrice,
+    onPromoChange,
+    promoError,
+  } = useChelFire();
 
   return (
     <div>
@@ -95,10 +104,24 @@ export const ChelFire = () => {
             placeholder="Телефон одного из родителей"
           />
         )}
+        {formType === 'РодительИлиСлужитель' && (
+          <>
+            <FormInput<FormFields>
+              isFree
+              label="Промокод"
+              name="promocode"
+              register={register}
+              errors={errors}
+              onChange={onPromoChange}
+              placeholder="Укажите промокод"
+            />
+            {promoError && <span className={styles.error}>{promoError}</span>}
+          </>
+        )}
         <FormCheckbox<FormFields>
           name="homeCover"
           register={register}
-          label="Мне нужно расселение (доступно только 100 мест)"
+          label="Мне нужно расселение (доступно только 99 мест)"
         />
         <label htmlFor="agreement" className={styles.checkboxLabel}>
           <input
@@ -137,7 +160,7 @@ export const ChelFire = () => {
               <RegisterPrice
                 nextPrice={currentPerson.attributes.new_price}
                 date={currentPerson.attributes.price_update_date}
-                price={currentPerson.attributes.init_price}
+                price={currentPrice}
               />
             </div>
             <button type="submit" className={styles.submitBtn}>

@@ -121,7 +121,7 @@ export const ChelFire = () => {
         <FormCheckbox<FormFields>
           name="homeCover"
           register={register}
-          label="Мне нужно расселение (доступно только 99 мест)"
+          label="Мне нужно расселение (доступно только 83 мест)"
         />
         <label htmlFor="agreement" className={styles.checkboxLabel}>
           <input

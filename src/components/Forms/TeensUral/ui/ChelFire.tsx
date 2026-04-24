@@ -118,11 +118,11 @@ export const ChelFire = () => {
             {promoError && <span className={styles.error}>{promoError}</span>}
           </>
         )}
-        <FormCheckbox<FormFields>
+        {/* <FormCheckbox<FormFields>
           name="homeCover"
           register={register}
           label="Мне нужно расселение (доступно только 57 мест)"
-        />
+        /> */}
         <label htmlFor="agreement" className={styles.checkboxLabel}>
           <input
             type="checkbox"

@@ -107,12 +107,6 @@ export const YouthUralForm = () => {
           placeholder="Укажите город"
         />
 
-        <FormCheckbox<FormFields>
-          label="Мне нужно расселение"
-          name="home_cover"
-          register={register}
-        />
-
         <label htmlFor="agreement" className={styles.checkboxLabel}>
           <input
             type="checkbox"

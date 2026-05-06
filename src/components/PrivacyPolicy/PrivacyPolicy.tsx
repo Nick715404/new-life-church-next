@@ -7,9 +7,6 @@ export function PrivacyPolicy() {
       <Link className={styles.text} href="/docs">
         Политика конфиденциальности
       </Link>
-      <span className={`${styles.text} ${styles.sign}`}>
-        Developed by SimonovTech
-      </span>
       <span className={styles.text}>
         © 2026 Слово Жизни. Все права защищены.
       </span>

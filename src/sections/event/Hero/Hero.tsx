@@ -16,7 +16,7 @@ export function EventHero({ description, title, background }: EventHeroProps) {
       <div className="container-small">
         <div className={styles.wrapper}>
           <span className={styles.tag}>Событие</span>
-          <EventDate>4 июня - 6 июня</EventDate>
+          <EventDate>5 июня - 6 июня</EventDate>
           <h1 className={`${styles.title} ${halvar.className}`}>{title}</h1>
           <p className={styles.text}>{description}</p>
         </div>

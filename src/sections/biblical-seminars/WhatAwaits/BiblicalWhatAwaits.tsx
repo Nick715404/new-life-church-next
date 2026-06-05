@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MotionBox } from '@/components/MotionBox';
 import styles from './BiblicalWhatAwaits.module.scss';
 
 const items = [
@@ -39,13 +40,16 @@ const BiblicalWhatAwaits = () => {
 
   return (
     <section className={styles.section} id="what">
-      <div className={styles.secHead}>
-        <span className={styles.label}>01 — Почему стоит</span>
-        <h2 className={styles.h2}>Что тебя ждёт?</h2>
-      </div>
+      <MotionBox delay={0.1}>
+        <div className={styles.secHead}>
+          <span className={styles.label}>01 — Почему стоит</span>
+          <h2 className={styles.h2}>Что тебя ждёт?</h2>
+        </div>
+      </MotionBox>
       <div className={styles.acc}>
         {items.map((item, i) => (
-          <div key={item.num} className={styles.item}>
+          <MotionBox key={item.num} delay={0.2 + i * 0.06}>
+          <div className={styles.item}>
             <button className={styles.accHead} onClick={() => toggle(i)}>
               <span className={styles.num}>{item.num}</span>
               <span
@@ -72,6 +76,7 @@ const BiblicalWhatAwaits = () => {
               )}
             </AnimatePresence>
           </div>
+          </MotionBox>
         ))}
       </div>
     </section>

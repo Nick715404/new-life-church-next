@@ -1,3 +1,4 @@
+import { MotionBox } from '@/components/MotionBox';
 import styles from './BiblicalTopics.module.scss';
 
 const categories = [
@@ -31,23 +32,27 @@ const categories = [
 const BiblicalTopics = () => {
   return (
     <section className={styles.section} id="topics">
-      <div className={styles.secHead}>
-        <span className={styles.label}>02 — Программа</span>
-        <h2 className={styles.h2}>Основные темы</h2>
-      </div>
+      <MotionBox delay={0.1}>
+        <div className={styles.secHead}>
+          <span className={styles.label}>02 — Программа</span>
+          <h2 className={styles.h2}>Основные темы</h2>
+        </div>
+      </MotionBox>
       <div className={styles.index}>
         {categories.map((cat, i) => (
-          <div key={i} className={styles.cat}>
-            <span className={styles.catNum}>{cat.num}</span>
-            <div>
-              <h3 className={styles.catTitle}>{cat.title}</h3>
-              <div className={styles.items}>
-                {cat.items.map((item, j) => (
-                  <span key={j}>{item}</span>
-                ))}
+          <MotionBox key={cat.num} delay={0.15 + i * 0.07}>
+            <div className={styles.cat}>
+              <span className={styles.catNum}>{cat.num}</span>
+              <div>
+                <h3 className={styles.catTitle}>{cat.title}</h3>
+                <div className={styles.items}>
+                  {cat.items.map((item, j) => (
+                    <span key={j}>{item}</span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </MotionBox>
         ))}
       </div>
     </section>

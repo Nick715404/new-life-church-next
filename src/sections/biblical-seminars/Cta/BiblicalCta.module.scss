@@ -51,6 +51,16 @@
   &:hover {
     transform: translateY(-2px);
   }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    &:hover {
+      transform: translateY(0px);
+      background: $teal;
+    }
+  }
 }
 
 .btnTeal {

@@ -1,0 +1,17 @@
+.page {
+  background: #fbfaf6;
+  color: #161616;
+  font-family: var(--bs-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  --bs-display: var(--font-oswald), 'Oswald', system-ui, sans-serif;
+  --bs-body: var(--font-manrope), 'Manrope', system-ui, sans-serif;
+  --bs-script: var(--font-caveat), 'Caveat', cursive;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-inline: clamp(20px, 5vw, 64px);
+}

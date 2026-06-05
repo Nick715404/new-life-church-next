@@ -1,0 +1,92 @@
+@use '../variables' as *;
+
+.section {
+  padding: clamp(70px, 10vw, 130px) 0;
+  text-align: center;
+  border-top: 1px solid $ink;
+}
+
+.script {
+  font-family: var(--bs-script);
+  font-weight: 600;
+  color: $teal;
+  font-size: clamp(40px, 6vw, 76px);
+  display: block;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.h2 {
+  font-family: var(--bs-display);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 0.92;
+  margin: 4px 0 2.5rem;
+  color: $ink;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--bs-body);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  border-radius: $r-pill;
+  padding: 15px 28px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.btnTeal {
+  background: $teal;
+  color: #fff;
+
+  &:hover {
+    background: $teal-deep;
+  }
+}
+
+.btnGhost {
+  background: transparent;
+  border-color: $line;
+  color: $ink;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 26px;
+  font-weight: 700;
+  color: $teal;
+  border-bottom: 1.5px solid $teal;
+  padding-bottom: 2px;
+  font-family: var(--bs-body);
+  text-decoration: none;
+  transition: opacity 0.18s ease;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  svg {
+    width: 17px;
+    height: 17px;
+  }
+}

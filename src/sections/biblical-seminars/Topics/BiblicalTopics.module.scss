@@ -1,0 +1,100 @@
+@use '../variables' as *;
+
+.section {
+  padding: clamp(56px, 8vw, 100px) 0;
+  border-top: 1px solid $line;
+}
+
+.secHead {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 30px;
+  margin-bottom: 46px;
+  align-items: baseline;
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.label {
+  font-family: var(--bs-display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: $teal;
+}
+
+.h2 {
+  font-family: var(--bs-display);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(30px, 4.4vw, 56px);
+  line-height: 1;
+  margin: 0;
+  color: $ink;
+}
+
+.index {
+  display: flex;
+  flex-direction: column;
+}
+
+.cat {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 24px;
+  padding: 34px 0;
+  border-top: 1px solid $line;
+
+  &:first-child {
+    border-top: 0;
+  }
+}
+
+.catNum {
+  font-family: var(--bs-display);
+  font-size: 17px;
+  color: $gold-deep;
+  font-weight: 600;
+  padding-top: 6px;
+}
+
+.catTitle {
+  font-family: var(--bs-display);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(20px, 2.4vw, 30px);
+  margin: 0 0 16px;
+  line-height: 1.02;
+  color: $ink;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 0;
+
+  span {
+    font-family: var(--bs-body);
+    font-size: 15px;
+    color: $ink-2;
+    font-weight: 500;
+    padding: 4px 16px 4px 0;
+    margin-right: 16px;
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: $gold;
+    }
+  }
+}

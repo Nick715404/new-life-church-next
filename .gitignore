@@ -46,3 +46,5 @@ videos/*
 public/_next-video
 
 certificates
+.vscode
+.claude

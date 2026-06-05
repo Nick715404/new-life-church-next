@@ -1,0 +1,21 @@
+@use '../variables' as *;
+
+.section {
+  padding: clamp(56px, 8vw, 100px) 0;
+  border-top: 1px solid $line;
+}
+
+.text {
+  font-family: var(--bs-display);
+  font-weight: 300;
+  font-size: clamp(26px, 4vw, 50px);
+  line-height: 1.16;
+  margin: 0;
+  max-width: 900px;
+  color: $ink;
+
+  strong {
+    color: $teal;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,121 @@
+@use '../variables' as *;
+
+.hero {
+  padding: clamp(9rem, 13.4vw, 12rem) 0 clamp(40px, 6vw, 70px);
+}
+
+.metaTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid $ink;
+  font-family: var(--bs-display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: $ink;
+}
+
+.metaRight {
+  color: $teal;
+}
+
+.h1 {
+  font-family: var(--bs-display);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(50px, 11vw, 148px);
+  line-height: 0.9;
+  margin: clamp(30px, 5vw, 56px) 0 0;
+  letter-spacing: -0.01em;
+  color: $ink;
+
+  em {
+    font-style: italic;
+    font-weight: 400;
+    color: $teal;
+  }
+}
+
+.sub {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: end;
+
+  p {
+    font-size: 18px;
+    line-height: 1.62;
+    color: $ink-2;
+    margin: 0;
+    max-width: 460px;
+    font-family: var(--bs-body);
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-self: end;
+
+  @media (max-width: 800px) {
+    justify-self: start;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--bs-body);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  border-radius: $r-pill;
+  padding: 15px 28px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.btnTeal {
+  background: $teal;
+  color: #fff;
+
+  &:hover {
+    background: $teal-deep;
+  }
+}
+
+.btnGhost {
+  background: transparent;
+  border-color: $line;
+  color: $ink;
+}
+
+.heroImage {
+  width: 100%;
+  height: clamp(300px, 40vw, 500px);
+  margin-top: clamp(40px, 6vw, 64px);
+  background: #d9e7e2;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $muted;
+  font-size: 14px;
+  font-family: var(--bs-body);
+}

@@ -14,17 +14,6 @@ export function YsFooter() {
           <span>FOREVER YOUTH · 6—8 АВГУСТА 2026</span>
           <span>(TO&nbsp;&nbsp;2026)</span>
         </div>
-        <div className={styles.footerLinks}>
-          <a href="#" className={styles.footerLink}>
-            TELEGRAM
-          </a>
-          <a href="#" className={styles.footerLink}>
-            INSTAGRAM
-          </a>
-          <a href="#" className={styles.footerLink}>
-            hello@yous.ru
-          </a>
-        </div>
       </div>
     </footer>
   );

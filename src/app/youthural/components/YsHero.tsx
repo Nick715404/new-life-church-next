@@ -22,15 +22,15 @@ export function YsHero() {
         </div>
         <h1 className={styles.heroTitle}>
           <span className={styles.heroTitleScript}>Навсегда</span>
-          <span className={styles.heroTitleBold}>ЮС</span>
+          <span className={styles.heroTitleBold}>ЮСУРАЛ</span>
         </h1>
         <div className={styles.heroStripes} />
       </div>
 
       <div className={styles.heroBottom}>
         <p className={styles.heroDesc}>
-          ЮС — это три дня глубокого поклонения среди сотен христиан. Приехав
-          однажды на ЮС, ты — навсегда ЮС.
+          ЮСУРАЛ — это три дня особенной атмосферы и Божьего присутствия, среди
+          сотен христиан. Приехав однажды на ЮС, ты — навсегда ЮС.
         </p>
         <span className={styles.heroLogoIcon}>
           <YsLogo height={48} bgColor="#0A0A0A" />

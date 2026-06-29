@@ -1,19 +1,60 @@
 'use client';
 
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import { CONSENT_TEXT } from '../_constants';
+import { fetchPaymentUrl } from '@/utils/register/payment';
 import styles from '../styles.module.scss';
 
+const PRICE = 1500;
+
+type FormFields = {
+  first_name: string;
+  last_name: string;
+  age: string;
+  email: string;
+  phone: string;
+  city: string;
+  church: string;
+};
+
 export function YsRegister() {
-  const [submitted, setSubmitted] = useState(false);
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [birthDate, setBirthDate] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [city, setCity] = useState('');
-  const [church, setChurch] = useState('');
-  const [consent, setConsent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>({ mode: 'onBlur' });
+
+  const onSubmit = async (data: FormFields) => {
+    setIsLoading(true);
+    try {
+      const age = data.age.split('-').toReversed().join('.');
+
+      const clientData = {
+        first_name: data.first_name,
+        last_name: data.last_name,
+        age,
+        email: data.email,
+        phone: data.phone,
+        city: data.city,
+        church: data.church,
+        home_cover: false as false,
+        eventType: 'youthural' as const,
+        personType: 'Стандарт',
+        price: PRICE,
+      };
+
+      const paymentData = await fetchPaymentUrl(clientData);
+      router.push(paymentData.paymentUrl);
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
+  };
 
   return (
     <section id="register" className={styles.register}>
@@ -28,119 +69,119 @@ export function YsRegister() {
           <span className={styles.registerTitleBold}>СВОЕ МЕСТО</span>
         </h2>
         <p className={styles.registerDesc}>
-          Оставь заявку — и мы свяжемся с тобой, как только откроется
-          регистрация. Приехав однажды на ЮС, ты — навсегда ЮС.
+          Приехав однажды на ЮС, ты — навсегда ЮС.
         </p>
 
-        {!submitted ? (
-          <form
-            className={styles.registerForm}
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSubmitted(true);
-            }}
-          >
-            <div className={styles.regGrid}>
-              <label className={styles.regField}>
-                <span className={styles.regFieldLabel}>ИМЯ</span>
-                <input
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  placeholder="Как тебя зовут"
-                  className={styles.regInput}
-                />
-              </label>
-              <label className={styles.regField}>
-                <span className={styles.regFieldLabel}>ФАМИЛИЯ</span>
-                <input
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required
-                  placeholder="Твоя фамилия"
-                  className={styles.regInput}
-                />
-              </label>
-              <label className={styles.regField}>
-                <span className={styles.regFieldLabel}>ДАТА РОЖДЕНИЯ</span>
-                <input
-                  type="date"
-                  value={birthDate}
-                  onChange={(e) => setBirthDate(e.target.value)}
-                  required
-                  className={styles.regInput}
-                />
-              </label>
-              <label className={styles.regField}>
-                <span className={styles.regFieldLabel}>ЭЛ. ПОЧТА</span>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  placeholder="you@example.com"
-                  className={styles.regInput}
-                />
-              </label>
-              <label className={styles.regField}>
-                <span className={styles.regFieldLabel}>НОМЕР ТЕЛЕФОНА</span>
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                  placeholder="+7 ___ ___ __ __"
-                  className={styles.regInput}
-                />
-              </label>
-              <label className={styles.regField}>
-                <span className={styles.regFieldLabel}>ГОРОД</span>
-                <input
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  required
-                  placeholder="Откуда едешь"
-                  className={styles.regInput}
-                />
-              </label>
-              <label className={`${styles.regField} ${styles.regFieldFull}`}>
-                <span className={styles.regFieldLabel}>ЦЕРКОВЬ</span>
-                <input
-                  value={church}
-                  onChange={(e) => setChurch(e.target.value)}
-                  required
-                  placeholder="Название церкви"
-                  className={styles.regInput}
-                />
-              </label>
-            </div>
-
-            <label className={styles.consentLabelDark}>
+        <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles.regGrid}>
+            <label className={styles.regField}>
+              <span className={styles.regFieldLabel}>ИМЯ</span>
               <input
-                type="checkbox"
-                checked={consent}
-                onChange={(e) => setConsent(e.target.checked)}
-                required
-                className={styles.consentCheckboxDark}
+                {...register('first_name', { required: 'Введите имя' })}
+                placeholder="Как тебя зовут"
+                className={styles.regInput}
               />
-              <span className={styles.consentTextDark}>{CONSENT_TEXT}</span>
+              {errors.first_name && (
+                <span className={styles.regError}>
+                  {errors.first_name.message}
+                </span>
+              )}
             </label>
 
-            <button type="submit" className={styles.regBtn}>
-              ОТПРАВИТЬ ЗАЯВКУ →
-            </button>
-          </form>
-        ) : (
-          <div className={styles.regSuccess}>
-            <div className={styles.regSuccessLabel}>● ЗАЯВКА ПРИНЯТА</div>
-            <p className={styles.regSuccessTitle}>
-              Спасибо, {name}! Скоро увидимся на ЮС.
-            </p>
-            <p className={styles.regSuccessText}>
-              Мы свяжемся с тобой, как только откроется регистрация на смену.
-            </p>
+            <label className={styles.regField}>
+              <span className={styles.regFieldLabel}>ФАМИЛИЯ</span>
+              <input
+                {...register('last_name', { required: 'Введите фамилию' })}
+                placeholder="Твоя фамилия"
+                className={styles.regInput}
+              />
+              {errors.last_name && (
+                <span className={styles.regError}>
+                  {errors.last_name.message}
+                </span>
+              )}
+            </label>
+
+            <label className={styles.regField}>
+              <span className={styles.regFieldLabel}>ДАТА РОЖДЕНИЯ</span>
+              <input
+                type="date"
+                {...register('age', { required: 'Введите дату рождения' })}
+                className={styles.regInput}
+              />
+              {errors.age && (
+                <span className={styles.regError}>{errors.age.message}</span>
+              )}
+            </label>
+
+            <label className={styles.regField}>
+              <span className={styles.regFieldLabel}>ЭЛ. ПОЧТА</span>
+              <input
+                type="email"
+                {...register('email', { required: 'Введите почту' })}
+                placeholder="you@example.com"
+                className={styles.regInput}
+              />
+              {errors.email && (
+                <span className={styles.regError}>{errors.email.message}</span>
+              )}
+            </label>
+
+            <label className={styles.regField}>
+              <span className={styles.regFieldLabel}>НОМЕР ТЕЛЕФОНА</span>
+              <input
+                type="tel"
+                {...register('phone', { required: 'Введите номер телефона' })}
+                placeholder="+7 ___ ___ __ __"
+                className={styles.regInput}
+              />
+              {errors.phone && (
+                <span className={styles.regError}>{errors.phone.message}</span>
+              )}
+            </label>
+
+            <label className={styles.regField}>
+              <span className={styles.regFieldLabel}>ГОРОД</span>
+              <input
+                {...register('city', { required: 'Введите город' })}
+                placeholder="Откуда едешь"
+                className={styles.regInput}
+              />
+              {errors.city && (
+                <span className={styles.regError}>{errors.city.message}</span>
+              )}
+            </label>
+
+            <label className={`${styles.regField} ${styles.regFieldFull}`}>
+              <span className={styles.regFieldLabel}>ЦЕРКОВЬ</span>
+              <input
+                {...register('church', { required: 'Введите церковь' })}
+                placeholder="Название церкви"
+                className={styles.regInput}
+              />
+              {errors.church && (
+                <span className={styles.regError}>{errors.church.message}</span>
+              )}
+            </label>
           </div>
-        )}
+
+          <label className={styles.consentLabelDark}>
+            <input
+              type="checkbox"
+              required
+              className={styles.consentCheckboxDark}
+            />
+            <span className={styles.consentTextDark}>{CONSENT_TEXT}</span>
+          </label>
+
+          <div className={styles.regPrice}>
+            <strong>{PRICE} ₽</strong>
+          </div>
+
+          <button type="submit" className={styles.regBtn} disabled={isLoading}>
+            {isLoading ? 'ЗАГРУЗКА...' : 'ПЕРЕЙТИ К ОПЛАТЕ →'}
+          </button>
+        </form>
       </div>
     </section>
   );

@@ -189,7 +189,7 @@ $script: var(--font-ceremonious-one), cursive;
   font-family: $display;
   font-weight: 900;
   color: $accent;
-  font-size: clamp(96px, 19vw, 300px);
+  font-size: clamp(26px, 14.5vw, 220px);
   letter-spacing: -0.025em;
   margin-top: -0.06em;
 }
@@ -220,11 +220,24 @@ $script: var(--font-ceremonious-one), cursive;
   line-height: 1.7;
   color: $cream;
   letter-spacing: 0.01em;
+
+  @media (max-width: 1024px) {
+    padding: 0 1.2rem 1.2rem;
+  }
 }
 
 .heroLogoIcon {
   color: $accent;
   display: inline-flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -10%);
+
+  @media (max-width: 1024px) {
+    position: static;
+    left: 0;
+    transform: translate(0, 0);
+  }
 }
 
 .heroMetaEnd {
@@ -1105,6 +1118,24 @@ $script: var(--font-ceremonious-one), cursive;
   color: rgba(10, 10, 10, 0.65);
 }
 
+.regError {
+  display: block;
+  font-size: 11px;
+  color: #c0392b;
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+.regPrice {
+  margin-bottom: 22px;
+
+  strong {
+    font-family: $display;
+    font-size: 40px;
+    font-weight: 900;
+  }
+}
+
 .regBtn {
   display: inline-flex;
   align-items: center;
@@ -1119,6 +1150,11 @@ $script: var(--font-ceremonious-one), cursive;
   letter-spacing: 0.12em;
   cursor: pointer;
   border-radius: 2px;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 .regSuccess {

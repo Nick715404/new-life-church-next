@@ -76,7 +76,6 @@ export function YsSpeakers() {
               </span>
             </div>
             <div className={styles.guestDesc}>
-              <div className={styles.guestDescLabel}>МУЗЫКАЛЬНОЕ СЛУЖЕНИЕ</div>
               <div className={styles.guestDescTitle}>
                 СЛОВО ЖИЗНИ
                 <br />

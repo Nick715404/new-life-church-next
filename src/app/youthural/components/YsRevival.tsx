@@ -29,7 +29,7 @@ export function YsRevival() {
         church,
         city,
         personType: 'Молодежь',
-        price: 1500,
+        price: 500,
         eventType: 'worship-night',
         home_cover: '',
       };
@@ -48,19 +48,19 @@ export function YsRevival() {
         <div className={styles.revivalHeader}>
           <div>
             <div className={styles.revivalLabel}>
-              [ 04 ] &nbsp; ВЕЧЕР ПРОБУЖДЕНИЯ
+              [ 04 ] &nbsp; НОЧЬ ПРОБУЖДЕНИЯ
             </div>
             <h2 className={styles.revivalTitle}>
-              <span className={styles.revivalTitleScript}>Вечер</span>
-              <span className={styles.revivalTitleBold}>ХВАЛЫ</span>
+              <span className={styles.revivalTitleScript}>НОЧЬ</span>
+              <span className={styles.revivalTitleBold}>ПРОБУЖДЕНИЯ</span>
             </h2>
           </div>
           <span className={styles.revivalTime}>07.08 · 22:00 — 02:00</span>
         </div>
 
         <p className={styles.revivalDesc}>
-          Отдельная ночь живого поклонения. Две музыкальные команды, один зал и
-          присутствие Бога. Чтобы попасть на Вечер Хвалы, оставь отдельную
+          Отдельная ночь живого поклонения. Две команды прославления, один зал и
+          присутствие Бога. Чтобы попасть на Ночь пробуждения, оставь отдельную
           регистрацию ниже.
         </p>
 
@@ -105,7 +105,7 @@ export function YsRevival() {
                   <span className={styles.accent}>{band.accent}</span>
                 </div>
                 <div className={styles.bandRole}>
-                  Команда поклонения · Вечер Хвалы
+                  Команда поклонения · Ночь Пробуждения
                 </div>
               </div>
             </div>
@@ -115,11 +115,10 @@ export function YsRevival() {
         <div className={styles.revivalReg}>
           <div className={styles.revivalRegText}>
             <div className={styles.revivalRegTitle}>
-              Регистрация на Вечер Хвалы
+              Регистрация на Ночь Пробуждения
             </div>
             <p className={styles.revivalRegDesc}>
-              Количество мест ограничено. Оставь заявку, чтобы попасть на ночь
-              поклонения 7 августа.
+              Оставь заявку, чтобы попасть на ночь поклонения 7 августа.
             </p>
           </div>
 
@@ -191,6 +190,9 @@ export function YsRevival() {
                 />
                 <span className={styles.consentText}>{CONSENT_TEXT}</span>
               </label>
+              <div className={styles.regPrice}>
+                <strong>500 ₽</strong>
+              </div>
               <button
                 type="submit"
                 className={styles.revivalBtn}
@@ -203,7 +205,7 @@ export function YsRevival() {
             <div className={styles.revivalDone}>
               <div className={styles.revivalDoneLabel}>● ТЫ В СПИСКЕ</div>
               <p className={styles.revivalDoneText}>
-                До встречи на Вечере Хвалы, {name}!
+                До встречи на Ночи Пробуждения, {name}!
               </p>
             </div>
           )}

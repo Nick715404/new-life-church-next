@@ -10,7 +10,9 @@ export function YsSchedule() {
             <div className={styles.scheduleLabel}>[ 02 ] &nbsp; РАСПИСАНИЕ</div>
             <h2 className={styles.scheduleTitle}>ТРИ ДНЯ</h2>
           </div>
-          <span className={styles.scheduleDates}>06&nbsp;—&nbsp;08.08.2026</span>
+          <span className={styles.scheduleDates}>
+            06&nbsp;—&nbsp;08.08.2026
+          </span>
         </div>
         <div className={styles.scheduleDivider} />
 
@@ -26,10 +28,18 @@ export function YsSchedule() {
                   key={i}
                   className={`${styles.schedItem} ${item.dim ? styles.schedItemDim : ''}`}
                 >
-                  <span className={item.dim ? styles.schedTimeDim : styles.schedTime}>
+                  <span
+                    className={
+                      item.dim ? styles.schedTimeDim : styles.schedTime
+                    }
+                  >
                     {item.time}
                   </span>
-                  {item.bold ? <strong>{item.title}</strong> : <span>{item.title}</span>}
+                  {item.bold ? (
+                    <strong>{item.title}</strong>
+                  ) : (
+                    <span>{item.title}</span>
+                  )}
                 </div>
               ))}
             </div>

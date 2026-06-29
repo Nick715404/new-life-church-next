@@ -20,17 +20,26 @@ export function YsRegister() {
       <div className={styles.registerStripesTop} />
       <div className={styles.registerStripesBottom} />
       <div className={styles.registerInner}>
-        <div className={styles.registerLabel}>[ 05 ] &nbsp; РЕГИСТРАЦИЯ · 6—8.08.26</div>
+        <div className={styles.registerLabel}>
+          [ 05 ] &nbsp; РЕГИСТРАЦИЯ · 6—8.08.26
+        </div>
         <h2 className={styles.registerTitle}>
           <span className={styles.registerTitleScript}>Забронируй</span>
-          <span className={styles.registerTitleBold}>СВОЁ МЕСТО</span>
+          <span className={styles.registerTitleBold}>СВОЕ МЕСТО</span>
         </h2>
         <p className={styles.registerDesc}>
-          Оставь заявку — и мы свяжемся с тобой, как только откроется регистрация. Приехав однажды на ЮС, ты — навсегда ЮС.
+          Оставь заявку — и мы свяжемся с тобой, как только откроется
+          регистрация. Приехав однажды на ЮС, ты — навсегда ЮС.
         </p>
 
         {!submitted ? (
-          <form className={styles.registerForm} onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
+          <form
+            className={styles.registerForm}
+            onSubmit={(e) => {
+              e.preventDefault();
+              setSubmitted(true);
+            }}
+          >
             <div className={styles.regGrid}>
               <label className={styles.regField}>
                 <span className={styles.regFieldLabel}>ИМЯ</span>
@@ -117,12 +126,16 @@ export function YsRegister() {
               <span className={styles.consentTextDark}>{CONSENT_TEXT}</span>
             </label>
 
-            <button type="submit" className={styles.regBtn}>ОТПРАВИТЬ ЗАЯВКУ →</button>
+            <button type="submit" className={styles.regBtn}>
+              ОТПРАВИТЬ ЗАЯВКУ →
+            </button>
           </form>
         ) : (
           <div className={styles.regSuccess}>
             <div className={styles.regSuccessLabel}>● ЗАЯВКА ПРИНЯТА</div>
-            <p className={styles.regSuccessTitle}>Спасибо, {name}! Скоро увидимся на ЮС.</p>
+            <p className={styles.regSuccessTitle}>
+              Спасибо, {name}! Скоро увидимся на ЮС.
+            </p>
             <p className={styles.regSuccessText}>
               Мы свяжемся с тобой, как только откроется регистрация на смену.
             </p>

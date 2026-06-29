@@ -356,7 +356,7 @@ $script: var(--font-ceremonious-one), cursive;
 
 .manifestoTaglineScript {
   font-family: $script;
-  font-size: clamp(40px, 7vw, 96px);
+  font-size: clamp(70px, 7vw, 96px);
   line-height: 1;
   margin: 0;
   color: $bg;
@@ -740,7 +740,7 @@ $script: var(--font-ceremonious-one), cursive;
   font-family: $script;
   font-weight: 400;
   color: $accent;
-  font-size: clamp(40px, 7vw, 92px);
+  font-size: clamp(70px, 7vw, 92px);
 }
 
 .revivalTitleBold {
@@ -1011,7 +1011,7 @@ $script: var(--font-ceremonious-one), cursive;
   display: block;
   font-family: $script;
   font-weight: 400;
-  font-size: clamp(48px, 9vw, 128px);
+  font-size: clamp(70px, 9vw, 128px);
 }
 
 .registerTitleBold {

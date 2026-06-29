@@ -8,7 +8,7 @@ export function YsHero() {
       <div className={styles.heroOverlay2} />
 
       <div className={styles.heroMeta}>
-        <span>(SINCE&nbsp;&nbsp;&nbsp;1998)</span>
+        <span>(SINCE&nbsp;&nbsp;&nbsp;2006)</span>
         <span className={styles.heroMetaRight}>
           CAMERA1 · PLAY
           <br />
@@ -17,7 +17,9 @@ export function YsHero() {
       </div>
 
       <div className={styles.heroCenter}>
-        <div className={styles.heroBadge}>6&nbsp;—&nbsp;8&nbsp;·&nbsp;08&nbsp;·&nbsp;26</div>
+        <div className={styles.heroBadge}>
+          6&nbsp;—&nbsp;8&nbsp;·&nbsp;08&nbsp;·&nbsp;26
+        </div>
         <h1 className={styles.heroTitle}>
           <span className={styles.heroTitleScript}>Навсегда</span>
           <span className={styles.heroTitleBold}>ЮС</span>
@@ -27,7 +29,8 @@ export function YsHero() {
 
       <div className={styles.heroBottom}>
         <p className={styles.heroDesc}>
-          ЮС — это три дня глубокого поклонения среди тысяч христиан. Приехав однажды на ЮС, ты — навсегда ЮС.
+          ЮС — это три дня глубокого поклонения среди сотен христиан. Приехав
+          однажды на ЮС, ты — навсегда ЮС.
         </p>
         <span className={styles.heroLogoIcon}>
           <YsLogo height={48} bgColor="#0A0A0A" />

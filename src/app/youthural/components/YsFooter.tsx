@@ -10,14 +10,20 @@ export function YsFooter() {
         </div>
         <p className={styles.footerTagline}>Навсегда ЮС</p>
         <div className={styles.footerMeta}>
-          <span>(SINCE&nbsp;&nbsp;1998)</span>
+          <span>(SINCE&nbsp;&nbsp;2006)</span>
           <span>FOREVER YOUTH · 6—8 АВГУСТА 2026</span>
           <span>(TO&nbsp;&nbsp;2026)</span>
         </div>
         <div className={styles.footerLinks}>
-          <a href="#" className={styles.footerLink}>TELEGRAM</a>
-          <a href="#" className={styles.footerLink}>INSTAGRAM</a>
-          <a href="#" className={styles.footerLink}>hello@yous.ru</a>
+          <a href="#" className={styles.footerLink}>
+            TELEGRAM
+          </a>
+          <a href="#" className={styles.footerLink}>
+            INSTAGRAM
+          </a>
+          <a href="#" className={styles.footerLink}>
+            hello@yous.ru
+          </a>
         </div>
       </div>
     </footer>

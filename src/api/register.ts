@@ -123,6 +123,7 @@ type TSendDataToEvent = {
 export const sendDataToYouthUral = async (
   data: TSendDataToEvent,
 ): Promise<{ status: 'done' }> => {
+  console.log('Sending data to Youth Ural Table');
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/yus-urals`, {
       method: 'POST',
@@ -133,8 +134,10 @@ export const sendDataToYouthUral = async (
       body: JSON.stringify({ data }),
     });
 
+    console.log('Data sended to Youth Ural Table');
     return { status: 'done' };
   } catch (error) {
+    console.log('Error in sending data to Youth Ural Table');
     console.error(error);
     throw new Error('Ошибка в регистрации пользователя на ЮС Урал');
   }
@@ -631,14 +634,17 @@ export const sendDataToWorshipNight = async (
   data: TSendDataToEvent,
 ): Promise<{ status: 'done' }> => {
   try {
-    await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/worship-night-registers`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+    await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/worship-night-registers`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({ data }),
       },
-      body: JSON.stringify({ data }),
-    });
+    );
 
     return { status: 'done' };
   } catch (error) {

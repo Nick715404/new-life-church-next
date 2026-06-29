@@ -42,9 +42,9 @@ export function YsRegister() {
         phone: data.phone,
         city: data.city,
         church: data.church,
-        home_cover: false as false,
-        eventType: 'youthural' as const,
-        personType: 'Стандарт',
+        home_cover: '',
+        eventType: 'youthural',
+        personType: 'Молодежь',
         price: PRICE,
       };
 

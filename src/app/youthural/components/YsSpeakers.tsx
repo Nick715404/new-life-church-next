@@ -16,8 +16,10 @@ export function YsSpeakers() {
               <div className={styles.speakerPhoto}>
                 <Image
                   fill
-                  src={s.image}
+                  priority
                   alt={s.name}
+                  quality={80}
+                  src={s.image}
                   style={{ objectFit: 'cover' }}
                 />
                 <span className={styles.speakerCam}>
@@ -61,9 +63,11 @@ export function YsSpeakers() {
             <div className={styles.guestPhoto}>
               <Image
                 fill
+                priority
+                quality={80}
                 alt="Слово Жизни Music"
-                src="/img/webps/word-of-life-music.webp"
                 style={{ objectFit: 'cover' }}
+                src="/img/webps/word-of-life-music.webp"
               />
               <span className={styles.guestCam}>
                 CAMERA1

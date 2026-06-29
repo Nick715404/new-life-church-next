@@ -87,8 +87,9 @@ export function YsRevival() {
               <div className={styles.bandPhoto}>
                 <Image
                   fill
+                  priority
                   quality={80}
-                  loading="lazy"
+                  loading="eager"
                   alt={band.alt}
                   src={band.src}
                   style={{ objectFit: 'cover' }}
@@ -125,10 +126,7 @@ export function YsRevival() {
           </div>
 
           {!done ? (
-            <form
-              className={styles.revivalFormFull}
-              onSubmit={handleSubmit}
-            >
+            <form className={styles.revivalFormFull} onSubmit={handleSubmit}>
               <div className={styles.revivalGrid}>
                 <label className={styles.revivalFormLabel}>
                   <span className={styles.revivalFormLabelText}>ФИО</span>
@@ -195,7 +193,11 @@ export function YsRevival() {
                 />
                 <span className={styles.consentText}>{CONSENT_TEXT}</span>
               </label>
-              <button type="submit" className={styles.revivalBtn} disabled={loading}>
+              <button
+                type="submit"
+                className={styles.revivalBtn}
+                disabled={loading}
+              >
                 {loading ? 'ЗАГРУЗКА...' : 'ЗАПИСАТЬСЯ →'}
               </button>
             </form>

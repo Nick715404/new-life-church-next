@@ -4,6 +4,7 @@ import {
   sendDataToFaithConf,
   sendDataToLeaderSummit,
   sendDataToRidsConf,
+  sendDataToWorshipNight,
   sendDataToYouthMgn,
   sendDataToYouthUral,
 } from '@/api/register';
@@ -58,6 +59,13 @@ export const registrySwitcher = async (
       break;
     case 'leadersummit':
       await sendDataToLeaderSummit({
+        personId: `${invId}`,
+        status: 'pending',
+        ...data,
+      });
+      break;
+    case 'worship-night':
+      await sendDataToWorshipNight({
         personId: `${invId}`,
         status: 'pending',
         ...data,

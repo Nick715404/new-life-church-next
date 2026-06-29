@@ -111,4 +111,5 @@ export type TEventType =
   | 'chelfire'
   | 'youthuralmgn'
   | 'conf-rids'
-  | 'leadersummit';
+  | 'leadersummit'
+  | 'worship-night';

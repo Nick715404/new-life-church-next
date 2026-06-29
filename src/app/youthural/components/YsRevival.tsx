@@ -1,16 +1,47 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { CONSENT_TEXT } from '../_constants';
 import styles from '../styles.module.scss';
+import { fetchPaymentUrl } from '@/utils/register/payment';
 
 export function YsRevival() {
+  const router = useRouter();
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [church, setChurch] = useState('');
   const [city, setCity] = useState('');
   const [consent, setConsent] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const [firstName, ...rest] = name.trim().split(' ');
+      const clientData = {
+        first_name: firstName,
+        last_name: rest.join(' '),
+        email,
+        phone,
+        church,
+        city,
+        personType: 'Молодежь',
+        price: 1500,
+        eventType: 'worship-night',
+        home_cover: '',
+      };
+      const paymentData = await fetchPaymentUrl(clientData);
+      router.push(paymentData.paymentUrl);
+    } catch {
+      setLoading(false);
+      setDone(false);
+    }
+  };
 
   return (
     <section id="revival" className={styles.revival}>
@@ -96,10 +127,7 @@ export function YsRevival() {
           {!done ? (
             <form
               className={styles.revivalFormFull}
-              onSubmit={(e) => {
-                e.preventDefault();
-                setDone(true);
-              }}
+              onSubmit={handleSubmit}
             >
               <div className={styles.revivalGrid}>
                 <label className={styles.revivalFormLabel}>
@@ -109,6 +137,28 @@ export function YsRevival() {
                     onChange={(e) => setName(e.target.value)}
                     required
                     placeholder="Фамилия Имя Отчество"
+                    className={styles.revivalInput}
+                  />
+                </label>
+                <label className={styles.revivalFormLabel}>
+                  <span className={styles.revivalFormLabelText}>ЭЛ. ПОЧТА</span>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="email@example.com"
+                    className={styles.revivalInput}
+                  />
+                </label>
+                <label className={styles.revivalFormLabel}>
+                  <span className={styles.revivalFormLabelText}>ТЕЛЕФОН</span>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    placeholder="+7 (999) 000-00-00"
                     className={styles.revivalInput}
                   />
                 </label>
@@ -145,8 +195,8 @@ export function YsRevival() {
                 />
                 <span className={styles.consentText}>{CONSENT_TEXT}</span>
               </label>
-              <button type="submit" className={styles.revivalBtn}>
-                ЗАПИСАТЬСЯ →
+              <button type="submit" className={styles.revivalBtn} disabled={loading}>
+                {loading ? 'ЗАГРУЗКА...' : 'ЗАПИСАТЬСЯ →'}
               </button>
             </form>
           ) : (

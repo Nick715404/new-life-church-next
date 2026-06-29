@@ -4,6 +4,7 @@ import {
   deleteFaithConfsPerson,
   deleteLeaderSummitPerson,
   deleteRidsConfPerson,
+  deleteWorshipNightPerson,
   deleteYouthMgnPerson,
   deleteYouthuralPerson,
   findUniquePersonOfBusiness,
@@ -11,6 +12,7 @@ import {
   findUniquePersonOfFaithConf,
   findUniquePersonOfLeaderSummit,
   findUniquePersonOfRidsConf,
+  findUniquePersonOfWorshipNight,
   findUniquePersonOfYouthMgn,
   findUniquePersonOfYouthUral,
   updateBusinessPersonStatus,
@@ -18,6 +20,7 @@ import {
   updateFaithConfPersonStatus,
   updateLeaderSummitPersonStatus,
   updateRidsPersonStatus,
+  updateWorshipNightPersonStatus,
   updateYouthMgnPersonStatus,
   updateYouthuralPersonStatus,
 } from '@/api/register';
@@ -43,6 +46,10 @@ import {
   sendPaymentErrorYouthMgnEmail,
   sendPaymentSuccessYouthMgnEmail,
 } from '@/utils/emails/youth-mgn';
+import {
+  sendPaymentErrorWorshipNightEmail,
+  sendPaymentSuccessWorshipNightEmail,
+} from '@/utils/emails/worship-night';
 import crypto from 'crypto';
 
 export async function POST(req: Request) {
@@ -71,6 +78,7 @@ export async function POST(req: Request) {
     { findPerson: findUniquePersonOfYouthMgn, tableName: 'youthuralmgn' },
     { findPerson: findUniquePersonOfLeaderSummit, tableName: 'leadersummit' },
     { findPerson: findUniquePersonOfRidsConf, tableName: 'conf-rids' },
+    { findPerson: findUniquePersonOfWorshipNight, tableName: 'worship-night' },
   ];
 
   let currentPerson = null;
@@ -144,6 +152,12 @@ export async function POST(req: Request) {
         currentPerson?.data[0].attributes.email,
         currentPerson?.data[0].attributes.first_name,
       );
+    } else if (currentTableName === 'worship-night') {
+      await updateWorshipNightPersonStatus(currentPerson?.data[0].id, 'payed');
+      await sendPaymentSuccessWorshipNightEmail(
+        currentPerson?.data[0].attributes.email,
+        currentPerson?.data[0].attributes.first_name,
+      );
     }
 
     return new Response(`OK${invId}`, { status: 200 });
@@ -189,6 +203,12 @@ export async function POST(req: Request) {
     } else if (currentTableName === 'conf-rids') {
       await deleteRidsConfPerson(currentPerson?.data[0].id);
       await sendPaymentErrorRidsEmail(
+        currentPerson?.data[0].attributes.email,
+        currentPerson?.data[0].attributes.first_name,
+      );
+    } else if (currentTableName === 'worship-night') {
+      await deleteWorshipNightPerson(currentPerson?.data[0].id);
+      await sendPaymentErrorWorshipNightEmail(
         currentPerson?.data[0].attributes.email,
         currentPerson?.data[0].attributes.first_name,
       );

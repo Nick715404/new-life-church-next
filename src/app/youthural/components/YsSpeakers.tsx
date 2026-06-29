@@ -82,8 +82,8 @@ export function YsSpeakers() {
                 <span className={styles.accent}>MUSIC</span>
               </div>
               <p className={styles.guestDescText}>
-                Команда поклонения, которая поведёт зал в живое прославление на
-                главных собраниях смены.
+                Молодежная комнада прославления церкви "Слово жизни" в Москве
+                которая поведет зал в живое поклоенение
               </p>
             </div>
           </div>

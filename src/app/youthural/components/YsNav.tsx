@@ -16,12 +16,22 @@ export function YsNav() {
           </span>
         </a>
         <div className={styles.navLinks}>
-          <a className={styles.navA} href="#about">О ПРОЕКТЕ</a>
-          <a className={styles.navA} href="#schedule">РАСПИСАНИЕ</a>
-          <a className={styles.navA} href="#speakers">СПИКЕРЫ</a>
-          <a className={styles.navA} href="#revival">ВЕЧЕР ПРОБУЖДЕНИЯ</a>
+          <a className={styles.navA} href="#about">
+            О ПРОЕКТЕ
+          </a>
+          <a className={styles.navA} href="#schedule">
+            РАСПИСАНИЕ
+          </a>
+          <a className={styles.navA} href="#speakers">
+            СПИКЕРЫ
+          </a>
+          <a className={styles.navA} href="#revival">
+            НОЧЬ ПРОБУЖДЕНИЯ
+          </a>
         </div>
-        <a href="#register" className={styles.navBtn}>РЕГИСТРАЦИЯ</a>
+        <a href="#register" className={styles.navBtn}>
+          РЕГИСТРАЦИЯ
+        </a>
       </div>
     </nav>
   );

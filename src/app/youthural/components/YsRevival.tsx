@@ -22,10 +22,8 @@ export function YsRevival() {
     e.preventDefault();
     setLoading(true);
     try {
-      const [firstName, ...rest] = name.trim().split(' ');
       const clientData = {
-        first_name: firstName,
-        last_name: rest.join(' '),
+        name,
         email,
         phone,
         church,

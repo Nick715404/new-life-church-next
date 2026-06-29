@@ -1,0 +1,91 @@
+import Image from 'next/image';
+import { SPEAKERS } from '../_constants';
+import { YsLogo } from './YsLogo';
+import styles from '../styles.module.scss';
+
+export function YsSpeakers() {
+  return (
+    <section id="speakers" className={styles.speakers}>
+      <div className={styles.speakersInner}>
+        <div className={styles.speakersLabel}>[ 03 ] &nbsp; СПИКЕРЫ</div>
+        <h2 className={styles.speakersTitle}>КТО НА СЦЕНЕ</h2>
+
+        <div className={styles.speakersGrid}>
+          {SPEAKERS.map((s, idx) => (
+            <div key={s.id} className={styles.speakerCard}>
+              <div className={styles.speakerPhoto}>
+                <Image
+                  fill
+                  src={s.image}
+                  alt={s.name}
+                  style={{ objectFit: 'cover' }}
+                />
+                <span className={styles.speakerCam}>
+                  CAMERA{idx + 1}
+                  <br />
+                  PLAY 00:42:03
+                </span>
+                <span className={styles.speakerTag}>ЮС26</span>
+              </div>
+              <div className={styles.speakerInfo}>
+                <div className={styles.speakerName}>{s.name}</div>
+              </div>
+            </div>
+          ))}
+
+          <div className={styles.speakerCard}>
+            <div className={`${styles.speakerPhoto} ${styles.speakerPhotoTBA}`}>
+              <span className={styles.speakerLogoTBA}>
+                <YsLogo height={54} bgColor="#161616" />
+              </span>
+              <span className={styles.speakerCamDark}>
+                CAMERA6
+                <br />
+                REC ● ● ●
+              </span>
+              <span className={styles.speakerTagDark}>ЮС26</span>
+            </div>
+            <div className={styles.speakerInfo}>
+              <div className={styles.speakerName}>КОСТЯ ТАРАСОВ</div>
+              <div className={styles.speakerRoleTBA}>Подробности скоро</div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.guestBlock}>
+          <div className={styles.guestHeader}>
+            <div className={styles.guestLabel}>★ &nbsp; СПЕШЕЛТИ-ГОСТИ</div>
+            <span className={styles.guestMeta}>SPECIAL GUEST · ЮС26</span>
+          </div>
+          <div className={styles.guestCard}>
+            <div className={styles.guestPhoto}>
+              <Image
+                fill
+                alt="Слово Жизни Music"
+                src="/img/webps/word-of-life-music.webp"
+                style={{ objectFit: 'cover' }}
+              />
+              <span className={styles.guestCam}>
+                CAMERA1
+                <br />
+                PLAY 01:08:55
+              </span>
+            </div>
+            <div className={styles.guestDesc}>
+              <div className={styles.guestDescLabel}>МУЗЫКАЛЬНОЕ СЛУЖЕНИЕ</div>
+              <div className={styles.guestDescTitle}>
+                СЛОВО ЖИЗНИ
+                <br />
+                <span className={styles.accent}>MUSIC</span>
+              </div>
+              <p className={styles.guestDescText}>
+                Команда поклонения, которая поведёт зал в живое прославление на
+                главных собраниях смены.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

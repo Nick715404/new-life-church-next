@@ -1,0 +1,164 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import { CONSENT_TEXT } from '../_constants';
+import styles from '../styles.module.scss';
+
+export function YsRevival() {
+  const [done, setDone] = useState(false);
+  const [name, setName] = useState('');
+  const [church, setChurch] = useState('');
+  const [city, setCity] = useState('');
+  const [consent, setConsent] = useState(false);
+
+  return (
+    <section id="revival" className={styles.revival}>
+      <div className={styles.revivalGlow} />
+      <div className={styles.revivalInner}>
+        <div className={styles.revivalHeader}>
+          <div>
+            <div className={styles.revivalLabel}>
+              [ 04 ] &nbsp; ВЕЧЕР ПРОБУЖДЕНИЯ
+            </div>
+            <h2 className={styles.revivalTitle}>
+              <span className={styles.revivalTitleScript}>Вечер</span>
+              <span className={styles.revivalTitleBold}>ХВАЛЫ</span>
+            </h2>
+          </div>
+          <span className={styles.revivalTime}>07.08 · 22:00 — 02:00</span>
+        </div>
+
+        <p className={styles.revivalDesc}>
+          Отдельная ночь живого поклонения. Две музыкальные команды, один зал и
+          присутствие Бога. Чтобы попасть на Вечер Хвалы, оставь отдельную
+          регистрацию ниже.
+        </p>
+
+        <div className={styles.bandsGrid}>
+          {[
+            {
+              src: '/img/webps/word-of-life-music.webp',
+              alt: 'Слово Жизни Music',
+              tag: 'BAND 01',
+              name: 'СЛОВО ЖИЗНИ',
+              accent: 'MUSIC',
+            },
+            {
+              src: '/img/webps/ural-worship.WEBP',
+              alt: 'Ural Worship',
+              tag: 'BAND 02',
+              name: 'URAL',
+              accent: 'WORSHIP',
+            },
+          ].map((band) => (
+            <div key={band.tag} className={styles.bandCard}>
+              <div className={styles.bandPhoto}>
+                <Image
+                  fill
+                  quality={80}
+                  loading="lazy"
+                  alt={band.alt}
+                  src={band.src}
+                  style={{ objectFit: 'cover' }}
+                />
+                <span className={styles.bandCam}>
+                  CAMERA1
+                  <br />
+                  PLAY 00:00:01
+                </span>
+                <span className={styles.bandTag}>{band.tag}</span>
+              </div>
+              <div className={styles.bandInfo}>
+                <div className={styles.bandName}>
+                  {band.name}{' '}
+                  <span className={styles.accent}>{band.accent}</span>
+                </div>
+                <div className={styles.bandRole}>
+                  Команда поклонения · Вечер Хвалы
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.revivalReg}>
+          <div className={styles.revivalRegText}>
+            <div className={styles.revivalRegTitle}>
+              Регистрация на Вечер Хвалы
+            </div>
+            <p className={styles.revivalRegDesc}>
+              Количество мест ограничено. Оставь заявку, чтобы попасть на ночь
+              поклонения 7 августа.
+            </p>
+          </div>
+
+          {!done ? (
+            <form
+              className={styles.revivalFormFull}
+              onSubmit={(e) => {
+                e.preventDefault();
+                setDone(true);
+              }}
+            >
+              <div className={styles.revivalGrid}>
+                <label className={styles.revivalFormLabel}>
+                  <span className={styles.revivalFormLabelText}>ФИО</span>
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    placeholder="Фамилия Имя Отчество"
+                    className={styles.revivalInput}
+                  />
+                </label>
+                <label className={styles.revivalFormLabel}>
+                  <span className={styles.revivalFormLabelText}>ЦЕРКОВЬ</span>
+                  <input
+                    value={church}
+                    onChange={(e) => setChurch(e.target.value)}
+                    required
+                    placeholder="Название церкви"
+                    className={styles.revivalInput}
+                  />
+                </label>
+                <label
+                  className={`${styles.revivalFormLabel} ${styles.revivalFormLabelFull}`}
+                >
+                  <span className={styles.revivalFormLabelText}>ГОРОД</span>
+                  <input
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    required
+                    placeholder="Откуда едешь"
+                    className={styles.revivalInput}
+                  />
+                </label>
+              </div>
+              <label className={styles.consentLabel}>
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  required
+                  className={styles.consentCheckbox}
+                />
+                <span className={styles.consentText}>{CONSENT_TEXT}</span>
+              </label>
+              <button type="submit" className={styles.revivalBtn}>
+                ЗАПИСАТЬСЯ →
+              </button>
+            </form>
+          ) : (
+            <div className={styles.revivalDone}>
+              <div className={styles.revivalDoneLabel}>● ТЫ В СПИСКЕ</div>
+              <p className={styles.revivalDoneText}>
+                До встречи на Вечере Хвалы, {name}!
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}

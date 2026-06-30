@@ -840,6 +840,89 @@ $script: var(--font-ceremonious-one), cursive;
   color: rgba(243, 240, 232, 0.7);
 }
 
+.revivalNotice {
+  margin-top: clamp(40px, 6vw, 64px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.revivalNoticeCard {
+  background: $accent;
+  color: $bg;
+  padding: clamp(24px, 3.5vw, 40px);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.revivalNoticeCardAlt {
+  background: rgba(243, 240, 232, 0.07);
+  border: 1px solid rgba(243, 240, 232, 0.18);
+  padding: clamp(24px, 3.5vw, 40px);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.revivalNoticeIcon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: $bg;
+  color: $accent;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+.revivalNoticeIconAlt {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(243, 240, 232, 0.35);
+  color: rgba(243, 240, 232, 0.5);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+.revivalNoticeTitle {
+  font-family: $display;
+  font-weight: 800;
+  font-size: clamp(17px, 2.2vw, 22px);
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+}
+
+.revivalNoticeTitleDark {
+  color: $bg;
+}
+
+.revivalNoticeText {
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 0;
+  color: rgba(243, 240, 232, 0.75);
+}
+
+.revivalNoticeTextDark {
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 0;
+  color: rgba(10, 10, 10, 0.75);
+}
+
 .revivalReg {
   margin-top: clamp(40px, 6vw, 64px);
   border: 1px solid $accent;

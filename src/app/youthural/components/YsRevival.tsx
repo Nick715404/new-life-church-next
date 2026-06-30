@@ -112,6 +112,33 @@ export function YsRevival() {
           ))}
         </div>
 
+        <div className={styles.revivalNotice}>
+          <div className={styles.revivalNoticeCard}>
+            <div className={styles.revivalNoticeIcon}>✓</div>
+            <div>
+              <div className={`${styles.revivalNoticeTitle} ${styles.revivalNoticeTitleDark}`}>
+                Участники конференции
+              </div>
+              <p className={styles.revivalNoticeTextDark}>
+                Если ты зарегистрировался на конференцию — ты автоматически
+                попадаешь на Ночь Пробуждения. Отдельная регистрация не нужна.
+              </p>
+            </div>
+          </div>
+          <div className={styles.revivalNoticeCardAlt}>
+            <div className={styles.revivalNoticeIconAlt}>✕</div>
+            <div>
+              <div className={styles.revivalNoticeTitle}>
+                Только Ночь Пробуждения
+              </div>
+              <p className={styles.revivalNoticeText}>
+                Те, кто регистрируется только на Ночь Пробуждения, не смогут
+                попасть на служения конференции.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className={styles.revivalReg}>
           <div className={styles.revivalRegText}>
             <div className={styles.revivalRegTitle}>

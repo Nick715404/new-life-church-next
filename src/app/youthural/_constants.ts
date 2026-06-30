@@ -31,8 +31,8 @@ export const SPEAKERS = [
 
 export const SCHEDULE_DAYS = [
   {
-    date: '06.08',
-    label: 'СРЕДА · DAY 01',
+    date: '07.08',
+    label: 'ЧЕТВЕРГ · DAY 01',
     items: [
       { time: '12:00–13:30', title: 'Собрание' },
       { time: '13:30–15:00', title: 'Перерыв', dim: true },
@@ -42,8 +42,8 @@ export const SCHEDULE_DAYS = [
     ],
   },
   {
-    date: '07.08',
-    label: 'ЧЕТВЕРГ · DAY 02',
+    date: '08.08',
+    label: 'ПЯТНИЦА · DAY 02',
     items: [
       { time: '08:00–12:00', title: 'Турнир по футболу' },
       { time: '10:00–11:30', title: 'Разбор Библии' },
@@ -57,8 +57,8 @@ export const SCHEDULE_DAYS = [
     ],
   },
   {
-    date: '08.08',
-    label: 'ПЯТНИЦА · DAY 03',
+    date: '09.08',
+    label: 'СУББОТА · DAY 03',
     items: [
       { time: '10:00–11:30', title: 'Разбор Библии' },
       { time: '11:30–12:00', title: 'Перерыв', dim: true },

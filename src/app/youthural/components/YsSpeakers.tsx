@@ -37,6 +37,14 @@ export function YsSpeakers() {
 
           <div className={styles.speakerCard}>
             <div className={`${styles.speakerPhoto} ${styles.speakerPhotoTBA}`}>
+              <Image
+                fill
+                priority
+                quality={80}
+                alt="Константин Тарасов"
+                src="/img/webps/pastorKonstantin.webp"
+                style={{ objectFit: 'cover' }}
+              />
               <span className={styles.speakerLogoTBA}>
                 <YsLogo height={54} bgColor="#161616" />
               </span>
@@ -48,7 +56,7 @@ export function YsSpeakers() {
               <span className={styles.speakerTagDark}>ЮС26</span>
             </div>
             <div className={styles.speakerInfo}>
-              <div className={styles.speakerName}>КОСТЯ ТАРАСОВ</div>
+              <div className={styles.speakerName}>КОНСТАНТИН ТАРАСОВ</div>
               <div className={styles.speakerRoleTBA}>Подробности скоро</div>
             </div>
           </div>

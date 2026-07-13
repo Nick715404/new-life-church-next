@@ -45,9 +45,6 @@ export function YsSpeakers() {
                 src="/img/webps/pastorKonstantin.webp"
                 style={{ objectFit: 'cover' }}
               />
-              <span className={styles.speakerLogoTBA}>
-                <YsLogo height={54} bgColor="#161616" />
-              </span>
               <span className={styles.speakerCamDark}>
                 CAMERA6
                 <br />
@@ -57,7 +54,6 @@ export function YsSpeakers() {
             </div>
             <div className={styles.speakerInfo}>
               <div className={styles.speakerName}>КОНСТАНТИН ТАРАСОВ</div>
-              <div className={styles.speakerRoleTBA}>Подробности скоро</div>
             </div>
           </div>
         </div>

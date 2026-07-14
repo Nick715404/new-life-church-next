@@ -116,7 +116,9 @@ export function YsRevival() {
           <div className={styles.revivalNoticeCard}>
             <div className={styles.revivalNoticeIcon}>✓</div>
             <div>
-              <div className={`${styles.revivalNoticeTitle} ${styles.revivalNoticeTitleDark}`}>
+              <div
+                className={`${styles.revivalNoticeTitle} ${styles.revivalNoticeTitleDark}`}
+              >
                 Участники конференции
               </div>
               <p className={styles.revivalNoticeTextDark}>
@@ -219,13 +221,14 @@ export function YsRevival() {
               </label>
               <div className={styles.regPrice}>
                 <strong>500 ₽</strong>
+                <span>Рекомендуемое пожертвование</span>
               </div>
               <button
                 type="submit"
                 className={styles.revivalBtn}
                 disabled={loading}
               >
-                {loading ? 'ЗАГРУЗКА...' : 'ЗАПИСАТЬСЯ →'}
+                {loading ? 'ЗАГРУЗКА...' : 'ЗАРЕГИСТРИРОВАТЬСЯ →'}
               </button>
             </form>
           ) : (

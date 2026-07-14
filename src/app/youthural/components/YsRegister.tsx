@@ -176,10 +176,11 @@ export function YsRegister() {
 
           <div className={styles.regPrice}>
             <strong>{PRICE} ₽</strong>
+            <span>Рекомендуемое пожертвование</span>
           </div>
 
           <button type="submit" className={styles.regBtn} disabled={isLoading}>
-            {isLoading ? 'ЗАГРУЗКА...' : 'ПЕРЕЙТИ К ОПЛАТЕ →'}
+            {isLoading ? 'ЗАГРУЗКА...' : 'ЗАРЕГИСТРИРОВАТЬСЯ →'}
           </button>
         </form>
       </div>

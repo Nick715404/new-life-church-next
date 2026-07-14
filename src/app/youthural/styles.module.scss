@@ -1217,6 +1217,20 @@ $script: var(--font-ceremonious-one), cursive;
     font-size: 40px;
     font-weight: 900;
   }
+
+  span {
+    font-size: 14px;
+    margin-left: 1rem;
+  }
+
+  @media (max-width: 1025px) {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      margin-left: 0;
+    }
+  }
 }
 
 .regBtn {

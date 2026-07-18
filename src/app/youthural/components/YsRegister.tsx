@@ -49,6 +49,7 @@ export function YsRegister() {
         eventType: 'youthural',
         personType: 'Молодежь',
         price: data.promocode ? PROMOCODE_PRICE : PRICE,
+        promocode: data.promocode,
       };
 
       const paymentData = await fetchPaymentUrl(clientData);

@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useMemo, useState } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { CONSENT_TEXT } from '../_constants';
 import { fetchPaymentUrl } from '@/utils/register/payment';
 import styles from '../styles.module.scss';
 
 const PRICE = 1500;
+const PROMOCODE_PRICE = 500;
 
 type FormFields = {
   first_name: string;
@@ -17,6 +18,7 @@ type FormFields = {
   phone: string;
   city: string;
   church: string;
+  promocode: string;
 };
 
 export function YsRegister() {
@@ -24,6 +26,7 @@ export function YsRegister() {
   const router = useRouter();
 
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -45,7 +48,7 @@ export function YsRegister() {
         home_cover: '',
         eventType: 'youthural',
         personType: 'Молодежь',
-        price: PRICE,
+        price: data.promocode ? PROMOCODE_PRICE : PRICE,
       };
 
       const paymentData = await fetchPaymentUrl(clientData);
@@ -55,6 +58,18 @@ export function YsRegister() {
       setIsLoading(false);
     }
   };
+
+  const promocode = useWatch({
+    control,
+    name: 'promocode',
+  });
+
+  const isPromoPrice = useMemo(() => {
+    if (promocode === 'СЛУЖИТЕЛЬЮС') {
+      return PROMOCODE_PRICE;
+    }
+    return PRICE;
+  }, [promocode]);
 
   return (
     <section id="register" className={styles.register}>
@@ -163,6 +178,15 @@ export function YsRegister() {
                 <span className={styles.regError}>{errors.church.message}</span>
               )}
             </label>
+
+            <label className={`${styles.regField} ${styles.regFieldFull}`}>
+              <span className={styles.regFieldLabel}>ПРОМОКОД</span>
+              <input
+                {...register('promocode', { required: false })}
+                placeholder="Промокод"
+                className={styles.regInput}
+              />
+            </label>
           </div>
 
           <label className={styles.consentLabelDark}>
@@ -175,7 +199,7 @@ export function YsRegister() {
           </label>
 
           <div className={styles.regPrice}>
-            <strong>{PRICE} ₽</strong>
+            <strong>{isPromoPrice} ₽</strong>
             <span>Рекомендуемое пожертвование</span>
           </div>
 

@@ -48,7 +48,7 @@ export function YsRegister() {
         home_cover: '',
         eventType: 'youthural',
         personType: 'Молодежь',
-        price: data.promocode ? PROMOCODE_PRICE : PRICE,
+        price: PRICE,
         promocode: data.promocode,
       };
 
@@ -59,18 +59,6 @@ export function YsRegister() {
       setIsLoading(false);
     }
   };
-
-  const promocode = useWatch({
-    control,
-    name: 'promocode',
-  });
-
-  const isPromoPrice = useMemo(() => {
-    if (promocode === 'СЛУЖИТЕЛЬЮС') {
-      return PROMOCODE_PRICE;
-    }
-    return PRICE;
-  }, [promocode]);
 
   return (
     <section id="register" className={styles.register}>
@@ -179,15 +167,6 @@ export function YsRegister() {
                 <span className={styles.regError}>{errors.church.message}</span>
               )}
             </label>
-
-            <label className={`${styles.regField} ${styles.regFieldFull}`}>
-              <span className={styles.regFieldLabel}>ПРОМОКОД</span>
-              <input
-                {...register('promocode', { required: false })}
-                placeholder="Промокод"
-                className={styles.regInput}
-              />
-            </label>
           </div>
 
           <label className={styles.consentLabelDark}>
@@ -200,7 +179,7 @@ export function YsRegister() {
           </label>
 
           <div className={styles.regPrice}>
-            <strong>{isPromoPrice} ₽</strong>
+            <strong>{PRICE} ₽</strong>
             <span>Рекомендуемое пожертвование</span>
           </div>
 

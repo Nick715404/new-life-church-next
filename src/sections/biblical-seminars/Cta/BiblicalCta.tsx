@@ -13,9 +13,14 @@ const BiblicalCta = () => {
       </MotionBox>
       <MotionBox delay={0.3}>
         <div className={styles.actions}>
-          <button className={`${styles.btn} ${styles.btnTeal}`} disabled>
-            Записаться на семинары (скоро)
-          </button>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.btn} ${styles.btnTeal}`}
+            href="https://forms.yandex.ru/cloud/6a73286ae010db6b6117cab5"
+          >
+            Записаться на семинары
+          </a>
           <Link className={`${styles.btn} ${styles.btnGhost}`} href="#about">
             Узнать больше
           </Link>

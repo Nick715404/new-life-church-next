@@ -40,8 +40,10 @@ const BiblicalSchedule = () => {
             <div className={styles.factVal}>Сен 2026 — Май 2027</div>
           </div>
           <div className={styles.fact}>
-            <div className={styles.factKey}>Целевое пожертвование</div>
-            <div className={styles.factVal}><b>4000₽</b> / мес</div>
+            <div className={styles.factKey}>Рекомендуемое пожертвование</div>
+            <div className={styles.factVal}>
+              <b>4000₽</b> / мес
+            </div>
           </div>
         </div>
       </MotionBox>
